@@ -43,6 +43,7 @@ jobs:
           git checkout pr${{ env.PR_NUMBER }}
           git fetch origin
           git rebase origin/${{ env.BASE_BRANCH }}
+        working-directory: ${{ env.PS_DIR }}
 
       - uses: actions/checkout@v2
 
