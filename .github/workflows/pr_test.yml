@@ -22,21 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         TEST_COMMAND:
-          - 'sanity'
-          - 'regression'
-          - 'functional:FO'
           - 'functional:BO:login'
-          - 'functional:BO:orders'
-          - 'functional:BO:catalog'
-          - 'functional:BO:customer'
-          - 'functional:BO:customer-service'
-          - 'functional:BO:modules'
-          - 'functional:BO:design'
-          - 'functional:BO:shipping'
-          - 'functional:BO:payment'
-          - 'functional:BO:international'
-          - 'functional:BO:shop-parameters'
-          - 'functional:BO:advanced-parameters'
 
     env:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
@@ -87,6 +73,7 @@ jobs:
 
       - name: Composer install and build assets
         run: make install
+        working-directory: ${{ env.PS_DIR }}
 
       - name: Install PrestaShop
         run: php install-dev/index_cli.php --language=en --country=fr --domain=localhost --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
