@@ -28,7 +28,7 @@ jobs:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
       BASE_BRANCH: ${{ github.event.inputs.base_branch }}
       PHP_VERSION: ${{ github.event.inputs.php_version }}
-      PS_DIR: '/PrestaShop'
+      PS_DIR: 'PrestaShop'
 
     steps:
       - uses: actions/checkout@v2
