@@ -97,13 +97,13 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
 
       - run: |
-          sudo chown www-data:www-data -R ${{ github.workspace }} && \
-          sudo mkdir -p /var/lib/php/sessions && \
-          sudo chown www-data:www-data -R /var/lib/php/sessions && \
+          sudo chmod 777 -R ${{ github.workspace }}
+          sudo mkdir -p /var/lib/php/sessions
+          sudo chmod 777 -R /var/lib/php/sessions
           sudo service apache2 restart
 
       - name: Install PrestaShop
-        run: sudo php install-dev/index_cli.php --language=en --country=fr --domain=localhost --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
+        run: php install-dev/index_cli.php --language=en --country=fr --domain=localhost --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
         working-directory: ${{ env.PS_DIR }}
 
       - name: Install tests dependencies
@@ -118,3 +118,10 @@ jobs:
           DB_NAME: prestashop
           DB_PASSWD: password
           HEADLESS: true
+          TAKE_SCREENSHOT_AFTER_FAIL: true
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: screenshots
+          path: '${{ env.PS_DIR }}/tests/UI/screenshots/'
