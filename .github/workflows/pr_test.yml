@@ -96,15 +96,15 @@ jobs:
         run: make
         working-directory: ${{ env.PS_DIR }}
 
+      - name: Install PrestaShop
+        run: php install-dev/index_cli.php --language=en --country=fr --domain=localhost --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
+        working-directory: ${{ env.PS_DIR }}
+
       - run: |
           sudo chown www-data:www-data ${{ github.workspace }}/${{ env.PS_DIR }}
           sudo mkdir -p /var/lib/php/sessions
           sudo chown www-data:www-data /var/lib/php/sessions
           sudo service apache2 restart
-
-      - name: Install PrestaShop
-        run: php install-dev/index_cli.php --language=en --country=fr --domain=localhost --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
-        working-directory: ${{ env.PS_DIR }}
 
       - name: Install tests dependencies
         run: npm install
