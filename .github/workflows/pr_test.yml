@@ -97,7 +97,7 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
 
       - run: |
-          chown www-data:www-data ${{ github.workspace }}/${{ env.PS_DIR }}
+          sudo chown www-data:www-data ${{ github.workspace }}/${{ env.PS_DIR }}
           sudo mkdir -p /var/lib/php/sessions
           sudo chown www-data:www-data /var/lib/php/sessions
           sudo service apache2 restart
