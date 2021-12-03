@@ -1,9 +1,10 @@
 #!/bin/sh
 
-set -x
+set +x
 
 # Get vars
 WORKSPACE=$(cd "$( dirname "$0" )/../../" && pwd)
+echo $WORKSPACE
 PS_DIR=$1
 PHP_VERSION=$2
 
@@ -17,7 +18,8 @@ a2enmod rewrite actions alias
 # Copy apache vhost and set Documentroot
 cp -f $WORKSPACE/scripts/apache/apache-vhost /etc/apache2/sites-available/000-default.conf
 sed -e "s?%BUILD_DIR%?$(echo $WORKSPACE/$PS_DIR)?g" --in-place /etc/apache2/sites-available/000-default.conf
+cat /etc/apache2/sites-available/000-default.conf
 
 # Restart apache after giving permission
-chmod 777 -R $WORKSPACE/$PS_DIR/
+chmod 777 -R $PS_DIR/
 service apache2 restart

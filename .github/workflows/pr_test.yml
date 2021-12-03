@@ -28,74 +28,26 @@ jobs:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
       BASE_BRANCH: ${{ github.event.inputs.base_branch }}
       PHP_VERSION: ${{ github.event.inputs.php_version }}
-      PS_DIR: 'PrestaShop'
+      PS_DIR: 'my_prestashop'
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: main
+
+      - uses: actions/checkout@v2
         name: Checkout PrestaShop repository
         with:
-          repository: 'PrestaShop/PrestaShop'
+          fetch-depth: 2
+          repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}
 
       - name: Get pull request
         run: |
           git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
           git checkout pr${{ env.PR_NUMBER }}
-          readlink -f autoload.php
         working-directory: ${{ env.PS_DIR }}
 
-      - uses: actions/checkout@v2
-
-      - name: Setup Apache
-        run: |
-          readlink -f ${{ github.workspace }}    
-          sudo bash scripts/apache/setup.sh ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
-
-      # temporary fix to make latest 7.4 & 8.0 work
-      - name: Update PCRE2
-        run: sudo apt-get install -y libpcre2-dev
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ env.PHP_VERSION }}
-          extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv, simplexml, pdo, mysql
-
-      - name: Setup MySQL
-        uses: mirromutth/mysql-action@v1.1
-        with:
-          mysql version: '5.7'
-          mysql database: 'prestashop'
-          mysql root password: 'password'
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Composer install and build assets
-        run: make install
-        working-directory: ${{ env.PS_DIR }}
-
-      - name: Install PrestaShop
-        run: php install-dev/index_cli.php --language=en --country=fr --domain=localhost --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
-        working-directory: ${{ env.PS_DIR }}
-
-      - run: |
-          sudo chown www-data:www-data -R ${{ env.PS_DIR }} && \
-          sudo mkdir -p /var/lib/php/sessions && \
-          sudo chown www-data:www-data -R /var/lib/php/sessions && \
-          sudo service apache2 restart
-
-      - name: Install tests dependencies
-        run: npm install
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
-
-      - name: Run tests
-        run: npm run test:${{ matrix.TEST_COMMAND }}
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
-        env:
-          URL_FO: http://localhost/
-          DB_NAME: prestashop
-          DB_PASSWD: password
-          HEADLESS: true
+      - run: ls ${{ github.workspace }}
+      - run: ls ${{ github.workspace }}/main/
+      - run: ls ${{ github.workspace }}/${{ env.PS_DIR }}/
