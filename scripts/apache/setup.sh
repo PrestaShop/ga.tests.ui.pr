@@ -1,10 +1,11 @@
 #!/bin/sh
 
-set -e
+set -x
+
 # Get vars
-WORKSPACE=$1
-PS_DIR=$2
-PHP_VERSION=$3
+WORKSPACE=$(cd "$( dirname "$0" )/../../" && pwd)
+PS_DIR=$1
+PHP_VERSION=$2
 
 # Install apache
 add-apt-repository ppa:ondrej/php -y
@@ -18,5 +19,5 @@ cp -f $WORKSPACE/scripts/apache/apache-vhost /etc/apache2/sites-available/000-de
 sed -e "s?%BUILD_DIR%?$(echo $WORKSPACE/$PS_DIR)?g" --in-place /etc/apache2/sites-available/000-default.conf
 
 # Restart apache after giving permission
-chmod 777 -R $WORKSPACE/$PS_DIR
+chmod 777 -R $WORKSPACE/$PS_DIR/
 service apache2 restart
