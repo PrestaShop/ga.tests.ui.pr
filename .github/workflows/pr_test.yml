@@ -48,6 +48,6 @@ jobs:
           git checkout pr${{ env.PR_NUMBER }}
         working-directory: ${{ env.PS_DIR }}
 
-      - run: ls ${{ github.workspace }}
-      - run: ls ${{ github.workspace }}/main/
-      - run: ls ${{ github.workspace }}/${{ env.PS_DIR }}/
+      - name: Setup Apache
+        run: sudo bash scripts/apache/setup.sh ${{ githib.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
+        working-directory: main
