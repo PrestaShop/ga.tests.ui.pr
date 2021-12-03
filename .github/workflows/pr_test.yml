@@ -39,7 +39,6 @@ jobs:
 
       - name: Get pull request
         run: |
-          ls
           git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
           git checkout pr${{ env.PR_NUMBER }}
         working-directory: ${{ env.PS_DIR }}
@@ -47,10 +46,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Apache
-        shell: bash
-        run: |
-          ls
-          sudo ./scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
+        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} "/testing_pr/${{ env.PS_DIR }}" ${{ env.PHP_VERSION }}
 
       # temporary fix to make latest 7.4 & 8.0 work
       - name: Update PCRE2
