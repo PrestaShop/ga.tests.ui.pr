@@ -49,5 +49,5 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
 
       - name: Setup Apache
-        run: sudo bash scripts/apache/setup.sh ${{ githib.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
+        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
         working-directory: main
