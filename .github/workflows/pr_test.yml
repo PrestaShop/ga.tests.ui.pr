@@ -49,7 +49,7 @@ jobs:
       - name: Setup Apache
         run: |
           readlink -f ${{ github.workspace }}    
-          sudo bash scripts/apache/setup.sh ${{ github.workspace }} "/testing_pr/${{ env.PS_DIR }}" ${{ env.PHP_VERSION }}
+          sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
 
       # temporary fix to make latest 7.4 & 8.0 work
       - name: Update PCRE2
