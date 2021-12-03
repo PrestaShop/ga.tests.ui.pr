@@ -39,9 +39,9 @@ jobs:
 
       - name: Get pull request
         run: |
-          readlink -f autoload.php
           git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
           git checkout pr${{ env.PR_NUMBER }}
+          readlink -f autoload.php
         working-directory: ${{ env.PS_DIR }}
 
       - uses: actions/checkout@v2
