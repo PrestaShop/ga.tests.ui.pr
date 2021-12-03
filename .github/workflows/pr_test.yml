@@ -46,7 +46,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Apache
-        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PHP_VERSION }}
+        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
 
       # temporary fix to make latest 7.4 & 8.0 work
       - name: Update PCRE2
