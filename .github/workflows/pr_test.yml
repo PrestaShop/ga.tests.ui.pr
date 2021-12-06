@@ -101,10 +101,11 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
 
       - run: |
-          sudo chown www-data:www-data ${{ github.workspace }}/${{ env.PS_DIR }}
+          sudo chmod 777 -R ${{ github.workspace }}
           sudo mkdir -p /var/lib/php/sessions
           sudo chown www-data:www-data /var/lib/php/sessions
           sudo service apache2 restart
+          sudo ls -l ${{ env.PS_DIR }}
 
       - name: Install tests dependencies
         run: npm install
