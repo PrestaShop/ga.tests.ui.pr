@@ -22,7 +22,21 @@ jobs:
       fail-fast: false
       matrix:
         TEST_COMMAND:
+          - 'sanity'
+          - 'regression'
+          - 'functional:FO'
           - 'functional:BO:login'
+          - 'functional:BO:orders'
+          - 'functional:BO:catalog'
+          - 'functional:BO:customer'
+          - 'functional:BO:customer-service'
+          - 'functional:BO:modules'
+          - 'functional:BO:design'
+          - 'functional:BO:shipping'
+          - 'functional:BO:payment'
+          - 'functional:BO:international'
+          - 'functional:BO:shop-parameters'
+          - 'functional:BO:advanced-parameters'
 
     env:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
