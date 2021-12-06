@@ -60,6 +60,7 @@ jobs:
         run: |
           git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
           git checkout pr${{ env.PR_NUMBER }}
+          git rebase origin/${{ env.BASE_BRANCH }}
         working-directory: ${{ env.PS_DIR }}
 
       - name: Setup Apache
