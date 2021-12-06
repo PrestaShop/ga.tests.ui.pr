@@ -75,7 +75,7 @@ jobs:
           node-version: '14'
 
       - name: PrestaShop Configuration
-        run: cp ./scripts/php/parameters.yml ${{ env.PS_DIR }}/app/config/parameters.yml
+        run: cp main/scripts/php/parameters.yml ${{ env.PS_DIR }}/app/config/parameters.yml
 
       - name: Get Composer Cache Directory
         id: composer-cache
