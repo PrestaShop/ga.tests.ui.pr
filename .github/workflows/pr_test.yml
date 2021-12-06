@@ -141,6 +141,7 @@ jobs:
         working-directory: '${{ env.PS_DIR }}/tests/UI'
 
       - name: Run tests
+        id: my_test
         run: npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
@@ -151,9 +152,10 @@ jobs:
           TAKE_SCREENSHOT_AFTER_FAIL: true
 
       - run: echo "MY_COMMAND=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr  ':' '-'  )" >> $GITHUB_ENV
+        if: steps.my_test.outcome != 'success'
 
       - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
+        if: steps.my_test.outcome != 'success'
         with:
           name: screenshots-${{ env.MY_COMMAND }}
           path: '${{ env.PS_DIR }}/tests/UI/screenshots/'
