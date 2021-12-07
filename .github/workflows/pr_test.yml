@@ -78,6 +78,9 @@ jobs:
           php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv, simplexml, pdo, mysql
 
+      - name: Setup mailutils
+        run: sudo apt-get install -y  apt-utils mailutils
+
       # temporary fix to make latest 7.4 & 8.0 work
       - name: Update PCRE2
         run: sudo apt-get install -y libpcre2-dev
