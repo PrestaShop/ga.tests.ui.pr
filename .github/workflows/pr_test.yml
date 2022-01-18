@@ -35,6 +35,7 @@ jobs:
           - 'functional:BO:international'
           - 'functional:BO:shop-parameters'
           - 'functional:BO:advanced-parameters'
+          - 'functional:BO:header'
           - 'functional:FO'
           - 'regression'
 
