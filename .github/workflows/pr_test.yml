@@ -124,6 +124,11 @@ jobs:
         run: make
         working-directory: ${{ env.PS_DIR }}
 
+      - name: Disable dev mode
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          sed -ie "s/define('_PS_MODE_DEV_', true);/define('_PS_MODE_DEV_',\ false);/g" /var/www/html/config/defines.inc.php
+
       - name: Install PrestaShop
         if: matrix.TEST_COMMAND != 'sanity'
         run: |
