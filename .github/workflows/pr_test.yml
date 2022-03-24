@@ -75,6 +75,10 @@ jobs:
         run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
         working-directory: main
 
+      # temporary fix to make latest 7.4 & 8.0 work
+      - name: Update PCRE2
+        run: sudo apt-get install -y libpcre2-dev
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -82,11 +86,7 @@ jobs:
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv, simplexml, pdo, mysql
 
       - name: Setup mailutils
-        run: sudo apt-get install -y  apt-utils mailutils
-
-      # temporary fix to make latest 7.4 & 8.0 work
-      - name: Update PCRE2
-        run: sudo apt-get install -y libpcre2-dev
+        run: sudo apt-get install -y apt-utils mailutils
 
       - name: Setup MySQL
         uses: mirromutth/mysql-action@v1.1
@@ -125,10 +125,11 @@ jobs:
         run: make
         working-directory: ${{ env.PS_DIR }}
 
-      - name: Disable dev mode
-        working-directory: ${{ env.PS_DIR }}
-        run: |
-          sed -ie "s/define('_PS_MODE_DEV_', true);/define('_PS_MODE_DEV_',\ false);/g" ./config/defines.inc.php
+      - run: |
+          sudo chmod 777 -R ${{ github.workspace }}
+          sudo mkdir -p /var/lib/php/sessions
+          sudo chown www-data:www-data /var/lib/php/sessions
+          sudo service apache2 restart
 
       - name: Install PrestaShop
         if: matrix.TEST_COMMAND != 'sanity'
@@ -144,7 +145,6 @@ jobs:
           sudo mkdir -p /var/lib/php/sessions
           sudo chown www-data:www-data /var/lib/php/sessions
           sudo service apache2 restart
-          sudo ls -l ${{ env.PS_DIR }}
 
       - name: Install tests dependencies
         run: npm install
