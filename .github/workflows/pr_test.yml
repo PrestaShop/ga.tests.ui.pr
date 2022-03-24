@@ -140,6 +140,11 @@ jobs:
           --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
         working-directory: ${{ env.PS_DIR }}
 
+      - name: Disable dev mode
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          sed -ie "s/define('_PS_MODE_DEV_', true);/define('_PS_MODE_DEV_',\ false);/g" ./config/defines.inc.php
+
       - run: |
           sudo chmod 777 -R ${{ github.workspace }}
           sudo mkdir -p /var/lib/php/sessions
