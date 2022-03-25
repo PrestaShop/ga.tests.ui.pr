@@ -140,11 +140,6 @@ jobs:
           --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
         working-directory: ${{ env.PS_DIR }}
 
-      - name: Disable dev mode
-        if: matrix.TEST_COMMAND != 'sanity'
-        run : |
-          cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/app/config/defines_custom.inc.php
-
       - run: |
           sudo chmod 777 -R ${{ github.workspace }}
           sudo mkdir -p /var/lib/php/sessions
