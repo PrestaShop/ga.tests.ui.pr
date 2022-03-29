@@ -75,10 +75,6 @@ jobs:
         run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
         working-directory: main
 
-      # temporary fix to make latest 7.4 & 8.0 work
-      - name: Update PCRE2
-        run: sudo apt-get install -y libpcre2-dev
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -101,7 +97,9 @@ jobs:
           node-version: '14'
 
       - name: PrestaShop Configuration
-        run: cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
+        run: |
+          cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
+          cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/app/config/defines_custom.inc.php
 
       - name: Get Composer Cache Directory
         id: composer-cache
