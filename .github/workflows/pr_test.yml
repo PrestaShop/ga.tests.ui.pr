@@ -110,18 +110,24 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+          cache: 'npm'
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
 
       - name: PrestaShop Configuration
         run: |
           cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
           cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/config/defines_custom.inc.php
-
-      - name: Cache node Directory
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
 
       - name: Composer install and build assets
         run: make
