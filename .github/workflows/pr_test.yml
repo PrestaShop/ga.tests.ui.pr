@@ -81,7 +81,7 @@ jobs:
 
       - name: Rebase the PR
         working-directory: ${{ env.PS_DIR }}
-        if: ${{ env.TO_REBASE }}
+        if: ${{ env.TO_REBASE == 'true' }}
         run: |
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git rebase origin/${{ env.BASE_BRANCH }}
