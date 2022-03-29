@@ -3,16 +3,25 @@ on:
   workflow_dispatch:
     inputs:
       pr_number:
-        description: Pull request to test
+        description: Pull request Id
         required: true
       base_branch:
         description: Base branch to rebase the PR
         required: true
         default: 'develop'
+      should_rebase:
+        type: boolean
+        required: true
+        description: True to rebase the PR
       php_version:
+        type: choice
         description: PHP version
         required: true
-        default: '7.3'
+        options:
+          - '7.3'
+          - '7.4'
+          - '8.0'
+        default: '7.4'
 
 jobs:
   testing-pr:
@@ -43,6 +52,7 @@ jobs:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
       BASE_BRANCH: ${{ github.event.inputs.base_branch }}
       PHP_VERSION: ${{ github.event.inputs.php_version }}
+      TO_REBASE: ${{ github.event.inputs.should_rebase }}
       PS_DIR: 'my_prestashop'
 
     steps:
@@ -64,12 +74,16 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
 
       - name: Get pull request
+        working-directory: ${{ env.PS_DIR }}
         run: |
           git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
           git checkout pr${{ env.PR_NUMBER }}
+
+      - name: Rebase the PR
+        if: ${{ env.TO_REBASE }}
+        run: |
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git rebase origin/${{ env.BASE_BRANCH }}
-        working-directory: ${{ env.PS_DIR }}
 
       - name: Setup Apache
         run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
@@ -99,11 +113,7 @@ jobs:
       - name: PrestaShop Configuration
         run: |
           cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
-          cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/app/config/defines_custom.inc.php
-
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+          cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/config/defines_custom.inc.php
 
       - name: Cache node Directory
         uses: actions/cache@v2
@@ -111,13 +121,6 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
-
-      - name: Cache Composer Directory
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
 
       - name: Composer install and build assets
         run: make
