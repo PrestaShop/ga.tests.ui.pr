@@ -110,7 +110,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-          cache: 'npm'
 
       - name: Get Composer Cache Directory
         id: composer-cache
@@ -123,6 +122,13 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
+            
+      - name: Cache node Directory
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('admin-dev/**/package-lock.json', 'tests/**/package-lock.json', 'themes/**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
 
       - name: PrestaShop Configuration
         run: |
