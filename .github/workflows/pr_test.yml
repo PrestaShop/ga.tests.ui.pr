@@ -136,6 +136,9 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Setup NPM
+        run: npm install -g npm@7
+
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
