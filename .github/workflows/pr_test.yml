@@ -6,13 +6,21 @@ on:
         description: Pull request Id
         required: true
       base_branch:
+        type: choice
         description: Base branch to rebase the PR
         required: true
+        options:
+          - 'develop'
+          - '8.0.x'
         default: 'develop'
-      should_rebase:
-        type: boolean
+      rebase_or_merge:
+        type: choice
         required: true
-        description: True to rebase the PR
+        description: Rebase or merge the pull request
+        options:
+          - 'rebase'
+          - 'merge'
+        default: 'rebase'
       php_version:
         type: choice
         description: PHP version
@@ -62,7 +70,7 @@ jobs:
       BASE_BRANCH: ${{ github.event.inputs.base_branch }}
       PHP_VERSION: ${{ github.event.inputs.php_version }}
       NODE_VERSION: ${{ github.event.inputs.node_version }}
-      TO_REBASE: ${{ github.event.inputs.should_rebase }}
+      REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
       PS_DIR: 'my_prestashop'
 
     steps:
@@ -89,12 +97,19 @@ jobs:
           git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
           git checkout pr${{ env.PR_NUMBER }}
 
-      - name: Rebase the PR
+      - name: Rebase
         working-directory: ${{ env.PS_DIR }}
-        if: ${{ env.TO_REBASE == 'true' }}
+        if: ${{ env.REBASE_OR_MERGE == 'rebase' }}
         run: |
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git rebase origin/${{ env.BASE_BRANCH }}
+
+      - name: Merge
+        working-directory: ${{ env.PS_DIR }}
+        if: ${{ env.REBASE_OR_MERGE == 'merge' }}
+        run: |
+          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
+          git merge origin/${{ env.BASE_BRANCH }}
 
       - name: Setup Apache
         run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
@@ -161,7 +176,7 @@ jobs:
           php install-dev/index_cli.php \
           --language=en --country=fr --domain=localhost \
           --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --prefix=tst_ \
-          --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com --password=prestashop_demo
+          --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com
         working-directory: ${{ env.PS_DIR }}
 
       - run: |
