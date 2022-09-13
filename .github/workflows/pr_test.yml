@@ -74,6 +74,10 @@ jobs:
       PS_DIR: 'my_prestashop'
 
     steps:
+      - name: Print Inputs values
+        shell: bash
+        run: echo "${{ toJSON(github.event.inputs) }}"
+
       - uses: actions/checkout@v2
         with:
           path: main
