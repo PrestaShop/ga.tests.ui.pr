@@ -1,0 +1,47 @@
+# Testing Pull Request
+
+## Why use it ?
+Sometimes, when creating a new pull request, running `Sanity tests` is not enough, So you need to run all existing tests on it.
+This repository will help you do that.
+
+## How to use it ?
+First of all, you have to fork this repository on GitHub, to have the same one linked to your user account.
+
+After that, it's very simple : 
+1. Click on **Actions Tab**
+
+![img.png](imgs/readme1.png)
+
+2. On Actions Tab, Click on the **workflow name** on the list
+
+![img.png](imgs/readme2.png)
+
+
+3. Once on  the workflow, Click on **Run Workflow**
+
+![img.png](imgs/readme3.png)
+
+4. Fill the form and submit the workflow
+
+![img.png](imgs/readme4.png)
+
+### How to fill the form ?
+
+|     Parameter     |                          Description                          |                   Default                    |
+|:-----------------:|:-------------------------------------------------------------:|:--------------------------------------------:|
+|     `Branch`      |             The branch of `testing_pr` repository             |                    `main`                    |
+| `Pull request Id` |   ID of Pull request on `PrestaShop/PrestaShop` repository    | No default value, you must fill it to submit |
+|   `Base Branch`   |    Target Branch of you pull request (ex: 8.0.x, develop)     |                  `develop`                   |
+| `Rebase or merge` | Git method to use to get the last updates for target branches |                   `rebase`                   |
+|   `PHP version`   |      PHP version to use to setup PrestaShop environment       |                    `7.4`                     |
+|  `Node Version`   |      Node version to use to setup PrestaShop environment      |                     `14`                     |
+
+### How to analyze results ?
+
+When you submit your run, a new line workflow is launched, with parallel jobs.
+
+![img.png](imgs/readme5.png)
+
+You can enter each job to check which step is failing. And you can also download screenshots from summary view.
+
+![img.png](imgs/readme6.png)
