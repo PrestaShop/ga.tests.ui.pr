@@ -12,6 +12,7 @@ on:
         options:
           - 'develop'
           - '8.0.x'
+          - '8.0.0-rc'
         default: 'develop'
       rebase_or_merge:
         type: choice
