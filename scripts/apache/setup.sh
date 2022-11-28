@@ -20,4 +20,5 @@ sed -e "s?%BUILD_DIR%?$(echo $WORKSPACE/$PS_DIR)?g" --in-place /etc/apache2/site
 
 # Restart apache after giving permission
 chmod 777 -R $WORKSPACE/$PS_DIR/
+chmod +x /home/runner/
 service apache2 restart
