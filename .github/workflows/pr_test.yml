@@ -117,15 +117,15 @@ jobs:
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git merge origin/${{ env.BASE_BRANCH }}
 
-      - name: Setup Apache
-        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
-        working-directory: main
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv, simplexml, pdo, mysql
+
+      - name: Setup Apache
+        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
+        working-directory: main
 
       - name: Setup mailutils
         run: sudo apt-get install -y apt-utils mailutils
@@ -171,12 +171,6 @@ jobs:
       - name: Composer install and build assets
         run: make
         working-directory: ${{ env.PS_DIR }}
-
-      - run: |
-          sudo chmod 777 -R ${{ github.workspace }}
-          sudo mkdir -p /var/lib/php/sessions
-          sudo chown www-data:www-data /var/lib/php/sessions
-          sudo service apache2 restart
 
       - name: Install PrestaShop
         if: matrix.TEST_COMMAND != 'sanity'
