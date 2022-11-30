@@ -223,7 +223,7 @@ jobs:
 
       - name: Run tests 8.0
         if: ${{ env.BASE_BRANCH != 'develop' }}
-        id: my_test
+        id: run_tests_80x
         run: npm run test:${{ matrix.TEST_COMMAND_80 }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
@@ -235,7 +235,7 @@ jobs:
 
       - name: Run tests develop
         if: ${{ env.BASE_BRANCH == 'develop' }}
-        id: my_test
+        id: run_tests_develop
         run: npm run test:${{ matrix.TEST_COMMAND_develop }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
