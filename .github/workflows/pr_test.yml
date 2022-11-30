@@ -49,24 +49,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        TEST_COMMAND_80:
-          - 'sanity'
-          - 'functional:BO:login'
-          - 'functional:BO:orders'
-          - 'functional:BO:catalog'
-          - 'functional:BO:customer'
-          - 'functional:BO:customer-service'
-          - 'functional:BO:modules'
-          - 'functional:BO:design'
-          - 'functional:BO:shipping'
-          - 'functional:BO:payment'
-          - 'functional:BO:international'
-          - 'functional:BO:shop-parameters'
-          - 'functional:BO:advanced-parameters'
-          - 'functional:BO:header'
-          - 'functional:FO'
-          - 'regression'
-        TEST_COMMAND_develop:
+        TEST_COMMAND:
           - 'sanity'
           - 'functional:BO:login'
           - 'functional:BO:orders:01'
@@ -196,7 +179,7 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
 
       - name: Install PrestaShop
-        if: (env.BASE_BRANCH != 'develop' && matrix.TEST_COMMAND_80 != 'sanity') || (env.BASE_BRANCH == 'develop' && matrix.TEST_COMMAND_develop != 'sanity')
+        if: (matrix.TEST_COMMAND != 'sanity')
         run: |
           php install-dev/index_cli.php \
           --language=en --country=fr --domain=localhost \
@@ -215,10 +198,9 @@ jobs:
         run: npm install
         working-directory: '${{ env.PS_DIR }}/tests/UI'
 
-      - name: Run tests 8.0
-        if: ${{ env.BASE_BRANCH != 'develop' }}
-        id: run_tests_80x
-        run: npm run test:${{ matrix.TEST_COMMAND_80 }}
+      - name: Run tests
+        id: run_tests
+        run: npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
           URL_FO: http://localhost/
@@ -227,23 +209,8 @@ jobs:
           HEADLESS: true
           TAKE_SCREENSHOT_AFTER_FAIL: true
 
-      - name: Run tests develop
-        if: ${{ env.BASE_BRANCH == 'develop' }}
-        id: run_tests_develop
-        run: npm run test:${{ matrix.TEST_COMMAND_develop }}
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
-        env:
-          URL_FO: http://localhost/
-          DB_NAME: prestashop
-          DB_PASSWD: password
-          HEADLESS: true
-          TAKE_SCREENSHOT_AFTER_FAIL: true
-
-      - run: echo "MY_COMMAND=$( echo -e '${{ matrix.TEST_COMMAND_80 }}' | tr  ':' '-'  )" >> $GITHUB_ENV
+      - run: echo "MY_COMMAND=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr  ':' '-'  )" >> $GITHUB_ENV
         if: ${{ env.BASE_BRANCH != 'develop' && always() }}
-
-      - run: echo "MY_COMMAND=$( echo -e '${{ matrix.TEST_COMMAND_develop }}' | tr  ':' '-'  )" >> $GITHUB_ENV
-        if: ${{ env.BASE_BRANCH == 'develop' && always() }}
 
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
