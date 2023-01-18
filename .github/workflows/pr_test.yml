@@ -169,7 +169,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('admin-dev/**/package-lock.json', 'tests/**/package-lock.json', 'themes/**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
 
-      - name: PrestaShop Configuration
+      - name: PrestaShop Configuration (Copy of Parameters)
+        if: (env.BASE_BRANCH != 'develop')
+        run: cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
+
+      - name: PrestaShop Configuration (Copy of defines_custom.inc.php)
         run: cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/config/defines_custom.inc.php
 
       - name: Composer install and build assets
