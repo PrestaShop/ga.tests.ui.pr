@@ -210,10 +210,10 @@ jobs:
           TAKE_SCREENSHOT_AFTER_FAIL: true
 
       - run: echo "MY_COMMAND=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr  ':' '-'  )" >> $GITHUB_ENV
-        if: ${{ env.BASE_BRANCH != 'develop' && always() }}
+        if: ${{ steps.run_tests.outcome != 'success' }}
 
       - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
+        if: ${{ steps.run_tests.outcome != 'success' }}
         with:
           name: screenshots-${{ env.MY_COMMAND }}
           path: '${{ env.PS_DIR }}/tests/UI/screenshots/'
