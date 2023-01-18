@@ -123,15 +123,15 @@ jobs:
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git merge origin/${{ env.BASE_BRANCH }}
 
-      - name: Setup Apache
-        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
-        working-directory: main
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv, simplexml, pdo, mysql
+
+      - name: Setup Apache
+        run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
+        working-directory: main
 
       - name: Setup mailutils
         run: sudo apt-get install -y apt-utils mailutils
@@ -170,9 +170,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
 
       - name: PrestaShop Configuration
-        run: |
-          cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
-          cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/config/defines_custom.inc.php
+        run: cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/config/defines_custom.inc.php
 
       - name: Composer install and build assets
         run: make
