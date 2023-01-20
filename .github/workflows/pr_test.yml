@@ -51,6 +51,7 @@ jobs:
       matrix:
         TEST_COMMAND:
           - 'sanity'
+          - 'sanity:productV2'
           - 'functional:BO:login'
           - 'functional:BO:orders:01'
           - 'functional:BO:orders:02'
