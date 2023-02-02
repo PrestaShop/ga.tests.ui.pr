@@ -58,6 +58,7 @@ jobs:
           - 'functional:BO:orders:03-05'
           - 'functional:BO:catalog:01-04'
           - 'functional:BO:catalog:05-08'
+          - 'functional:productV2'
           - 'functional:BO:customer'
           - 'functional:BO:customer-service'
           - 'functional:BO:modules'
@@ -73,6 +74,11 @@ jobs:
           - 'functional:BO:header'
           - 'functional:FO'
           - 'regression'
+        BASE_BRANCH:
+          - ${{ github.event.inputs.base_branch }}
+        exclude:
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:productV2'
 
     env:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
@@ -213,10 +219,10 @@ jobs:
           TAKE_SCREENSHOT_AFTER_FAIL: true
 
       - run: echo "MY_COMMAND=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr  ':' '-'  )" >> $GITHUB_ENV
-        if: ${{ steps.run_tests.outcome != 'success' }}
+        if: ${{ always() }}
 
       - uses: actions/upload-artifact@v3
-        if: ${{ steps.run_tests.outcome != 'success' }}
+        if: ${{ always() }}
         with:
           name: screenshots-${{ env.MY_COMMAND }}
           path: '${{ env.PS_DIR }}/tests/UI/screenshots/'
