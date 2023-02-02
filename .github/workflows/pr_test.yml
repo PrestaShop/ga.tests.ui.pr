@@ -58,6 +58,7 @@ jobs:
           - 'functional:BO:orders:03-05'
           - 'functional:BO:catalog:01-04'
           - 'functional:BO:catalog:05-08'
+          - 'functional:productV2'
           - 'functional:BO:customer'
           - 'functional:BO:customer-service'
           - 'functional:BO:modules'
@@ -73,6 +74,11 @@ jobs:
           - 'functional:BO:header'
           - 'functional:FO'
           - 'regression'
+        BASE_BRANCH:
+          - ${{ github.event.inputs.base_branch }}
+        exclude:
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:productV2'
 
     env:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
