@@ -171,7 +171,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
 
       - name: PrestaShop Configuration (Copy of Parameters)
-        if: (env.BASE_BRANCH != 'develop')
+        if: (env.BASE_BRANCH == '8.0.x')
         run: cp ./main/scripts/php/parameters.yml ./${{ env.PS_DIR }}/app/config/parameters.yml
 
       - name: PrestaShop Configuration (Copy of defines_custom.inc.php)
