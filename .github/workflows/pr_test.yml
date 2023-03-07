@@ -14,6 +14,14 @@ on:
           - '8.1.x'
           - '8.0.x'
         default: 'develop'
+      ps_mode_dev:
+        type: choice
+        description: Enable/Disable the developer mode 
+        required: true
+        options:
+          - 'true'
+          - 'false'
+        default: 'false'
       rebase_or_merge:
         type: choice
         required: true
@@ -98,6 +106,7 @@ jobs:
     env:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
       BASE_BRANCH: ${{ github.event.inputs.base_branch }}
+      PS_MODE_DEV: ${{ github.event.inputs.ps_mode_dev }}
       PHP_VERSION: ${{ github.event.inputs.php_version }}
       NODE_VERSION: ${{ github.event.inputs.node_version }}
       REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
@@ -197,6 +206,9 @@ jobs:
 
       - name: PrestaShop Configuration (Copy of defines_custom.inc.php)
         run: cp ./main/scripts/php/defines_custom.inc.php ./${{ env.PS_DIR }}/config/defines_custom.inc.php
+
+      - name: PrestaShop Configuration (Set the developer mode)
+        run: sed -i -e "s/APP_DEBUG/${{ env.PS_MODE_DEV}}/g" ./${{ env.PS_DIR }}/config/defines_custom.inc.php
 
       - name: Composer install and build assets
         run: make
