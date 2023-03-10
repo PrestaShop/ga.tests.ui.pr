@@ -210,6 +210,11 @@ jobs:
       - name: PrestaShop Configuration (Set the developer mode)
         run: sed -i -e "s/APP_DEBUG/${{ env.PS_MODE_DEV}}/g" ./${{ env.PS_DIR }}/config/defines_custom.inc.php
 
+      # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
+      - name: PrestaShop Configuration (Copy of Config API)
+        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
+        run: cp ./${{ env.PS_DIR }}/app/config/security_dev.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
+
       - name: Composer install and build assets
         run: make
         working-directory: ${{ env.PS_DIR }}
