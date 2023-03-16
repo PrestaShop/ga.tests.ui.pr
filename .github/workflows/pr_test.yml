@@ -58,6 +58,7 @@ jobs:
       fail-fast: false
       matrix:
         TEST_COMMAND:
+          - 'cldr'
           - 'sanity'
           - 'sanity:productV2'
           - 'functional:BO:login'
@@ -96,6 +97,8 @@ jobs:
         BASE_BRANCH:
           - ${{ github.event.inputs.base_branch }}
         exclude:
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'cldr'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:BO:dashboard'
           - BASE_BRANCH: 8.0.x
