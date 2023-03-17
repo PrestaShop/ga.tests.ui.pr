@@ -164,7 +164,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: quay.io/keycloak/keycloak:19.0.3
-          options: -p 8180:8080 -e KEYCLOAK_USER='admin' -e KEYCLOAK_PASSWORD='admin'
+          options: -p 8080:8080 -e KEYCLOAK_USER='admin' -e KEYCLOAK_PASSWORD='admin'
 
       - name: Check KeyCloak
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
