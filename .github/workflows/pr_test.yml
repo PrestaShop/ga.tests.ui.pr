@@ -169,7 +169,7 @@ jobs:
       - name: Check KeyCloak
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
         run: |
-          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://127.0.0.1:8180/auth/)" != "200" ]]; do sleep 5; done'
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://127.0.0.1:8080/auth/)" != "200" ]]; do sleep 5; done'
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
