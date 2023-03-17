@@ -163,8 +163,7 @@ jobs:
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
         uses: addnab/docker-run-action@v3
         with:
-          registry: quay.io
-          image: keycloak/keycloak:19.0.3
+          image: quay.io/keycloak/keycloak:19.0.3
           options: -p 8180:8080 -e KEYCLOAK_USER='admin' -e KEYCLOAK_PASSWORD='admin'
 
       - name: Check KeyCloak
