@@ -164,12 +164,13 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: quay.io/keycloak/keycloak:19.0.3
-          options: -p 8080:8080 -e KEYCLOAK_USER='admin' -e KEYCLOAK_PASSWORD='admin'
+          options: -p 8080:8080 -e KEYCLOAK_ADMIN='admin' -e KEYCLOAK_ADMIN_PASSWORD='admin'
+          run: start-dev
 
       - name: Check KeyCloak
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
         run: |
-          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://127.0.0.1:8080/auth/)" != "200" ]]; do sleep 5; done'
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://localhost:8080/)" != "200" ]]; do sleep 5; done'
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
