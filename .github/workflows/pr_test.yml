@@ -160,12 +160,8 @@ jobs:
       ## Available on http://127.0.0.1:8180/auth
       ## Doc : https://www.keycloak.org/server/containers
       - name: Setup KeyCloak
-        if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
-        uses: addnab/docker-run-action@v3
-        with:
-          image: quay.io/keycloak/keycloak:19.0.3
-          options: -p 8080:8080 -e KEYCLOAK_ADMIN='admin' -e KEYCLOAK_ADMIN_PASSWORD='admin'
-          run: start-dev
+        if: ${{ matrix.TEST_COMMAND == 'functional:API' }}<
+        run: docker run -p 8080:8080 -e KEYCLOAK_ADMIN='admin' -e KEYCLOAK_ADMIN_PASSWORD='admin' quay.io/keycloak/keycloak:19.0.3 start-dev
 
       - name: Check KeyCloak
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
