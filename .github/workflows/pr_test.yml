@@ -161,7 +161,7 @@ jobs:
       ## Doc : https://www.keycloak.org/server/containers
       - name: Setup KeyCloak
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}<
-        run: docker run -p 8080:8080 -e KEYCLOAK_ADMIN='admin' -e KEYCLOAK_ADMIN_PASSWORD='admin' quay.io/keycloak/keycloak:19.0.3 start-dev
+        run: docker run -d -p 8080:8080 -e KEYCLOAK_ADMIN='admin' -e KEYCLOAK_ADMIN_PASSWORD='admin' quay.io/keycloak/keycloak:19.0.3 start-dev
 
       - name: Check KeyCloak
         if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
