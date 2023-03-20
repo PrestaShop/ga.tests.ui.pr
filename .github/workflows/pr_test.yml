@@ -160,7 +160,7 @@ jobs:
       ## Available on http://127.0.0.1:8180/auth
       ## Doc : https://www.keycloak.org/server/containers
       - name: Setup KeyCloak
-        uses: progi1984/setup-keycloak
+        uses: progi1984/setup-keycloak@master
         with:
           keycloak_version: 19.0.3
 
