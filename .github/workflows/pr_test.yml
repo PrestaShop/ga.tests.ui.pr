@@ -216,7 +216,7 @@ jobs:
       # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
       - name: PrestaShop Configuration (Copy of Config API)
         if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
-        run: cp ./${{ env.PS_DIR }}/app/config/security_dev.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
+        run: cp ./${{ env.PS_DIR }}/app/config/security_test.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
 
       - name: Composer install and build assets
         run: make
