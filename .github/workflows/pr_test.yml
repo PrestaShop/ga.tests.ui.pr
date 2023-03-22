@@ -157,6 +157,18 @@ jobs:
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git merge origin/${{ env.BASE_BRANCH }}
 
+      ## Available on http://127.0.0.1:8180/auth
+      ## Doc : https://www.keycloak.org/server/containers
+      - name: Setup KeyCloak
+        uses: progi1984/setup-keycloak@v1
+        with:
+          keycloak_version: 19.0.3
+
+      - name: Check KeyCloak
+        if: ${{ matrix.TEST_COMMAND == 'functional:API' }}
+        run: |
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://localhost:8080/)" != "200" ]]; do sleep 5; done'
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
