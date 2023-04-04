@@ -189,6 +189,22 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv, simplexml, pdo, mysql
+      
+      - name: Setup MkCert
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb 
+          certutil -d $HOME/.pki/nssdb -N 
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./localhost.pem
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
 
       - name: Setup Apache
         run: sudo bash scripts/apache/setup.sh ${{ github.workspace }} ${{ env.PS_DIR }} ${{ env.PHP_VERSION }}
@@ -255,7 +271,8 @@ jobs:
           php install-dev/index_cli.php \
           --language=en --country=fr --domain=localhost \
           --db_server=127.0.0.1 --db_password=password --db_name=prestashop --db_create=1 --prefix=tst_ \
-          --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com
+          --firstname="Marc" --lastname="Beier" --email=demo@prestashop.com \
+          --ssl=1
         working-directory: ${{ env.PS_DIR }}
 
       - name: Enable sessions for Apache2
@@ -274,7 +291,7 @@ jobs:
         run: npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
-          URL_FO: http://localhost/
+          URL_FO: https://localhost/
           DB_NAME: prestashop
           DB_PASSWD: password
           HEADLESS: true
