@@ -148,12 +148,13 @@ jobs:
       DB_NAME: prestashop
       DB_SERVER: mysql
       DB_PREFIX: tst_
-      PS_DOMAIN: localhost:8001
+      PS_DOMAIN: ${{ github.event.inputs.base_branch == '8.0.x' && 'localhost:8001' || 'localhost:8002' }}
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
+      PS_ENABLE_SSL: ${{ github.event.inputs.base_branch == '8.0.x' && '0' || '1' }}
       ADMIN_MAIL: 'demo@prestashop.com'
       ADMIN_PASSWD: 'Correct Horse Battery Staple'
 
@@ -202,6 +203,24 @@ jobs:
           git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
           git merge origin/${{ env.BASE_BRANCH }}
 
+      # Certificate
+      - name: Generate a certificate
+        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb 
+          certutil -d $HOME/.pki/nssdb -N 
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
+
       # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
       - name: PrestaShop Configuration (Copy of Config API)
         if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
@@ -213,10 +232,11 @@ jobs:
         timeout-minutes: 15
         env:
           DISABLE_MAKE: 0
+          URL_FO: ${{ github.event.inputs.base_branch == '8.0.x' && 'http://localhost:8001/' || 'https://localhost:8002/' }}
         run: |
           USER_ID=$(id -u) GROUP_ID=$(id -g) \
           docker-compose -f docker-compose.yml up -d --build
-          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} http://localhost:8001/en/)" != "200" ]]; do sleep 5; done'
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
       # UI Tests : Setup, Install & Execute
       - name: Setup Node
@@ -233,13 +253,16 @@ jobs:
 
       - name: Run tests
         id: run_tests
-        run: npm run test:${{ matrix.TEST_COMMAND }}
+        run: |
+          export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
+          npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
-          URL_FO: 'http://localhost:8001/'
+          URL_FO: ${{ github.event.inputs.base_branch == '8.0.x' && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           DB_NAME: prestashop
           DB_PASSWD: prestashop
           HEADLESS: true
+          ENABLE_SSL: true
           TAKE_SCREENSHOT_AFTER_FAIL: true
           SMTP_SERVER: '172.17.0.1'
 
