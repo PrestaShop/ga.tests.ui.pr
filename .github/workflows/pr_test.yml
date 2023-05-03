@@ -59,8 +59,7 @@ jobs:
       matrix:
         TEST_COMMAND:
           - 'cldr'
-          - 'sanity'
-          - 'sanity:productV2'
+          - 'functional:API'
           - 'functional:BO:login'
           - 'functional:BO:dashboard'
           - 'functional:BO:orders:01-0*1*'
@@ -96,8 +95,10 @@ jobs:
           - 'functional:FO:classic:08-12'
           - 'functional:FO:hummingbird:01-03'
           - 'functional:productV2'
-          - 'functional:API'
+          - 'functional:WS'
           - 'regression'
+          - 'sanity'
+          - 'sanity:productV2'
         BASE_BRANCH:
           - ${{ github.event.inputs.base_branch }}
         exclude:
@@ -118,6 +119,8 @@ jobs:
             TEST_COMMAND: 'functional:FO:classic:08-12'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:WS'
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:FO:01-03'
