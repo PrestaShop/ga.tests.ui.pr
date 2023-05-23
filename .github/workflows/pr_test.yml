@@ -96,6 +96,7 @@ jobs:
           - 'functional:FO:hummingbird:01-03'
           - 'functional:productV2'
           - 'functional:WS'
+          - 'modules'
           - 'regression'
           - 'sanity'
           - 'sanity:productV2'
@@ -121,6 +122,8 @@ jobs:
             TEST_COMMAND: 'functional:FO:hummingbird:01-03'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules'
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:FO:01-03'
