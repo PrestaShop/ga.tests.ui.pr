@@ -58,6 +58,14 @@ on:
           - 'legacy'
           - 'symfony'
         default: 'legacy'
+      front_container:
+        type: choice
+        description: Front container type
+        required: true
+        options:
+          - 'legacy'
+          - 'symfony'
+        default: 'legacy'
 
 jobs:
   testing-pr:
@@ -279,6 +287,13 @@ jobs:
         shell: bash
         run: |
           echo PS_FF_SYMFONY_LAYOUT=true >> .env
+
+      # Enable experimental new Symfony front container feature
+      - name: Enable new Symfony front container feature
+        if: inputs.front_container == 'symfony')
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          sed -i 's|PS_FF_FRONT_CONTAINER_V2=false|PS_FF_FRONT_CONTAINER_V2=true|g' .env
 
       # Create shop with Docker
       - name: Build and run shop with docker
