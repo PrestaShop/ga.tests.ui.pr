@@ -125,6 +125,8 @@ jobs:
             TEST_COMMAND: 'functional:WS'
           - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'modules'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'sanity:productV2'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'cldr'
