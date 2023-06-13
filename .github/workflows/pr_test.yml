@@ -186,7 +186,7 @@ jobs:
       PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
       PS_ENABLE_SSL: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
       ADMIN_MAIL: 'demo@prestashop.com'
-      ADMIN_PASSWD: 'Correct Horse Battery Staple'
+      ADMIN_PASSWD: ${{ (github.event.inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
 
     steps:
       - name: Print Inputs values
