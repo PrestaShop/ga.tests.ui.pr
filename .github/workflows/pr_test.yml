@@ -170,7 +170,7 @@ jobs:
       REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
       PS_DIR: 'my_prestashop'
       ## Install PrestaShop & UI Tests
-      VERSION: ${{ github.event.inputs.php_version }}-apache
+      VERSION: ${{ github.event.inputs.php_version }}${{ github.event.inputs.base_branch == '1.7.8.x' && '' || '-apache' }}
       PS_INSTALL_AUTO: 1
       DB_PASSWD: prestashop
       DB_NAME: prestashop
