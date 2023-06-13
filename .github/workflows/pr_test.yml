@@ -13,6 +13,7 @@ on:
           - 'develop'
           - '8.1.x'
           - '8.0.x'
+          - '1.7.8.x'
         default: 'develop'
       ps_mode_dev:
         type: choice
@@ -103,6 +104,27 @@ jobs:
         BASE_BRANCH:
           - ${{ github.event.inputs.base_branch }}
         exclude:
+          ## 1.7.8.x
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'cldr'
@@ -154,13 +176,13 @@ jobs:
       DB_NAME: prestashop
       DB_SERVER: mysql
       DB_PREFIX: tst_
-      PS_DOMAIN: ${{ github.event.inputs.base_branch == '8.0.x' && 'localhost:8001' || 'localhost:8002' }}
+      PS_DOMAIN: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
-      PS_ENABLE_SSL: ${{ github.event.inputs.base_branch == '8.0.x' && '0' || '1' }}
+      PS_ENABLE_SSL: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
       ADMIN_MAIL: 'demo@prestashop.com'
       ADMIN_PASSWD: 'Correct Horse Battery Staple'
 
@@ -238,7 +260,7 @@ jobs:
         timeout-minutes: 15
         env:
           DISABLE_MAKE: 0
-          URL_FO: ${{ github.event.inputs.base_branch == '8.0.x' && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
         run: |
           USER_ID=$(id -u) GROUP_ID=$(id -g) \
           docker-compose -f docker-compose.yml up -d --build
