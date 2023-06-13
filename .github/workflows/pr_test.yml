@@ -287,7 +287,7 @@ jobs:
           npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
-          URL_FO: ${{ github.event.inputs.base_branch == '8.0.x' && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           DB_NAME: prestashop
           DB_PASSWD: prestashop
           HEADLESS: true
