@@ -237,7 +237,7 @@ jobs:
           with:
             fetch-depth: 0
             repository: PrestaShop/autoupgrade
-            path: ${{ env.PS_DIR }}/modules/
+            path: ${{ env.PS_DIR }}/modules/autoupgrade
 
       - name: Composer install in module
         run: composer install
