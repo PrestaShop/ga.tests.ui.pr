@@ -1,6 +1,8 @@
 name: Testing PrestaShop autoupgrade
 on:
-  workflow_dispatch:
+  #workflow_dispatch:
+  # Temporary workflow_call to test on each push
+  workflow_call:
     inputs:
       source_branch:
         type: choice
