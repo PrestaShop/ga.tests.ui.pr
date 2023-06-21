@@ -31,7 +31,7 @@ jobs:
 
       - name: Display nightly version
         shell: bash
-        run: echo ${{ steps.set-target-nightly-version.outputs.target_version }}
+        run: echo "${{ steps.set-target-nightly-version.outputs.target_version }}"
     outputs:
       target_version: ${{ steps.set-target-nightly-version.outputs.target_version }}
 
@@ -225,7 +225,7 @@ jobs:
           VERSION: ${{ (github.event.inputs.source_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
         run: |
           USER_ID=$(id -u) GROUP_ID=$(id -g) \
-          echo "    container_name: prestashop_autoupgrade" >> ${{ env.PS_DIR }}/docker-compose.yml
+          echo "    container_name: prestashop_autoupgrade" >> ./${{ env.PS_DIR }}/docker-compose.yml
           docker-compose -f docker-compose.yml up -d --build
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
           docker ps
