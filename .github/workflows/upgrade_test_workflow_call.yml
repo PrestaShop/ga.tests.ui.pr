@@ -241,7 +241,7 @@ jobs:
 
       - name: Install module via CLI commands
         run: |
-          docker exec -u www-data prestashop_autoupgrade cd modules/autoupgrade && composer install
+          docker exec -w modules/autoupgrade -u www-data prestashop_autoupgrade composer install
           docker exec -u www-data prestashop_autoupgrade php bin/console prestashop:module install autoupgrade
 
       - name: Upgrade shop to ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }}
@@ -249,9 +249,9 @@ jobs:
           docker exec -u www-data prestashop_autoupgrade mkdir admin-dev/autoupgrade/download
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }} -o admin-dev/autoupgrade/download/prestashop.zip
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).xml }} -o admin-dev/autoupgrade/download/prestashop.xml
-          echo "{\"channel\":\"archive\",\"archive_prestashop\":\"prestashop.zip\",\"archive_num\":\"${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }}\", \"archive_xml\":\"prestashop.xml\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":${UPDATE_THEME}, \"skip_backup\": ${SKIP_BACKUP}}" > config.json
-          docker exec -u www-data prestashop_autoupgrade php admin-dev/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
-          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php admin-dev/autoupgrade/cli-upgrade.php  --dir="admin-dev"
+          echo "{\"channel\":\"archive\",\"archive_prestashop\":\"prestashop.zip\",\"archive_num\":\"${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }}\", \"archive_xml\":\"prestashop.xml\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":${UPDATE_THEME}, \"skip_backup\": ${SKIP_BACKUP}}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json
+          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php
 
       # UI Tests : Setup, Install & Execute
       - name: Setup Node
