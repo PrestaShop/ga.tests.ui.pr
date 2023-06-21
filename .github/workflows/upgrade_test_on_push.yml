@@ -1,12 +1,12 @@
 # This is a temporary workflow to force triggering the new manual one which is not usable as long as it's not on the default branch
-name: Auto test autoupgrade test
+name: Testing PrestaShop upgrade
 
 on:
     push:
 
 jobs:
     auto_test_autoupgrade:
-        uses: ./.github/workflows/autoupgrade_test.yml
+        uses: ./.github/workflows/upgrade_test_workflow_call.yml
         with:
             source_branch: 8.0.x
             target_branch: 8.1.x

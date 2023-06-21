@@ -1,55 +1,19 @@
-name: Testing PrestaShop autoupgrade
+name: Testing PrestaShop upgrade
 on:
-  #workflow_dispatch:
-  # Temporary workflow_call to test on each push
   workflow_call:
     inputs:
       source_branch:
-        type: choice
         description: Use a source branch to start the upgrade from
         required: true
-        options:
-          - '8.1.x'
-          - '8.0.x'
-          - '1.7.8.x'
-        default: '1.7.8.x'
-      #source_version:
-      #  type: string
-      #  description: OR define a released version (ex 1.7.8.3) to start the upgrade from (ignored if left empty)
-      #  required: false
       target_branch:
-        type: choice
         description: Use a target branch to upgrade to
         required: true
-        options:
-          - 'develop'
-          - '8.1.x'
-          - '8.0.x'
-        default: '8.0.x'
-      # LATER, can include a PR from the core to test an autoupgrade debug, we may need to build a release archive from the PR
-      #target_pr_number:
-      #  description: Pull request Id
-      #  required: true
-      # LATER, handle a specific version and build the source based on the existing release archives or github tags
       php_version:
-        type: choice
         description: PHP version
         required: true
-        options:
-          - '7.3'
-          - '7.4'
-          - '8.0'
-          - '8.1'
-          - '8.2'
-        default: '8.1'
       node_version:
-        type: choice
         description: Node version
         required: true
-        options:
-          - '14'
-          - '16'
-        default: '14'
 
 jobs:
   # Pre-job : Get Upgrade target versions
