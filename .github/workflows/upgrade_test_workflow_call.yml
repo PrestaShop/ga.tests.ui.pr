@@ -263,9 +263,10 @@ jobs:
         run: docker exec -u www-data prestashop_autoupgrade php bin/console prestashop:module install autoupgrade
 
       # If nightly build is used we download the archives and xml file and perform an upgrade via archive channel
-      - name: Upgrade shop to nightly build ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }}
+      - name: Upgrade shop to nightly build ${{ inputs.target_ref }}
         if: ${{ inputs.use_nightly_build }}
         run: |
+          echo Upgrading to version ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }}
           docker exec -u www-data prestashop_autoupgrade mkdir admin-dev/autoupgrade/download
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }} -o admin-dev/autoupgrade/download/prestashop.zip
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).xml }} -o admin-dev/autoupgrade/download/prestashop.xml
