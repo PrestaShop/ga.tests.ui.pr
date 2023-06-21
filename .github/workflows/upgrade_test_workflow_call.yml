@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - id: set-target-nightly-version
-        run: echo "::set-output name=target_version::$(php ./.github/get_matrix.php ${{ github.event.inputs.target_branch }})"
+        run: echo target_version=$(php ./.github/get_matrix.php ${{ github.event.inputs.target_branch }}) >> $GITHUB_OUTPUT
 
       - name: Display nightly version
         shell: bash
