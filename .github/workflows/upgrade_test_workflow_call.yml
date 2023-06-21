@@ -17,7 +17,7 @@ on:
       target_version:
         description: If you do not use the nightly release, you must specify the version of target branch (ex 1.7.8.9, 8.0.4)
         type: string
-        require: false
+        required: false
       php_version:
         description: PHP version
         type: string
