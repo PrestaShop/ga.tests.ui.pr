@@ -32,13 +32,12 @@ jobs:
           path: main
 
       - id: set-target-nightly-version
+        name: Get target details from nightly last reports
         run: |
-          echo "${{ toJSON(github.event.inputs) }}"
-          echo ${{ github.event.inputs.target_branch }}
+          echo "${{ toJSON(inputs) }}"
+          echo ${{ inputs.target_branch }}
           echo $TARGET_BRANCH
-          php ./.github/scripts/get_version_from_nightly.php $TARGET_BRANCH
-          php ./.github/scripts/get_version_from_nightly.php $TARGET_BRANCH .target_branch
-          echo target_version=$(cat .target_branch) >> $GITHUB_OUTPUT
+          echo target_version=$(php ./.github/scripts/get_version_from_nightly.php $TARGET_BRANCH) >> $GITHUB_OUTPUT
         working-directory: main
 
       - name: Display nightly version
@@ -47,7 +46,7 @@ jobs:
     outputs:
       target_version: ${{ steps.set-target-nightly-version.outputs.target_version }}
     env:
-      TARGET_BRANCH: ${{ github.event.inputs.target_branch }}
+      TARGET_BRANCH: ${{ inputs.target_branch }}
 
   testing-upgrade:
     runs-on: ubuntu-latest
@@ -100,7 +99,7 @@ jobs:
           - 'sanity'
           - 'sanity:productV2'
         BASE_BRANCH:
-          - ${{ github.event.inputs.target_branch }}
+          - ${{ inputs.target_branch }}
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
@@ -162,35 +161,33 @@ jobs:
             TEST_COMMAND: 'functional:FO:08-12'
 
     env:
-      PR_NUMBER: ${{ github.event.inputs.pr_number }}
-      SOURCE_BRANCH: ${{ github.event.inputs.source_branch }}
+      SOURCE_BRANCH: ${{ inputs.source_branch }}
       PS_MODE_DEV: '0'
-      PHP_VERSION: ${{ github.event.inputs.php_version }}
-      NODE_VERSION: ${{ github.event.inputs.node_version }}
-      REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
+      PHP_VERSION: ${{ inputs.php_version }}
+      NODE_VERSION: ${{ inputs.node_version }}
       PS_DIR: 'my_prestashop'
       PS_TARGET_DIR: 'my_prestashop_target'
       ## Install PrestaShop & UI Tests
-      VERSION: ${{ github.event.inputs.php_version }}-apache
+      VERSION: ${{ inputs.php_version }}-apache
       PS_INSTALL_AUTO: 1
       DB_PASSWD: prestashop
       DB_NAME: prestashop
       DB_SERVER: mysql
       DB_PREFIX: tst_
-      PS_DOMAIN: ${{ ((github.event.inputs.source_branch == '8.0.x') || (github.event.inputs.source_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_DOMAIN: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       PS_DEV_MODE: '0'
-      PS_ENABLE_SSL: ${{ ((github.event.inputs.source_branch == '8.0.x') || (github.event.inputs.source_branch == '1.7.8.x')) && '0' || '1' }}
+      PS_ENABLE_SSL: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && '0' || '1' }}
       ADMIN_MAIL: 'demo@prestashop.com'
-      ADMIN_PASSWD: ${{ (github.event.inputs.source_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      ADMIN_PASSWD: ${{ (inputs.source_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
 
     steps:
       - name: Print Inputs values
         shell: bash
-        run: echo "${{ toJSON(github.event.inputs) }}"
+        run: echo "${{ toJSON(inputs) }}"
 
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
@@ -230,8 +227,8 @@ jobs:
         timeout-minutes: 15
         env:
           DISABLE_MAKE: 0
-          URL_FO: ${{ ((github.event.inputs.source_branch == '8.0.x') || (github.event.inputs.source_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          VERSION: ${{ (github.event.inputs.source_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
+          URL_FO: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ (inputs.source_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
         #          echo "    container_name: prestashop_autoupgrade" >> docker-compose.yml
         run: |
           echo Docker version $VERSION
@@ -281,7 +278,7 @@ jobs:
           npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
-          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           DB_NAME: prestashop
           DB_PASSWD: prestashop
           HEADLESS: true
