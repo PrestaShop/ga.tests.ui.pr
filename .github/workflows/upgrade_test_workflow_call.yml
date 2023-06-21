@@ -206,6 +206,7 @@ jobs:
       - name: Download PrestaShop source release from nightly ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).zip }}
         if: ${{ inputs.use_nightly_build }}
         run: |
+          mkdir nightly
           curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).zip }} -o nightly/source-prestashop.zip
           unzip source-prestashop.zip -d nightly/source/
           unzip nightly/source/prestashop.zip -d ${{ env.PS_DIR }}
