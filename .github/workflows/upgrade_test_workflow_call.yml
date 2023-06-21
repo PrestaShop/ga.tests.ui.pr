@@ -242,17 +242,15 @@ jobs:
           docker ps
 
       # Install upgrade module and run CLI upgrade
-      -   uses: actions/checkout@v3
-          name: Checkout Autoupgrade module
-          with:
-            fetch-depth: 0
-            repository: PrestaShop/autoupgrade
-            path: ${{ env.PS_DIR }}/modules/autoupgrade
-
+      - uses: actions/checkout@v3
+        name: Checkout Autoupgrade module
+        with:
+          fetch-depth: 0
+          repository: PrestaShop/autoupgrade
+          path: ${{ env.PS_DIR }}/modules/autoupgrade
       - name: Composer install in module
         run: composer install
         working-directory: ${{ env.PS_DIR }}/modules/autoupgrade
-
       - name: Install module via CLI commands
         run: docker exec -u www-data prestashop_autoupgrade php bin/console prestashop:module install autoupgrade
 
@@ -277,7 +275,10 @@ jobs:
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
           ref: ${{ inputs.target_ref }}
-
+      - name: Build assets and dependencies in target version
+        run: |
+          make
+        working-directory: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
       - name: Upgrade shop to target branch/tag ${{ inputs.target_ref }} version ${{ inputs.target_version }}
         if: ${{ inputs.use_nightly_build == false }}
         run: |
@@ -286,17 +287,11 @@ jobs:
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
 
-      - name: Build assets and dependencies in target version
-        run: |
-          make
-        working-directory: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
-
       # UI Tests : Setup, Install & Execute
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-
       - name: Setup NPM
         run: npm install -g npm@7
 
@@ -310,17 +305,16 @@ jobs:
           ref: ${{ inputs.target_ref }}
           sparse-checkout: |
             tests/UI
-
       - name: Clear UI tests from source branch and copy those from target
         shell: bash
         run: |
           rm -fR ${{ env.PS_DIR }}/tests/UI
           cp -R target_prestashop/tests/UI ${{ env.PS_DIR }}/tests/UI
-
       - name: Install tests dependencies
         run: npm install
         working-directory: ${{ env.PS_DIR }}/tests/UI
 
+      # Run tests
       - name: Run tests
         id: run_tests
         run: |
