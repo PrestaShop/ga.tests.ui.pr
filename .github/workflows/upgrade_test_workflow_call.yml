@@ -6,13 +6,13 @@ on:
         description: Use a source branch to start the upgrade from
         type: string
         required: true
-      use_nightly_build:
-        description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
-        type: boolean
-        required: true
       target_branch:
         description: Use a target branch to upgrade to
         type: string
+        required: true
+      use_nightly_build:
+        description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
+        type: boolean
         required: true
       php_version:
         description: PHP version
@@ -35,17 +35,26 @@ jobs:
         with:
           path: main
 
+      - id: set-source-nightly-version
+        name: Get source details from nightly last reports
+        run: |
+          echo Inputs "${{ toJSON(inputs) }}"
+          echo source_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ inputs.source_branch }}) >> $GITHUB_OUTPUT
+        working-directory: main
+
       - id: set-target-nightly-version
         name: Get target details from nightly last reports
         run: |
-          echo Inputs "${{ toJSON(inputs) }}"
           echo target_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ inputs.target_branch }}) >> $GITHUB_OUTPUT
         working-directory: main
 
       - name: Display nightly version
         shell: bash
-        run: echo "${{ steps.set-target-nightly-version.outputs.target_version }}"
+        run: |
+          echo Target "${{ steps.set-target-nightly-version.outputs.source_version }}"
+          echo Target "${{ steps.set-target-nightly-version.outputs.target_version }}"
     outputs:
+      source_version: ${{ steps.set-target-nightly-version.outputs.source_version }}
       target_version: ${{ steps.set-target-nightly-version.outputs.target_version }}
 
   testing-upgrade:
@@ -190,12 +199,20 @@ jobs:
 
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
-        name: Checkout PrestaShop repository with branch ${{ env.SOURCE_BRANCH }}
+        name: Checkout PrestaShop repository with source branch ${{ env.SOURCE_BRANCH }}
+        if: ${{ inputs.use_nightly_build == false }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}
           ref: ${{ env.SOURCE_BRANCH }}
+
+      # Download release from nightly
+      - name: Download PrestaShop source release from nightly ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).zip }}
+        if: ${{ inputs.use_nightly_build }}
+        run: |
+          curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).zip }} -o source-prestashop.zip
+          unzip source-prestashop.zip -d ${{ env.PS_DIR }}
 
       # Certificate
       - name: Generate a certificate

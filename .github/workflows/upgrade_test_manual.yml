@@ -24,15 +24,15 @@ on:
           - '8.1.x'
           - '8.0.x'
         default: '8.0.x'
-      use_nightly_build:
-        type: boolean
-        description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
-        default: false
       # LATER, can include a PR from the core to test an autoupgrade debug, we may need to build a release archive from the PR
       #target_pr_number:
       #  description: Pull request Id
       #  required: true
       # LATER, handle a specific version and build the source based on the existing release archives or github tags
+      use_nightly_build:
+        type: boolean
+        description: Use latest nightly matching the source/target branches, if not the branches are checkout from repository branch HEAD
+        default: false
       php_version:
         type: choice
         description: PHP version
