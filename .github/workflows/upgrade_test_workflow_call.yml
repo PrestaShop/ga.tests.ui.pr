@@ -32,7 +32,7 @@ jobs:
   get_ps_nightly_target_version:
     name: Get Upgrade target versions
     runs-on: ubuntu-latest
-
+    if: ${{ inputs.use_nightly_build }}
     steps:
       # Checkout the repository
       - uses: actions/checkout@v3
@@ -60,6 +60,8 @@ jobs:
     runs-on: ubuntu-latest
     name: test
     needs: get_ps_nightly_target_version
+    # Run even if get_ps_nightly_target_version was ignored
+    if: always()
     strategy:
       fail-fast: false
       matrix:
@@ -283,7 +285,8 @@ jobs:
           ref: ${{ inputs.target_ref }}
       - name: Build assets and dependencies in target version
         run: |
-          make
+          composer install
+          make assets
         working-directory: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
       - name: Upgrade shop to target branch/tag ${{ inputs.target_ref }} version ${{ inputs.target_version }}
         if: ${{ inputs.use_nightly_build == false }}
