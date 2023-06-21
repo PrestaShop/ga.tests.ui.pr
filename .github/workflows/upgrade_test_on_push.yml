@@ -8,8 +8,9 @@ jobs:
     auto_test_autoupgrade:
         uses: ./.github/workflows/upgrade_test_workflow_call.yml
         with:
-            source_branch: 1.7.8.x
-            target_branch: 8.1.x
+            source_ref: 8.0.4
+            target_ref: 8.1.0-build1
+            target_version: 8.1.0
+            use_nightly_build: false
             php_version: 8.1
             node_version: 14
-            use_nightly_build: true

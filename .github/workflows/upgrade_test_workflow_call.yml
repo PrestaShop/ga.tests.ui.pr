@@ -2,18 +2,22 @@ name: Testing PrestaShop upgrade
 on:
   workflow_call:
     inputs:
-      source_branch:
-        description: Use a source branch to start the upgrade from
+      source_ref:
+        description: Use a source branch or tag to start the upgrade from
         type: string
         required: true
-      target_branch:
-        description: Use a target branch to upgrade to
+      target_ref:
+        description: Use a target branch or tag to upgrade to
         type: string
         required: true
       use_nightly_build:
         description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
         type: boolean
         required: true
+      target_version:
+        description: If you do not use the nightly release, you must specify the version of target branch (ex 1.7.8.9, 8.0.4)
+        type: string
+        require: false
       php_version:
         description: PHP version
         type: string
@@ -39,8 +43,8 @@ jobs:
         name: Get source details from nightly last reports
         run: |
           echo Inputs "${{ toJSON(inputs) }}"
-          echo source_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ inputs.source_branch }}) >> $GITHUB_OUTPUT
-          echo target_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ inputs.target_branch }}) >> $GITHUB_OUTPUT
+          echo source_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ inputs.source_ref }}) >> $GITHUB_OUTPUT
+          echo target_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ inputs.target_ref }}) >> $GITHUB_OUTPUT
         working-directory: main
 
       - name: Display nightly versions
@@ -103,7 +107,7 @@ jobs:
           - 'sanity'
           - 'sanity:productV2'
         BASE_BRANCH:
-          - ${{ inputs.target_branch }}
+          - ${{ startsWith(inputs.target_ref, '1.7') && '1.7.8.x' || startsWith(inputs.target_ref, '8.0') && '8.0.x' || startsWith(inputs.target_ref, '8.1') && '8.1.x' || 'develop' }}
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
@@ -165,7 +169,6 @@ jobs:
             TEST_COMMAND: 'functional:FO:08-12'
 
     env:
-      SOURCE_BRANCH: ${{ inputs.source_branch }}
       PS_MODE_DEV: '0'
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
@@ -177,15 +180,15 @@ jobs:
       DB_NAME: prestashop
       DB_SERVER: mysql
       DB_PREFIX: tst_
-      PS_DOMAIN: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_DOMAIN: ${{ (startsWith(inputs.source_ref, '1.7') || startsWith(inputs.source_ref, '8.0')) && 'localhost:8001' || 'localhost:8002' }}
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       PS_DEV_MODE: '0'
-      PS_ENABLE_SSL: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && '0' || '1' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.source_ref, '1.7') || startsWith(inputs.source_ref, '8.0')) && '0' || '1' }}
       ADMIN_MAIL: 'demo@prestashop.com'
-      ADMIN_PASSWD: ${{ (inputs.source_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.source_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
 
     steps:
       - name: Print Inputs values
@@ -194,16 +197,16 @@ jobs:
 
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
-        name: Checkout PrestaShop repository with source branch ${{ env.SOURCE_BRANCH }}
+        name: Checkout PrestaShop repository with source branch ${{ inputs.source_ref }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}
-          ref: ${{ env.SOURCE_BRANCH }}
+          ref: ${{ inputs.source_ref }}
 
       # Certificate
       - name: Generate a certificate
-        if: (inputs.source_branch == '8.1.x') || (inputs.source_branch == 'develop')
+        if: startsWith(inputs.source_ref, '8.1') || (inputs.source_ref == 'develop')
         run: |
           ## Install MkCert
           sudo apt install libnss3-tools
@@ -230,8 +233,8 @@ jobs:
         timeout-minutes: 15
         env:
           DISABLE_MAKE: 0
-          URL_FO: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          VERSION: ${{ (inputs.source_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ (startsWith(inputs.source_ref, '1.7') || startsWith(inputs.source_ref, '8.0')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ startsWith(inputs.source_ref, '1.7') && inputs.php_version || env.VERSION }}
         run: |
           echo "    container_name: prestashop_autoupgrade" >> docker-compose.yml
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
@@ -267,19 +270,18 @@ jobs:
 
       # If nightly build is NOT used we checkout the target repository in the latest folder
       - uses: actions/checkout@v3
-        name: Checkout target from branch ${{ inputs.target_branch }} in latest folder
+        name: Checkout target from branch ${{ inputs.target_ref }} in latest folder
         if: ${{ inputs.use_nightly_build == false }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
-          ref: ${{ inputs.target_branch }}
+          ref: ${{ inputs.target_ref }}
 
-      # todo: version is hard-coded and must be fetched from branch
-      - name: Upgrade shop to target branch ${{ inputs.target_branch }}
+      - name: Upgrade shop to target branch ${{ inputs.target_ref }} version ${{ inputs.target_version }}
         if: ${{ inputs.use_nightly_build == false }}
         run: |
-          echo "{\"channel\":\"directory\",\"directory_num\":\"8.1.0\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          echo "{\"channel\":\"directory\",\"directory_num\":\"${{ inputs.target_version }}\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
@@ -295,12 +297,12 @@ jobs:
 
       # Checkout PrestaShop target UI tests
       - uses: actions/checkout@v3
-        name: Checkout tests from target version ${{ inputs.target_branch }}
+        name: Checkout tests from target version ${{ inputs.target_ref }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: target_prestashop
-          ref: ${{ inputs.target_branch }}
+          ref: ${{ inputs.target_ref }}
           sparse-checkout: |
             tests/UI
 
@@ -321,7 +323,7 @@ jobs:
           npm run test:${{ matrix.TEST_COMMAND }}
         working-directory: ${{ env.PS_DIR }}/tests/UI
         env:
-          URL_FO: ${{ ((inputs.source_branch == '8.0.x') || (inputs.source_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          URL_FO: ${{ (startsWith(inputs.source_ref, '1.7') || startsWith(inputs.source_ref, '8.0')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           DB_NAME: prestashop
           DB_PASSWD: prestashop
           HEADLESS: true

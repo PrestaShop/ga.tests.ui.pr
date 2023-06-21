@@ -2,28 +2,33 @@ name: Testing PrestaShop upgrade
 on:
   workflow_dispatch:
     inputs:
-      source_branch:
+      source_ref:
         type: choice
-        description: Use a source branch to start the upgrade from
+        description: Use a source branch or tag to start the upgrade from
         required: true
         options:
           - '8.1.x'
           - '8.0.x'
           - '1.7.8.x'
+          - '8.0.4'
+          - '1.7.8.9'
         default: '1.7.8.x'
       #source_version:
       #  type: string
       #  description: OR define a released version (ex 1.7.8.3) to start the upgrade from (ignored if left empty)
       #  required: false
-      target_branch:
+      target_ref:
         type: choice
-        description: Use a target branch to upgrade to
+        description: Use a target branch or tag to upgrade to
         required: true
         options:
           - 'develop'
           - '8.1.x'
           - '8.0.x'
-        default: '8.0.x'
+          - '8.0.4'
+          - '8.1.0-rc.1'
+          - '8.1.0-build1'
+        default: '8.1.x'
       # LATER, can include a PR from the core to test an autoupgrade debug, we may need to build a release archive from the PR
       #target_pr_number:
       #  description: Pull request Id
@@ -31,8 +36,12 @@ on:
       # LATER, handle a specific version and build the source based on the existing release archives or github tags
       use_nightly_build:
         type: boolean
-        description: Use latest nightly matching the source/target branches, if not the branches are checkout from repository branch HEAD
+        description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
         default: false
+      target_version:
+        description: If you do not use the nightly release, you must specify the version of target branch (ex 1.7.8.9, 8.0.4)
+        type: string
+        require: false
       php_version:
         type: choice
         description: PHP version
@@ -57,7 +66,9 @@ jobs:
   manual_test_upgrade:
     uses: ./.github/workflows/upgrade_test_workflow_call.yml
     with:
-      source_branch: ${{ github.event.inputs.source_branch }}
-      target_branch: ${{ github.event.inputs.target_branch }}
+      source_ref: ${{ github.event.inputs.source_ref }}
+      target_ref: ${{ github.event.inputs.target_ref }}
+      use_nightly_build: ${{ github.event.inputs.use_nightly_build }}
+      target_version: ${{ github.event.inputs.target_branch }}
       php_version: ${{ github.event.inputs.php_version }}
       node_version: ${{ github.event.inputs.node_version }}
