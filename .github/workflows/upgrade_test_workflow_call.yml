@@ -162,7 +162,6 @@ jobs:
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
       PS_DIR: 'my_prestashop'
-      PS_TARGET_DIR: 'my_prestashop_target'
       ## Install PrestaShop & UI Tests
       VERSION: ${{ inputs.php_version }}-apache
       PS_INSTALL_AUTO: 1
@@ -251,8 +250,9 @@ jobs:
           docker exec -u www-data prestashop_autoupgrade mkdir admin-dev/autoupgrade/download
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }} -o admin-dev/autoupgrade/download/prestashop.zip
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).xml }} -o admin-dev/autoupgrade/download/prestashop.xml
-          echo "{\"channel\":\"archive\",\"archive_prestashop\":\"prestashop.zip\",\"archive_num\":\"${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }}\", \"archive_xml\":\"prestashop.xml\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":${UPDATE_THEME}, \"skip_backup\": ${SKIP_BACKUP}}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          echo "{\"channel\":\"archive\",\"archive_prestashop\":\"prestashop.zip\",\"archive_num\":\"${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }}\", \"archive_xml\":\"prestashop.xml\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
+          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
 
       # UI Tests : Setup, Install & Execute
