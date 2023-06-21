@@ -33,6 +33,8 @@ jobs:
 
       - id: set-target-nightly-version
         run: |
+          echo "${{ toJSON(github.event.inputs) }}"
+          echo ${{ github.event.inputs.target_branch }}
           echo $TARGET_BRANCH
           php ./.github/scripts/get_version_from_nightly.php $TARGET_BRANCH
           php ./.github/scripts/get_version_from_nightly.php $TARGET_BRANCH .target_branch
