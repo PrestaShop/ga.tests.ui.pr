@@ -1,0 +1,14 @@
+# This is a temporary workflow to force triggering the new manual one which is not usable as long as it's not on the default branch
+name: Auto test autoupgrade test
+
+on:
+    push:
+
+jobs:
+    auto_test_autoupgrade:
+        uses: ./.github/workflows/autoupgrade_test.yml
+        with:
+            source_branch: 8.0.x
+            target_branch: 8.1.x
+            php_version: 8.1
+            node_version: 14
