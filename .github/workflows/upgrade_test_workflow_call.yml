@@ -170,8 +170,6 @@ jobs:
 
     env:
       PS_MODE_DEV: '0'
-      PHP_VERSION: ${{ inputs.php_version }}
-      NODE_VERSION: ${{ inputs.node_version }}
       PS_DIR: 'my_prestashop'
       ## Install PrestaShop & UI Tests
       VERSION: ${{ inputs.php_version }}-apache
@@ -194,6 +192,14 @@ jobs:
       - name: Print Inputs values
         shell: bash
         run: echo "${{ toJSON(inputs) }}"
+
+      # Set up environment
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+      - name: Setup NPM
+        run: npm install -g npm@7
 
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
@@ -286,14 +292,6 @@ jobs:
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
-
-      # UI Tests : Setup, Install & Execute
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Setup NPM
-        run: npm install -g npm@7
 
       # Checkout PrestaShop target UI tests
       - uses: actions/checkout@v3
