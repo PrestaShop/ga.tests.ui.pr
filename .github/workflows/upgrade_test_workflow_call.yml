@@ -46,8 +46,6 @@ jobs:
         run: echo "${{ steps.set-target-nightly-version.outputs.target_version }}"
     outputs:
       target_version: ${{ steps.set-target-nightly-version.outputs.target_version }}
-    inputs:
-      target_branch: ${{ github.event.inputs.target_branch }}
     env:
       TARGET_BRANCH: ${{ github.event.inputs.target_branch }}
 
