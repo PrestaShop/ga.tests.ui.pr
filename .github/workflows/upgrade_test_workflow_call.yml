@@ -23,7 +23,7 @@ jobs:
   # Pre-job : Get Upgrade target versions
   get_ps_nightly_target_version:
     name: Get Upgrade target versions
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - id: set-target-nightly-version
