@@ -195,7 +195,7 @@ jobs:
 
       # Certificate
       - name: Generate a certificate
-        if: (env.SOURCE_BRANCH == '8.1.x') || (env.SOURCE_BRANCH == 'develop')
+        if: (inputs.source_branch == '8.1.x') || (inputs.source_branch == 'develop')
         run: |
           ## Install MkCert
           sudo apt install libnss3-tools
@@ -264,16 +264,31 @@ jobs:
       - name: Setup NPM
         run: npm install -g npm@7
 
+      # Checkout PrestaShop source
+      - uses: actions/checkout@v3
+        name: Checkout tests from target version ${{ inputs.target_branch }}
+        with:
+          fetch-depth: 0
+          repository: PrestaShop/PrestaShop
+          path: target_prestashop
+          ref: ${{ inputs.target_branch }}
+
+      - name: Clear UI tests from source branch and copy those from target
+        shell: bash
+        run: |
+          rm -fR ${{ env.PS_DIR }}/tests/UI
+          cp -R target_prestashop/tests/UI ${{ env.PS_DIR }}/tests/UI
+
       - name: Install tests dependencies
         run: npm install
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
+        working-directory: ${{ env.PS_DIR }}/tests/UI
 
       - name: Run tests
         id: run_tests
         run: |
           export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
           npm run test:${{ matrix.TEST_COMMAND }}
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
+        working-directory: ${{ env.PS_DIR }}/tests/UI
         env:
           URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           DB_NAME: prestashop
