@@ -195,21 +195,11 @@ jobs:
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
         name: Checkout PrestaShop repository with source branch ${{ env.SOURCE_BRANCH }}
-        if: ${{ inputs.use_nightly_build == false }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}
           ref: ${{ env.SOURCE_BRANCH }}
-
-      # Download release from nightly
-      - name: Download PrestaShop source release from nightly ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).zip }}
-        if: ${{ inputs.use_nightly_build }}
-        run: |
-          mkdir nightly
-          curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.source_version).zip }} -o nightly/source-prestashop.zip
-          unzip nightly/source-prestashop.zip -d nightly/source/
-          unzip nightly/source/prestashop.zip -d ${{ env.PS_DIR }}
 
       # Certificate
       - name: Generate a certificate
