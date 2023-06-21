@@ -4,15 +4,19 @@ on:
     inputs:
       source_branch:
         description: Use a source branch to start the upgrade from
+        type: string
         required: true
       target_branch:
         description: Use a target branch to upgrade to
+        type: string
         required: true
       php_version:
         description: PHP version
+        type: string
         required: true
       node_version:
         description: Node version
+        type: string
         required: true
 
 jobs:
