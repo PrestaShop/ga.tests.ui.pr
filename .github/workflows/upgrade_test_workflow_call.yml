@@ -241,7 +241,7 @@ jobs:
 
       - name: Install module via CLI commands
         run: |
-          docker exec -w modules/autoupgrade -u www-data prestashop_autoupgrade composer install
+          docker exec -w /var/www/html/modules/autoupgrade -u www-data prestashop_autoupgrade composer install
           docker exec -u www-data prestashop_autoupgrade php bin/console prestashop:module install autoupgrade
 
       - name: Upgrade shop to ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }}
