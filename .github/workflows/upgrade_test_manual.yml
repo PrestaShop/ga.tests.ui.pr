@@ -69,6 +69,6 @@ jobs:
       source_ref: ${{ github.event.inputs.source_ref }}
       target_ref: ${{ github.event.inputs.target_ref }}
       use_nightly_build: ${{ github.event.inputs.use_nightly_build }}
-      target_version: ${{ github.event.inputs.target_branch }}
+      target_version: ${{ github.event.inputs.target_version }}
       php_version: ${{ github.event.inputs.php_version }}
       node_version: ${{ github.event.inputs.node_version }}

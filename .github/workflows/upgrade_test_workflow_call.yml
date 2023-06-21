@@ -197,7 +197,7 @@ jobs:
 
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
-        name: Checkout PrestaShop repository with source branch ${{ inputs.source_ref }}
+        name: Checkout PrestaShop repository with source branch/tag ${{ inputs.source_ref }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
@@ -270,7 +270,7 @@ jobs:
 
       # If nightly build is NOT used we checkout the target repository in the latest folder
       - uses: actions/checkout@v3
-        name: Checkout target from branch ${{ inputs.target_ref }} in latest folder
+        name: Checkout target from branch/tag ${{ inputs.target_ref }} in latest folder
         if: ${{ inputs.use_nightly_build == false }}
         with:
           fetch-depth: 0
@@ -278,7 +278,7 @@ jobs:
           path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
           ref: ${{ inputs.target_ref }}
 
-      - name: Upgrade shop to target branch ${{ inputs.target_ref }} version ${{ inputs.target_version }}
+      - name: Upgrade shop to target branch/tag ${{ inputs.target_ref }} version ${{ inputs.target_version }}
         if: ${{ inputs.use_nightly_build == false }}
         run: |
           echo "{\"channel\":\"directory\",\"directory_num\":\"${{ inputs.target_version }}\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
@@ -297,7 +297,7 @@ jobs:
 
       # Checkout PrestaShop target UI tests
       - uses: actions/checkout@v3
-        name: Checkout tests from target version ${{ inputs.target_ref }}
+        name: Checkout tests from target branch/version ${{ inputs.target_ref }}
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop

@@ -12,5 +12,5 @@ jobs:
             target_ref: 8.1.0-build1
             target_version: 8.1.0
             use_nightly_build: false
-            php_version: 8.1
+            php_version: 7.4
             node_version: 14
