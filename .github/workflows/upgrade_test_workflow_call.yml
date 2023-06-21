@@ -6,6 +6,10 @@ on:
         description: Use a source branch to start the upgrade from
         type: string
         required: true
+      use_nightly_build:
+        description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
+        type: boolean
+        required: true
       target_branch:
         description: Use a target branch to upgrade to
         type: string
@@ -245,12 +249,33 @@ jobs:
       - name: Install module via CLI commands
         run: docker exec -u www-data prestashop_autoupgrade php bin/console prestashop:module install autoupgrade
 
-      - name: Upgrade shop to ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }}
+      # If nightly build is used we download the archives and xml file and perform an upgrade via archive channel
+      - name: Upgrade shop to nightly build ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }} - ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }}
+        if: ${{ inputs.use_nightly_build }}
         run: |
           docker exec -u www-data prestashop_autoupgrade mkdir admin-dev/autoupgrade/download
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).zip }} -o admin-dev/autoupgrade/download/prestashop.zip
           docker exec -u www-data prestashop_autoupgrade curl -L ${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).xml }} -o admin-dev/autoupgrade/download/prestashop.xml
           echo "{\"channel\":\"archive\",\"archive_prestashop\":\"prestashop.zip\",\"archive_num\":\"${{ fromJson(needs.get_ps_nightly_target_version.outputs.target_version).version }}\", \"archive_xml\":\"prestashop.xml\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
+          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
+          docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
+
+      # If nightly build is NOT used we checkout the target repository in the latest folder
+      - uses: actions/checkout@v3
+        name: Checkout target from branch ${{ inputs.target_branch }} in latest folder
+        if: ${{ inputs.use_nightly_build == false }}
+        with:
+          fetch-depth: 0
+          repository: PrestaShop/PrestaShop
+          path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
+          ref: ${{ inputs.target_branch }}
+
+      # todo: version is hard-coded and must be fetched from branch
+      - name: Upgrade shop to target branch ${{ inputs.target_branch }}
+        if: ${{ inputs.use_nightly_build == false }}
+        run: |
+          echo "{\"channel\":\"directory\",\"directory_num\":\"8.1.0\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev

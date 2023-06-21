@@ -12,3 +12,4 @@ jobs:
             target_branch: 8.1.x
             php_version: 8.1
             node_version: 14
+            use_nightly_build: 0
