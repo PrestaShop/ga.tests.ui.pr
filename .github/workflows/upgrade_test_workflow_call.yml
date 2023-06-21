@@ -26,8 +26,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
+      - uses: actions/checkout@v3
+        with:
+          path: main
+
       - id: set-target-nightly-version
         run: echo target_version=$(php ./.github/scripts/get_version_from_nightly.php ${{ github.event.inputs.target_branch }}) >> $GITHUB_OUTPUT
+        working-directory: main
 
       - name: Display nightly version
         shell: bash
@@ -177,11 +183,6 @@ jobs:
       - name: Print Inputs values
         shell: bash
         run: echo "${{ toJSON(github.event.inputs) }}"
-
-      # Checkout the repository
-      - uses: actions/checkout@v3
-        with:
-          path: main
 
       # Checkout PrestaShop source
       - uses: actions/checkout@v3
