@@ -2,6 +2,10 @@ name: Testing PrestaShop upgrade
 on:
   workflow_call:
     inputs:
+      upgrade_module_ref:
+        description: Use a branch or tag for the autoupgrade module
+        type: string
+        required: true
       source_ref:
         description: Use a source branch or tag to start the upgrade from
         type: string
@@ -256,6 +260,7 @@ jobs:
           fetch-depth: 0
           repository: PrestaShop/autoupgrade
           path: ${{ env.PS_DIR }}/modules/autoupgrade
+          ref: ${{ inputs.upgrade_module_ref }}
       - name: Composer install in module
         run: composer install
         working-directory: ${{ env.PS_DIR }}/modules/autoupgrade

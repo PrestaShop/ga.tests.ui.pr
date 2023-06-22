@@ -2,6 +2,18 @@ name: Testing PrestaShop upgrade
 on:
   workflow_dispatch:
     inputs:
+      upgrade_module_ref:
+        description: Use a branch or tag for the autoupgrade module
+        type: choice
+        required: true
+        options:
+          - 'dev'
+          - 'master'
+          - '1.7.8.x'
+          - 'v4.16.0'
+          - 'v4.15.0'
+          - 'v4.14.2'
+        default: 'dev'
       source_ref:
         type: choice
         description: Use a source branch or tag to start the upgrade from
