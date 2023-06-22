@@ -211,7 +211,6 @@ jobs:
       - uses: actions/checkout@v3
         name: Checkout PrestaShop repository with source branch/tag ${{ inputs.source_ref }}
         with:
-          fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}
           ref: ${{ inputs.source_ref }}
@@ -257,7 +256,6 @@ jobs:
       - uses: actions/checkout@v3
         name: Checkout Autoupgrade module
         with:
-          fetch-depth: 0
           repository: PrestaShop/autoupgrade
           path: ${{ env.PS_DIR }}/modules/autoupgrade
           ref: ${{ inputs.upgrade_module_ref }}
@@ -285,7 +283,6 @@ jobs:
         name: Checkout target from branch/tag ${{ inputs.target_ref }} in latest folder
         if: ${{ inputs.use_nightly_build == false }}
         with:
-          fetch-depth: 0
           repository: PrestaShop/PrestaShop
           path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
           ref: ${{ inputs.target_ref }}
@@ -306,17 +303,14 @@ jobs:
       - uses: actions/checkout@v3
         name: Checkout tests from target branch/version ${{ inputs.target_ref }}
         with:
-          fetch-depth: 0
           repository: PrestaShop/PrestaShop
-          path: target_prestashop
+          path: target_prestashop_tests
           ref: ${{ inputs.target_ref }}
-          sparse-checkout: |
-            tests/UI
       - name: Clear UI tests from source branch and copy those from target
         shell: bash
         run: |
           rm -fR ${{ env.PS_DIR }}/tests/UI
-          cp -R target_prestashop/tests/UI ${{ env.PS_DIR }}/tests/UI
+          cp -R target_prestashop_tests/tests/UI ${{ env.PS_DIR }}/tests/UI
       - name: Install tests dependencies
         run: npm install
         working-directory: ${{ env.PS_DIR }}/tests/UI

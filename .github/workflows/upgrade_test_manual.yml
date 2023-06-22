@@ -25,10 +25,6 @@ on:
           - '8.0.4'
           - '1.7.8.9'
         default: '1.7.8.x'
-      #source_version:
-      #  type: string
-      #  description: OR define a released version (ex 1.7.8.3) to start the upgrade from (ignored if left empty)
-      #  required: false
       target_ref:
         type: choice
         description: Use a target branch or tag to upgrade to
@@ -41,11 +37,6 @@ on:
           - '8.1.0-rc.1'
           - '8.1.0-build1'
         default: '8.1.x'
-      # LATER, can include a PR from the core to test an autoupgrade debug, we may need to build a release archive from the PR
-      #target_pr_number:
-      #  description: Pull request Id
-      #  required: true
-      # LATER, handle a specific version and build the source based on the existing release archives or github tags
       use_nightly_build:
         type: boolean
         description: Use latest nightly matching the target branch, if not the branch is checkout from repository branch HEAD
