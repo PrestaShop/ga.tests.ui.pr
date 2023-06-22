@@ -301,7 +301,7 @@ jobs:
       - name: Upgrade shop to target branch/tag ${{ inputs.target_ref }} version ${{ inputs.target_version }}
         if: ${{ inputs.use_nightly_build == false }}
         run: |
-          echo "{\"channel\":\"directory\",\"directory_num\":\"${{ inputs.target_version }}\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"PS_DISABLE_OVERRIDES:\"1\"\", \"PS_AUTOUP_CUSTOM_MOD_DESACT\": \"1\", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          echo "{\"channel\":\"directory\",\"directory_num\":\"${{ inputs.target_version }}\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"PS_DISABLE_OVERRIDES:\"1\"\", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
