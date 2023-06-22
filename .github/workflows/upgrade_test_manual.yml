@@ -64,6 +64,11 @@ on:
           - '14'
           - '16'
         default: '14'
+      upload_shop_on_failure:
+        description: Upload upgraded shop as an artifact if tests failed
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   manual_test_upgrade:
@@ -75,3 +80,4 @@ jobs:
       target_version: ${{ github.event.inputs.target_version }}
       php_version: ${{ github.event.inputs.php_version }}
       node_version: ${{ github.event.inputs.node_version }}
+      upload_shop_on_failure: ${{ github.event.inputs.upload_shop_on_failure }}

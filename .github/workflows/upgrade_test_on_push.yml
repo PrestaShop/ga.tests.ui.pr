@@ -4,6 +4,10 @@ name: Testing PrestaShop upgrade
 on:
     push:
 
+concurrency:
+    group: ${{ github.event_name }}-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
 jobs:
     auto_test_autoupgrade:
         uses: ./.github/workflows/upgrade_test_workflow_call.yml
@@ -15,3 +19,4 @@ jobs:
             use_nightly_build: false
             php_version: 7.4
             node_version: 14
+            upload_shop_on_failure: true

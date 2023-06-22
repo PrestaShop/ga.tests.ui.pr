@@ -30,6 +30,11 @@ on:
         description: Node version
         type: string
         required: true
+      upload_shop_on_failure:
+        description: Upload upgraded shop as an artifact if tests failed
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   # Pre-job : Get Upgrade target versions
@@ -180,6 +185,7 @@ jobs:
       ## Install PrestaShop & UI Tests
       VERSION: ${{ inputs.php_version }}-apache
       PS_INSTALL_AUTO: 1
+      DB_USER: root
       DB_PASSWD: prestashop
       DB_NAME: prestashop
       DB_SERVER: mysql
@@ -287,6 +293,7 @@ jobs:
           path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/latest
           ref: ${{ inputs.target_ref }}
       - name: Build assets and dependencies in target version
+        if: ${{ inputs.use_nightly_build == false }}
         run: |
           composer install
           make assets
@@ -332,6 +339,12 @@ jobs:
           SMTP_SERVER: '172.17.0.1'
 
       # UI Tests : Upload screenshots
+      - name: Create backup of the shop to upload as artifacts if a step failed and option upload_shop_on_failure is enabled
+        if: ${{ inputs.upload_shop_on_failure && failure() }}
+        run: |
+          zip -r shop_artifact.zip ${{ env.PS_DIR }}
+          docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} --password=${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > db_artifact.sql
+
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: ${{ always() }}
 
@@ -339,4 +352,7 @@ jobs:
         if: ${{ always() }}
         with:
           name: screenshots-${{ env.SCREENSHOT_CAMPAIGN }}
-          path: '${{ env.PS_DIR }}/tests/UI/screenshots/'
+          path: |
+            ${{ env.PS_DIR }}/tests/UI/screenshots/
+            shop_artifact.zip
+            db_artifact.sql
