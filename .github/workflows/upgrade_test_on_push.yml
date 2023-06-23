@@ -19,4 +19,4 @@ jobs:
             use_nightly_build: false
             php_version: 7.4
             node_version: 14
-            upload_shop_on_failure: true
+            upload_shop_on_failure: false
