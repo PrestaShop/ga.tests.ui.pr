@@ -301,7 +301,7 @@ jobs:
       - name: Upgrade shop to target branch/tag ${{ inputs.target_ref }} version ${{ inputs.target_version }}
         if: ${{ inputs.use_nightly_build == false }}
         run: |
-          echo "{\"channel\":\"directory\",\"directory_num\":\"${{ inputs.target_version }}\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"PS_DISABLE_OVERRIDES:\"1\"\", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          echo "{\"channel\":\"directory\",\"directory_num\":\"${{ inputs.target_version }}\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"PS_DISABLE_OVERRIDES\": \"1\", \"PS_AUTOUP_CUSTOM_MOD_DESACT\": \"1\", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data prestashop_autoupgrade php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
@@ -342,7 +342,7 @@ jobs:
       - name: Create backup of the shop to upload as artifacts if a step failed and option upload_shop_on_failure is enabled
         if: ${{ inputs.upload_shop_on_failure && failure() }}
         run: |
-          zip -r shop_artifact.zip ${{ env.PS_DIR }}
+          zip -q -r shop_artifact.zip ${{ env.PS_DIR }}
           docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} --password=${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > db_artifact.sql
 
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr ':' '-' )" >> $GITHUB_ENV
