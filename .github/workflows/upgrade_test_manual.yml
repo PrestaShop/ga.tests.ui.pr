@@ -24,7 +24,7 @@ on:
           - '1.7.8.x'
           - '8.0.4'
           - '1.7.8.9'
-        default: '1.7.8.x'
+        default: '8.0.x'
       target_ref:
         type: choice
         description: Use a target branch or tag to upgrade to
@@ -34,8 +34,7 @@ on:
           - '8.1.x'
           - '8.0.x'
           - '8.0.4'
-          - '8.1.0-rc.1'
-          - '8.1.0-build1'
+          - '8.1.0'
         default: '8.1.x'
       use_nightly_build:
         type: boolean
