@@ -12,6 +12,7 @@ on:
         options:
           - 'develop'
           - '8.1.x'
+          - '8.1.0-build1'
           - '8.0.x'
           - '1.7.8.x'
         default: 'develop'
@@ -102,7 +103,7 @@ jobs:
           - 'sanity'
           - 'sanity:productV2'
         BASE_BRANCH:
-          - ${{ github.event.inputs.base_branch }}
+          - ${{ github.event.inputs.base_branch == '8.1.0-build1' && '8.1.x' || github.event.inputs.base_branch }}
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
