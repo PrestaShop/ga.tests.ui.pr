@@ -47,9 +47,9 @@ on:
         description: Node version
         required: true
         options:
-          - '14'
-          - '16'
-        default: '14'
+          - '14.21.3'
+          - '16.20.1'
+        default: '14.21.3'
 
 jobs:
   testing-pr:
