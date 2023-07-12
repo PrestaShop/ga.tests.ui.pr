@@ -50,6 +50,14 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '14.21.3'
+      backoffice_layout:
+        type: choice
+        description: Backoffice layout
+        required: true
+        options:
+          - 'legacy'
+          - 'symfony'
+        default: 'legacy'
 
 jobs:
   testing-pr:
@@ -256,6 +264,13 @@ jobs:
         if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
         run: cp ./${{ env.PS_DIR }}/app/config/security_test.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
 
+      - name: Adapt Back Office layout
+        if: inputs.backoffice_layout == 'symfony'
+        working-directory: ${{ env.PS_DIR }}
+        shell: bash
+        run: |
+          echo PS_FF_SYMFONY_LAYOUT=true >> .env
+
       # Create shop with Docker
       - name: Build and run shop with docker
         working-directory: ${{ env.PS_DIR }}
@@ -304,5 +319,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: screenshots-${{ env.SCREENSHOT_CAMPAIGN }}
-          path: '${{ env.PS_DIR }}/tests/UI/screenshots/'
+          name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
+          path: |
+            '${{ env.PS_DIR }}/tests/UI/screenshots/'
+            '${{ env.PS_DIR }}/var/logs'
