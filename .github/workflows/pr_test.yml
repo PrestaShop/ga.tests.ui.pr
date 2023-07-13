@@ -95,6 +95,7 @@ jobs:
           - 'functional:BO:shop-parameters:05-07'
           - 'functional:BO:advanced-parameters:01-06'
           - 'functional:BO:advanced-parameters:07-10'
+          - 'functional:BO:advanced-parameters:11-12'
           - 'functional:BO:header'
           - 'functional:FO:01-03'
           - 'functional:FO:04-07'
@@ -115,6 +116,8 @@ jobs:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'functional:BO:dashboard'
           - BASE_BRANCH: 1.7.8.x
@@ -139,6 +142,8 @@ jobs:
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'cldr'
           - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:BO:dashboard'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:productV2'
@@ -157,6 +162,8 @@ jobs:
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'modules'
           ## 8.1.x
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:FO:01-03'
           - BASE_BRANCH: 8.1.x
