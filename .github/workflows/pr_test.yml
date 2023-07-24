@@ -330,5 +330,5 @@ jobs:
         with:
           name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
           path: |
-            '${{ env.PS_DIR }}/tests/UI/screenshots/'
-            '${{ env.PS_DIR }}/var/logs'
+            ${{ env.PS_DIR }}/tests/UI/screenshots/
+            ${{ env.PS_DIR }}/var/logs
