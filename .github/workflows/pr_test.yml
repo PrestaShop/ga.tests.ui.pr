@@ -307,7 +307,7 @@ jobs:
         working-directory: '${{ env.PS_DIR }}/tests/UI'
 
       - name: Run tests
-        id: run_tests
+        id: runTests
         run: |
           export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
           npm run test:${{ matrix.TEST_COMMAND }}
@@ -323,10 +323,10 @@ jobs:
 
       # UI Tests : Upload screenshots
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr ':' '-' )" >> $GITHUB_ENV
-        if: ${{ always() }}
+        if: failure() && steps.runTests.outcome == 'failure'
 
       - uses: actions/upload-artifact@v3
-        if: ${{ always() }}
+        if: failure() && steps.runTests.outcome == 'failure'
         with:
           name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
           path: |
