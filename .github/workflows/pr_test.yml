@@ -17,7 +17,7 @@ on:
         default: 'develop'
       ps_mode_dev:
         type: choice
-        description: Enable/Disable the developer mode 
+        description: Enable/Disable the developer mode
         required: true
         options:
           - 'true'
@@ -60,9 +60,155 @@ on:
         default: 'legacy'
 
 jobs:
+  building-docker:
+    runs-on: ubuntu-latest
+    name: Build docker
+    env:
+      # Input values
+      PR_NUMBER: ${{ github.event.inputs.pr_number }}
+      BASE_BRANCH: ${{ github.event.inputs.base_branch }}
+      PS_MODE_DEV: ${{ github.event.inputs.ps_mode_dev }}
+      PHP_VERSION: ${{ github.event.inputs.php_version }}
+      NODE_VERSION: ${{ github.event.inputs.node_version }}
+      REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
+      VERSION: ${{ github.event.inputs.php_version }}-apache
+      PS_DOMAIN: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
+      PS_ENABLE_SSL: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ (github.event.inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+      # Fixed values
+      DB_USER: root
+      DB_PASSWD: prestashop
+      DB_NAME: prestashop
+      DB_PREFIX: tst_
+      PS_DIR: 'my_prestashop'
+      PS_FOLDER_INSTALL: install-dev
+      PS_FOLDER_ADMIN: admin-dev
+      PS_COUNTRY: fr
+      PS_LANGUAGE: en
+      ADMIN_MAIL: 'demo@prestashop.com'
+      # Build assets and install shop
+      PS_INSTALL_AUTO: 1
+      DISABLE_MAKE: 0
+    steps:
+      - name: Print Inputs values
+        shell: bash
+        run: echo "${{ toJSON(github.event.inputs) }}"
+
+      # Checkout PrestaShop
+      - uses: actions/checkout@v3
+        name: Checkout PrestaShop repository
+        with:
+          fetch-depth: 0
+          repository: PrestaShop/PrestaShop
+          path: ${{ env.PS_DIR }}
+
+      - name: Config git
+        run: |
+          git config --local user.email "$(git log --format='%ae' HEAD^!)"
+          git config --local user.name "$(git log --format='%an' HEAD^!)"
+        working-directory: ${{ env.PS_DIR }}
+
+      # Get the PR
+      - name: Get pull request
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
+          git checkout pr${{ env.PR_NUMBER }}
+
+      - name: Rebase
+        working-directory: ${{ env.PS_DIR }}
+        if: ${{ env.REBASE_OR_MERGE == 'rebase' }}
+        run: |
+          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
+          git rebase origin/${{ env.BASE_BRANCH }}
+
+      - name: Merge
+        working-directory: ${{ env.PS_DIR }}
+        if: ${{ env.REBASE_OR_MERGE == 'merge' }}
+        run: |
+          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
+          git merge origin/${{ env.BASE_BRANCH }}
+
+      # Certificate
+      - name: Generate a certificate
+        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb
+          certutil -d $HOME/.pki/nssdb -N
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
+
+      # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
+      - name: PrestaShop Configuration (Copy of Config API)
+        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
+        run: cp ./${{ env.PS_DIR }}/app/config/security_test.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
+
+      - name: Adapt Back Office layout
+        if: inputs.backoffice_layout == 'symfony'
+        working-directory: ${{ env.PS_DIR }}
+        shell: bash
+        run: |
+          echo PS_FF_SYMFONY_LAYOUT=true >> .env
+
+      # Create shop with Docker build assets, and initialize database and shop content
+      - name: Build and run shop with docker
+        working-directory: ${{ env.PS_DIR }}
+        timeout-minutes: 15
+        env:
+          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ (github.event.inputs.base_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
+          # Initial build, we make assets and install shop data
+          DISABLE_MAKE: 0
+          PS_INSTALL_AUTO: 1
+        run: |
+          echo Build docker via docker composer
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
+          echo Waiting for response from the FO
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
+
+      # Prepare archive contents to share with following jobs
+      - name: Archive shop content
+        run: |
+          mkdir -p /tmp/shop-artifacts
+          echo Clean node_modules
+          rm -fR ${{ env.PS_DIR }}/admin-dev/themes/new-theme/node_modules
+          rm -fR ${{ env.PS_DIR }}/admin-dev/themes/default/node_modules
+          rm -fR ${{ env.PS_DIR }}/themes/classic/_dev
+          rm -fR ${{ env.PS_DIR }}/themes/_core
+          rm -fR ${{ env.PS_DIR }}/themes/node_modules
+          rm -fR ${{ env.PS_DIR }}/var/cache/*
+          rm -fR ${{ env.PS_DIR }}/.git
+          zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }}
+          docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
+
+      -   name: Upload docker artifacts
+          uses: actions/upload-artifact@v3
+          with:
+            name: shop-artifacts
+            path: /tmp/shop-artifacts
+
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: Build error export logs
+          path: |
+            ${{ env.PS_DIR }}/var/logs
+
   testing-pr:
     runs-on: ubuntu-latest
-    name: test
+    name: Test PR
+    needs: building-docker
     strategy:
       fail-fast: false
       matrix:
@@ -181,74 +327,44 @@ jobs:
             TEST_COMMAND: 'sanity:productV2'
 
     env:
+      # Input values
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
       BASE_BRANCH: ${{ github.event.inputs.base_branch }}
       PS_MODE_DEV: ${{ github.event.inputs.ps_mode_dev }}
       PHP_VERSION: ${{ github.event.inputs.php_version }}
       NODE_VERSION: ${{ github.event.inputs.node_version }}
       REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
-      PS_DIR: 'my_prestashop'
-      ## Install PrestaShop & UI Tests
       VERSION: ${{ github.event.inputs.php_version }}-apache
-      PS_INSTALL_AUTO: 1
+      PS_DOMAIN: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
+      PS_ENABLE_SSL: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ (github.event.inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      # Fixed values
+      DB_USER: root
       DB_PASSWD: prestashop
       DB_NAME: prestashop
-      DB_SERVER: mysql
       DB_PREFIX: tst_
-      PS_DOMAIN: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_DIR: 'my_prestashop'
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
       PS_COUNTRY: fr
       PS_LANGUAGE: en
-      PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
-      PS_ENABLE_SSL: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
       ADMIN_MAIL: 'demo@prestashop.com'
-      ADMIN_PASSWD: ${{ (github.event.inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
 
     steps:
       - name: Print Inputs values
         shell: bash
         run: echo "${{ toJSON(github.event.inputs) }}"
 
-      # Checkout the repository
-      - uses: actions/checkout@v3
+      - name: Download docker artifacts
+        uses: actions/download-artifact@v3
         with:
-          path: main
+          name: shop-artifacts
+          path: /tmp/shop-artifacts
 
-      # Checkout PrestaShop
-      - uses: actions/checkout@v3
-        name: Checkout PrestaShop repository
-        with:
-          fetch-depth: 0
-          repository: PrestaShop/PrestaShop
-          path: ${{ env.PS_DIR }}
-
-      - name: Config git
+      - name: Extract PrestaShop sources
         run: |
-          git config --local user.email "$(git log --format='%ae' HEAD^!)"
-          git config --local user.name "$(git log --format='%an' HEAD^!)"
-        working-directory: ${{ env.PS_DIR }}
-
-      # Get the PR
-      - name: Get pull request
-        working-directory: ${{ env.PS_DIR }}
-        run: |
-          git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
-          git checkout pr${{ env.PR_NUMBER }}
-
-      - name: Rebase
-        working-directory: ${{ env.PS_DIR }}
-        if: ${{ env.REBASE_OR_MERGE == 'rebase' }}
-        run: |
-          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
-          git rebase origin/${{ env.BASE_BRANCH }}
-
-      - name: Merge
-        working-directory: ${{ env.PS_DIR }}
-        if: ${{ env.REBASE_OR_MERGE == 'merge' }}
-        run: |
-          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
-          git merge origin/${{ env.BASE_BRANCH }}
+          unzip -q /tmp/shop-artifacts/sources.zip -d .
 
       # Certificate
       - name: Generate a certificate
@@ -262,35 +378,40 @@ jobs:
           ## Generate certificate
           mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
           ## Link certificate to Chrome Trust Store
-          mkdir -p $HOME/.pki/nssdb 
-          certutil -d $HOME/.pki/nssdb -N 
+          mkdir -p $HOME/.pki/nssdb
+          certutil -d $HOME/.pki/nssdb -N
           certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
           ## Add self-signed certificate to Chrome Trust Store
           mkcert -install
 
-      # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
-      - name: PrestaShop Configuration (Copy of Config API)
-        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
-        run: cp ./${{ env.PS_DIR }}/app/config/security_test.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
-
-      - name: Adapt Back Office layout
-        if: inputs.backoffice_layout == 'symfony'
+      - name: Setup database
         working-directory: ${{ env.PS_DIR }}
-        shell: bash
+        timeout-minutes: 5
         run: |
-          echo PS_FF_SYMFONY_LAYOUT=true >> .env
+          echo Starting mysql docker alone
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build mysql
+          echo Wait until mysql is accessible
+          until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 5; done
+          echo Copying dump into docker
+          docker cp /tmp/shop-artifacts/db_dump.sql my_prestashop_mysql_1:/tmp/db_dump.sql
+          echo Creating ${{ env.DB_NAME }} database
+          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
+          echo Load dump into DB
+          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
 
-      # Create shop with Docker
-      - name: Build and run shop with docker
+      - name: Start up shop docker
         working-directory: ${{ env.PS_DIR }}
-        timeout-minutes: 15
+        timeout-minutes: 5
         env:
-          DISABLE_MAKE: 0
-          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           VERSION: ${{ (github.event.inputs.base_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
+          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          # No install we force the sources and load the SQL dump
+          PS_INSTALL_AUTO: 0
+          DISABLE_MAKE: 1
         run: |
-          USER_ID=$(id -u) GROUP_ID=$(id -g) \
-          docker-compose -f docker-compose.yml up -d --build
+          echo Build the remaining dockers
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
+          echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
       # UI Tests : Setup, Install & Execute
@@ -298,6 +419,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: '${{ env.PS_DIR }}/tests/UI/package-lock.json'
 
       - name: Setup NPM
         run: npm install -g npm@7
@@ -328,12 +451,20 @@ jobs:
 
       # UI Tests : Upload screenshots
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr ':' '-' )" >> $GITHUB_ENV
-        if: failure() && steps.runTests.outcome == 'failure'
+        if: failure()
+
+      - run: |
+          mkdir -p ${{ env.PS_DIR }}/var/docker-logs
+          docker logs my_prestashop_mysql_1 > ${{ env.PS_DIR }}/var/docker-logs/mysql.log
+          docker logs my_prestashop_prestashop-git_1 > ${{ env.PS_DIR }}/var/docker-logs/prestashop.log
+          docker logs my_prestashop_keycloak_1 > ${{ env.PS_DIR }}/var/docker-logs/keycloak.log
+        if: failure()
 
       - uses: actions/upload-artifact@v3
-        if: failure() && steps.runTests.outcome == 'failure'
+        if: failure()
         with:
           name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
           path: |
             ${{ env.PS_DIR }}/tests/UI/screenshots/
             ${{ env.PS_DIR }}/var/logs
+            ${{ env.PS_DIR }}/var/docker-logs
