@@ -179,6 +179,8 @@ jobs:
             TEST_COMMAND: 'functional:FO:08-12'
           - BASE_BRANCH: develop
             TEST_COMMAND: 'sanity:productV2'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:productV2'
 
     env:
       PR_NUMBER: ${{ github.event.inputs.pr_number }}
