@@ -1,0 +1,126 @@
+name: Testing PrestaShop pull requests
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull request Id
+        required: true
+      base_branch:
+        type: choice
+        description: Base branch to rebase the PR
+        required: true
+        options:
+          - 'develop'
+          - '8.1.x'
+          - '8.0.x'
+          - '1.7.8.x'
+        default: 'develop'
+      test_command:
+        type: choice
+        description: Select one test command (it may not be available on the selected branch)
+        required: true
+        options:
+          - 'cldr'
+          - 'functional:API'
+          - 'functional:BO:login'
+          - 'functional:BO:dashboard'
+          - 'functional:BO:orders:01:0-1'
+          - 'functional:BO:orders:01-create-orders'
+          - 'functional:BO:orders:01-view-and-edit-order'
+          - 'functional:BO:orders:02'
+          - 'functional:BO:orders:03-05'
+          - 'functional:BO:catalog:01-02'
+          - 'functional:BO:catalog:03-04'
+          - 'functional:BO:catalog:05-06'
+          - 'functional:BO:catalog:07-08'
+          - 'functional:BO:customer:01'
+          - 'functional:BO:customer:02-03'
+          - 'functional:BO:customer-service'
+          - 'functional:BO:modules'
+          - 'functional:BO:design'
+          - 'functional:BO:shipping'
+          - 'functional:BO:payment'
+          - 'functional:BO:international:01'
+          - 'functional:BO:international:02'
+          - 'functional:BO:international:03-04'
+          - 'functional:BO:shop-parameters:01-02'
+          - 'functional:BO:shop-parameters:03-04'
+          - 'functional:BO:shop-parameters:05-07'
+          - 'functional:BO:advanced-parameters:01-06'
+          - 'functional:BO:advanced-parameters:07-10'
+          - 'functional:BO:advanced-parameters:11-12'
+          - 'functional:BO:header'
+          - 'functional:FO:01-03'
+          - 'functional:FO:04-07'
+          - 'functional:FO:08-12'
+          - 'functional:FO:classic:01-03'
+          - 'functional:FO:classic:04-07'
+          - 'functional:FO:classic:08-12'
+          - 'functional:FO:hummingbird:01-03'
+          - 'functional:productV2'
+          - 'functional:WS'
+          - 'modules'
+          - 'regression'
+          - 'sanity'
+          - 'sanity:productV2'
+      ps_mode_dev:
+        type: boolean
+        description: Use developer mode?
+        required: true
+      rebase_or_merge:
+        type: choice
+        required: true
+        description: Rebase or merge the pull request
+        options:
+          - 'rebase'
+          - 'merge'
+        default: 'rebase'
+      php_version:
+        type: choice
+        description: PHP version
+        required: true
+        options:
+          - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+        default: '8.1'
+      node_version:
+        type: choice
+        description: Node version
+        required: true
+        options:
+          - '14.21.3'
+          - '16.20.1'
+        default: '14.21.3'
+      backoffice_layout:
+        type: choice
+        description: Backoffice layout
+        required: true
+        options:
+          - 'legacy'
+          - 'symfony'
+        default: 'legacy'
+
+jobs:
+  build-shop:
+    uses: ./.github/workflows/build-shop.yml
+    with:
+      pr_number: ${{ inputs.pr_number }}
+      base_branch: ${{ inputs.base_branch }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      rebase_or_merge: ${{ inputs.rebase_or_merge }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      backoffice_layout: ${{ inputs.backoffice_layout }}
+
+  test-pr:
+    needs: build-shop
+    uses: ./.github/workflows/run-ui-tests.yml
+    with:
+      base_branch: ${{ inputs.base_branch }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      test_command: ${{ inputs.test_command }}

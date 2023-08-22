@@ -1,0 +1,65 @@
+name: Checkout PrestaShop and prepare config
+description: Checkout PrestaShop and prepare config
+inputs:
+  pr_number:
+    description: Pull request Id
+    required: true
+  base_branch:
+    description: Base branch to rebase the PR
+    required: true
+  rebase_or_merge:
+    required: true
+    description: Rebase or merge the pull request
+  backoffice_layout:
+    description: Backoffice layout
+    required: true
+  ps_dir:
+    description: Directory target
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Checkout PrestaShop
+    - uses: actions/checkout@v3
+      name: Checkout PrestaShop repository
+      with:
+        fetch-depth: 1
+        repository: PrestaShop/PrestaShop
+        path: ${{ inputs.ps_dir }}
+
+    - name: Config git
+      run: |
+        git config --local user.email "$(git log --format='%ae' HEAD^!)"
+        git config --local user.name "$(git log --format='%an' HEAD^!)"
+      working-directory: ${{ inputs.ps_dir }}
+      shell: bash
+
+    # Get the PR
+    - name: Get pull request
+      working-directory: ${{ inputs.ps_dir }}
+      run: |
+        git fetch origin pull/${{ inputs.pr_number }}/head:pr${{ inputs.pr_number }}
+        git checkout pr${{ inputs.pr_number }}
+      shell: bash
+
+    - name: Rebase
+      working-directory: ${{ inputs.ps_dir }}
+      if: ${{ inputs.rebase_or_merge == 'rebase' }}
+      run: |
+        git fetch origin ${{ inputs.base_branch }}:${{ inputs.base_branch }}
+        git rebase origin/${{ inputs.base_branch }}
+      shell: bash
+
+    # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
+    - name: PrestaShop Configuration (Copy of Config API)
+      if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+      run: cp ./${{ inputs.ps_dir }}/app/config/security_test.yml ./${{ inputs.ps_dir }}/app/config/security_prod.yml
+      shell: bash
+
+    - name: Adapt Back Office layout
+      if: inputs.backoffice_layout == 'symfony'
+      working-directory: ${{ inputs.ps_dir }}
+      run: |
+        echo PS_FF_SYMFONY_LAYOUT=true >> .env
+      shell: bash
