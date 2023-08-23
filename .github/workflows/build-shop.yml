@@ -66,10 +66,13 @@ jobs:
         shell: bash
         run: echo "${{ toJSON(inputs) }}"
 
-      # Checkout repository to use custom action
+      # Checkout repository to use custom actions
       - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+
       - name: Checkout PrestaShop
-        uses: ./.github/workflows/actions/checkout-prestashop
+        uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
         with:
           pr_number: ${{ inputs.pr_number }}
           base_branch: ${{ inputs.base_branch }}
@@ -95,6 +98,42 @@ jobs:
           ## Add self-signed certificate to Chrome Trust Store
           mkcert -install
 
+      # Install composer vendors
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+        working-directory: '${{ env.PS_DIR }}'
+
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader --no-dev
+        working-directory: '${{ env.PS_DIR }}'
+
+      # Install node dependencies
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: |
+            ${{ env.PS_DIR }}/admin-dev/themes/new-theme/package-lock.json
+            ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
+            ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
+            ${{ env.PS_DIR }}/themes/package-lock.json
+
+      # Build assets
+      - run: (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; npm ci; npm run build; popd)
+          & (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; npm ci; npm run build; popd)
+          & (pushd ${{ env.PS_DIR }}/themes/classic/_dev; npm ci; npm run build; popd)
+          & (pushd ${{ env.PS_DIR }}/themes; npm ci; npm run build; popd)
+
       # Create shop with Docker build assets, and initialize database and shop content
       - name: Build and run shop with docker
         working-directory: ${{ env.PS_DIR }}
@@ -102,26 +141,14 @@ jobs:
         env:
           URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
-          # Initial build, we make assets and install shop data
-          DISABLE_MAKE: 0
+          # Initial build, install shop data but assets are already built
+          DISABLE_MAKE: 1
           PS_INSTALL_AUTO: 1
         run: |
           echo Build docker via docker composer
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
-
-      # UI Tests : Setup, Install & Execute
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: '${{ env.PS_DIR }}/tests/UI/package-lock.json'
-
-      - name: Install tests dependencies
-        run: npm ci
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
 
       # Prepare archive contents to share with following jobs
       - name: Archive shop content
@@ -138,7 +165,7 @@ jobs:
           zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }}
           docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
 
-      - name: Upload docker artifacts
+      - name: Upload shop artifacts
         uses: actions/upload-artifact@v3
         with:
           name: shop-artifacts

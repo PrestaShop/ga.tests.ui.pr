@@ -55,6 +55,11 @@ jobs:
         shell: bash
         run: echo "${{ toJSON(inputs) }}"
 
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+
       - name: Download docker artifacts
         uses: actions/download-artifact@v3
         with:
@@ -90,7 +95,7 @@ jobs:
           echo Starting mysql docker alone
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build mysql
           echo Wait until mysql is accessible
-          until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 5; done
+          until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
           echo Copying dump into docker
           docker cp /tmp/shop-artifacts/db_dump.sql my_prestashop_mysql_1:/tmp/db_dump.sql
           echo Creating ${{ env.DB_NAME }} database
@@ -112,6 +117,17 @@ jobs:
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
+
+      # Don't know why this is required to do this here, when node_modules are installed in the build step and given via the archive
+      # they can't be run and an error occurs (to be investigated, it would be better if this is done once in the build)
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.PS_DIR }}/tests/UI/package-lock.json
+      - run: npm ci
+        working-directory: '${{ env.PS_DIR }}/tests/UI'
 
       - name: Run tests
         id: runTests
