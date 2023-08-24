@@ -125,14 +125,11 @@ jobs:
 
       # Don't know why this is required to do this here, when node_modules are installed in the build step and given via the archive
       # they can't be run and an error occurs (to be investigated, it would be better if this is done once in the build)
-      - name: Setup Node ${{ inputs.node_version }}
-        uses: actions/setup-node@v3
+      - uses: ./custom_actions/.github/workflows/actions/install-node-modules
         with:
-          node-version: ${{ inputs.node_version }}
-          cache: 'npm'
-          cache-dependency-path: ${{ env.PS_DIR }}/tests/UI/package-lock.json
-      - run: npm ci
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
+          node_version: ${{ inputs.node_version }}
+          package_locks: |
+            ${{ env.PS_DIR }}/tests/UI/package-lock.json
 
       - name: Run tests
         id: runTests

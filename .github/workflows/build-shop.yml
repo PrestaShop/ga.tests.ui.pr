@@ -117,22 +117,14 @@ jobs:
         working-directory: '${{ env.PS_DIR }}'
 
       # Install node dependencies
-      - name: Setup Node ${{ inputs.node_version }}
-        uses: actions/setup-node@v3
+      - uses: ./custom_actions/.github/workflows/actions/install-node-modules
         with:
-          node-version: ${{ inputs.node_version }}
-          cache: 'npm'
-          cache-dependency-path: |
+          node_version: ${{ inputs.node_version }}
+          package_locks: |
             ${{ env.PS_DIR }}/admin-dev/themes/new-theme/package-lock.json
             ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
             ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
             ${{ env.PS_DIR }}/themes/package-lock.json
-
-      # Build assets
-      - run: (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; npm ci; npm run build; popd)
-          & (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; npm ci; npm run build; popd)
-          & (pushd ${{ env.PS_DIR }}/themes/classic/_dev; npm ci; npm run build; popd)
-          & (pushd ${{ env.PS_DIR }}/themes; npm ci; npm run build; popd)
 
       # Create shop with Docker build assets, and initialize database and shop content
       - name: Build and run shop with docker
@@ -150,19 +142,18 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
 
-      # Prepare archive contents to share with following jobs
+      # Prepare archive contents to share with following jobs, ignore folders but keep them, so they can be cached at the end of the job
       - name: Archive shop content
         run: |
           mkdir -p /tmp/shop-artifacts
-          echo Clean node_modules
-          rm -fR ${{ env.PS_DIR }}/admin-dev/themes/new-theme/node_modules
-          rm -fR ${{ env.PS_DIR }}/admin-dev/themes/default/node_modules
-          rm -fR ${{ env.PS_DIR }}/themes/classic/_dev
-          rm -fR ${{ env.PS_DIR }}/themes/_core
-          rm -fR ${{ env.PS_DIR }}/themes/node_modules
-          rm -fR ${{ env.PS_DIR }}/var/cache/*
-          rm -fR ${{ env.PS_DIR }}/.git
-          zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }}
+          zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }} -x \
+            "*/admin-dev/themes/new-theme/node_modules/**/*" \
+            "*/admin-dev/themes/default/node_modules/**/*" \
+            "*/themes/classic/_dev/**/*" \
+            "*/themes/_core/**/*" \
+            "*/themes/node_modules/**/*" \
+            "*/var/cache/**/*" \
+            "*/.git/**/*"
           docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
 
       - name: Upload shop artifacts

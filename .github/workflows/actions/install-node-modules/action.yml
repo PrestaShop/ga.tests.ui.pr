@@ -1,0 +1,79 @@
+name: Install node modules
+description: Install node modules in a defined folder and cache results
+inputs:
+  node_version:
+    description: Node version
+    required: true
+  package_locks:
+    description: JS packages.lock list
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Reformat packages input into arrays of folders, build and install commands The arrays are exported in JSON format since we can't export arrays to output
+    - name: Prepare action parameters
+      id: action-parameters
+      run: |
+        # Build command only when the node modules cache is found
+        buildCommandJson='['
+        # Install plus build when the cache is not found
+        installCommandJson='['
+        # Build list of node_modules folders
+        nodeModules=''
+
+        IFS=$' \t\n'
+        commaSeparator=''
+        spaceSeparator=''
+        while read -r package_lock; do
+          if test -f "$package_lock"; then
+            js_folder=$(echo $package_lock | sed s_/package-lock\.json__)
+            package_json=$(echo $package_lock | sed s_package-lock\.json_package\.json_)
+            nodeModules+="$spaceSeparator$js_folder/node_modules"
+            # Only build when the action is in the package.json
+            if grep -q '"build":' "$package_json"; then
+              buildCommandJson+="$commaSeparator\"(pushd $js_folder; npm run build; popd)\""
+              installCommandJson+="$commaSeparator\"(pushd $js_folder; npm ci; npm run build; popd)\""
+            else
+              installCommandJson+="$commaSeparator\"(pushd $js_folder; npm ci; popd)\""
+            fi
+            commaSeparator=', '
+            spaceSeparator=' '
+          fi
+        done <<< "${{ inputs.package_locks }}"
+
+        buildCommandJson+=']'
+        installCommandJson+=']'
+        
+        echo $buildCommandJson
+        echo $installCommandJson
+
+        echo "build-command=$buildCommandJson" >> $GITHUB_OUTPUT
+        echo "install-command=$installCommandJson" >> $GITHUB_OUTPUT
+        echo "node-modules=$nodeModules" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Cache dependencies
+      id: cache-dependencies
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.action-parameters.outputs.node-modules }}
+        key: node-modules-${{ inputs.node_version }}-${{ hashFiles(inputs.package_locks) }}
+
+    - name: Setup Node ${{ inputs.node_version }}
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node_version }}
+        cache: 'npm'
+        cache-dependency-path: ${{ inputs.package_locks }}
+
+    - name: Install dependencies and build assets
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      run: ${{ join(fromJson(steps.action-parameters.outputs.install-command), ' & ') }}
+      shell: bash
+
+    - name: Build assets only (dependencies came from cache)
+      if: steps.cache-dependencies.outputs.cache-hit == 'true'
+      run: ${{ join(fromJson(steps.action-parameters.outputs.build-command), ' & ') }}
+      shell: bash
