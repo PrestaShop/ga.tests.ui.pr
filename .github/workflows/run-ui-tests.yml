@@ -22,6 +22,11 @@ on:
         type: string
         description: Test command to run
         required: true
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: false
 
 jobs:
   testing-pr:
@@ -133,7 +138,7 @@ jobs:
         id: runTests
         run: |
           export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
-          npm run test:${{ inputs.test_command }}
+          npm run test:${{ inputs.test_command }} ${{ env.BAIL_ARGUMENT }}
         working-directory: '${{ env.PS_DIR }}/tests/UI'
         env:
           URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
@@ -143,6 +148,7 @@ jobs:
           ENABLE_SSL: true
           TAKE_SCREENSHOT_AFTER_FAIL: true
           SMTP_SERVER: '172.17.0.1'
+          EXTRA_TEST_PARAMS: ${{ inputs.fast_fail && '--bail' || '' }}
 
       # UI Tests : Upload screenshots
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ inputs.test_command }}' | tr ':' '-' )" >> $GITHUB_ENV

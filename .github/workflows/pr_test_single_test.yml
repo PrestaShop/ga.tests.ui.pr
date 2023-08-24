@@ -1,4 +1,4 @@
-name: Testing PrestaShop pull requests
+name: Testing PrestaShop pull requests with a single test command
 on:
   workflow_dispatch:
     inputs:
@@ -63,6 +63,11 @@ on:
           - 'regression'
           - 'sanity'
           - 'sanity:productV2'
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: false
       ps_mode_dev:
         type: boolean
         description: Use developer mode?
@@ -124,3 +129,4 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       test_command: ${{ inputs.test_command }}
+      fast_fail: ${{ inputs.fast_fail }}

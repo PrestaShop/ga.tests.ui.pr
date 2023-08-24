@@ -27,6 +27,11 @@ on:
           - 'rebase'
           - 'merge'
         default: 'rebase'
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: false
       php_version:
         type: choice
         description: PHP version
@@ -76,6 +81,7 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       test_command: ${{ matrix.TEST_COMMAND }}
+      fast_fail: ${{ inputs.fast_fail }}
     strategy:
       fail-fast: false
       matrix:

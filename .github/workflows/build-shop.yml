@@ -113,7 +113,7 @@ jobs:
             ${{ runner.os }}-composer-
 
       - name: Install Composer dependencies
-        run: composer install --prefer-dist --optimize-autoloader --no-dev
+        run: composer install --prefer-dist --optimize-autoloader
         working-directory: '${{ env.PS_DIR }}'
 
       # Install node dependencies
