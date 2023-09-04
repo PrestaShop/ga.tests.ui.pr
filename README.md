@@ -4,6 +4,8 @@
 Sometimes, when creating a new pull request, running `Sanity tests` is not enough, So you need to run all existing tests on it.
 This repository will help you do that.
 
+⚠️ Don't forget to update your fork: this tool is regularly improved and you have to use the latest version of it. 
+
 ## How to use it ?
 First of all, you have to fork this repository on GitHub, to have the same one linked to your user account.
 
