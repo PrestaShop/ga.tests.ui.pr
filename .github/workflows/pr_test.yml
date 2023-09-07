@@ -326,7 +326,7 @@ jobs:
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: failure() && steps.runTests.outcome == 'failure'
 
-      - run: docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
+      - run: docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/db_dump.sql
         if: failure() && steps.runTests.outcome == 'failure'
 
       - uses: actions/upload-artifact@v3
@@ -336,4 +336,4 @@ jobs:
           path: |
             ${{ env.PS_DIR }}/tests/UI/screenshots/
             ${{ env.PS_DIR }}/var/logs
-            /tmp/shop-artifacts/db_dump.sql
+            /tmp/db_dump.sql
