@@ -286,7 +286,7 @@ jobs:
         timeout-minutes: 15
         env:
           DISABLE_MAKE: 0
-          PS_INSTALL_AUTO: ${{ (matrix.TEST_COMMAND == 'sanity') && 0 || 1 }}
+          PS_INSTALL_AUTO: ${{ (matrix.TEST_COMMAND == 'sanity') && '0' || '1' }}
           URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           VERSION: ${{ (github.event.inputs.base_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
         run: |
