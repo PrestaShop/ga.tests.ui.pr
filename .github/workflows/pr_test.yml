@@ -86,9 +86,9 @@ jobs:
       node_version: ${{ inputs.node_version }}
       backoffice_layout: ${{ inputs.backoffice_layout }}
 
-  # These campaigns are put first because they are longer, so we try to optimize the total run However this list must not
+  # These campaigns are run first because they are longer, so we try to optimize the total run However this list must not
   # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
-  # delicate balance to find
+  # delicate balance to maintain The criteria so far was campaign longer than 15min
   test-long-campaigns:
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
@@ -103,25 +103,17 @@ jobs:
       fail-fast: false
       matrix:
         TEST_COMMAND:
-          - 'functional:BO:international:01'
+          - 'functional:BO:advanced-parameters:07-10'
+          - 'functional:BO:catalog:03-04'
+          - 'functional:BO:catalog:07-08'
+          - 'functional:BO:design'
+          - 'functional:BO:orders:01-create-orders'
+          - 'functional:BO:orders:01-view-and-edit-order'
+          - 'functional:BO:orders:03-05'
           - 'functional:BO:shop-parameters:03-04'
           - 'functional:BO:shop-parameters:05-07'
           - 'functional:BO:shop-parameters:01-02'
-          - 'functional:BO:orders:01-create-orders'
-          - 'functional:BO:orders:01-view-and-edit-order'
-          - 'functional:BO:orders:01:0-1'
-          - 'functional:BO:orders:02'
-          - 'functional:BO:orders:03-05'
-          - 'functional:FO:classic:01-03'
           - 'functional:FO:classic:08-12'
-          - 'functional:BO:header'
-          - 'functional:BO:design'
-          - 'functional:BO:customer:02-03'
-          - 'functional:BO:catalog:03-04'
-          - 'functional:BO:catalog:01-02'
-          - 'functional:BO:advanced-parameters:01-06'
-          - 'functional:BO:advanced-parameters:07-10'
-          - 'sanity'
         BASE_BRANCH:
           - ${{ inputs.base_branch }}
         exclude:
@@ -210,19 +202,26 @@ jobs:
           - 'functional:API'
           - 'functional:BO:login'
           - 'functional:BO:dashboard'
+          - 'functional:BO:advanced-parameters:01-06'
+          - 'functional:BO:advanced-parameters:11-12'
+          - 'functional:BO:catalog:01-02'
           - 'functional:BO:catalog:05-06'
-          - 'functional:BO:catalog:07-08'
           - 'functional:BO:customer:01'
+          - 'functional:BO:customer:02-03'
           - 'functional:BO:customer-service'
-          - 'functional:BO:modules'
-          - 'functional:BO:shipping'
-          - 'functional:BO:payment'
+          - 'functional:BO:header'
+          - 'functional:BO:international:01'
           - 'functional:BO:international:02'
           - 'functional:BO:international:03-04'
-          - 'functional:BO:advanced-parameters:11-12'
+          - 'functional:BO:modules'
+          - 'functional:BO:orders:01:0-1'
+          - 'functional:BO:orders:02'
+          - 'functional:BO:payment'
+          - 'functional:BO:shipping'
           - 'functional:FO:01-03'
           - 'functional:FO:04-07'
           - 'functional:FO:08-12'
+          - 'functional:FO:classic:01-03'
           - 'functional:FO:classic:04-07'
           - 'functional:FO:hummingbird:01-03'
           - 'functional:productV2'
