@@ -15,10 +15,23 @@ on:
           - '8.0.x'
           - '1.7.8.x'
         default: 'develop'
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: false
       ps_mode_dev:
         type: boolean
         description: Use developer mode?
         required: true
+      backoffice_layout:
+        type: choice
+        description: Backoffice layout
+        required: true
+        options:
+          - 'legacy'
+          - 'symfony'
+        default: 'legacy'
       rebase_or_merge:
         type: choice
         required: true
@@ -27,11 +40,6 @@ on:
           - 'rebase'
           - 'merge'
         default: 'rebase'
-      fast_fail:
-        type: boolean
-        description: Fast fail on first error
-        required: true
-        default: false
       php_version:
         type: choice
         description: PHP version
@@ -51,14 +59,6 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '14.21.3'
-      backoffice_layout:
-        type: choice
-        description: Backoffice layout
-        required: true
-        options:
-          - 'legacy'
-          - 'symfony'
-        default: 'legacy'
 
 jobs:
   # Sanity tests are run independently because it's the only campaign that handles the installation itself, since it tests it

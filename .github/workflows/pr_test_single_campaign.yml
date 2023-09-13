@@ -72,6 +72,14 @@ on:
         type: boolean
         description: Use developer mode?
         required: true
+      backoffice_layout:
+        type: choice
+        description: Backoffice layout
+        required: true
+        options:
+          - 'legacy'
+          - 'symfony'
+        default: 'legacy'
       rebase_or_merge:
         type: choice
         required: true
@@ -99,14 +107,6 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '14.21.3'
-      backoffice_layout:
-        type: choice
-        description: Backoffice layout
-        required: true
-        options:
-          - 'legacy'
-          - 'symfony'
-        default: 'legacy'
 
 jobs:
   build-shop:
