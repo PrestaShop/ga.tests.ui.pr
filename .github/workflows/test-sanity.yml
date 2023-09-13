@@ -142,7 +142,7 @@ jobs:
           PS_INSTALL_AUTO: 0
         run: |
           echo Build docker via docker composer
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
 
       - name: Start sanity campaign
         uses: ./custom_actions/.github/workflows/actions/run-tests

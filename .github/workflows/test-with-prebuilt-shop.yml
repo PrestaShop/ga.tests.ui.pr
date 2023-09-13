@@ -99,7 +99,7 @@ jobs:
         run: |
           echo Starting mysql docker alone
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build mysql
-          echo Wait until mysql is accessible (minimum 10 seconds before testing)
+          echo Wait until mysql is accessible minimum 10 seconds before testing
           sleep 10
           until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
           echo Copying dump into docker
