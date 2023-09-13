@@ -122,7 +122,7 @@ jobs:
 
   test-pr:
     needs: build-shop
-    uses: ./.github/workflows/run-ui-tests.yml
+    uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
       base_branch: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}

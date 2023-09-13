@@ -61,6 +61,20 @@ on:
         default: 'legacy'
 
 jobs:
+  # Sanity tests are run independently because it's the only campaign that handles the installation itself, since it tests it
+  sanity-test:
+    uses: ./.github/workflows/test-sanity.yml
+    with:
+      pr_number: ${{ inputs.pr_number }}
+      base_branch: ${{ inputs.base_branch }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      rebase_or_merge: ${{ inputs.rebase_or_merge }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      backoffice_layout: ${{ inputs.backoffice_layout }}
+      fast_fail: ${{ inputs.fast_fail }}
+
+  # We perform a unique build that is stored as an artifact, only then do we start the campaign that will rely on this build
   build-shop:
     uses: ./.github/workflows/build-shop.yml
     with:
@@ -72,9 +86,12 @@ jobs:
       node_version: ${{ inputs.node_version }}
       backoffice_layout: ${{ inputs.backoffice_layout }}
 
+  # These campaigns are put first because they are longer, so we try to optimize the total run However this list must not
+  # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
+  # delicate balance to find
   test-long-campaigns:
     needs: build-shop
-    uses: ./.github/workflows/run-ui-tests.yml
+    uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
       base_branch: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
@@ -86,7 +103,6 @@ jobs:
       fail-fast: false
       matrix:
         TEST_COMMAND:
-          # These campaigns are put first because they are longer
           - 'functional:BO:international:01'
           - 'functional:BO:shop-parameters:03-04'
           - 'functional:BO:shop-parameters:05-07'
@@ -178,7 +194,7 @@ jobs:
 
   test-short-campaigns:
     needs: build-shop
-    uses: ./.github/workflows/run-ui-tests.yml
+    uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
       base_branch: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}

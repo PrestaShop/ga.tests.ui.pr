@@ -1,0 +1,156 @@
+name: Install shop and run sanity tests
+on:
+  workflow_call:
+    inputs:
+      pr_number:
+        type: string
+        description: Pull request Id
+        required: true
+      base_branch:
+        type: string
+        description: Base branch to rebase the PR
+        required: true
+      ps_mode_dev:
+        type: boolean
+        description: Enable/Disable the developer mode
+        required: true
+      rebase_or_merge:
+        type: string
+        required: true
+        description: Rebase or merge the pull request
+      php_version:
+        type: string
+        description: PHP version
+        required: true
+      node_version:
+        type: string
+        description: Node version
+        required: true
+      backoffice_layout:
+        type: string
+        description: Backoffice layout
+        required: true
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: false
+
+jobs:
+  test-sanity:
+    runs-on: ubuntu-latest
+    name: Run UI Tests ${{ inputs.test_command }}
+    env:
+      # Input values
+      PS_MODE_DEV: ${{ inputs.ps_mode_dev && '1' || '0' }}
+      PS_DEV_MODE: ${{ inputs.ps_mode_dev && '1' || '0' }}
+      PHP_VERSION: ${{ inputs.php_version }}
+      NODE_VERSION: ${{ inputs.node_version }}
+      VERSION: ${{ inputs.php_version }}-apache
+      PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      # Fixed values
+      DB_USER: root
+      DB_PASSWD: prestashop
+      DB_NAME: prestashop
+      DB_PREFIX: tst_
+      DB_SERVER: mysql
+      PS_DIR: 'my_prestashop'
+      PS_FOLDER_INSTALL: install-dev
+      PS_FOLDER_ADMIN: admin-dev
+      PS_COUNTRY: fr
+      PS_LANGUAGE: en
+      ADMIN_MAIL: 'demo@prestashop.com'
+
+    steps:
+      - name: Print Inputs values
+        shell: bash
+        run: echo "${{ toJSON(inputs) }}"
+
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+
+      - name: Checkout PrestaShop
+        uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
+        with:
+          pr_number: ${{ inputs.pr_number }}
+          base_branch: ${{ inputs.base_branch }}
+          rebase_or_merge: ${{ inputs.rebase_or_merge }}
+          backoffice_layout: ${{ inputs.backoffice_layout }}
+          ps_dir: ${{ env.PS_DIR }}
+
+      # Certificate
+      - name: Generate a certificate
+        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb
+          certutil -d $HOME/.pki/nssdb -N
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
+
+      # Install composer vendors
+      - name: Get Composer Cache Directory
+        id: composer-cache-dir
+        run: |
+          echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+        working-directory: '${{ env.PS_DIR }}'
+      - uses: actions/cache@v3
+        id: composer-cache
+        with:
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      - uses: actions/cache@v3
+        id: vendor-cache
+        with:
+          path: ${{ env.PS_DIR }}/vendor
+          key: ${{ runner.os }}-vendor-${{ hashFiles('**/composer.lock') }}
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader
+        working-directory: '${{ env.PS_DIR }}'
+
+      # Install node dependencies and build assets
+      - uses: ./custom_actions/.github/workflows/actions/install-node-modules
+        with:
+          node_version: ${{ inputs.node_version }}
+          package_locks: |
+            ${{ env.PS_DIR }}/admin-dev/themes/new-theme/package-lock.json
+            ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
+            ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
+            ${{ env.PS_DIR }}/themes/package-lock.json
+
+      # Create shop with Docker build assets, and initialize database and shop content
+      - name: Build and run shop with docker
+        working-directory: ${{ env.PS_DIR }}
+        timeout-minutes: 15
+        env:
+          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
+          # No assets built, already done and no install since the campaign handles it
+          DISABLE_MAKE: 1
+          PS_INSTALL_AUTO: 0
+        run: |
+          echo Build docker via docker composer
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
+
+      - name: Start sanity campaign
+        uses: ./custom_actions/.github/workflows/actions/run-tests
+        with:
+          base_branch: ${{ inputs.base_branch }}
+          ps_mode_dev: ${{ inputs.ps_mode_dev }}
+          php_version: ${{ inputs.php_version }}
+          node_version: ${{ inputs.node_version }}
+          test_command: sanity
+          fast_fail: ${{ inputs.fast_fail }}
+          ps_dir: ${{ env.PS_DIR }}

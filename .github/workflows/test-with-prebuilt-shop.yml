@@ -1,4 +1,4 @@
-name: Run UI tests with pre-built shop
+name: Run UI tests with prebuilt shop
 on:
   workflow_call:
     inputs:
@@ -29,7 +29,7 @@ on:
         default: false
 
 jobs:
-  testing-pr:
+  install-from-artifact:
     runs-on: ubuntu-latest
     name: Run UI Tests ${{ inputs.test_command }}
     env:
@@ -123,51 +123,13 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
-      # Don't know why this is required to do this here, when node_modules are installed in the build step and given via the archive
-      # they can't be run and an error occurs (to be investigated, it would be better if this is done once in the build)
-      - uses: ./custom_actions/.github/workflows/actions/install-node-modules
+      - name: Start UI tests on prebuilt shop
+        uses: ./custom_actions/.github/workflows/actions/run-tests
         with:
+          base_branch: ${{ inputs.base_branch }}
+          ps_mode_dev: ${{ inputs.ps_mode_dev }}
+          php_version: ${{ inputs.php_version }}
           node_version: ${{ inputs.node_version }}
-          package_locks: |
-            ${{ env.PS_DIR }}/tests/UI/package-lock.json
-      # Always rebuild, it seems required although the cache should speed that up
-      - run: npm ci
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
-
-      - name: Run tests
-        id: runTests
-        run: |
-          export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
-          npm run test:${{ inputs.test_command }} ${{ env.BAIL_ARGUMENT }}
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
-        env:
-          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          DB_NAME: prestashop
-          DB_PASSWD: prestashop
-          HEADLESS: true
-          ENABLE_SSL: true
-          TAKE_SCREENSHOT_AFTER_FAIL: true
-          SMTP_SERVER: '172.17.0.1'
-          EXTRA_TEST_PARAMS: ${{ inputs.fast_fail && '--bail' || '' }}
-
-      # UI Tests : Upload screenshots
-      - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ inputs.test_command }}' | tr ':' '-' )" >> $GITHUB_ENV
-        if: failure()
-
-      - name: Export docker logs
-        run: |
-          mkdir -p ${{ env.PS_DIR }}/var/docker-logs
-          docker logs my_prestashop_mysql_1 > ${{ env.PS_DIR }}/var/docker-logs/mysql.log
-          docker logs my_prestashop_prestashop-git_1 > ${{ env.PS_DIR }}/var/docker-logs/prestashop.log
-          docker logs my_prestashop_keycloak_1 > ${{ env.PS_DIR }}/var/docker-logs/keycloak.log
-        if: failure()
-
-      - name: Export logs and screenshots as artifacts
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
-          path: |
-            ${{ env.PS_DIR }}/tests/UI/screenshots/
-            ${{ env.PS_DIR }}/var/logs
-            ${{ env.PS_DIR }}/var/docker-logs
+          test_command: ${{ inputs.test_command }}
+          fast_fail: ${{ inputs.fast_fail }}
+          ps_dir: ${{ env.PS_DIR }}
