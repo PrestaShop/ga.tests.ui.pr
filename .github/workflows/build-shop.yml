@@ -100,23 +100,25 @@ jobs:
 
       # Install composer vendors
       - name: Get Composer Cache Directory
-        id: composer-cache
+        id: composer-cache-dir
         run: |
-          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+          echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
         working-directory: '${{ env.PS_DIR }}'
-
       - uses: actions/cache@v3
+        id: composer-cache
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-
+      - uses: actions/cache@v3
+        id: vendor-cache
+        with:
+          path: ${{ env.PS_DIR }}/vendor
+          key: ${{ runner.os }}-vendor-${{ hashFiles('**/composer.lock') }}
       - name: Install Composer dependencies
         run: composer install --prefer-dist --optimize-autoloader
         working-directory: '${{ env.PS_DIR }}'
 
-      # Install node dependencies
+      # Install node dependencies and build assets
       - uses: ./custom_actions/.github/workflows/actions/install-node-modules
         with:
           node_version: ${{ inputs.node_version }}
@@ -154,6 +156,11 @@ jobs:
             "*/themes/node_modules/**/*" \
             "*/var/cache/**/*" \
             "*/.git/**/*"
+            "*/tests/bin/**/*"
+            "*/tests/Integration/**/*"
+            "*/tests/Resources/**/*"
+            "*/tests/TestCase/**/*"
+            "*/tests/Unit/**/*"
           docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
 
       - name: Upload shop artifacts

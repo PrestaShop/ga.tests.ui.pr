@@ -44,36 +44,39 @@ runs:
 
         buildCommandJson+=']'
         installCommandJson+=']'
-        
-        echo $buildCommandJson
-        echo $installCommandJson
 
         echo "build-command=$buildCommandJson" >> $GITHUB_OUTPUT
         echo "install-command=$installCommandJson" >> $GITHUB_OUTPUT
         echo "node-modules=$nodeModules" >> $GITHUB_OUTPUT
       shell: bash
 
-    - name: Cache dependencies
-      id: cache-dependencies
-      uses: actions/cache@v3
+    # Try and restore cache if it exists, then build assets only (no npm ci needed)
+    - name: Restore dependencies
+      id: restore-dependencies
+      uses: actions/cache/restore@v3
       with:
         path: ${{ steps.action-parameters.outputs.node-modules }}
         key: node-modules-${{ inputs.node_version }}-${{ hashFiles(inputs.package_locks) }}
+    - name: Build assets only (dependencies came from cache)
+      if: steps.restore-dependencies.outputs.cache-hit == 'true'
+      run: ${{ join(fromJson(steps.action-parameters.outputs.build-command), ' & ') }}
+      shell: bash
 
+    # If the cache was not restored we install npm, node_modules dependencies and then build the assets, the we save the cache
     - name: Setup Node ${{ inputs.node_version }}
-      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      if: steps.restore-dependencies.outputs.cache-hit != 'true'
       uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node_version }}
         cache: 'npm'
         cache-dependency-path: ${{ inputs.package_locks }}
-
     - name: Install dependencies and build assets
-      if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      if: steps.restore-dependencies.outputs.cache-hit != 'true'
       run: ${{ join(fromJson(steps.action-parameters.outputs.install-command), ' & ') }}
       shell: bash
-
-    - name: Build assets only (dependencies came from cache)
-      if: steps.cache-dependencies.outputs.cache-hit == 'true'
-      run: ${{ join(fromJson(steps.action-parameters.outputs.build-command), ' & ') }}
-      shell: bash
+    - name: Cache dependencies
+      if: steps.restore-dependencies.outputs.cache-hit == 'true'
+      uses: actions/cache/restore@v3
+      with:
+        path: ${{ steps.action-parameters.outputs.node-modules }}
+        key: node-modules-${{ inputs.node_version }}-${{ hashFiles(inputs.package_locks) }}
