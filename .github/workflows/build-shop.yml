@@ -156,11 +156,6 @@ jobs:
             "*/themes/node_modules/**/*" \
             "*/var/cache/**/*" \
             "*/.git/**/*"
-            "*/tests/bin/**/*"
-            "*/tests/Integration/**/*"
-            "*/tests/Resources/**/*"
-            "*/tests/TestCase/**/*"
-            "*/tests/Unit/**/*"
           docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
 
       - name: Upload shop artifacts

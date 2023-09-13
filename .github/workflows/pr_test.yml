@@ -72,7 +72,111 @@ jobs:
       node_version: ${{ inputs.node_version }}
       backoffice_layout: ${{ inputs.backoffice_layout }}
 
-  test-pr:
+  test-long-campaigns:
+    needs: build-shop
+    uses: ./.github/workflows/run-ui-tests.yml
+    with:
+      base_branch: ${{ inputs.base_branch }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      test_command: ${{ matrix.TEST_COMMAND }}
+      fast_fail: ${{ inputs.fast_fail }}
+    strategy:
+      fail-fast: false
+      matrix:
+        TEST_COMMAND:
+          # These campaigns are put first because they are longer
+          - 'functional:BO:international:01'
+          - 'functional:BO:shop-parameters:03-04'
+          - 'functional:BO:shop-parameters:05-07'
+          - 'functional:BO:shop-parameters:01-02'
+          - 'functional:BO:orders:01-create-orders'
+          - 'functional:BO:orders:01-view-and-edit-order'
+          - 'functional:BO:orders:01:0-1'
+          - 'functional:BO:orders:02'
+          - 'functional:BO:orders:03-05'
+          - 'functional:FO:classic:01-03'
+          - 'functional:FO:classic:08-12'
+          - 'functional:BO:header'
+          - 'functional:BO:design'
+          - 'functional:BO:customer:02-03'
+          - 'functional:BO:catalog:03-04'
+          - 'functional:BO:catalog:01-02'
+          - 'functional:BO:advanced-parameters:01-06'
+          - 'functional:BO:advanced-parameters:07-10'
+          - 'sanity'
+        BASE_BRANCH:
+          - ${{ inputs.base_branch }}
+        exclude:
+          ## 1.7.8.x
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'sanity:productV2'
+          ## 8.0.x
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules'
+          ## 8.1.x
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:08-12'
+          ## develop
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:08-12'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'sanity:productV2'
+
+  test-short-campaigns:
     needs: build-shop
     uses: ./.github/workflows/run-ui-tests.yml
     with:
@@ -90,44 +194,25 @@ jobs:
           - 'functional:API'
           - 'functional:BO:login'
           - 'functional:BO:dashboard'
-          - 'functional:BO:orders:01:0-1'
-          - 'functional:BO:orders:01-create-orders'
-          - 'functional:BO:orders:01-view-and-edit-order'
-          - 'functional:BO:orders:02'
-          - 'functional:BO:orders:03-05'
-          - 'functional:BO:catalog:01-02'
-          - 'functional:BO:catalog:03-04'
           - 'functional:BO:catalog:05-06'
           - 'functional:BO:catalog:07-08'
           - 'functional:BO:customer:01'
-          - 'functional:BO:customer:02-03'
           - 'functional:BO:customer-service'
           - 'functional:BO:modules'
-          - 'functional:BO:design'
           - 'functional:BO:shipping'
           - 'functional:BO:payment'
-          - 'functional:BO:international:01'
           - 'functional:BO:international:02'
           - 'functional:BO:international:03-04'
-          - 'functional:BO:shop-parameters:01-02'
-          - 'functional:BO:shop-parameters:03-04'
-          - 'functional:BO:shop-parameters:05-07'
-          - 'functional:BO:advanced-parameters:01-06'
-          - 'functional:BO:advanced-parameters:07-10'
           - 'functional:BO:advanced-parameters:11-12'
-          - 'functional:BO:header'
           - 'functional:FO:01-03'
           - 'functional:FO:04-07'
           - 'functional:FO:08-12'
-          - 'functional:FO:classic:01-03'
           - 'functional:FO:classic:04-07'
-          - 'functional:FO:classic:08-12'
           - 'functional:FO:hummingbird:01-03'
           - 'functional:productV2'
           - 'functional:WS'
           - 'modules'
           - 'regression'
-          - 'sanity'
           - 'sanity:productV2'
         BASE_BRANCH:
           - ${{ inputs.base_branch }}
