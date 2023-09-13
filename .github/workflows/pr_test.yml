@@ -119,70 +119,10 @@ jobs:
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'cldr'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:BO:dashboard'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:productV2'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:API'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:classic:01-03'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:classic:04-07'
-          - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'functional:FO:classic:08-12'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:WS'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'modules'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'sanity:productV2'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'cldr'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:BO:dashboard'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:productV2'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:API'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:classic:01-03'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:classic:04-07'
-          - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:FO:classic:08-12'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:WS'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'modules'
-          ## 8.1.x
-          - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:FO:01-03'
-          - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:FO:04-07'
-          - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:FO:08-12'
-          ## develop
-          - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:FO:01-03'
-          - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:FO:04-07'
-          - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:FO:08-12'
-          - BASE_BRANCH: develop
-            TEST_COMMAND: 'sanity:productV2'
 
   test-short-campaigns:
     needs: build-shop
@@ -248,8 +188,6 @@ jobs:
           - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'functional:FO:classic:04-07'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:classic:08-12'
-          - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'functional:FO:hummingbird:01-03'
           - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'functional:WS'
@@ -272,8 +210,6 @@ jobs:
             TEST_COMMAND: 'functional:FO:classic:01-03'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:FO:classic:04-07'
-          - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:classic:08-12'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:FO:hummingbird:01-03'
           - BASE_BRANCH: 8.0.x
