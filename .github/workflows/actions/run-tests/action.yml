@@ -38,6 +38,8 @@ runs:
         node_version: ${{ inputs.node_version }}
         package_locks: |
           ${{ inputs.ps_dir }}/tests/UI/package-lock.json
+        node_modules: |
+          ${{ inputs.ps_dir }}/tests/UI/node_modules
     # Always rebuild, it seems required although the cache should speed that up
     - run: npm ci
       working-directory: ${{ inputs.ps_dir }}/tests/UI

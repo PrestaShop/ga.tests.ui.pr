@@ -127,6 +127,11 @@ jobs:
             ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
             ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
             ${{ env.PS_DIR }}/themes/package-lock.json
+          node_modules: |
+            ${{ env.PS_DIR }}/admin-dev/themes/new-theme/node_modules
+            ${{ env.PS_DIR }}/admin-dev/themes/default/node_modules
+            ${{ env.PS_DIR }}/themes/classic/_dev/node_modules
+            ${{ env.PS_DIR }}/themes/node_modules
 
       # Create shop with Docker build assets, and initialize database and shop content
       - name: Build and run shop with docker
