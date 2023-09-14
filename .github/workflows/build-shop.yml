@@ -80,6 +80,19 @@ jobs:
           backoffice_layout: ${{ inputs.backoffice_layout }}
           ps_dir: ${{ env.PS_DIR }}
 
+      # Pre pull/build images
+      # For some reason keycloak must be started before the PrestaShop build or it fails
+      - name: Pull images in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Pull mysql image
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q >& /dev/null &
+      - name: Build PrestaShop image in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Build prestashop image in background
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+
       # Certificate
       - name: Generate a certificate
         if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
@@ -134,7 +147,7 @@ jobs:
             ${{ env.PS_DIR }}/themes/node_modules
 
       # Create shop with Docker build assets, and initialize database and shop content
-      - name: Build and run shop with docker
+      - name: Start PrestaShop docker
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 15
         env:
@@ -144,6 +157,11 @@ jobs:
           DISABLE_MAKE: 1
           PS_INSTALL_AUTO: 1
         run: |
+          # First wait for all images to be ready
+          echo Check that all images are ready
+          until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
+          until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
+          # Then build and start the docker
           echo Build docker via docker composer
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
           echo Waiting for response from the FO

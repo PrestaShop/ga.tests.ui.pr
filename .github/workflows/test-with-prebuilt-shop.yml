@@ -75,6 +75,18 @@ jobs:
         run: |
           unzip /tmp/shop-artifacts/sources.zip -d .
 
+      # Pre pull/build images
+      - name: Pull images in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Pull images mysql and keycloak
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q >& /dev/null &
+      - name: Build PrestaShop image in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Build prestashop image in background
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+
       # Certificate
       - name: Generate a certificate
         if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
@@ -92,14 +104,6 @@ jobs:
           certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
           ## Add self-signed certificate to Chrome Trust Store
           mkcert -install
-
-      - name: Start keycloak service
-        if: inputs.test_command == 'functional:API'
-        working-directory: ${{ env.PS_DIR }}
-        timeout-minutes: 5
-        run: |
-          echo Starting keycloak service alone
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build keycloak
 
       - name: Setup database
         working-directory: ${{ env.PS_DIR }}
@@ -127,8 +131,12 @@ jobs:
           PS_INSTALL_AUTO: 0
           DISABLE_MAKE: 1
         run: |
+          # First wait for all images to be ready
+          echo Check that all images are ready
+          until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
+          until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           echo Build the remaining dockers
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
