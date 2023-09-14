@@ -111,6 +111,7 @@ on:
 jobs:
   build-shop:
     name: Prebuild shop and export artifacts
+    if: inputs.test_command != 'sanity'
     uses: ./.github/workflows/build-shop.yml
     with:
       pr_number: ${{ inputs.pr_number }}
@@ -123,6 +124,7 @@ jobs:
 
   test-pr:
     name: Run single campaign ${{ inputs.test_command }}
+    if: inputs.test_command != 'sanity'
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
@@ -131,4 +133,19 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       test_command: ${{ inputs.test_command }}
+      fast_fail: ${{ inputs.fast_fail }}
+
+  # Sanity campaign is run differently
+  sanity-test:
+    name: Sanity campaign
+    if: inputs.test_command == 'sanity'
+    uses: ./.github/workflows/test-sanity.yml
+    with:
+      pr_number: ${{ inputs.pr_number }}
+      base_branch: ${{ inputs.base_branch }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      rebase_or_merge: ${{ inputs.rebase_or_merge }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      backoffice_layout: ${{ inputs.backoffice_layout }}
       fast_fail: ${{ inputs.fast_fail }}
