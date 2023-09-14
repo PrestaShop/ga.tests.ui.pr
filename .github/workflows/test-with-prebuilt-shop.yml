@@ -93,6 +93,14 @@ jobs:
           ## Add self-signed certificate to Chrome Trust Store
           mkcert -install
 
+      - name: Start keycloak service
+        if: inputs.test_command == 'functional:API'
+        working-directory: ${{ env.PS_DIR }}
+        timeout-minutes: 5
+        run: |
+          echo Starting keycloak service alone
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build keycloak
+
       - name: Setup database
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
@@ -120,7 +128,7 @@ jobs:
           DISABLE_MAKE: 1
         run: |
           echo Build the remaining dockers
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
