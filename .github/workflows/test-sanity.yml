@@ -149,7 +149,7 @@ jobs:
           echo Build docker via docker composer
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
 
-      - name: Start sanity campaign
+      - name: Run sanity campaign
         uses: ./custom_actions/.github/workflows/actions/run-tests
         with:
           base_branch: ${{ inputs.base_branch }}

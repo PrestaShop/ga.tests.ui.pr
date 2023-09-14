@@ -63,6 +63,7 @@ on:
 jobs:
   # Sanity tests are run independently because it's the only campaign that handles the installation itself, since it tests it
   sanity-test:
+    name: Sanity campaign
     uses: ./.github/workflows/test-sanity.yml
     with:
       pr_number: ${{ inputs.pr_number }}
@@ -76,6 +77,7 @@ jobs:
 
   # We perform a unique build that is stored as an artifact, only then do we start the campaign that will rely on this build
   build-shop:
+    name: Prebuild shop and export artifacts
     uses: ./.github/workflows/build-shop.yml
     with:
       pr_number: ${{ inputs.pr_number }}
@@ -90,6 +92,7 @@ jobs:
   # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
   # delicate balance to maintain The criteria so far was campaign longer than 15min
   test-long-campaigns:
+    name: Run long campaign ${{ matrix.TEST_COMMAND }}
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
@@ -125,6 +128,7 @@ jobs:
             TEST_COMMAND: 'functional:FO:classic:08-12'
 
   test-short-campaigns:
+    name: Run short campaign ${{ matrix.TEST_COMMAND }}
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:

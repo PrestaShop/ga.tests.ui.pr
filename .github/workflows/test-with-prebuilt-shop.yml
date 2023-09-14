@@ -132,7 +132,7 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
-      - name: Start UI tests on prebuilt shop
+      - name: Run campaign ${{ inputs.test_command }} on prebuilt shop
         uses: ./custom_actions/.github/workflows/actions/run-tests
         with:
           base_branch: ${{ inputs.base_branch }}

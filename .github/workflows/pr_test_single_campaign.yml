@@ -110,6 +110,7 @@ on:
 
 jobs:
   build-shop:
+    name: Prebuild shop and export artifacts
     uses: ./.github/workflows/build-shop.yml
     with:
       pr_number: ${{ inputs.pr_number }}
@@ -121,6 +122,7 @@ jobs:
       backoffice_layout: ${{ inputs.backoffice_layout }}
 
   test-pr:
+    name: Run single campaign ${{ inputs.test_command }}
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
