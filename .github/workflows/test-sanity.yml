@@ -133,7 +133,7 @@ jobs:
         working-directory: '${{ env.PS_DIR }}'
 
       # Install node dependencies and build assets
-      - uses: ./custom_actions/.github/workflows/actions/install-node-modules
+      - uses: ./custom_actions/.github/workflows/actions/build-javascript
         with:
           node_version: ${{ inputs.node_version }}
           package_locks: |

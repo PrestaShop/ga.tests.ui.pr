@@ -93,25 +93,7 @@ jobs:
           # Build prestashop image in background
           USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
 
-      # Certificate
-      - name: Generate a certificate
-        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
-        run: |
-          ## Install MkCert
-          sudo apt install libnss3-tools
-          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
-          chmod +x mkcert-v*-linux-amd64
-          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
-          ## Generate certificate
-          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
-          ## Link certificate to Chrome Trust Store
-          mkdir -p $HOME/.pki/nssdb
-          certutil -d $HOME/.pki/nssdb -N
-          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
-          ## Add self-signed certificate to Chrome Trust Store
-          mkcert -install
-
-      # Install composer vendors
+      # Install composer vendors (must be done before building assets as classic theme is fetched from composer)
       - name: Get Composer Cache Directory
         id: composer-cache-dir
         run: |
@@ -132,7 +114,9 @@ jobs:
         working-directory: '${{ env.PS_DIR }}'
 
       # Install node dependencies and build assets
-      - uses: ./custom_actions/.github/workflows/actions/install-node-modules
+      - name: Build assets
+        uses: ./custom_actions/.github/workflows/actions/build-javascript
+        id: build-javascript
         with:
           node_version: ${{ inputs.node_version }}
           package_locks: |
@@ -146,10 +130,28 @@ jobs:
             ${{ env.PS_DIR }}/themes/classic/_dev/node_modules
             ${{ env.PS_DIR }}/themes/node_modules
 
+      # Certificate
+      - name: Generate a certificate
+        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb
+          certutil -d $HOME/.pki/nssdb -N
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
+
       # Create shop with Docker build assets, and initialize database and shop content
       - name: Start PrestaShop docker
         working-directory: ${{ env.PS_DIR }}
-        timeout-minutes: 15
+        timeout-minutes: 5
         env:
           URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
@@ -169,6 +171,7 @@ jobs:
 
       # Prepare archive contents to share with following jobs, ignore folders but keep them, so they can be cached at the end of the job
       - name: Archive shop content
+        if: always()
         run: |
           mkdir -p /tmp/shop-artifacts
           zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }} -x \
@@ -187,12 +190,14 @@ jobs:
           docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
 
       - name: Upload shop artifacts
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: shop-artifacts
           path: /tmp/shop-artifacts
 
-      - uses: actions/upload-artifact@v3
+      - name: Save logs in case of error
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: Build error export logs

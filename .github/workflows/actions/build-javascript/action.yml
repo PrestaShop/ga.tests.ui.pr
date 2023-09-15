@@ -22,21 +22,31 @@ runs:
         buildCommandJson='['
         # Install plus build when the cache is not found
         installAndBuildCommandJson='['
+        # Create array of lock files
+        buildLocks=''
 
         IFS=$' \t\n'
         commaSeparator=''
+        spaceSeparator=''
         while read -r package_lock; do
           if test -f "$package_lock"; then
             js_folder=$(echo $package_lock | sed s_/package-lock\.json__)
             package_json=$(echo $package_lock | sed s_package-lock\.json_package\.json_)
-            # Only build when the action is in the package.json
+
+            # Create/remove the lock at the beginning/end of the process so its presence can be checked
+            buildLocks+="$spaceSeparator$js_folder/buildLock"
+
+            # Only build when the action is in the package.json, we create a buildLock file to check when the build is really finished
+            # because sometimes the action switched to the next one while the build was not over
             if grep -q '"build":' "$package_json"; then
-              buildCommandJson+="$commaSeparator\"(pushd $js_folder; npm run build; popd)\""
-              installAndBuildCommandJson+="$commaSeparator\"(pushd $js_folder; npm install; npm run build; popd)\""
+              buildCommandJson+="$commaSeparator\"(pushd $js_folder; touch buildLock; npm run build; rm buildLock; popd)\""
+              installAndBuildCommandJson+="$commaSeparator\"(pushd $js_folder; touch buildLock; npm ci; npm run build; rm buildLock; popd)\""
             else
-              installAndBuildCommandJson+="$commaSeparator\"(pushd $js_folder; npm install; popd)\""
+              # Create/remove the lock at the beginning/end of the process so its presence can be checked
+              installAndBuildCommandJson+="$commaSeparator\"(pushd $js_folder; touch buildLock; npm ci; rm buildLock; popd)\""
             fi
             commaSeparator=', '
+            spaceSeparator=' '
           fi
         done <<< "${{ inputs.package_locks }}"
 
@@ -45,6 +55,7 @@ runs:
 
         echo "build-command=$buildCommandJson" >> $GITHUB_OUTPUT
         echo "install-and-build-command=$installAndBuildCommandJson" >> $GITHUB_OUTPUT
+        echo "build-locks=$buildLocks" >> $GITHUB_OUTPUT
       shell: bash
 
     # Always setup node to make sure you have the right version
@@ -73,4 +84,22 @@ runs:
     - name: Install dependencies and build assets
       if: steps.save-dependencies.outputs.cache-hit != 'true'
       run: ${{ join(fromJson(steps.action-parameters.outputs.install-and-build-command), ' & ') }}
+      shell: bash
+
+    # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
+    # everything was built, probably because of the parallelization
+    - name: Check that all builds are finished
+      run: |
+        echo Checking for all these lock files ${{ steps.action-parameters.outputs.build-locks }}
+        for lockFile in ${{ steps.action-parameters.outputs.build-locks }}; do
+          if [ -f $lockFile ]; then
+            echo Wait for $lockFile to be removed
+            sleep 1
+            while [ -f $lockFile ]; do
+              echo $lockFile still present wait a bit more
+              sleep 1
+            done
+          fi
+          echo $lockFile is no longer present
+        done
       shell: bash
