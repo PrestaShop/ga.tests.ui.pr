@@ -99,16 +99,37 @@ jobs:
         run: |
           echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
         working-directory: '${{ env.PS_DIR }}'
-      - uses: actions/cache@v3
+
+      # Split composer caches into two steps, because the default automatic process always took some time on cleanup for unknown reason
+      # Restore/Cache composer cache dir
+      - name: Restore composer cache dir
+        uses: actions/cache/restore@v3
         id: composer-cache
         with:
           path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      - uses: actions/cache@v3
+      - name: Save composer cache dir
+        uses: actions/cache/save@v3
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+          key: ${{ steps.composer-cache.outputs.cache-primary-key }}
+
+      # Restore/Cache vendor folder
+      - name: Restore composer vendor folder
+        uses: actions/cache/restore@v3
         id: vendor-cache
         with:
           path: ${{ env.PS_DIR }}/vendor
           key: ${{ runner.os }}-vendor-${{ hashFiles('**/composer.lock') }}
+      - name: Save composer vendor folder
+        uses: actions/cache/save@v3
+        if: steps.vendor-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ env.PS_DIR }}/vendor
+          key: ${{ steps.vendor-cache.outputs.cache-primary-key }}
+
+      # Run composer install
       - name: Install Composer dependencies
         run: composer install --prefer-dist --optimize-autoloader
         working-directory: '${{ env.PS_DIR }}'
