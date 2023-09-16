@@ -157,7 +157,8 @@ jobs:
 
       # Don't know why this is required to do this here, when node_modules are installed in the build job and given via the archive
       # they can't be run and an error occurs, we can't cache node_modules either probably some postinstall actions need to be run
-      # in all case so we install everything at the last minute
+      # in all case so we install everything at the last minute Besides it also made the artifact build bigger and reduced time, overall
+      # the last minute install in this case is more efficient
       - name: Build test dependencies
         id: build-test-dependencies
         uses: ./custom_actions/.github/workflows/actions/build-javascript
