@@ -1,0 +1,52 @@
+name: Install composer dependencies
+description: Install composer dependencies
+inputs:
+  ps_dir:
+    description: PrestaShop folder
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    # Install composer vendors (must be done before building assets as classic theme is fetched from composer)
+    - name: Get Composer Cache Directory
+      id: composer-cache-dir
+      run: |
+        echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+      working-directory: ${{ inputs.ps_dir }}
+      shell: bash
+
+    # Split composer caches into two steps, because the default automatic process always took some time on cleanup for unknown reason
+    # Restore composer cache dir and vendor
+    - name: Restore composer cache dir
+      uses: actions/cache/restore@v3
+      id: composer-cache
+      with:
+        path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+    - name: Restore composer vendor folder
+      uses: actions/cache/restore@v3
+      id: vendor-cache
+      with:
+        path: ${{ inputs.ps_dir }}/vendor
+        key: ${{ runner.os }}-vendor-${{ hashFiles('**/composer.lock') }}
+
+    # Run composer install
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --optimize-autoloader
+      working-directory: ${{ inputs.ps_dir }}
+      shell: bash
+
+    # Cache composer cache dir and vendor
+    - name: Save composer vendor folder
+      uses: actions/cache/save@v3
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      with:
+        path: ${{ inputs.ps_dir }}/vendor
+        key: ${{ steps.vendor-cache.outputs.cache-primary-key }}
+    - name: Save composer cache dir
+      uses: actions/cache/save@v3
+      if: steps.composer-cache.outputs.cache-hit != 'true'
+      with:
+        path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+        key: ${{ steps.composer-cache.outputs.cache-primary-key }}

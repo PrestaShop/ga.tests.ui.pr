@@ -112,25 +112,10 @@ jobs:
           ## Add self-signed certificate to Chrome Trust Store
           mkcert -install
 
-      # Install composer vendors
-      - name: Get Composer Cache Directory
-        id: composer-cache-dir
-        run: |
-          echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-        working-directory: '${{ env.PS_DIR }}'
-      - uses: actions/cache@v3
-        id: composer-cache
+      - name: Composer install
+        uses: ./custom_actions/.github/workflows/actions/composer-install
         with:
-          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-      - uses: actions/cache@v3
-        id: vendor-cache
-        with:
-          path: ${{ env.PS_DIR }}/vendor
-          key: ${{ runner.os }}-vendor-${{ hashFiles('**/composer.lock') }}
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --optimize-autoloader
-        working-directory: '${{ env.PS_DIR }}'
+          ps_dir: ${{ env.PS_DIR }}
 
       # Create shop with Docker without building assets, and initialize database and shop content
       # No need to wait for install-dev ready it should be nearly automatic and just in case we build the assets after to leave
