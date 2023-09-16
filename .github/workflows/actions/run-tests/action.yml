@@ -26,26 +26,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    # Checkout repository to use custom actions
-    - uses: actions/checkout@v3
-      with:
-        path: custom_actions
-
-    # Don't know why this is required to do this here, when node_modules are installed in the build step and given via the archive
-    # they can't be run and an error occurs (to be investigated, it would be better if this is done once in the build)
-    - uses: ./custom_actions/.github/workflows/actions/build-javascript
-      with:
-        node_version: ${{ inputs.node_version }}
-        package_locks: |
-          ${{ inputs.ps_dir }}/tests/UI/package-lock.json
-        node_modules: |
-          ${{ inputs.ps_dir }}/tests/UI/node_modules
-
-    # Always rebuild, it seems required although the cache should speed that up
-    - run: npm ci
-      working-directory: ${{ inputs.ps_dir }}/tests/UI
-      shell: bash
-
     - name: Run tests
       run: |
         export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"

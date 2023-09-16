@@ -151,9 +151,20 @@ jobs:
           until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           echo Build the remaining dockers
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build {{ env.BUILT_CONTAINERS }}
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build ${{ env.BUILT_CONTAINERS }}
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
+
+      # Don't know why this is required to do this here, when node_modules are installed in the build step and given via the archive
+      # they can't be run and an error occurs (to be investigated, it would be better if this is done once in the build)
+      - name: Build test dependencies
+        uses: ./custom_actions/.github/workflows/actions/build-javascript
+        with:
+          node_version: ${{ inputs.node_version }}
+          package_locks: |
+            ${{ env.PS_DIR }}/tests/UI/package-lock.json
+          node_modules: |
+            ${{ env.PS_DIR }}/tests/UI/node_modules
 
       - name: Run campaign ${{ inputs.test_command }} on prebuilt shop
         uses: ./custom_actions/.github/workflows/actions/run-tests

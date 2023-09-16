@@ -110,7 +110,7 @@ on:
 
 jobs:
   build-shop:
-    name: Prebuild shop and export artifacts
+    name: Prebuild shop and export artifacts for ${{ inputs.test_command }}
     if: inputs.test_command != 'sanity'
     uses: ./.github/workflows/build-shop.yml
     with:
@@ -137,7 +137,7 @@ jobs:
 
   # Sanity campaign is run differently
   sanity-test:
-    name: Sanity campaign
+    name: Run sanity campaign
     if: inputs.test_command == 'sanity'
     uses: ./.github/workflows/test-sanity.yml
     with:
