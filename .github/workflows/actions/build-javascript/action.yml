@@ -30,27 +30,29 @@ runs:
         buildLocks=''
 
         IFS=$' \t\n'
-        commaSeparator=''
-        spaceSeparator=''
+        buildSeparator=''
+        installSeparator=''
+        lockSeparator=''
         while read -r package_lock; do
           if test -f "$package_lock"; then
             js_folder=$(echo $package_lock | sed s_/package-lock\.json__)
             package_json=$(echo $package_lock | sed s_package-lock\.json_package\.json_)
 
             # Create/remove the lock at the beginning/end of the process so its presence can be checked
-            buildLocks+="$spaceSeparator$js_folder/buildLock"
+            buildLocks+="$lockSeparator$js_folder/buildLock"
 
             # Only build when the action is in the package.json, we create a buildLock file to check when the build is really finished
             # because sometimes the action switched to the next one while the build was not over
             if grep -q '"build":' "$package_json"; then
-              buildCommandJson+="$commaSeparator\"(pushd $js_folder; touch buildLock; npm run build; rm buildLock; popd)\""
-              installAndBuildCommandJson+="$commaSeparator\"(pushd $js_folder; touch buildLock; npm ci; npm run build; rm buildLock; popd)\""
+              buildCommandJson+="$buildSeparator\"(pushd $js_folder; touch buildLock; npm run build; rm buildLock; popd)\""
+              installAndBuildCommandJson+="$installSeparator\"(pushd $js_folder; touch buildLock; npm ci; npm run build; rm buildLock; popd)\""
+              buildSeparator=', '
             else
               # Create/remove the lock at the beginning/end of the process so its presence can be checked
-              installAndBuildCommandJson+="$commaSeparator\"(pushd $js_folder; touch buildLock; npm ci; rm buildLock; popd)\""
+              installAndBuildCommandJson+="$installSeparator\"(pushd $js_folder; touch buildLock; npm ci; rm buildLock; popd)\""
             fi
-            commaSeparator=', '
-            spaceSeparator=' '
+            installSeparator=', '
+            lockSeparator=' '
           fi
         done <<< "${{ inputs.package_locks }}"
 
