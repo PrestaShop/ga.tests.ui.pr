@@ -76,11 +76,17 @@ jobs:
           unzip /tmp/shop-artifacts/sources.zip -d .
 
       # Pre pull/build images
-      - name: Pull images in background
+      - name: Pull mysql in background
         working-directory: ${{ env.PS_DIR }}
         run: |
-          # Pull images mysql and keycloak
+          # Pull mysql image
           USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+      - name: Pull keycloak in background
+        if: inputs.test_command == 'functional:API'
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Pull keycloak image
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q keycloak >& /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
@@ -121,6 +127,13 @@ jobs:
           echo Load dump into DB
           docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
 
+      - name: Build keycloak
+        if: inputs.test_command == 'functional:API'
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          until docker images | grep keycloak; do echo Waiting for keycloak image; sleep 1; done
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml up -d --build keycloak
+
       - name: Start up shop docker
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
@@ -130,13 +143,15 @@ jobs:
           # No install we force the sources and load the SQL dump
           PS_INSTALL_AUTO: 0
           DISABLE_MAKE: 1
+          # For API tests we build all containers (including keycloak) for other tests only prestashop is needed
+          BUILT_CONTAINERS: ${{ (inputs.test_command == 'functional:API') && '' || 'prestashop-git' }}
         run: |
           # First wait for all images to be ready
           echo Check that all images are ready
           until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           echo Build the remaining dockers
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build {{ env.BUILT_CONTAINERS }}
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
