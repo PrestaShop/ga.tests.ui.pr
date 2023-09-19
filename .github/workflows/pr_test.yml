@@ -303,8 +303,13 @@ jobs:
         run: npm install -g npm@7
 
       - name: Install tests dependencies
-        run: npm install
         working-directory: '${{ env.PS_DIR }}/tests/UI'
+        run: npm install
+
+      - name: Install browsers
+        if: (env.BASE_BRANCH == 'develop')
+        working-directory: '${{ env.PS_DIR }}/tests/UI'
+        run: npx playwright install --with-deps
 
       - name: Run tests
         id: runTests
