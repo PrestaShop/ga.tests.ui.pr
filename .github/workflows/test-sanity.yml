@@ -119,8 +119,9 @@ jobs:
           echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
         working-directory: ${{ env.PS_DIR }}
         shell: bash
-      - name: Cache composer cache dir
-        uses: actions/cache@v3
+      - name: Restore composer cache dir
+        uses: actions/cache/restore@v3
+        id: composer-cache
         with:
           path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -129,6 +130,13 @@ jobs:
         run: composer install --prefer-dist --optimize-autoloader
         working-directory: ${{ env.PS_DIR }}
         shell: bash
+      # Save composer cache when it didn't exist
+      - name: Save composer cache dir
+        uses: actions/cache/save@v3
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+          key: ${{ steps.composer-cache.outputs.cache-primary-key }}
 
       # Create shop with Docker without building assets, and initialize database and shop content
       # No need to wait for install-dev ready it should be nearly automatic and just in case we build the assets after to leave
