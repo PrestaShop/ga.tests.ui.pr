@@ -74,8 +74,13 @@ runs:
         mkdir -p ${{ inputs.ps_dir }}/var/docker-logs
         docker logs my_prestashop_mysql_1 > ${{ inputs.ps_dir }}/var/docker-logs/mysql.log
         docker logs my_prestashop_prestashop-git_1 > ${{ inputs.ps_dir }}/var/docker-logs/prestashop.log
-        docker logs my_prestashop_keycloak_1 > ${{ inputs.ps_dir }}/var/docker-logs/keycloak.log
       if: failure()
+      shell: bash
+
+    - name: Export docker keycloak logs
+      run: |
+        docker logs my_prestashop_keycloak_1 > ${{ inputs.ps_dir }}/var/docker-logs/keycloak.log
+      if: failure() && inputs.test_command == 'functional:API'
       shell: bash
 
     - name: Export logs and screenshots as artifacts
