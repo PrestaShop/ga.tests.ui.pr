@@ -139,27 +139,46 @@ jobs:
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
 
       # Install node dependencies and build assets
-      - name: Build javascript assets
-        id: build-assets
-        uses: ./custom_actions/.github/workflows/actions/build-javascript
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
         with:
-          node_version: ${{ inputs.node_version }}
-          package_locks: |
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: |
             ${{ env.PS_DIR }}/tests/UI/package-lock.json
             ${{ env.PS_DIR }}/admin-dev/themes/new-theme/package-lock.json
             ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
             ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
             ${{ env.PS_DIR }}/themes/package-lock.json
-          node_modules: |
-            ${{ env.PS_DIR }}/tests/UI/node_modules
-            ${{ env.PS_DIR }}/admin-dev/themes/new-theme/node_modules
-            ${{ env.PS_DIR }}/admin-dev/themes/default/node_modules
-            ${{ env.PS_DIR }}/themes/classic/_dev/node_modules
-            ${{ env.PS_DIR }}/themes/node_modules
-
-      # Playwright must be installed when cache was restored, it is done with post install script when npm ci is run in previous step
+      - name: Build assets in parallel and in background
+        run: |
+          (pushd ${{ env.PS_DIR }}/tests/UI; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/classic/_dev; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+        shell: bash
+      # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
+      # everything was built, probably because of the parallelization and background processes)
+      - name: Check that all builds are finished
+        run: |
+          buildLocks="tests/UI admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
+          echo Checking for all these lock files $buildLocks
+          for lockFile in $buildLocks; do
+            lockFile="${{ env.PS_DIR }}/$lockFile"
+            if [ -f $lockFile ]; then
+              echo Wait for $lockFile to be removed
+              sleep 1
+              while [ -f $lockFile ]; do
+                echo $lockFile still present wait a bit more
+                sleep 1
+              done
+            fi
+            echo $lockFile is no longer present
+          done
+        shell: bash
+      # Playwright must be installed all the time, we only install chromium since it's the only browser used
       - name: Install playwright
-        if: steps.build-assets.outputs.cache-hit == 'true'
         working-directory: ${{ env.PS_DIR }}/tests/UI
         run: |
           npx playwright install chromium

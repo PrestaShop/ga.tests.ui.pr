@@ -155,22 +155,22 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
-      # Don't know why this is required to do this here, when node_modules are installed in the build job and given via the archive
-      # they can't be run and an error occurs, we can't cache node_modules either probably some postinstall actions need to be run
-      # in all case so we install everything at the last minute Besides it also made the artifact build bigger and reduced time, overall
-      # the last minute install in this case is more efficient
-      - name: Build test dependencies
-        id: build-test-dependencies
-        uses: ./custom_actions/.github/workflows/actions/build-javascript
+      # Test dependencies are installed manually in each sub job that test the build, it could have been integrated inside the archive to reduce time here
+      # but it turns out the archive is much bigger with all this code and it makes upload/download phase so much longer that it is more efficient to install
+      # this here
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
         with:
-          node_version: ${{ inputs.node_version }}
-          package_locks: |
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: |
             ${{ env.PS_DIR }}/tests/UI/package-lock.json
-          node_modules: |
-            ${{ env.PS_DIR }}/tests/UI/node_modules
-      # Playwright must be installed when cache was restored, it is done with post install script when npm ci is run in previous step
+      - name: Build test dependencies
+        working-directory: ${{ env.PS_DIR }}/tests/UI
+        run: |
+          npm ci
+      # Playwright must be installed all the time, we only install chromium since it's the only browser used
       - name: Install playwright
-        if: steps.build-test-dependencies.outputs.cache-hit == 'true'
         working-directory: ${{ env.PS_DIR }}/tests/UI
         run: |
           npx playwright install chromium

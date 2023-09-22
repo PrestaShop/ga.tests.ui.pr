@@ -93,27 +93,30 @@ jobs:
           # Build prestashop image in background
           USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
 
+      # Run composer install before building the assets since the themes come from composer
       - name: Composer install
         uses: ./custom_actions/.github/workflows/actions/composer-install
         with:
           ps_dir: ${{ env.PS_DIR }}
 
       # Install node dependencies and build assets
-      - name: Build assets
-        uses: ./custom_actions/.github/workflows/actions/build-javascript
-        id: build-javascript
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
         with:
-          node_version: ${{ inputs.node_version }}
-          package_locks: |
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+          cache-dependency-path: |
             ${{ env.PS_DIR }}/admin-dev/themes/new-theme/package-lock.json
             ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
             ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
             ${{ env.PS_DIR }}/themes/package-lock.json
-          node_modules: |
-            ${{ env.PS_DIR }}/admin-dev/themes/new-theme/node_modules
-            ${{ env.PS_DIR }}/admin-dev/themes/default/node_modules
-            ${{ env.PS_DIR }}/themes/classic/_dev/node_modules
-            ${{ env.PS_DIR }}/themes/node_modules
+      - name: Build assets in parallel and in background
+        run: |
+          (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/classic/_dev; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+        shell: bash
 
       # Certificate
       - name: Generate a certificate
@@ -132,6 +135,26 @@ jobs:
           certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
           ## Add self-signed certificate to Chrome Trust Store
           mkcert -install
+
+      # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
+      # everything was built, probably because of the parallelization and background processes)
+      - name: Check that all builds are finished
+        run: |
+          buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
+          echo Checking for all these lock files $buildLocks
+          for lockFile in $buildLocks; do
+            lockFile="${{ env.PS_DIR }}/$lockFile"
+            if [ -f $lockFile ]; then
+              echo Wait for $lockFile to be removed
+              sleep 1
+              while [ -f $lockFile ]; do
+                echo $lockFile still present wait a bit more
+                sleep 1
+              done
+            fi
+            echo $lockFile is no longer present
+          done
+        shell: bash
 
       # Create shop with Docker build assets, and initialize database and shop content
       - name: Start PrestaShop docker
@@ -154,7 +177,7 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
 
-      # Prepare archive contents to share with following jobs, ignore folders but keep them, so they can be cached at the end of the job
+      # Prepare archive contents to share with following jobs
       - name: Archive shop content
         if: always()
         run: |
