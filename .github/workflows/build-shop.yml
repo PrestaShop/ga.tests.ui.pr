@@ -94,10 +94,22 @@ jobs:
           USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
 
       # Run composer install before building the assets since the themes come from composer
-      - name: Composer install
-        uses: ./custom_actions/.github/workflows/actions/composer-install
+      - name: Get Composer Cache Directory
+        id: composer-cache-dir
+        run: |
+          echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+        working-directory: ${{ env.PS_DIR }}
+        shell: bash
+      - name: Cache composer cache dir
+        uses: actions/cache@v3
         with:
-          ps_dir: ${{ env.PS_DIR }}
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      # Run composer install
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader
+        working-directory: ${{ env.PS_DIR }}
+        shell: bash
 
       # Install node dependencies and build assets
       - name: Setup Node ${{ inputs.node_version }}
