@@ -162,9 +162,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node_version }}
-          cache: 'npm'
-          cache-dependency-path: |
-            ${{ env.PS_DIR }}/tests/UI/package-lock.json
       - name: Build test dependencies
         working-directory: ${{ env.PS_DIR }}/tests/UI
         run: |

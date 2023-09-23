@@ -124,12 +124,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node_version }}
-          cache: 'npm'
-          cache-dependency-path: |
-            ${{ env.PS_DIR }}/admin-dev/themes/new-theme/package-lock.json
-            ${{ env.PS_DIR }}/admin-dev/themes/default/package-lock.json
-            ${{ env.PS_DIR }}/themes/classic/_dev/package-lock.json
-            ${{ env.PS_DIR }}/themes/package-lock.json
       - name: Build assets in parallel and in background
         run: |
           (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
@@ -137,13 +131,6 @@ jobs:
           (pushd ${{ env.PS_DIR }}/themes/classic/_dev; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
           (pushd ${{ env.PS_DIR }}/themes/; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
         shell: bash
-      - name: Cache tests UI dependencies for following jobs
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ inputs.node_version }}
-          cache: 'npm'
-          cache-dependency-path: |
-            ${{ env.PS_DIR }}/tests/UI/package-lock.json
 
       # Certificate
       - name: Generate a certificate
