@@ -1,0 +1,227 @@
+name: Build PrestaShop and export sources and SQL dump as artifacts
+on:
+  workflow_call:
+    inputs:
+      pr_number:
+        type: string
+        description: Pull request Id
+        required: true
+      base_branch:
+        type: string
+        description: Base branch to rebase the PR
+        required: true
+      ps_mode_dev:
+        type: boolean
+        description: Enable/Disable the developer mode
+        required: true
+      rebase_or_merge:
+        type: string
+        required: true
+        description: Rebase or merge the pull request
+      php_version:
+        type: string
+        description: PHP version
+        required: true
+      node_version:
+        type: string
+        description: Node version
+        required: true
+      backoffice_layout:
+        type: string
+        description: Backoffice layout
+        required: true
+
+jobs:
+  build-shop-artifacts:
+    runs-on: ubuntu-latest
+    name: Build shop artifacts
+    env:
+      # Input values
+      PS_MODE_DEV: ${{ inputs.ps_mode_dev && '1' || '0' }}
+      PS_DEV_MODE: ${{ inputs.ps_mode_dev && '1' || '0' }}
+      PHP_VERSION: ${{ inputs.php_version }}
+      NODE_VERSION: ${{ inputs.node_version }}
+      VERSION: ${{ inputs.php_version }}-apache
+      PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+      # Fixed values
+      DB_USER: root
+      DB_PASSWD: prestashop
+      DB_NAME: prestashop
+      DB_PREFIX: tst_
+      PS_DIR: 'my_prestashop'
+      PS_FOLDER_INSTALL: install-dev
+      PS_FOLDER_ADMIN: admin-dev
+      PS_COUNTRY: fr
+      PS_LANGUAGE: en
+      ADMIN_MAIL: 'demo@prestashop.com'
+      # Build assets and install shop
+      PS_INSTALL_AUTO: 1
+      DISABLE_MAKE: 0
+
+    steps:
+      - name: Print Inputs values
+        shell: bash
+        run: echo "${{ toJSON(inputs) }}"
+
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+
+      - name: Checkout PrestaShop
+        uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
+        with:
+          pr_number: ${{ inputs.pr_number }}
+          base_branch: ${{ inputs.base_branch }}
+          rebase_or_merge: ${{ inputs.rebase_or_merge }}
+          backoffice_layout: ${{ inputs.backoffice_layout }}
+          ps_dir: ${{ env.PS_DIR }}
+
+      # Pre pull/build images
+      # For some reason keycloak must be started before the PrestaShop build or it fails
+      - name: Pull images in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Pull mysql image
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+      - name: Build PrestaShop image in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Build prestashop image in background
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+
+      # Run composer install before building the assets since the themes come from composer
+      - name: Get Composer Cache Directory
+        id: composer-cache-dir
+        run: |
+          echo "composer-cache-dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+        working-directory: ${{ env.PS_DIR }}
+        shell: bash
+      - name: Restore composer cache dir
+        uses: actions/cache/restore@v3
+        id: composer-cache
+        with:
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      # Run composer install
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader
+        working-directory: ${{ env.PS_DIR }}
+        shell: bash
+      # Save composer cache when it didn't exist
+      - name: Save composer cache dir
+        uses: actions/cache/save@v3
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
+          key: ${{ steps.composer-cache.outputs.cache-primary-key }}
+
+      # Install node dependencies and build assets
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+      - name: Build assets in parallel and in background
+        run: |
+          (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/classic/_dev; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+        shell: bash
+
+      # Certificate
+      - name: Generate a certificate
+        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb
+          certutil -d $HOME/.pki/nssdb -N
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
+
+      # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
+      # everything was built, probably because of the parallelization and background processes)
+      - name: Check that all builds are finished
+        run: |
+          buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
+          echo Checking for all these lock files $buildLocks
+          for lockFile in $buildLocks; do
+            lockFile="${{ env.PS_DIR }}/$lockFile"
+            if [ -f $lockFile ]; then
+              echo Wait for $lockFile to be removed
+              sleep 1
+              while [ -f $lockFile ]; do
+                echo $lockFile still present wait a bit more
+                sleep 1
+              done
+            fi
+            echo $lockFile is no longer present
+          done
+        shell: bash
+
+      # Create shop with Docker build assets, and initialize database and shop content
+      - name: Start PrestaShop docker
+        working-directory: ${{ env.PS_DIR }}
+        timeout-minutes: 5
+        env:
+          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
+          # Initial build, install shop data but assets are already built
+          DISABLE_MAKE: 1
+          PS_INSTALL_AUTO: 1
+        run: |
+          # First wait for all images to be ready
+          echo Check that all images are ready
+          until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
+          until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
+          # Then build and start the docker
+          echo Build docker via docker composer
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
+          echo Waiting for response from the FO
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
+
+      # Prepare archive contents to share with following jobs
+      - name: Archive shop content
+        if: always()
+        run: |
+          mkdir -p /tmp/shop-artifacts
+          zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }} -x \
+            "*/admin-dev/themes/new-theme/node_modules/**/*" \
+            "*/admin-dev/themes/default/node_modules/**/*" \
+            "*/themes/classic/_dev/**/*" \
+            "*/themes/_core/**/*" \
+            "*/themes/node_modules/**/*" \
+            "*/install-dev/**/*" \
+            "*/translations/*.zip" \
+            "*/var/cache/**/*" \
+            "*/tests/Integration/**/*" \
+            "*/tests/Resources/**/*" \
+            "*/tests/Unit/**/*" \
+            "*/.git/**/*"
+          docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
+
+      - name: Upload shop artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: shop-artifacts
+          path: /tmp/shop-artifacts
+
+      - name: Save logs in case of error
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: Build error export logs
+          path: |
+            ${{ env.PS_DIR }}/var/logs
