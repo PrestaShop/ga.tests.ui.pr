@@ -6,6 +6,11 @@ on:
         type: string
         description: Use a target branch or tag to build a release
         required: true
+      artifact_name:
+        type: string
+        description: Artifact name, used later for download
+        required: false
+        default: 'release-shop'
       php_version:
         type: string
         description: PHP version
@@ -52,5 +57,5 @@ jobs:
       - name: Upload built release
         uses: actions/upload-artifact@v3
         with:
-          name: target-shop
+          name: ${{ inputs.artifact_name }}
           path: ${{ steps.export-folder.outputs.export-folder }}

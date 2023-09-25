@@ -24,6 +24,18 @@ on:
           - '8.0.4'
           - '8.1.0'
         default: '8.1.x'
+      upgrade_module_ref:
+        description: Use a branch or tag for the autoupgrade module
+        type: choice
+        required: true
+        options:
+          - 'dev'
+          - 'master'
+          - '1.7.8.x'
+          - 'v4.16.0'
+          - 'v4.15.0'
+          - 'v4.14.2'
+        default: 'dev'
       php_version:
         type: choice
         description: PHP version
@@ -52,11 +64,25 @@ jobs:
       repository_ref: ${{ inputs.source_ref }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
+      artifact_name: source_shop
 
   build-target:
     name: Build target shop based on ref ${{ inputs.target_ref }}
-    uses: ./.github/workflows/build-shop.yml
+    uses: ./.github/workflows/build-release.yml
     with:
       target_ref: ${{ inputs.target_ref }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      artifact_name: target_shop
+
+  upgrade-shop:
+    name: Upgrade shop from ${{ inputs.source_ref }} to ${{ inputs.target_ref }} using module ${{ inputs.upgrade_module_ref }}
+    needs: [build-source, build-target]
+    uses: ./.github/workflows/upgrade-shop.yml
+    with:
+      upgrade_module_ref: ${{ inputs.upgrade_module_ref }}
+      source_ref: ${{ inputs.source_ref }}
+      source_artifact: source_shop
+      target_artifact: target_shop
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}

@@ -1,0 +1,181 @@
+name: Build PrestaShop release based on branch or target and export archive and checksum
+on:
+  workflow_call:
+    inputs:
+      upgrade_module_ref:
+        type: string
+        description: Use a branch or tag for the autoupgrade module
+        required: true
+      source_ref:
+        type: string
+        description: Base branch or tag for the source
+        required: true
+      source_artifact:
+        type: string
+        description: Source artifact name, used to download built source
+        required: true
+      target_artifact:
+        type: string
+        description: Target artifact name, used to download release target
+        required: true
+      php_version:
+        type: string
+        description: PHP version
+        required: true
+      node_version:
+        type: string
+        description: Node version
+        required: true
+
+jobs:
+  upgrade-shop:
+    runs-on: ubuntu-latest
+    name: upgrade PrestaShop using autoupgrade module ${{ inputs.upgrade_module_ref }}
+    env:
+      # Input values
+      PS_MODE_DEV: ${{ inputs.ps_mode_dev && '1' || '0' }}
+      PS_DEV_MODE: ${{ inputs.ps_mode_dev && '1' || '0' }}
+      PHP_VERSION: ${{ inputs.php_version }}
+      NODE_VERSION: ${{ inputs.node_version }}
+      VERSION: ${{ inputs.php_version }}-apache
+      PS_DOMAIN: ${{ (startsWith(inputs.source_ref, '8.0') || startsWith(inputs.source_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.source_ref, '8.0') || startsWith(inputs.source_ref, '1.7.8')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.source_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      # Fixed values
+      DB_USER: root
+      DB_PASSWD: prestashop
+      DB_NAME: prestashop
+      DB_PREFIX: tst_
+      DB_SERVER: mysql
+      PS_DIR: upgraded_prestashop
+      PS_FOLDER_INSTALL: install-dev
+      PS_FOLDER_ADMIN: admin-dev
+      PS_COUNTRY: fr
+      PS_LANGUAGE: en
+      ADMIN_MAIL: 'demo@prestashop.com'
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+
+      - name: Download docker artifacts
+        id: download-shop
+        uses: ./custom_actions/.github/workflows/actions/archive-shop/download
+        with:
+          target_folder: ${{ env.PS_DIR }}
+          artifact_name: ${{ inputs.source_artifact }}
+
+      # Pre pull/build images
+      - name: Pull mysql in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Pull mysql image
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+      - name: Build PrestaShop image in background
+        working-directory: ${{ env.PS_DIR }}
+        run: |
+          # Build prestashop image in background
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+
+      # Certificate
+      - name: Generate a certificate
+        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        run: |
+          ## Install MkCert
+          sudo apt install libnss3-tools
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+          ## Generate certificate
+          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
+          ## Link certificate to Chrome Trust Store
+          mkdir -p $HOME/.pki/nssdb
+          certutil -d $HOME/.pki/nssdb -N
+          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
+          ## Add self-signed certificate to Chrome Trust Store
+          mkcert -install
+
+      - name: Setup database
+        working-directory: ${{ env.PS_DIR }}
+        timeout-minutes: 5
+        run: |
+          echo Starting mysql docker alone
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build mysql
+          echo Wait until mysql is accessible minimum 10 seconds before testing
+          sleep 10
+          until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
+          echo Copying dump into docker
+          docker cp ${{ steps.download-shop.outputs.db-dump-path }} my_prestashop_mysql_1:/tmp/db_dump.sql
+          echo Creating ${{ env.DB_NAME }} database
+          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
+          echo Load dump into DB
+          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
+
+      - name: Start up shop docker
+        working-directory: ${{ env.PS_DIR }}
+        timeout-minutes: 5
+        env:
+          VERSION: ${{ (startsWith(inputs.source_ref, '1.7.8')) && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ ((startsWith(inputs.source_ref, '8.0')) || (startsWith(inputs.source_ref, '1.7.8'))) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          # No install we force the sources and load the SQL dump
+          PS_INSTALL_AUTO: 0
+          DISABLE_MAKE: 1
+          # For API tests we build all containers (including keycloak) for other tests only prestashop is needed
+          BUILT_CONTAINERS: ${{ (inputs.test_command == 'functional:API') && '' || 'prestashop-git' }}
+        run: |
+          # First wait for all images to be ready
+          echo Check that all images are ready
+          until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
+          until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
+          echo Build the remaining dockers
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build ${{ env.BUILT_CONTAINERS }}
+          echo Waiting for response from the FO
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
+
+      - uses: actions/checkout@v3
+        name: Checkout Autoupgrade module
+        with:
+          repository: PrestaShop/autoupgrade
+          path: ${{ env.PS_DIR }}/modules/autoupgrade
+          ref: ${{ inputs.upgrade_module_ref }}
+      - name: Composer install in module
+        run: composer install
+        working-directory: ${{ env.PS_DIR }}/modules/autoupgrade
+
+      - name: Install module via CLI commands
+        run: docker exec -u www-data my_prestashop_prestashop-git_1 php bin/console prestashop:module install autoupgrade
+
+      - name: Prepare archive folder
+        run: mkdir -p ${{ env.PS_DIR }}/modules/autoupgrade/releases/download
+
+      - name: Download target release
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.target_artifact }}
+          path: ${{ env.PS_DIR }}/modules/autoupgrade/download
+
+      - name: Prepare upgrade config
+        run: |
+          ls -l ${{ env.PS_DIR }}/modules/autoupgrade/download
+          zipFile=$(ls -l ${{ env.PS_DIR }}/modules/autoupgrade/download | grep zip)
+          zipVersion=$(echo $zipFile | sed s/prestashop_// | sed s/\.zip//)
+          xmlFile=$(ls -l ${{ env.PS_DIR }}/modules/autoupgrade/download | grep xml)
+          echo "{\"channel\":\"archive\",\"archive_prestashop\":\"$zipFile\",\"archive_num\":\"$zipVersion\", \"archive_xml\":\"$xmlFile\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+
+      - name: Run CLI upgrade based on target release archive
+        run: |
+          docker exec -u www-data my_prestashop_prestashop-git_1 php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
+          docker exec -u www-data my_prestashop_prestashop-git_1 php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
+          docker exec -u www-data my_prestashop_prestashop-git_1 php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
+
+      # Prepare archive contents to share with following jobs
+      - name: Archive shop content
+        if: always()
+        uses: ./custom_actions/.github/workflows/actions/archive-shop
+        with:
+          ps_dir: ${{ env.PS_DIR }}
+          db_user: ${{ env.DB_USER }}
+          db_password: ${{ env.DB_PASSWD }}
+          db_name: ${{ env.DB_NAME }}
+          artifact_name: upgraded_shop

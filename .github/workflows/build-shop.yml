@@ -34,6 +34,11 @@ on:
         description: Backoffice layout
         required: false
         default: 'legacy'
+      artifact_name:
+        type: string
+        description: Artifact name, used later for download
+        required: false
+        default: 'shop-artifacts'
 
 jobs:
   build-shop-artifacts:
@@ -204,6 +209,7 @@ jobs:
           db_user: ${{ env.DB_USER }}
           db_password: ${{ env.DB_PASSWD }}
           db_name: ${{ env.DB_NAME }}
+          artifact_name: ${{ inputs.artifact_name }}
 
       - name: Save logs in case of error
         uses: actions/upload-artifact@v3
