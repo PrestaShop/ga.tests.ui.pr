@@ -198,29 +198,12 @@ jobs:
       # Prepare archive contents to share with following jobs
       - name: Archive shop content
         if: always()
-        run: |
-          mkdir -p /tmp/shop-artifacts
-          zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }} -x \
-            "*/admin-dev/themes/new-theme/node_modules/**/*" \
-            "*/admin-dev/themes/default/node_modules/**/*" \
-            "*/themes/classic/_dev/**/*" \
-            "*/themes/_core/**/*" \
-            "*/themes/node_modules/**/*" \
-            "*/install-dev/**/*" \
-            "*/translations/*.zip" \
-            "*/var/cache/**/*" \
-            "*/tests/Integration/**/*" \
-            "*/tests/Resources/**/*" \
-            "*/tests/Unit/**/*" \
-            "*/.git/**/*"
-          docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
-
-      - name: Upload shop artifacts
-        if: always()
-        uses: actions/upload-artifact@v3
+        uses: ./custom_actions/.github/workflows/actions/archive-shop
         with:
-          name: shop-artifacts
-          path: /tmp/shop-artifacts
+          ps_dir: ${{ env.PS_DIR }}
+          db_user: ${{ env.DB_USER }}
+          db_password: ${{ env.DB_PASSWD }}
+          db_name: ${{ env.DB_NAME }}
 
       - name: Save logs in case of error
         uses: actions/upload-artifact@v3

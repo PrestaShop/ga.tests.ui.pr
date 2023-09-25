@@ -1,0 +1,47 @@
+name: Archive shop
+description: Archive shop to share with future jobs, the action exports sources sql and xml checksum (optional)
+inputs:
+  ps_dir:
+    description: Directory target
+    required: true
+  db_user:
+    description: DB user
+    required: true
+  db_password:
+    description: DB password
+    required: true
+  db_name:
+    description: DB name
+    required: true
+  artifact_name:
+    description: Artifact name, used later for download
+    required: false
+    default: shop-artifacts
+
+runs:
+  using: "composite"
+  steps:
+    - name: Archive shop content
+      run: |
+        mkdir -p /tmp/${{ inputs.artifact_name }}
+        pushd ${{ inputs.ps_dir }}; zip -q -r /tmp/${{ inputs.artifact_name }}/sources.zip . -x \
+          "admin-dev/themes/new-theme/node_modules/**/*" \
+          "admin-dev/themes/default/node_modules/**/*" \
+          "themes/classic/_dev/**/*" \
+          "themes/_core/**/*" \
+          "themes/node_modules/**/*" \
+          "install-dev/**/*" \
+          "translations/*.zip" \
+          "var/cache/**/*" \
+          "tests/Integration/**/*" \
+          "tests/Resources/**/*" \
+          "tests/Unit/**/*" \
+          ".git/**/*"; popd
+        docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ inputs.db_user }} -p${{ inputs.db_password }} ${{ inputs.db_name }} > /tmp/${{ inputs.artifact_name }}/db_dump.sql
+      shell: bash
+
+    - name: Upload shop artifacts "${{ inputs.artifact_name }}"
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.artifact_name }}
+        path: /tmp/${{ inputs.artifact_name }}

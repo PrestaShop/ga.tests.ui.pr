@@ -66,14 +66,10 @@ jobs:
           path: custom_actions
 
       - name: Download docker artifacts
-        uses: actions/download-artifact@v3
+        id: download-shop
+        uses: ./custom_actions/.github/workflows/actions/archive-shop/download
         with:
-          name: shop-artifacts
-          path: /tmp/shop-artifacts
-
-      - name: Extract PrestaShop sources
-        run: |
-          unzip /tmp/shop-artifacts/sources.zip -d .
+          target_folder: ${{ env.PS_DIR }}
 
       # Pre pull/build images
       - name: Pull mysql in background
@@ -121,7 +117,7 @@ jobs:
           sleep 10
           until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
           echo Copying dump into docker
-          docker cp /tmp/shop-artifacts/db_dump.sql my_prestashop_mysql_1:/tmp/db_dump.sql
+          docker cp ${{ steps.download-shop.outputs.db-dump-path }} my_prestashop_mysql_1:/tmp/db_dump.sql
           echo Creating ${{ env.DB_NAME }} database
           docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
           echo Load dump into DB
