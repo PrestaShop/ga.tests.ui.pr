@@ -51,6 +51,14 @@ runs:
         git rebase origin/${{ inputs.base_branch }}
       shell: bash
 
+    - name: Merge
+      working-directory: ${{ inputs.ps_dir }}
+      if: ${{ inputs.rebase_or_merge == 'merge' }}
+      run: |
+        git fetch origin ${{ inputs.base_branch }}:${{ inputs.base_branch }}
+        git merge origin/${{ inputs.base_branch }}
+      shell: bash
+
     # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
     - name: PrestaShop Configuration (Copy of Config API)
       if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
