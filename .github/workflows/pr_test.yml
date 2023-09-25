@@ -81,7 +81,7 @@ jobs:
     uses: ./.github/workflows/build-shop.yml
     with:
       pr_number: ${{ inputs.pr_number }}
-      base_branch: ${{ inputs.base_branch }}
+      repository_ref: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}

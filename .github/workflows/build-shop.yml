@@ -2,22 +2,10 @@ name: Build PrestaShop and export sources and SQL dump as artifacts
 on:
   workflow_call:
     inputs:
-      pr_number:
-        type: string
-        description: Pull request Id
-        required: true
-      base_branch:
+      repository_ref:
         type: string
         description: Base branch to rebase the PR
         required: true
-      ps_mode_dev:
-        type: boolean
-        description: Enable/Disable the developer mode
-        required: true
-      rebase_or_merge:
-        type: string
-        required: true
-        description: Rebase or merge the pull request
       php_version:
         type: string
         description: PHP version
@@ -26,10 +14,26 @@ on:
         type: string
         description: Node version
         required: true
+      pr_number:
+        type: string
+        description: Pull request Id
+        required: false
+        default: ''
+      ps_mode_dev:
+        type: boolean
+        description: Enable/Disable the developer mode
+        required: false
+        default: false
+      rebase_or_merge:
+        type: string
+        required: false
+        description: Rebase or merge the pull request
+        default: ''
       backoffice_layout:
         type: string
         description: Backoffice layout
-        required: true
+        required: false
+        default: 'legacy'
 
 jobs:
   build-shop-artifacts:
@@ -42,10 +46,10 @@ jobs:
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
       VERSION: ${{ inputs.php_version }}-apache
-      PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
-      PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
-      ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
-      URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
       # Fixed values
       DB_USER: root
       DB_PASSWD: prestashop
@@ -74,11 +78,11 @@ jobs:
       - name: Checkout PrestaShop
         uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
         with:
+          repository_ref: ${{ inputs.repository_ref }}
+          ps_dir: ${{ env.PS_DIR }}
           pr_number: ${{ inputs.pr_number }}
-          base_branch: ${{ inputs.base_branch }}
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           backoffice_layout: ${{ inputs.backoffice_layout }}
-          ps_dir: ${{ env.PS_DIR }}
 
       # Pre pull/build images
       # For some reason keycloak must be started before the PrestaShop build or it fails
@@ -134,7 +138,7 @@ jobs:
 
       # Certificate
       - name: Generate a certificate
-        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        if: startsWith(inputs.repository_ref, '8.1') || inputs.repository_ref == 'develop'
         run: |
           ## Install MkCert
           sudo apt install libnss3-tools
@@ -175,8 +179,8 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
         env:
-          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ ((startsWith(inputs.repository_ref, '8.0')) || (startsWith(inputs.repository_ref, '1.7.8'))) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ (startsWith(inputs.repository_ref, '1.7.8')) && inputs.php_version || env.VERSION }}
           # Initial build, install shop data but assets are already built
           DISABLE_MAKE: 1
           PS_INSTALL_AUTO: 1

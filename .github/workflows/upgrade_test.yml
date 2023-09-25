@@ -1,0 +1,54 @@
+name: Testing PrestaShop upgrade
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        type: choice
+        description: Use a source branch or tag to start the upgrade from
+        required: true
+        options:
+          - '8.1.x'
+          - '8.0.x'
+          - '1.7.8.x'
+          - '8.0.4'
+          - '1.7.8.9'
+        default: '8.0.x'
+      target_ref:
+        type: choice
+        description: Use a target branch or tag to upgrade to
+        required: true
+        options:
+          - 'develop'
+          - '8.1.x'
+          - '8.0.x'
+          - '8.0.4'
+          - '8.1.0'
+        default: '8.1.x'
+      php_version:
+        type: choice
+        description: PHP version
+        required: true
+        options:
+          - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+        default: '8.1'
+      node_version:
+        type: choice
+        description: Node version
+        required: true
+        options:
+          - '14'
+          - '16'
+        default: '14'
+
+jobs:
+  build-source:
+    name: Build source shop based on ref ${{ inputs.source_ref }}
+    uses: ./.github/workflows/build-shop.yml
+    with:
+      repository_ref: ${{ inputs.source_ref }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}

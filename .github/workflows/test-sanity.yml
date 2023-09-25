@@ -76,8 +76,7 @@ jobs:
       - name: Checkout PrestaShop
         uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
         with:
-          pr_number: ${{ inputs.pr_number }}
-          base_branch: ${{ inputs.base_branch }}
+          repository_ref: ${{ inputs.pr_number }}
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           backoffice_layout: ${{ inputs.backoffice_layout }}
           ps_dir: ${{ env.PS_DIR }}
