@@ -1,0 +1,56 @@
+name: Build PrestaShop release based on branch or target and export archive and checksum
+on:
+  workflow_call:
+    inputs:
+      target_ref:
+        type: string
+        description: Use a target branch or tag to build a release
+        required: true
+      php_version:
+        type: string
+        description: PHP version
+        required: true
+      node_version:
+        type: string
+        description: Node version
+        required: true
+
+jobs:
+  build-target:
+    runs-on: ubuntu-latest
+    name: Build target shop based on ref ${{ inputs.target_ref }}
+    env:
+      PS_TARGET: prestashop_target
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+
+      - name: Checkout PrestaShop
+        uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
+        with:
+          repository_ref: ${{ inputs.target_ref }}
+          ps_dir: ${{ env.PS_TARGET }}
+
+      - name: Setup Node ${{ inputs.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+
+      - name: Build release
+        working-directory: ${{ env.PS_TARGET }}
+        run: php tools/build/CreateRelease.php
+
+      - name: Get export folder
+        id: export-folder
+        working-directory: ${{ env.PS_TARGET }}
+        run: |
+          exportFolder=$(pwd)/$(ls tools/build/releases/)
+          echo "export-folder=$exportFolder" >> $GITHUB_OUTPUT
+
+      - name: Upload built release
+        uses: actions/upload-artifact@v3
+        with:
+          name: target-shop
+          path: ${{ steps.export-folder.outputs.export-folder }}

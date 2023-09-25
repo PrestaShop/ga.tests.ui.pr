@@ -52,3 +52,11 @@ jobs:
       repository_ref: ${{ inputs.source_ref }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
+
+  build-target:
+    name: Build target shop based on ref ${{ inputs.target_ref }}
+    uses: ./.github/workflows/build-shop.yml
+    with:
+      target_ref: ${{ inputs.target_ref }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
