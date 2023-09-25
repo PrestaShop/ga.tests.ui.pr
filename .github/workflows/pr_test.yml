@@ -190,7 +190,7 @@ jobs:
       PS_DIR: 'my_prestashop'
       ## Install PrestaShop & UI Tests
       VERSION: ${{ github.event.inputs.php_version }}-apache
-      PS_INSTALL_AUTO: 1
+      PS_INSTALL_AUTO: ${{ ((matrix.TEST_COMMAND == 'sanity')) && '0' || '1' }}
       DB_PASSWD: prestashop
       DB_NAME: prestashop
       DB_SERVER: mysql
