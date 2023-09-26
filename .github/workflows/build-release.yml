@@ -51,7 +51,7 @@ jobs:
         id: export-folder
         working-directory: ${{ env.PS_TARGET }}
         run: |
-          exportFolder=$(pwd)/$(ls tools/build/releases/)
+          exportFolder=$(pwd)/tools/build/releases/$(ls tools/build/releases/)
           echo "export-folder=$exportFolder" >> $GITHUB_OUTPUT
 
       - name: Upload built release

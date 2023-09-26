@@ -36,6 +36,10 @@ on:
           - 'v4.15.0'
           - 'v4.14.2'
         default: 'dev'
+      ps_mode_dev:
+        type: boolean
+        description: Use developer mode?
+        required: true
       php_version:
         type: choice
         description: PHP version
@@ -62,6 +66,7 @@ jobs:
     uses: ./.github/workflows/build-shop.yml
     with:
       repository_ref: ${{ inputs.source_ref }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       artifact_name: source_shop

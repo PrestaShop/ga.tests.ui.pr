@@ -22,6 +22,8 @@ runs:
   using: "composite"
   steps:
     - name: Archive shop content
+      env:
+        DOCKER_PREFIX: ${{ inputs.ps_dir }}
       run: |
         mkdir -p /tmp/${{ inputs.artifact_name }}
         pushd ${{ inputs.ps_dir }}; zip -q -r /tmp/${{ inputs.artifact_name }}/sources.zip . -x \
@@ -37,7 +39,7 @@ runs:
           "tests/Resources/**/*" \
           "tests/Unit/**/*" \
           ".git/**/*"; popd
-        docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ inputs.db_user }} -p${{ inputs.db_password }} ${{ inputs.db_name }} > /tmp/${{ inputs.artifact_name }}/db_dump.sql
+        docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysqldump -u ${{ inputs.db_user }} -p${{ inputs.db_password }} ${{ inputs.db_name }} > /tmp/${{ inputs.artifact_name }}/db_dump.sql
       shell: bash
 
     - name: Upload shop artifacts "${{ inputs.artifact_name }}"

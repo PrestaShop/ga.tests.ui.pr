@@ -62,19 +62,11 @@ runs:
 
     # Or simply get the branch/tag
     - name: Get ref from repository ${{ inputs.repository_ref }}
-      if: inputs.pr_number == '' && inputs.rebase_or_merge == ''
+      if: inputs.pr_number == '' && inputs.rebase_or_merge == '' && inputs.repository_ref != 'develop'
       working-directory: ${{ inputs.ps_dir }}
       run: |
         git fetch origin ${{ inputs.repository_ref }}:${{ inputs.repository_ref }}
         git checkout ${{ inputs.repository_ref }}
-      shell: bash
-
-    - name: Merge
-      working-directory: ${{ inputs.ps_dir }}
-      if: ${{ inputs.rebase_or_merge == 'merge' }}
-      run: |
-        git fetch origin ${{ inputs.base_branch }}:${{ inputs.base_branch }}
-        git merge origin/${{ inputs.base_branch }}
       shell: bash
 
     # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed

@@ -87,7 +87,7 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build prestashop-git >& /dev/null &
 
       # Certificate
       - name: Generate a certificate
@@ -110,18 +110,20 @@ jobs:
       - name: Setup database
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
+        env:
+          DOCKER_PREFIX: ${{ env.PS_DIR }}
         run: |
           echo Starting mysql docker alone
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build mysql
           echo Wait until mysql is accessible minimum 10 seconds before testing
           sleep 10
-          until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
+          until docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
           echo Copying dump into docker
-          docker cp ${{ steps.download-shop.outputs.db-dump-path }} my_prestashop_mysql_1:/tmp/db_dump.sql
+          docker cp ${{ steps.download-shop.outputs.db-dump-path }} ${{ env.DOCKER_PREFIX }}_mysql_1:/tmp/db_dump.sql
           echo Creating ${{ env.DB_NAME }} database
-          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
+          docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
           echo Load dump into DB
-          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
+          docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
 
       - name: Build keycloak
         if: inputs.test_command == 'functional:API'
