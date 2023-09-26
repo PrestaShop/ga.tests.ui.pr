@@ -25,7 +25,7 @@ on:
       fast_fail:
         type: boolean
         description: Fast fail on first error
-        required: true
+        required: false
         default: false
       artifact_name:
         type: string
