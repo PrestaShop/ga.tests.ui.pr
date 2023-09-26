@@ -133,6 +133,7 @@ jobs:
 
       - name: Build keycloak
         if: inputs.test_command == 'functional:API'
+        timeout-minutes: 3
         working-directory: ${{ env.PS_DIR }}
         run: |
           until docker images | grep keycloak; do echo Waiting for keycloak image; sleep 1; done
