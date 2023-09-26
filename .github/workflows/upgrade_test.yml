@@ -150,7 +150,7 @@ jobs:
           - 'regression'
           - 'sanity:productV2'
         BASE_BRANCH:
-          - ${{ (startsWith(inputs.target_ref, '1.7.8' && '1.7.8.x') || (startsWith(inputs.target_ref, '8.0' && '8.0.x') || (startsWith(inputs.target_ref, '8.1' && '8.1.x') || (true && 'develop') }}
+          - ${{ (startsWith(inputs.target_ref, '1.7.8') && '1.7.8.x') || (startsWith(inputs.target_ref, '8.0') && '8.0.x') || (startsWith(inputs.target_ref, '8.1') && '8.1.x') || 'develop' }}
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
