@@ -91,3 +91,130 @@ jobs:
       target_artifact: target_shop
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
+
+  test-upgraded-shop:
+    name: Run UI tests on the upgraded shop
+    needs: upgrade-shop
+    uses: ./.github/workflows/test-with-prebuilt-shop.yml
+    with:
+      repository_ref: ${{ inputs.target_ref }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      php_version: ${{ inputs.php_version }}
+      node_version: ${{ inputs.node_version }}
+      test_command: ${{ matrix.TEST_COMMAND }}
+      artifact_name: upgraded_shop
+    strategy:
+      fail-fast: false
+      matrix:
+        TEST_COMMAND:
+          - 'cldr'
+          - 'functional:API'
+          - 'functional:BO:advanced-parameters:01-06'
+          - 'functional:BO:advanced-parameters:07-10'
+          - 'functional:BO:advanced-parameters:11-12'
+          - 'functional:BO:catalog:01-02'
+          - 'functional:BO:catalog:03-04'
+          - 'functional:BO:catalog:05-06'
+          - 'functional:BO:catalog:07-08'
+          - 'functional:BO:customer-service'
+          - 'functional:BO:customer:01'
+          - 'functional:BO:customer:02-03'
+          - 'functional:BO:dashboard'
+          - 'functional:BO:design'
+          - 'functional:BO:header'
+          - 'functional:BO:international:01'
+          - 'functional:BO:international:02'
+          - 'functional:BO:international:03-04'
+          - 'functional:BO:login'
+          - 'functional:BO:modules'
+          - 'functional:BO:orders:01-create-orders'
+          - 'functional:BO:orders:01-view-and-edit-order'
+          - 'functional:BO:orders:01:0-1'
+          - 'functional:BO:orders:02'
+          - 'functional:BO:orders:03-05'
+          - 'functional:BO:payment'
+          - 'functional:BO:shipping'
+          - 'functional:BO:shop-parameters:01-02'
+          - 'functional:BO:shop-parameters:03-04'
+          - 'functional:BO:shop-parameters:05-07'
+          - 'functional:FO:01-03'
+          - 'functional:FO:04-07'
+          - 'functional:FO:08-12'
+          - 'functional:FO:classic:01-03'
+          - 'functional:FO:classic:04-07'
+          - 'functional:FO:classic:08-12'
+          - 'functional:FO:hummingbird:01-03'
+          - 'functional:WS'
+          - 'functional:productV2'
+          - 'modules'
+          - 'regression'
+          - 'sanity:productV2'
+        BASE_BRANCH:
+          - ${{ (startsWith(inputs.target_ref, '1.7.8' && '1.7.8.x') || (startsWith(inputs.target_ref, '8.0' && '8.0.x') || (startsWith(inputs.target_ref, '8.1' && '8.1.x') || 'develop' }}
+        exclude:
+          ## 1.7.8.x
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'sanity:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          ## 8.0.x
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          ## 8.1.x
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:08-12'
+          ## develop
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:08-12'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'sanity:productV2'

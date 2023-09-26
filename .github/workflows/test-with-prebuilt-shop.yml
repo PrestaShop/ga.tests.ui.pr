@@ -2,9 +2,9 @@ name: Run UI tests with prebuilt shop
 on:
   workflow_call:
     inputs:
-      base_branch:
+      repository_ref:
         type: string
-        description: Base branch to rebase the PR
+        description: Base branch/ref from the repository
         required: true
       ps_mode_dev:
         type: boolean
@@ -27,6 +27,11 @@ on:
         description: Fast fail on first error
         required: true
         default: false
+      artifact_name:
+        type: string
+        description: Artifact name, used later for download
+        required: false
+        default: 'shop-artifacts'
 
 jobs:
   install-from-artifact:
@@ -39,9 +44,9 @@ jobs:
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
       VERSION: ${{ inputs.php_version }}-apache
-      PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
-      PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
-      ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
       # Fixed values
       DB_USER: root
       DB_PASSWD: prestashop
@@ -70,6 +75,7 @@ jobs:
         uses: ./custom_actions/.github/workflows/actions/archive-shop/download
         with:
           target_folder: ${{ env.PS_DIR }}
+          artifact_name: ${{ inputs.artifact_name }}
 
       # Pre pull/build images
       - name: Pull mysql in background
@@ -91,7 +97,7 @@ jobs:
 
       # Certificate
       - name: Generate a certificate
-        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        if: startsWith(inputs.repository_ref, '8.1') || inputs.repository_ref == 'develop'
         run: |
           ## Install MkCert
           sudo apt install libnss3-tools
@@ -136,8 +142,8 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
         env:
-          VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
-          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ startsWith(inputs.repository_ref, '1.7.8') && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           # No install we force the sources and load the SQL dump
           PS_INSTALL_AUTO: 0
           DISABLE_MAKE: 1
@@ -173,7 +179,7 @@ jobs:
       - name: Run campaign ${{ inputs.test_command }} on prebuilt shop
         uses: ./custom_actions/.github/workflows/actions/run-tests
         with:
-          base_branch: ${{ inputs.base_branch }}
+          repository_ref: ${{ inputs.repository_ref }}
           ps_mode_dev: ${{ inputs.ps_mode_dev }}
           php_version: ${{ inputs.php_version }}
           node_version: ${{ inputs.node_version }}

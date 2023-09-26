@@ -4,7 +4,7 @@ on:
     inputs:
       repository_ref:
         type: string
-        description: Base branch to rebase the PR
+        description: Base branch/ref from the repository
         required: true
       php_version:
         type: string

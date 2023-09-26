@@ -80,7 +80,7 @@ jobs:
 
       # Certificate
       - name: Generate a certificate
-        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        if: startsWith(inputs.source_ref, '8.1') || inputs.source_ref == 'develop'
         run: |
           ## Install MkCert
           sudo apt install libnss3-tools

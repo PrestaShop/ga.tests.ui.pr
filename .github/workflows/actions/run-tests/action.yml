@@ -1,8 +1,8 @@
 name: Run UI tests
 description: Run UI tests
 inputs:
-  base_branch:
-    description: Base branch to rebase the PR
+  repository_ref:
+    description: Base branch/ref from the repository
     required: true
   ps_mode_dev:
     description: Enable/Disable the developer mode
@@ -38,9 +38,9 @@ runs:
         PHP_VERSION: ${{ inputs.php_version }}
         NODE_VERSION: ${{ inputs.node_version }}
         VERSION: ${{ inputs.php_version }}-apache
-        PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
-        PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
-        ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+        PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
+        PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && '0' || '1' }}
+        ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
         # Fixed values
         DB_USER: root
         DB_PASSWD: prestashop
@@ -53,7 +53,7 @@ runs:
         PS_LANGUAGE: en
         ADMIN_MAIL: 'demo@prestashop.com'
         # Test variables
-        URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+        URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
         HEADLESS: true
         ENABLE_SSL: true
         TAKE_SCREENSHOT_AFTER_FAIL: true
