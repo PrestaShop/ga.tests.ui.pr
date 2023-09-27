@@ -38,6 +38,7 @@ runs:
           "tests/Integration/**/*" \
           "tests/Resources/**/*" \
           "tests/Unit/**/*" \
+          "modules/autoupgrade/download/*" \
           ".git/**/*"; popd
         docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysqldump -u ${{ inputs.db_user }} -p${{ inputs.db_password }} ${{ inputs.db_name }} > /tmp/${{ inputs.artifact_name }}/db_dump.sql
       shell: bash

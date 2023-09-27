@@ -36,6 +36,10 @@ on:
           - 'v4.15.0'
           - 'v4.14.2'
         default: 'dev'
+      upgrade_module_pr_number:
+        description: Autoupgrade module Pull request Id
+        required: false
+        default: ''
       ps_mode_dev:
         type: boolean
         description: Use developer mode?
@@ -86,7 +90,9 @@ jobs:
     uses: ./.github/workflows/upgrade-shop.yml
     with:
       upgrade_module_ref: ${{ inputs.upgrade_module_ref }}
+      upgrade_module_pr_number: ${{ inputs.upgrade_module_pr_number }}
       source_ref: ${{ inputs.source_ref }}
+      target_ref: ${{ inputs.target_ref }}
       source_artifact: source_shop
       target_artifact: target_shop
       php_version: ${{ inputs.php_version }}

@@ -10,6 +10,10 @@ on:
         type: string
         description: Base branch or tag for the source
         required: true
+      target_ref:
+        type: string
+        description: Base branch or tag for the target
+        required: true
       source_artifact:
         type: string
         description: Source artifact name, used to download built source
@@ -26,6 +30,11 @@ on:
         type: string
         description: Node version
         required: true
+      upgrade_module_pr_number:
+        type: string
+        description: Autoupgrade module Pull request Id
+        required: false
+        default: ''
 
 jobs:
   upgrade-shop:
@@ -53,6 +62,7 @@ jobs:
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       ADMIN_MAIL: 'demo@prestashop.com'
+      PS_TARGET: prestashop_target
     steps:
       # Checkout repository to use custom actions
       - uses: actions/checkout@v3
@@ -135,45 +145,100 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
+      # Install autoupgrade module
       - uses: actions/checkout@v3
         name: Checkout Autoupgrade module
         with:
           repository: PrestaShop/autoupgrade
           path: ${{ env.PS_DIR }}/modules/autoupgrade
           ref: ${{ inputs.upgrade_module_ref }}
+      - name: Get pull request ${{ inputs.upgrade_module_pr_number }}
+        if: inputs.upgrade_module_pr_number != ''
+        working-directory: ${{ env.PS_DIR }}/modules/autoupgrade
+        run: |
+          git fetch origin pull/${{ inputs.upgrade_module_pr_number }}/head:pr${{ inputs.upgrade_module_pr_number }}
+          git checkout pr${{ inputs.upgrade_module_pr_number }}
+        shell: bash
       - name: Composer install in module
         run: composer install
         working-directory: ${{ env.PS_DIR }}/modules/autoupgrade
-
       - name: Install module via CLI commands
         env:
           DOCKER_PREFIX: ${{ env.PS_DIR }}
         run: docker exec -u www-data ${{ env.DOCKER_PREFIX }}_prestashop-git_1 php bin/console prestashop:module install autoupgrade
 
+      # Prepare autoupgrade config
       - name: Prepare archive folder
-        run: mkdir -p ${{ env.PS_DIR }}/modules/autoupgrade/releases/download
-
+        run: mkdir -p ${{ env.PS_DIR }}/admin-dev/autoupgrade/download
       - name: Download target release
         uses: actions/download-artifact@v3
         with:
           name: ${{ inputs.target_artifact }}
-          path: ${{ env.PS_DIR }}/modules/autoupgrade/download
-
+          path: ${{ env.PS_DIR }}/admin-dev/autoupgrade/download
       - name: Prepare upgrade config
         run: |
-          ls -l ${{ env.PS_DIR }}/modules/autoupgrade/download
-          zipFile=$(ls -l ${{ env.PS_DIR }}/modules/autoupgrade/download | grep zip)
+          downloadFolder=${{ env.PS_DIR }}/admin-dev/autoupgrade/download
+          echo $downloadFolder
+          ls $downloadFolder
+          zipFile=$(ls $downloadFolder | grep zip)
           zipVersion=$(echo $zipFile | sed s/prestashop_// | sed s/\.zip//)
-          xmlFile=$(ls -l ${{ env.PS_DIR }}/modules/autoupgrade/download | grep xml)
+          xmlFile=$(ls $downloadFolder | grep xml)
           echo "{\"channel\":\"archive\",\"archive_prestashop\":\"$zipFile\",\"archive_num\":\"$zipVersion\", \"archive_xml\":\"$xmlFile\", \"PS_AUTOUP_CHANGE_DEFAULT_THEME\":"0", \"skip_backup\": "1"}" > ${{ env.PS_DIR }}/modules/autoupgrade/config.json
+          echo Config file:
+          cat ${{ env.PS_DIR }}/modules/autoupgrade/config.json
 
+      # Run autoupgrade
       - name: Run CLI upgrade based on target release archive
         env:
           DOCKER_PREFIX: ${{ env.PS_DIR }}
         run: |
+          downloadFolder=admin-dev/autoupgrade/download
+          docker exec -u www-data ${{ env.DOCKER_PREFIX }}_prestashop-git_1 ls $downloadFolder
           docker exec -u www-data ${{ env.DOCKER_PREFIX }}_prestashop-git_1 php modules/autoupgrade/cli-updateconfig.php --from=modules/autoupgrade/config.json --dir=admin-dev
           docker exec -u www-data ${{ env.DOCKER_PREFIX }}_prestashop-git_1 php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir="admin-dev" --action="compareReleases"
           docker exec -u www-data ${{ env.DOCKER_PREFIX }}_prestashop-git_1 php modules/autoupgrade/tests/testCliProcess.php modules/autoupgrade/cli-upgrade.php --dir=admin-dev
+
+      # Before archiving the shop we need to adapt its content a bit to make it work in future UI tests
+      # These files could not be updated because they are not part of the release build nor are they in the cfecksum files so can't
+      # be modified during the upgrade process These are mostly development/test files/folders that we manually replace
+      - name: Checkout PrestaShop ${{ inputs.target_ref }} to override some files
+        uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
+        with:
+          repository_ref: ${{ inputs.target_ref }}
+          ps_dir: ${{ env.PS_TARGET }}
+
+      - name: Override files from target branch
+        run: |
+          filesToReplace=".docker docker-compose.yml tests/UI"
+          for replacedFile in $filesToReplace; do
+            if test -f ${{ env.PS_DIR }}/$replacedFile; then
+              echo Remove file ${{ env.PS_DIR }}/$replacedFile
+              rm -f ${{ env.PS_DIR }}/$replacedFile
+              if test -f ${{ env.PS_TARGET }}/$replacedFile; then
+                echo Override with ${{ env.PS_TARGET }}/$replacedFile
+                cp ${{ env.PS_TARGET }}/$replacedFile ${{ env.PS_DIR }}/$replacedFile
+              fi
+            fi
+
+            if test -d ${{ env.PS_DIR }}/$replacedFile; then
+              echo Remove folder ${{ env.PS_DIR }}/$replacedFile
+              rm -fR ${{ env.PS_DIR }}/$replacedFile
+              if test -d ${{ env.PS_TARGET }}/$replacedFile; then
+                echo Override with ${{ env.PS_TARGET }}/$replacedFile
+                cp -R ${{ env.PS_TARGET }}/$replacedFile ${{ env.PS_DIR }}/$replacedFile
+              fi
+            fi
+          done
+
+      - name: Enable SSL for upgraded shop ${{ inputs.target_ref }}
+        if: startsWith(inputs.target_ref, '8.1') || inputs.target_ref == 'develop'
+        env:
+          DOCKER_PREFIX: ${{ env.PS_DIR }}
+        run: |
+          docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e 'UPDATE ${{ env.DB_PREFIX }}configuration SET value = "localhost:8002" WHERE name = "PS_SHOP_DOMAIN";'
+          docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e 'UPDATE ${{ env.DB_PREFIX }}configuration SET value = "localhost:8002" WHERE name = "PS_SHOP_DOMAIN_SSL";'
+          docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e 'UPDATE ${{ env.DB_PREFIX }}configuration SET value = "1" WHERE name = "PS_SSL_ENABLED_EVERYWHERE";'
+          docker exec ${{ env.DOCKER_PREFIX }}_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e 'UPDATE ${{ env.DB_PREFIX }}shop_url SET domain = "localhost:8002", domain_ssl = "localhost:8002";'
 
       # Prepare archive contents to share with following jobs
       - name: Archive shop content
