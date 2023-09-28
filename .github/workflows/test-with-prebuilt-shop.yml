@@ -44,9 +44,9 @@ jobs:
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
       VERSION: ${{ inputs.php_version }}-apache
-      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
-      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && '0' || '1' }}
-      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
       # Fixed values
       DB_USER: root
       DB_PASSWD: prestashop
@@ -82,18 +82,18 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql &> /dev/null &
       - name: Pull keycloak in background
         if: inputs.test_command == 'functional:API'
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull keycloak image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q keycloak >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q keycloak &> /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build prestashop-git >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build prestashop-git prestashop-git &> /dev/null &
 
       # Certificate
       - name: Generate a certificate
@@ -143,8 +143,8 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
         env:
-          VERSION: ${{ startsWith(inputs.repository_ref, '1.7.8') && inputs.php_version || env.VERSION }}
-          URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ startsWith(inputs.repository_ref, '1.7') && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           # No install we force the sources and load the SQL dump
           PS_INSTALL_AUTO: 0
           DISABLE_MAKE: 1

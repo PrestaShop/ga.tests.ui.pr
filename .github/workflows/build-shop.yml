@@ -51,10 +51,10 @@ jobs:
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
       VERSION: ${{ inputs.php_version }}-apache
-      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
-      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && '0' || '1' }}
-      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
-      URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
       # Fixed values
       DB_USER: root
       DB_PASSWD: prestashop
@@ -89,18 +89,17 @@ jobs:
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           backoffice_layout: ${{ inputs.backoffice_layout }}
 
-      # Pre pull/build images
-      # For some reason keycloak must be started before the PrestaShop build or it fails
+      # Pre pull/build images (when build background enabled)
       - name: Pull images in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql &> /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build prestashop-git >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build prestashop-git &> /dev/null &
 
       # Run composer install before building the assets since the themes come from composer
       - name: Get Composer Cache Directory
@@ -161,7 +160,7 @@ jobs:
 
       # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
       # everything was built, probably because of the parallelization and background processes)
-      - name: Check that all builds are finished
+      - name: Check that all asset builds are finished
         run: |
           buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
           echo Checking for all these lock files $buildLocks
@@ -184,8 +183,8 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
         env:
-          URL_FO: ${{ ((startsWith(inputs.repository_ref, '8.0')) || (startsWith(inputs.repository_ref, '1.7.8'))) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          VERSION: ${{ (startsWith(inputs.repository_ref, '1.7.8')) && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ ((startsWith(inputs.repository_ref, '8.0')) || (startsWith(inputs.repository_ref, '1.7'))) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          VERSION: ${{ (startsWith(inputs.repository_ref, '1.7')) && inputs.php_version || env.VERSION }}
           # Initial build, install shop data but assets are already built
           DISABLE_MAKE: 1
           PS_INSTALL_AUTO: 1
@@ -197,7 +196,7 @@ jobs:
           # Then build and start the docker
           echo Build docker via docker composer
           USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git mysql
-          echo Waiting for response from the FO
+          echo Waiting for response from the FO ${{ env.URL_FO }}
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
 
       # Prepare archive contents to share with following jobs
@@ -211,20 +210,10 @@ jobs:
           db_name: ${{ env.DB_NAME }}
           artifact_name: ${{ inputs.artifact_name }}
 
+      # Export logs in case of failure
       - name: Export docker logs
         if: failure()
-        env:
-          DOCKER_PREFIX: ${{ env.PS_DIR }}
-        run: |
-          mkdir -p ${{ env.PS_DIR }}/var/docker-logs
-          docker logs ${{ env.DOCKER_PREFIX }}_prestashop-git_1 > ${{ env.PS_DIR }}/var/docker-logs/prestashop.log
-          docker logs ${{ env.DOCKER_PREFIX }}_mysql_1 > ${{ env.PS_DIR }}/var/docker-logs/mysql.log
-
-      - name: Save logs in case of error
-        uses: actions/upload-artifact@v3
-        if: failure()
+        uses: ./custom_actions/.github/workflows/actions/export-docker-logs
         with:
-          name: Build error export logs
-          path: |
-            ${{ env.PS_DIR }}/var/logs
-            ${{ env.PS_DIR }}/var/docker-logs
+          ps_dir: ${{ env.PS_DIR }}
+          artifact_name: build-shop

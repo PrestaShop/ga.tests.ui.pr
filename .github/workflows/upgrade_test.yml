@@ -8,9 +8,16 @@ on:
         required: true
         options:
           - '8.1.x'
+          - '8.1.2'
+          - '8.1.1'
+          - '8.1.0'
           - '8.0.x'
-          - '1.7.8.x'
           - '8.0.4'
+          - '8.0.3'
+          - '8.0.2'
+          - '8.0.1'
+          - '8.0.0'
+          - '1.7.8.x'
           - '1.7.8.9'
         default: '8.0.x'
       target_ref:
@@ -20,9 +27,11 @@ on:
         options:
           - 'develop'
           - '8.1.x'
+          - '8.1.2'
+          - '8.1.1'
+          - '8.1.0'
           - '8.0.x'
           - '8.0.4'
-          - '8.1.0'
         default: '8.1.x'
       upgrade_module_ref:
         description: Use a branch or tag for the autoupgrade module
@@ -66,7 +75,7 @@ on:
 
 jobs:
   build-source:
-    name: Build source shop based on ref ${{ inputs.source_ref }}
+    name: Build source shop ${{ inputs.source_ref }}
     uses: ./.github/workflows/build-shop.yml
     with:
       repository_ref: ${{ inputs.source_ref }}
@@ -76,7 +85,7 @@ jobs:
       artifact_name: source_shop
 
   build-target:
-    name: Build target shop based on ref ${{ inputs.target_ref }}
+    name: Build target shop ${{ inputs.target_ref }}
     uses: ./.github/workflows/build-release.yml
     with:
       target_ref: ${{ inputs.target_ref }}
@@ -85,7 +94,7 @@ jobs:
       artifact_name: target_shop
 
   upgrade-shop:
-    name: Upgrade shop from ${{ inputs.source_ref }} to ${{ inputs.target_ref }} using module ${{ inputs.upgrade_module_ref }}
+    name: Using module ${{ inputs.upgrade_module_ref }} to upgrade shop from ${{ inputs.source_ref }} to ${{ inputs.target_ref }}
     needs: [build-source, build-target]
     uses: ./.github/workflows/upgrade-shop.yml
     with:
@@ -99,7 +108,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
 
   test-upgraded-shop:
-    name: Run UI tests on the upgraded shop
+    name: Run UI tests from ${{ inputs.target_ref }}
     needs: upgrade-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:

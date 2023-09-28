@@ -38,9 +38,9 @@ runs:
         PHP_VERSION: ${{ inputs.php_version }}
         NODE_VERSION: ${{ inputs.node_version }}
         VERSION: ${{ inputs.php_version }}-apache
-        PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'localhost:8001' || 'localhost:8002' }}
-        PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && '0' || '1' }}
-        ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7.8') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+        PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'localhost:8001' || 'localhost:8002' }}
+        PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && '0' || '1' }}
+        ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
         # Fixed values
         DB_USER: root
         DB_PASSWD: prestashop
@@ -53,7 +53,7 @@ runs:
         PS_LANGUAGE: en
         ADMIN_MAIL: 'demo@prestashop.com'
         # Test variables
-        URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7.8')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+        URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
         HEADLESS: true
         ENABLE_SSL: true
         TAKE_SCREENSHOT_AFTER_FAIL: true
@@ -68,28 +68,11 @@ runs:
       if: failure()
       shell: bash
 
-    - name: Export docker logs
-      env:
-        DOCKER_PREFIX: ${{ inputs.ps_dir }}
-      run: |
-        mkdir -p ${{ inputs.ps_dir }}/var/docker-logs
-        docker logs ${{ env.DOCKER_PREFIX }}_mysql_1 > ${{ inputs.ps_dir }}/var/docker-logs/mysql.log
-        docker logs ${{ env.DOCKER_PREFIX }}_prestashop-git_1 > ${{ inputs.ps_dir }}/var/docker-logs/prestashop.log
-      if: failure()
-      shell: bash
-
-    - name: Export docker keycloak logs
-      run: |
-        docker logs ${{ inputs.ps_dir }}_keycloak_1 > ${{ inputs.ps_dir }}/var/docker-logs/keycloak.log
-      if: failure() && inputs.test_command == 'functional:API'
-      shell: bash
-
-    - name: Export logs and screenshots as artifacts
+    # Export screenshots in case of failure
+    - name: Export screenshots as artifacts
       uses: actions/upload-artifact@v3
       if: failure()
       with:
-        name: campaign-${{ steps.screenshot-campaign.outputs.screenshot-campaign }}
+        name: screenshots-campaign-${{ steps.screenshot-campaign.outputs.screenshot-campaign }}
         path: |
           ${{ inputs.ps_dir }}/tests/UI/screenshots/
-          ${{ inputs.ps_dir }}/var/logs
-          ${{ inputs.ps_dir }}/var/docker-logs

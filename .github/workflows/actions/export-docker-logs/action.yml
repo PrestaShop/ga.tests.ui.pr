@@ -1,0 +1,41 @@
+name: Export docker logs
+description: Export docker logs
+inputs:
+  ps_dir:
+    description: Directory target
+    required: true
+  artifact_name:
+    description: Artifact name, used later for download
+    required: false
+    default: export-error-logs
+
+runs:
+  using: "composite"
+  steps:
+    - name: Export docker logs
+      env:
+        DOCKER_PREFIX: ${{ inputs.ps_dir }}
+      working-directory: ${{ inputs.ps_dir }}
+      run: |
+        mkdir -p ./var/docker-logs
+        docker-compose logs --tail="all" &> ./var/docker-logs/docker-compose.log
+        if docker ps | grep ${{ env.DOCKER_PREFIX }}_prestashop-git_1; then
+          echo Export prestashop logs
+          docker logs ${{ env.DOCKER_PREFIX }}_prestashop-git_1 &> ./var/docker-logs/prestashop.log
+        fi
+        if docker ps | grep ${{ env.DOCKER_PREFIX }}_mysql_1; then
+          echo Export mysql logs
+          docker logs ${{ env.DOCKER_PREFIX }}_mysql_1 &> ./var/docker-logs/mysql.log
+        fi
+        if docker images | grep ${{ env.DOCKER_PREFIX }}_keycloak_1; then
+          echo Export keycloak logs
+          docker logs ${{ env.DOCKER_PREFIX }}_keycloak_1 &> ./var/docker-logs/keycloak.log
+        fi
+      shell: bash
+    - name: Save logs in case of error
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.artifact_name }}-errors-log
+        path: |
+          ${{ inputs.ps_dir }}/var/logs
+          ${{ inputs.ps_dir }}/var/docker-logs
