@@ -184,6 +184,7 @@ jobs:
         timeout-minutes: 5
         env:
           URL_FO: ${{ ((startsWith(inputs.repository_ref, '8.0')) || (startsWith(inputs.repository_ref, '1.7'))) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          # In 1.7 versions the docker parent name is built the same way so only PHP version is set
           VERSION: ${{ (startsWith(inputs.repository_ref, '1.7')) && inputs.php_version || env.VERSION }}
           # Initial build, install shop data but assets are already built
           DISABLE_MAKE: 1

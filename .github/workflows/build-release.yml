@@ -11,10 +11,6 @@ on:
         description: Artifact name, used later for download
         required: false
         default: 'release-shop'
-      php_version:
-        type: string
-        description: PHP version
-        required: true
       node_version:
         type: string
         description: Node version

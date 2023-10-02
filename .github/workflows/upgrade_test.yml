@@ -64,38 +64,66 @@ on:
           - '8.1'
           - '8.2'
         default: '8.1'
-      node_version:
-        type: choice
-        description: Node version
-        required: true
-        options:
-          - '14'
-          - '16'
-        default: '14'
 
 jobs:
+  build-settings-job-source:
+    runs-on: ubuntu-latest
+    name: Prepare build settings for source
+    outputs:
+      php-version: ${{ steps.build-settings-step.outputs.php-version }}
+      node-version: ${{ steps.build-settings-step.outputs.node-version }}
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+      - name: Setup PrestaShop build env variables
+        uses: ./custom_actions/.github/workflows/actions/prepare-build-settings
+        id: build-settings-step
+        with:
+          repository_ref: ${{ inputs.source_ref }}
+          php_version: ${{ inputs.php_version }}
+  build-settings-job-target:
+    runs-on: ubuntu-latest
+    name: Prepare build settings for target
+    outputs:
+      php-version: ${{ steps.build-settings-step.outputs.php-version }}
+      node-version: ${{ steps.build-settings-step.outputs.node-version }}
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+      - name: Setup PrestaShop build env variables
+        uses: ./custom_actions/.github/workflows/actions/prepare-build-settings
+        id: build-settings-step
+        with:
+          repository_ref: ${{ inputs.target_ref }}
+          php_version: ${{ inputs.php_version }}
+
   build-source:
     name: Build source shop ${{ inputs.source_ref }}
     uses: ./.github/workflows/build-shop.yml
+    needs: build-settings-job-source
     with:
       repository_ref: ${{ inputs.source_ref }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      php_version: ${{ needs.build-settings-job-source.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job-source.outputs.node-version }}
       artifact_name: source_shop
 
   build-target:
     name: Build target shop ${{ inputs.target_ref }}
     uses: ./.github/workflows/build-release.yml
+    needs: build-settings-job-target
     with:
       target_ref: ${{ inputs.target_ref }}
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      node_version: ${{ needs.build-settings-job-target.outputs.node-version }}
       artifact_name: target_shop
 
   upgrade-shop:
     name: Using module ${{ inputs.upgrade_module_ref }} to upgrade shop from ${{ inputs.source_ref }} to ${{ inputs.target_ref }}
-    needs: [build-source, build-target]
+    needs: [build-settings-job-source, build-source, build-target]
     uses: ./.github/workflows/upgrade-shop.yml
     with:
       upgrade_module_ref: ${{ inputs.upgrade_module_ref }}
@@ -104,18 +132,18 @@ jobs:
       target_ref: ${{ inputs.target_ref }}
       source_artifact: source_shop
       target_artifact: target_shop
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      php_version: ${{ needs.build-settings-job-source.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job-source.outputs.node-version }}
 
   test-upgraded-shop:
     name: Run UI tests from ${{ inputs.target_ref }}
-    needs: upgrade-shop
+    needs: [build-settings-job-target, upgrade-shop]
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
       repository_ref: ${{ inputs.target_ref }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      php_version: ${{ needs.build-settings-job-target.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job-target.outputs.node-version }}
       test_command: ${{ matrix.TEST_COMMAND }}
       artifact_name: upgraded_shop
     strategy:

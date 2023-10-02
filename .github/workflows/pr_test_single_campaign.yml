@@ -99,39 +99,50 @@ on:
           - '8.1'
           - '8.2'
         default: '8.1'
-      node_version:
-        type: choice
-        description: Node version
-        required: true
-        options:
-          - '14.21.3'
-          - '16.20.1'
-        default: '14.21.3'
 
 jobs:
+  build-settings-job:
+    runs-on: ubuntu-latest
+    name: Prepare build settings
+    outputs:
+      php-version: ${{ steps.build-settings-step.outputs.php-version }}
+      node-version: ${{ steps.build-settings-step.outputs.node-version }}
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+      - name: Setup PrestaShop build env variables
+        uses: ./custom_actions/.github/workflows/actions/prepare-build-settings
+        id: build-settings-step
+        with:
+          repository_ref: ${{ inputs.base_branch }}
+          php_version: ${{ inputs.php_version }}
+
   build-shop:
     name: Prebuild shop and export artifacts for ${{ inputs.test_command }}
     if: inputs.test_command != 'sanity'
     uses: ./.github/workflows/build-shop.yml
+    needs: build-settings-job
     with:
       pr_number: ${{ inputs.pr_number }}
       repository_ref: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      php_version: ${{ needs.build-settings-job.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job.outputs.node-version }}
       backoffice_layout: ${{ inputs.backoffice_layout }}
 
   test-pr:
     name: Run single campaign ${{ inputs.test_command }}
     if: inputs.test_command != 'sanity'
-    needs: build-shop
+    needs: [build-settings-job, build-shop]
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:
       repository_ref: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      php_version: ${{ needs.build-settings-job.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job.outputs.node-version }}
       test_command: ${{ inputs.test_command }}
       fast_fail: ${{ inputs.fast_fail }}
 
@@ -140,12 +151,13 @@ jobs:
     name: Run sanity campaign
     if: inputs.test_command == 'sanity'
     uses: ./.github/workflows/test-sanity.yml
+    needs: build-settings-job
     with:
       pr_number: ${{ inputs.pr_number }}
       repository_ref: ${{ inputs.base_branch }}
       ps_mode_dev: ${{ inputs.ps_mode_dev }}
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
-      php_version: ${{ inputs.php_version }}
-      node_version: ${{ inputs.node_version }}
+      php_version: ${{ needs.build-settings-job.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job.outputs.node-version }}
       backoffice_layout: ${{ inputs.backoffice_layout }}
       fast_fail: ${{ inputs.fast_fail }}

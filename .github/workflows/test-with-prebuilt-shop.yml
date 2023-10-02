@@ -143,8 +143,9 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
         env:
-          VERSION: ${{ startsWith(inputs.repository_ref, '1.7') && inputs.php_version || env.VERSION }}
           URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+          # In 1.7 versions the docker parent name is built the same way so only PHP version is set
+          VERSION: ${{ startsWith(inputs.repository_ref, '1.7') && inputs.php_version || env.VERSION }}
           # No install we force the sources and load the SQL dump
           PS_INSTALL_AUTO: 0
           DISABLE_MAKE: 1
