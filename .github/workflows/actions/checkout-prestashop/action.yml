@@ -81,3 +81,11 @@ runs:
       run: |
         echo PS_FF_SYMFONY_LAYOUT=true >> .env
       shell: bash
+
+    # In old versions the docker configuration is not adapted to our test workflow, it may even not exist So it is forcefully overridden
+    - name: Override Docker configuration
+      if: startsWith(inputs.repository_ref, '1.7') || startsWith(inputs.repository_ref, '8.0')
+      run: |
+        cp -R ./custom_actions/docker-reference/.docker ${{ inputs.ps_dir }}
+        cp ./custom_actions/docker-reference/docker-compose.yml ${{ inputs.ps_dir }}
+      shell: bash

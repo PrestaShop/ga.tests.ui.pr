@@ -46,7 +46,7 @@ jobs:
       PS_DEV_MODE: ${{ inputs.ps_mode_dev && '1' || '0' }}
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
-      VERSION: ${{ inputs.php_version }}-apache
+      VERSION: ${{ format('{0}{1}', inputs.php_version, '-apache') }}
       PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'localhost:8001' || 'localhost:8002' }}
       PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && '0' || '1' }}
       ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
@@ -145,8 +145,6 @@ jobs:
         timeout-minutes: 15
         env:
           URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          # In 1.7 versions the docker parent name is built the same way so only PHP version is set
-          VERSION: ${{ startsWith(inputs.repository_ref, '1.7') && inputs.php_version || env.VERSION }}
           # No assets built, already done and no install since the campaign handles it
           DISABLE_MAKE: 1
           PS_INSTALL_AUTO: 0
