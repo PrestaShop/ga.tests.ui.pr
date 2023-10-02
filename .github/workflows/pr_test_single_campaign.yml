@@ -3,8 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       pr_number:
-        description: Pull request Id
-        required: true
+        description: Pull request Id (leave empty to test branch/version only)
+        required: false
+        default: ''
       base_branch:
         type: choice
         description: Base branch to rebase the PR

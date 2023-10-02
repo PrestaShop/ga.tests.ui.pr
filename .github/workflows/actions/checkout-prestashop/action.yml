@@ -62,7 +62,7 @@ runs:
 
     # Or simply get the branch/tag
     - name: Get ref from repository ${{ inputs.repository_ref }}
-      if: inputs.pr_number == '' && inputs.rebase_or_merge == '' && inputs.repository_ref != 'develop'
+      if: inputs.pr_number == '' && inputs.repository_ref != 'develop'
       working-directory: ${{ inputs.ps_dir }}
       run: |
         git fetch origin ${{ inputs.repository_ref }}:${{ inputs.repository_ref }}
