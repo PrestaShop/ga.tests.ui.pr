@@ -49,6 +49,11 @@ on:
         description: Autoupgrade module Pull request Id
         required: false
         default: ''
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: true
       ps_mode_dev:
         type: boolean
         description: Use developer mode?
@@ -146,6 +151,7 @@ jobs:
       node_version: ${{ needs.build-settings-job-target.outputs.node-version }}
       test_command: ${{ matrix.TEST_COMMAND }}
       artifact_name: upgraded_shop
+      fast_fail: ${{ inputs.fast_fail }}
     strategy:
       fail-fast: false
       matrix:
