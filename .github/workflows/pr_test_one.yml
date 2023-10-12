@@ -178,6 +178,8 @@ jobs:
           - BASE_BRANCH: develop
             TEST_COMMAND: 'functional:FO:08-12'
           - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: develop
             TEST_COMMAND: 'sanity:productV2'
 
     env:
