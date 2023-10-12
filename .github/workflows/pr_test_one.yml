@@ -315,7 +315,7 @@ jobs:
       - name: Install browsers
         if: (env.BASE_BRANCH == 'develop')
         working-directory: ${{ env.PS_DIR }}/tests/UI
-        run: npx playwright install chrome-beta
+        run: npx playwright install chromium
 
       - name: Run tests
         id: runTests
