@@ -192,7 +192,7 @@ jobs:
       PS_DIR: 'my_prestashop'
       ## Install PrestaShop & UI Tests
       VERSION: ${{ github.event.inputs.php_version }}-apache
-      PS_INSTALL_AUTO: 1
+      PS_INSTALL_AUTO: ${{ ((matrix.TEST_COMMAND == 'sanity')) && '0' || '1' }}
       DB_PASSWD: prestashop
       DB_NAME: prestashop
       DB_SERVER: mysql
@@ -290,10 +290,11 @@ jobs:
           DISABLE_MAKE: 0
           URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           VERSION: ${{ (github.event.inputs.base_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
+          URL_PING: ${{ matrix.TEST_COMMAND == 'sanity' && 'install-dev/' || 'en/' }}
         run: |
           USER_ID=$(id -u) GROUP_ID=$(id -g) \
           docker-compose -f docker-compose.yml up -d --build
-          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
+          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}${{ env.URL_PING }})" != "200" ]]; do sleep 5; done'
 
       # UI Tests : Setup, Install & Execute
       - name: Setup Node
