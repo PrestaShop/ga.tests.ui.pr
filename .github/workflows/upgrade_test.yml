@@ -1,0 +1,269 @@
+name: Testing PrestaShop upgrade
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        type: choice
+        description: Use a source branch or tag to start the upgrade from
+        required: true
+        options:
+          - '8.1.x'
+          - '8.1.2'
+          - '8.1.1'
+          - '8.1.0'
+          - '8.0.x'
+          - '8.0.4'
+          - '8.0.3'
+          - '8.0.2'
+          - '8.0.1'
+          - '8.0.0'
+          - '1.7.8.x'
+          - '1.7.8.9'
+        default: '8.0.x'
+      target_ref:
+        type: choice
+        description: Use a target branch or tag to upgrade to
+        required: true
+        options:
+          - 'develop'
+          - '8.1.x'
+          - '8.1.2'
+          - '8.1.1'
+          - '8.1.0'
+          - '8.0.x'
+          - '8.0.4'
+        default: '8.1.x'
+      upgrade_module_ref:
+        description: Use a branch or tag for the autoupgrade module
+        type: choice
+        required: true
+        options:
+          - 'dev'
+          - 'master'
+          - '1.7.8.x'
+          - 'v4.16.0'
+          - 'v4.15.0'
+          - 'v4.14.2'
+        default: 'dev'
+      upgrade_module_pr_number:
+        description: Autoupgrade module Pull request Id
+        required: false
+        default: ''
+      fast_fail:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: true
+      ps_mode_dev:
+        type: boolean
+        description: Use developer mode?
+        required: true
+      php_version:
+        type: choice
+        description: PHP version
+        required: true
+        options:
+          - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+        default: '8.1'
+
+jobs:
+  build-settings-job-source:
+    runs-on: ubuntu-latest
+    name: Prepare build settings for source
+    outputs:
+      php-version: ${{ steps.build-settings-step.outputs.php-version }}
+      node-version: ${{ steps.build-settings-step.outputs.node-version }}
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+      - name: Setup PrestaShop build env variables
+        uses: ./custom_actions/.github/workflows/actions/prepare-build-settings
+        id: build-settings-step
+        with:
+          repository_ref: ${{ inputs.source_ref }}
+          php_version: ${{ inputs.php_version }}
+  build-settings-job-target:
+    runs-on: ubuntu-latest
+    name: Prepare build settings for target
+    outputs:
+      php-version: ${{ steps.build-settings-step.outputs.php-version }}
+      node-version: ${{ steps.build-settings-step.outputs.node-version }}
+    steps:
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v3
+        with:
+          path: custom_actions
+      - name: Setup PrestaShop build env variables
+        uses: ./custom_actions/.github/workflows/actions/prepare-build-settings
+        id: build-settings-step
+        with:
+          repository_ref: ${{ inputs.target_ref }}
+          php_version: ${{ inputs.php_version }}
+
+  build-source:
+    name: Build source shop ${{ inputs.source_ref }}
+    uses: ./.github/workflows/build-shop.yml
+    needs: build-settings-job-source
+    with:
+      repository_ref: ${{ inputs.source_ref }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      php_version: ${{ needs.build-settings-job-source.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job-source.outputs.node-version }}
+      artifact_name: source_shop
+
+  build-target:
+    name: Build target shop ${{ inputs.target_ref }}
+    uses: ./.github/workflows/build-release.yml
+    needs: build-settings-job-target
+    with:
+      target_ref: ${{ inputs.target_ref }}
+      node_version: ${{ needs.build-settings-job-target.outputs.node-version }}
+      artifact_name: target_shop
+
+  upgrade-shop:
+    name: Using module ${{ inputs.upgrade_module_ref }} to upgrade shop from ${{ inputs.source_ref }} to ${{ inputs.target_ref }}
+    needs: [build-settings-job-source, build-source, build-target]
+    uses: ./.github/workflows/upgrade-shop.yml
+    with:
+      upgrade_module_ref: ${{ inputs.upgrade_module_ref }}
+      upgrade_module_pr_number: ${{ inputs.upgrade_module_pr_number }}
+      source_ref: ${{ inputs.source_ref }}
+      target_ref: ${{ inputs.target_ref }}
+      source_artifact: source_shop
+      target_artifact: target_shop
+      php_version: ${{ needs.build-settings-job-source.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job-source.outputs.node-version }}
+
+  test-upgraded-shop:
+    name: Run UI tests from ${{ inputs.target_ref }}
+    needs: [build-settings-job-target, upgrade-shop]
+    uses: ./.github/workflows/test-with-prebuilt-shop.yml
+    with:
+      repository_ref: ${{ inputs.target_ref }}
+      ps_mode_dev: ${{ inputs.ps_mode_dev }}
+      php_version: ${{ needs.build-settings-job-target.outputs.php-version }}
+      node_version: ${{ needs.build-settings-job-target.outputs.node-version }}
+      test_command: ${{ matrix.TEST_COMMAND }}
+      artifact_name: upgraded_shop
+      fast_fail: ${{ inputs.fast_fail }}
+    strategy:
+      fail-fast: false
+      matrix:
+        TEST_COMMAND:
+          - 'cldr'
+          - 'functional:API'
+          - 'functional:BO:advanced-parameters:01-06'
+#          - 'functional:BO:advanced-parameters:07-10'
+#          - 'functional:BO:advanced-parameters:11-12'
+#          - 'functional:BO:catalog:01-02'
+#          - 'functional:BO:catalog:03-04'
+#          - 'functional:BO:catalog:05-06'
+#          - 'functional:BO:catalog:07-08'
+#          - 'functional:BO:customer-service'
+#          - 'functional:BO:customer:01'
+#          - 'functional:BO:customer:02-03'
+#          - 'functional:BO:dashboard'
+#          - 'functional:BO:design'
+#          - 'functional:BO:header'
+#          - 'functional:BO:international:01'
+#          - 'functional:BO:international:02'
+#          - 'functional:BO:international:03-04'
+#          - 'functional:BO:login'
+#          - 'functional:BO:modules'
+#          - 'functional:BO:orders:01-create-orders'
+#          - 'functional:BO:orders:01-view-and-edit-order'
+#          - 'functional:BO:orders:01:0-1'
+#          - 'functional:BO:orders:02'
+#          - 'functional:BO:orders:03-05'
+#          - 'functional:BO:payment'
+#          - 'functional:BO:shipping'
+#          - 'functional:BO:shop-parameters:01-02'
+#          - 'functional:BO:shop-parameters:03-04'
+#          - 'functional:BO:shop-parameters:05-07'
+#          - 'functional:FO:01-03'
+#          - 'functional:FO:04-07'
+#          - 'functional:FO:08-12'
+#          - 'functional:FO:classic:01-03'
+#          - 'functional:FO:classic:04-07'
+#          - 'functional:FO:classic:08-12'
+#          - 'functional:FO:hummingbird:01-03'
+#          - 'functional:WS'
+#          - 'functional:productV2'
+#          - 'modules'
+#          - 'regression'
+#          - 'sanity:productV2'
+        BASE_BRANCH:
+          - ${{ (startsWith(inputs.target_ref, '1.7.8') && '1.7.8.x') || (startsWith(inputs.target_ref, '8.0') && '8.0.x') || (startsWith(inputs.target_ref, '8.1') && '8.1.x') || 'develop' }}
+        exclude:
+          ## 1.7.8.x
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'sanity:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          ## 8.0.x
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'cldr'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:BO:dashboard'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:productV2'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:API'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'functional:FO:classic:08-12'
+          ## 8.1.x
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:08-12'
+          ## develop
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'functional:FO:08-12'
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'sanity:productV2'

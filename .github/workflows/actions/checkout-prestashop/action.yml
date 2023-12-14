@@ -1,21 +1,21 @@
 name: Checkout PrestaShop and prepare config
 description: Checkout PrestaShop and prepare config
 inputs:
-  pr_number:
-    description: Pull request Id
-    required: true
-  base_branch:
-    description: Base branch to rebase the PR
-    required: true
-  rebase_or_merge:
-    required: true
-    description: Rebase or merge the pull request
-  backoffice_layout:
-    description: Backoffice layout
+  repository_ref:
+    description: Base branch/ref from the repository
     required: true
   ps_dir:
     description: Directory target
     required: true
+  pr_number:
+    description: Pull request Id
+    required: false
+  rebase_or_merge:
+    required: false
+    description: Rebase or merge the pull request
+  backoffice_layout:
+    description: Backoffice layout
+    required: false
 
 runs:
   using: "composite"
@@ -37,6 +37,7 @@ runs:
 
     # Get the PR
     - name: Get pull request
+      if: inputs.pr_number != ''
       working-directory: ${{ inputs.ps_dir }}
       run: |
         git fetch origin pull/${{ inputs.pr_number }}/head:pr${{ inputs.pr_number }}
@@ -45,23 +46,32 @@ runs:
 
     - name: Rebase
       working-directory: ${{ inputs.ps_dir }}
-      if: ${{ inputs.rebase_or_merge == 'rebase' }}
+      if: inputs.pr_number != '' && inputs.rebase_or_merge == 'rebase'
       run: |
-        git fetch origin ${{ inputs.base_branch }}:${{ inputs.base_branch }}
-        git rebase origin/${{ inputs.base_branch }}
+        git fetch origin ${{ inputs.repository_ref }}:${{ inputs.repository_ref }}
+        git rebase origin/${{ inputs.repository_ref }}
       shell: bash
 
     - name: Merge
       working-directory: ${{ inputs.ps_dir }}
-      if: ${{ inputs.rebase_or_merge == 'merge' }}
+      if: inputs.pr_number != '' && inputs.rebase_or_merge == 'merge'
       run: |
-        git fetch origin ${{ inputs.base_branch }}:${{ inputs.base_branch }}
-        git merge origin/${{ inputs.base_branch }}
+        git fetch origin ${{ inputs.repository_ref }}:${{ inputs.repository_ref }}
+        git merge origin/${{ inputs.repository_ref }}
+      shell: bash
+
+    # Or simply get the branch/tag
+    - name: Get ref from repository ${{ inputs.repository_ref }}
+      if: inputs.pr_number == '' && inputs.repository_ref != 'develop'
+      working-directory: ${{ inputs.ps_dir }}
+      run: |
+        git fetch origin ${{ inputs.repository_ref }}:${{ inputs.repository_ref }}
+        git checkout ${{ inputs.repository_ref }}
       shell: bash
 
     # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
     - name: PrestaShop Configuration (Copy of Config API)
-      if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+      if: startsWith(inputs.repository_ref, '8.1') || (inputs.repository_ref == 'develop')
       run: cp ./${{ inputs.ps_dir }}/app/config/security_test.yml ./${{ inputs.ps_dir }}/app/config/security_prod.yml
       shell: bash
 
@@ -70,4 +80,12 @@ runs:
       working-directory: ${{ inputs.ps_dir }}
       run: |
         echo PS_FF_SYMFONY_LAYOUT=true >> .env
+      shell: bash
+
+    # In old versions the docker configuration is not adapted to our test workflow, it may even not exist So it is forcefully overridden
+    - name: Override Docker configuration
+      if: startsWith(inputs.repository_ref, '1.7') || startsWith(inputs.repository_ref, '8.0')
+      run: |
+        cp -R ./custom_actions/docker-reference/.docker ${{ inputs.ps_dir }}
+        cp ./custom_actions/docker-reference/docker-compose.yml ${{ inputs.ps_dir }}
       shell: bash

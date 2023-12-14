@@ -1,8 +1,8 @@
 name: Run UI tests
 description: Run UI tests
 inputs:
-  base_branch:
-    description: Base branch to rebase the PR
+  repository_ref:
+    description: Base branch/ref from the repository
     required: true
   ps_mode_dev:
     description: Enable/Disable the developer mode
@@ -37,24 +37,23 @@ runs:
         PS_DEV_MODE: ${{ fromJson(inputs.ps_mode_dev) && '1' || '0' }}
         PHP_VERSION: ${{ inputs.php_version }}
         NODE_VERSION: ${{ inputs.node_version }}
-        VERSION: ${{ inputs.php_version }}-apache
-        PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
-        PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
-        ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+        VERSION: ${{ format('{0}{1}', inputs.php_version, '-apache') }}
+        PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'localhost:8001' || 'localhost:8002' }}
+        PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && '0' || '1' }}
+        ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
         # Fixed values
         DB_USER: root
         DB_PASSWD: prestashop
         DB_NAME: prestashop
         DB_PREFIX: tst_
         DB_SERVER: mysql
-        PS_DIR: 'my_prestashop'
         PS_FOLDER_INSTALL: install-dev
         PS_FOLDER_ADMIN: admin-dev
         PS_COUNTRY: fr
         PS_LANGUAGE: en
         ADMIN_MAIL: 'demo@prestashop.com'
         # Test variables
-        URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+        URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
         HEADLESS: true
         ENABLE_SSL: true
         TAKE_SCREENSHOT_AFTER_FAIL: true
@@ -69,26 +68,11 @@ runs:
       if: failure()
       shell: bash
 
-    - name: Export docker logs
-      run: |
-        mkdir -p ${{ inputs.ps_dir }}/var/docker-logs
-        docker logs my_prestashop_mysql_1 > ${{ inputs.ps_dir }}/var/docker-logs/mysql.log
-        docker logs my_prestashop_prestashop-git_1 > ${{ inputs.ps_dir }}/var/docker-logs/prestashop.log
-      if: failure()
-      shell: bash
-
-    - name: Export docker keycloak logs
-      run: |
-        docker logs my_prestashop_keycloak_1 > ${{ inputs.ps_dir }}/var/docker-logs/keycloak.log
-      if: failure() && inputs.test_command == 'functional:API'
-      shell: bash
-
-    - name: Export logs and screenshots as artifacts
+    # Export screenshots in case of failure
+    - name: Export screenshots as artifacts
       uses: actions/upload-artifact@v3
       if: failure()
       with:
-        name: campaign-${{ steps.screenshot-campaign.outputs.screenshot-campaign }}
+        name: screenshots-campaign-${{ steps.screenshot-campaign.outputs.screenshot-campaign }}
         path: |
           ${{ inputs.ps_dir }}/tests/UI/screenshots/
-          ${{ inputs.ps_dir }}/var/logs
-          ${{ inputs.ps_dir }}/var/docker-logs

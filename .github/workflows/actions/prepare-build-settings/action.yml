@@ -1,0 +1,62 @@
+name: Prepare build settings dynamically
+description: Some environment variables are a bit complex to specify and can not be set with simple native functions from GA so we use this action to define them
+inputs:
+  repository_ref:
+    description: Base branch/ref from the repository
+    required: true
+  php_version:
+    description: PHP version
+    required: true
+outputs:
+  php-version:
+    description: PHP version to use
+    value: ${{ steps.build-settings.outputs.php-version }}
+  node-version:
+    description: Node version to use
+    value: ${{ steps.build-settings.outputs.node-version }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Prepare build settings
+      id: build-settings
+      run: |
+        function version { printf "%03d%03d%03d%03d" $(echo "$1" | sed s/x/999/ | tr '.' ' '); }
+        repositoryRef=${{ inputs.repository_ref == 'develop' && 9.0 || inputs.repository_ref }}
+        if [ $(version $repositoryRef) -lt $(version 1.7.7) ]; then
+          echo Version under 1.7.7 use Node 8
+          nodeVersion=8
+        elif [ $(version $repositoryRef) -le $(version 1.7.7.x) ]; then
+          echo Version 1.7.7 uses Node 10
+          nodeVersion=10
+        elif [ $(version $repositoryRef) -le $(version 8.0.x) ]; then
+          echo Version 1.7.8 and 8.0 use Node 14
+          nodeVersion=14
+        else
+          echo Versions after 8.0 use Node 16
+          nodeVersion=16
+        fi
+        echo "node-version=$nodeVersion" >> $GITHUB_OUTPUT
+
+        phpVersion=${{ inputs.php_version }}
+        if [ $(version $repositoryRef) -le $(version 1.7.4.x) ] && [ $(version $phpVersion) -gt $(version 7.1.x) ]; then
+          echo Max PHP version for PrestaShop lower than 1.7.4 is 7.1
+          phpVersion=7.1
+        elif [ $(version $repositoryRef) -le $(version 1.7.6.x) ] && [ $(version $phpVersion) -gt $(version 7.2.x) ]; then
+          echo Max PHP version for PrestaShop 1.7.5 and 1.7.6 is 7.2
+          phpVersion=7.2
+        elif [ $(version $repositoryRef) -le $(version 1.7.7.x) ] && [ $(version $phpVersion) -gt $(version 7.3.x) ]; then
+          echo Max PHP version for PrestaShop 1.7.7 is 7.3
+          phpVersion=7.3
+        elif [ $(version $repositoryRef) -le $(version 1.7.8.x) ] && [ $(version $phpVersion) -gt $(version 7.4.x) ]; then
+          echo Max PHP version for PrestaShop 1.7.8 is 7.4
+          phpVersion=7.4
+        elif [ $(version $repositoryRef) -le $(version 8.1.x) ] && [ $(version $phpVersion) -gt $(version 8.1.x) ]; then
+          echo Max PHP version for PrestaShop 8.0 and 8.1 is 8.1
+          phpVersion=8.1
+        else
+          echo Using PHP $phpVersion for PrestaShop $repositoryRef
+        fi
+
+        echo "php-version=$phpVersion" >> $GITHUB_OUTPUT
+      shell: bash

@@ -1,0 +1,31 @@
+name: Download archive shop
+description: Download archive shop and extracts it to the specified folder
+inputs:
+  target_folder:
+    description: Target folder for extraction
+    required: true
+  artifact_name:
+    description: Artifact name, used later for download
+    required: false
+    default: shop-artifacts
+outputs:
+  source-path:
+    description: Path to the sources zip file
+    value: /tmp/${{ inputs.artifact_name }}/sources.zip
+  db-dump-path:
+    description: Path to the sources zip file
+    value: /tmp/${{ inputs.artifact_name }}/db_dump.sql
+
+runs:
+  using: "composite"
+  steps:
+    - name: Download docker artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.artifact_name }}
+        path: /tmp/${{ inputs.artifact_name }}
+
+    - name: Extract PrestaShop sources
+      run: |
+        unzip /tmp/${{ inputs.artifact_name }}/sources.zip -d ${{ inputs.target_folder }}
+      shell: bash

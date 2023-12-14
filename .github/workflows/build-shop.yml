@@ -2,22 +2,10 @@ name: Build PrestaShop and export sources and SQL dump as artifacts
 on:
   workflow_call:
     inputs:
-      pr_number:
+      repository_ref:
         type: string
-        description: Pull request Id
+        description: Base branch/ref from the repository
         required: true
-      base_branch:
-        type: string
-        description: Base branch to rebase the PR
-        required: true
-      ps_mode_dev:
-        type: boolean
-        description: Enable/Disable the developer mode
-        required: true
-      rebase_or_merge:
-        type: string
-        required: true
-        description: Rebase or merge the pull request
       php_version:
         type: string
         description: PHP version
@@ -26,26 +14,47 @@ on:
         type: string
         description: Node version
         required: true
+      pr_number:
+        type: string
+        description: Pull request Id
+        required: false
+        default: ''
+      ps_mode_dev:
+        type: boolean
+        description: Enable/Disable the developer mode
+        required: false
+        default: false
+      rebase_or_merge:
+        type: string
+        required: false
+        description: Rebase or merge the pull request
+        default: ''
       backoffice_layout:
         type: string
         description: Backoffice layout
-        required: true
+        required: false
+        default: 'legacy'
+      artifact_name:
+        type: string
+        description: Artifact name, used later for download
+        required: false
+        default: 'shop-artifacts'
 
 jobs:
   build-shop-artifacts:
     runs-on: ubuntu-latest
-    name: Build shop artifacts
+    name: Build shop artifacts based on ${{ inputs.repository_ref }}
     env:
       # Input values
       PS_MODE_DEV: ${{ inputs.ps_mode_dev && '1' || '0' }}
       PS_DEV_MODE: ${{ inputs.ps_mode_dev && '1' || '0' }}
       PHP_VERSION: ${{ inputs.php_version }}
       NODE_VERSION: ${{ inputs.node_version }}
-      VERSION: ${{ inputs.php_version }}-apache
-      PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
-      PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
-      ADMIN_PASSWD: ${{ (inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
-      URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
+      VERSION: ${{ format('{0}{1}', inputs.php_version, '-apache') }}
+      PS_DOMAIN: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'localhost:8001' || 'localhost:8002' }}
+      PS_ENABLE_SSL: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && '0' || '1' }}
+      ADMIN_PASSWD: ${{ startsWith(inputs.repository_ref, '1.7') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+      URL_FO: ${{ (startsWith(inputs.repository_ref, '8.0') || startsWith(inputs.repository_ref, '1.7')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
       # Fixed values
       DB_USER: root
       DB_PASSWD: prestashop
@@ -74,24 +83,23 @@ jobs:
       - name: Checkout PrestaShop
         uses: ./custom_actions/.github/workflows/actions/checkout-prestashop
         with:
+          repository_ref: ${{ inputs.repository_ref }}
+          ps_dir: ${{ env.PS_DIR }}
           pr_number: ${{ inputs.pr_number }}
-          base_branch: ${{ inputs.base_branch }}
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           backoffice_layout: ${{ inputs.backoffice_layout }}
-          ps_dir: ${{ env.PS_DIR }}
 
-      # Pre pull/build images
-      # For some reason keycloak must be started before the PrestaShop build or it fails
+      # Pre pull/build images (when build background enabled)
       - name: Pull images in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql &> /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build prestashop-git &> /dev/null &
 
       # Run composer install before building the assets since the themes come from composer
       - name: Get Composer Cache Directory
@@ -134,7 +142,7 @@ jobs:
 
       # Certificate
       - name: Generate a certificate
-        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        if: startsWith(inputs.repository_ref, '8.1') || inputs.repository_ref == 'develop'
         run: |
           ## Install MkCert
           sudo apt install libnss3-tools
@@ -152,7 +160,7 @@ jobs:
 
       # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
       # everything was built, probably because of the parallelization and background processes)
-      - name: Check that all builds are finished
+      - name: Check that all asset builds are finished
         run: |
           buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
           echo Checking for all these lock files $buildLocks
@@ -175,8 +183,7 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         timeout-minutes: 5
         env:
-          URL_FO: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          VERSION: ${{ (inputs.base_branch == '1.7.8.x') && inputs.php_version || env.VERSION }}
+          URL_FO: ${{ ((startsWith(inputs.repository_ref, '8.0')) || (startsWith(inputs.repository_ref, '1.7'))) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
           # Initial build, install shop data but assets are already built
           DISABLE_MAKE: 1
           PS_INSTALL_AUTO: 1
@@ -187,41 +194,25 @@ jobs:
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           # Then build and start the docker
           echo Build docker via docker composer
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
-          echo Waiting for response from the FO
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git mysql
+          echo Waiting for response from the FO ${{ env.URL_FO }}
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
 
       # Prepare archive contents to share with following jobs
       - name: Archive shop content
         if: always()
-        run: |
-          mkdir -p /tmp/shop-artifacts
-          zip -q -r /tmp/shop-artifacts/sources.zip ${{ env.PS_DIR }} -x \
-            "*/admin-dev/themes/new-theme/node_modules/**/*" \
-            "*/admin-dev/themes/default/node_modules/**/*" \
-            "*/themes/classic/_dev/**/*" \
-            "*/themes/_core/**/*" \
-            "*/themes/node_modules/**/*" \
-            "*/install-dev/**/*" \
-            "*/translations/*.zip" \
-            "*/var/cache/**/*" \
-            "*/tests/Integration/**/*" \
-            "*/tests/Resources/**/*" \
-            "*/tests/Unit/**/*" \
-            "*/.git/**/*"
-          docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
-
-      - name: Upload shop artifacts
-        if: always()
-        uses: actions/upload-artifact@v3
+        uses: ./custom_actions/.github/workflows/actions/archive-shop
         with:
-          name: shop-artifacts
-          path: /tmp/shop-artifacts
+          ps_dir: ${{ env.PS_DIR }}
+          db_user: ${{ env.DB_USER }}
+          db_password: ${{ env.DB_PASSWD }}
+          db_name: ${{ env.DB_NAME }}
+          artifact_name: ${{ inputs.artifact_name }}
 
-      - name: Save logs in case of error
-        uses: actions/upload-artifact@v3
+      # Export logs in case of failure
+      - name: Export docker logs
         if: failure()
+        uses: ./custom_actions/.github/workflows/actions/export-docker-logs
         with:
-          name: Build error export logs
-          path: |
-            ${{ env.PS_DIR }}/var/logs
+          ps_dir: ${{ env.PS_DIR }}
+          artifact_name: build-shop
