@@ -2,10 +2,10 @@ name: Testing PrestaShop pull requests (without cache)
 on:
   workflow_dispatch:
     inputs:
-      pr_number:
+      PR_NUMBER:
         description: Pull request Id
         required: true
-      base_branch:
+      BASE_BRANCH:
         type: choice
         description: Base branch to rebase the PR
         required: true
@@ -15,23 +15,24 @@ on:
           - '8.0.x'
           - '1.7.8.x'
         default: 'develop'
-      ps_mode_dev:
+      DEV_MODE:
         type: choice
-        description: Enable/Disable the developer mode 
+        description: Enable/Disable the developer mode
         required: true
         options:
           - 'true'
           - 'false'
         default: 'false'
-      rebase_or_merge:
+      REBASE_OR_MERGE:
         type: choice
         required: true
         description: Rebase or merge the pull request
         options:
           - 'rebase'
           - 'merge'
+          - 'head'
         default: 'rebase'
-      php_version:
+      PHP_VERSION:
         type: choice
         description: PHP version
         required: true
@@ -43,7 +44,7 @@ on:
           - '8.2'
           - '8.3'
         default: '8.1'
-      node_version:
+      NODE_VERSION:
         type: choice
         description: Node version
         required: true
@@ -51,7 +52,7 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '14.21.3'
-      backoffice_layout:
+      BO_LAYOUT:
         type: choice
         description: Backoffice layout
         required: true
@@ -67,7 +68,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        TEST_COMMAND:
+        TEST_CAMPAIGN:
           - 'cldr'
           - 'functional:API'
           - 'functional:BO:login'
@@ -116,107 +117,77 @@ jobs:
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'cldr'
+            TEST_CAMPAIGN: 'cldr'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:BO:dashboard'
+            TEST_CAMPAIGN: 'functional:BO:dashboard'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:productV2'
+            TEST_CAMPAIGN: 'functional:productV2'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:API'
+            TEST_CAMPAIGN: 'functional:API'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:classic:01-03'
+            TEST_CAMPAIGN: 'functional:FO:classic:01-03'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:classic:04-07'
+            TEST_CAMPAIGN: 'functional:FO:classic:04-07'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:classic:08-12'
+            TEST_CAMPAIGN: 'functional:FO:classic:08-12'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+            TEST_CAMPAIGN: 'functional:FO:hummingbird:01-03'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'functional:WS'
+            TEST_CAMPAIGN: 'functional:WS'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'modules'
+            TEST_CAMPAIGN: 'modules'
           - BASE_BRANCH: 1.7.8.x
-            TEST_COMMAND: 'sanity:productV2'
+            TEST_CAMPAIGN: 'sanity:productV2'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'cldr'
+            TEST_CAMPAIGN: 'cldr'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:BO:dashboard'
+            TEST_CAMPAIGN: 'functional:BO:dashboard'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:productV2'
+            TEST_CAMPAIGN: 'functional:productV2'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:API'
+            TEST_CAMPAIGN: 'functional:API'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:classic:01-03'
+            TEST_CAMPAIGN: 'functional:FO:classic:01-03'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:classic:04-07'
+            TEST_CAMPAIGN: 'functional:FO:classic:04-07'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:classic:08-12'
+            TEST_CAMPAIGN: 'functional:FO:classic:08-12'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:FO:hummingbird:01-03'
+            TEST_CAMPAIGN: 'functional:FO:hummingbird:01-03'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'functional:WS'
+            TEST_CAMPAIGN: 'functional:WS'
           - BASE_BRANCH: 8.0.x
-            TEST_COMMAND: 'modules'
+            TEST_CAMPAIGN: 'modules'
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:FO:01-03'
+            TEST_CAMPAIGN: 'functional:FO:01-03'
           - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:FO:04-07'
+            TEST_CAMPAIGN: 'functional:FO:04-07'
           - BASE_BRANCH: 8.1.x
-            TEST_COMMAND: 'functional:FO:08-12'
+            TEST_CAMPAIGN: 'functional:FO:08-12'
           ## develop
           - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:FO:01-03'
+            TEST_CAMPAIGN: 'functional:FO:01-03'
           - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:FO:04-07'
+            TEST_CAMPAIGN: 'functional:FO:04-07'
           - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:FO:08-12'
+            TEST_CAMPAIGN: 'functional:FO:08-12'
           - BASE_BRANCH: develop
-            TEST_COMMAND: 'functional:productV2'
+            TEST_CAMPAIGN: 'functional:productV2'
           - BASE_BRANCH: develop
-            TEST_COMMAND: 'sanity:productV2'
-
-    env:
-      PR_NUMBER: ${{ github.event.inputs.pr_number }}
-      BASE_BRANCH: ${{ github.event.inputs.base_branch }}
-      PS_MODE_DEV: ${{ github.event.inputs.ps_mode_dev }}
-      PHP_VERSION: ${{ github.event.inputs.php_version }}
-      NODE_VERSION: ${{ github.event.inputs.node_version }}
-      REBASE_OR_MERGE: ${{ github.event.inputs.rebase_or_merge }}
-      PS_DIR: 'my_prestashop'
-      ## Install PrestaShop & UI Tests
-      VERSION: ${{ github.event.inputs.php_version }}-apache
-      PS_INSTALL_AUTO: ${{ ((matrix.TEST_COMMAND == 'sanity')) && '0' || '1' }}
-      DB_PASSWD: prestashop
-      DB_NAME: prestashop
-      DB_SERVER: mysql
-      DB_PREFIX: tst_
-      PS_DOMAIN: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
-      PS_FOLDER_INSTALL: install-dev
-      PS_FOLDER_ADMIN: admin-dev
-      PS_COUNTRY: fr
-      PS_LANGUAGE: en
-      PS_DEV_MODE: ${{ github.event.inputs.ps_mode_dev == 'true' && '1' || '0' }}
-      PS_ENABLE_SSL: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
-      ADMIN_MAIL: 'demo@prestashop.com'
-      ADMIN_PASSWD: ${{ (github.event.inputs.base_branch == '1.7.8.x') && 'prestashop_demo' || 'Correct Horse Battery Staple' }}
+            TEST_CAMPAIGN: 'sanity:productV2'
 
     steps:
       - name: Print Inputs values
         shell: bash
         run: echo "${{ toJSON(github.event.inputs) }}"
-
-      # Checkout the repository
-      - uses: actions/checkout@v3
-        with:
-          path: main
 
       # Checkout PrestaShop
       - uses: actions/checkout@v3
@@ -224,120 +195,46 @@ jobs:
         with:
           fetch-depth: 0
           repository: PrestaShop/PrestaShop
-          path: ${{ env.PS_DIR }}
+          ref: refs/pull/${{ inputs.PR_NUMBER }}/head
 
       - name: Config git
         run: |
           git config --local user.email "$(git log --format='%ae' HEAD^!)"
           git config --local user.name "$(git log --format='%an' HEAD^!)"
-        working-directory: ${{ env.PS_DIR }}
 
-      # Get the PR
-      - name: Get pull request
-        working-directory: ${{ env.PS_DIR }}
+      - name: Rebase or Merge
+        if: ${{ inputs.REBASE_OR_MERGE != 'head' }}
         run: |
-          git fetch origin pull/${{ env.PR_NUMBER }}/head:pr${{ env.PR_NUMBER }}
-          git checkout pr${{ env.PR_NUMBER }}
-
-      - name: Rebase
-        working-directory: ${{ env.PS_DIR }}
-        if: ${{ env.REBASE_OR_MERGE == 'rebase' }}
-        run: |
-          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
-          git rebase origin/${{ env.BASE_BRANCH }}
-
-      - name: Merge
-        working-directory: ${{ env.PS_DIR }}
-        if: ${{ env.REBASE_OR_MERGE == 'merge' }}
-        run: |
-          git fetch origin ${{ env.BASE_BRANCH }}:${{ env.BASE_BRANCH }}
-          git merge origin/${{ env.BASE_BRANCH }}
-
-      # Certificate
-      - name: Generate a certificate
-        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
-        run: |
-          ## Install MkCert
-          sudo apt install libnss3-tools
-          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
-          chmod +x mkcert-v*-linux-amd64
-          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
-          ## Generate certificate
-          mkcert -key-file ./${{ env.PS_DIR }}/.docker/ssl.key -cert-file ./${{ env.PS_DIR }}/.docker/ssl.crt localhost
-          ## Link certificate to Chrome Trust Store
-          mkdir -p $HOME/.pki/nssdb 
-          certutil -d $HOME/.pki/nssdb -N 
-          certutil -d sql:$HOME/.pki/nssdb -n localhost -A -t "TCu,Cu,Tu" -i ./${{ env.PS_DIR }}/.docker/ssl.crt
-          ## Add self-signed certificate to Chrome Trust Store
-          mkcert -install
-
-      # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
-      - name: PrestaShop Configuration (Copy of Config API)
-        if: (env.BASE_BRANCH == '8.1.x') || (env.BASE_BRANCH == 'develop')
-        run: cp ./${{ env.PS_DIR }}/app/config/security_test.yml ./${{ env.PS_DIR }}/app/config/security_prod.yml
-
-      - name: Adapt Back Office layout
-        if: inputs.backoffice_layout == 'symfony'
-        working-directory: ${{ env.PS_DIR }}
-        shell: bash
-        run: |
-          echo PS_FF_SYMFONY_LAYOUT=true >> .env
-
-      # Create shop with Docker
-      - name: Build and run shop with docker
-        working-directory: ${{ env.PS_DIR }}
+          git fetch origin ${{ inputs.BASE_BRANCH }}
+          git ${{ inputs.REBASE_OR_MERGE }} origin/${{ inputs.BASE_BRANCH }}
+          
+      - name: Setup Environment
         timeout-minutes: 15
-        env:
-          DISABLE_MAKE: 0
-          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          VERSION: ${{ (github.event.inputs.base_branch == '1.7.8.x') && github.event.inputs.php_version || env.VERSION }}
-          URL_PING: ${{ matrix.TEST_COMMAND == 'sanity' && 'install-dev/' || 'en/' }}
-        run: |
-          USER_ID=$(id -u) GROUP_ID=$(id -g) \
-          docker-compose -f docker-compose.yml up -d --build
-          bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}${{ env.URL_PING }})" != "200" ]]; do sleep 5; done'
-
-      # UI Tests : Setup, Install & Execute
-      - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: ./.github/actions/setup-env
         with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Setup NPM
-        run: npm install -g npm@7
-
-      - name: Install tests dependencies
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
-        run: npm install
-
-      # Playwright must be installed all the time, we only install chromium since it's the only browser used
-      - name: Install browsers
-        working-directory: ${{ env.PS_DIR }}/tests/UI
-        if: ${{ env.BASE_BRANCH == '8.0.x' || env.BASE_BRANCH == '8.1.x' }}
-        run: npx playwright install chromium
-
-      - name: Install browsers
-        if: (env.BASE_BRANCH == 'develop')
-        working-directory: ${{ env.PS_DIR }}/tests/UI
-        run: npx playwright install chromium
-
-      - name: Run tests
-        id: runTests
-        run: |
-          export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
-          npm run test:${{ matrix.TEST_COMMAND }}
-        working-directory: '${{ env.PS_DIR }}/tests/UI'
+          PHP_VERSION: ${{ inputs.PHP_VERSION }}
+          NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          ENABLE_SSL: ${{ env.ENABLE_SSL }}
+          INSTALL_AUTO: ${{ env.INSTALL_AUTO }}
+          CP_API_CONFIG: ${{ env.CP_API_CONFIG }}
+          DEV_MODE: ${{ inputs.DEV_MODE }}
+          BO_LAYOUT: ${{ inputs.BO_LAYOUT }}
         env:
-          URL_FO: ${{ ((github.event.inputs.base_branch == '8.0.x') || (github.event.inputs.base_branch == '1.7.8.x')) && 'http://localhost:8001/' || 'https://localhost:8002/' }}
-          DB_NAME: prestashop
-          DB_PASSWD: prestashop
-          HEADLESS: true
-          ENABLE_SSL: true
-          TAKE_SCREENSHOT_AFTER_FAIL: true
-          SMTP_SERVER: '172.17.0.1'
+          ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
+          INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
+          CP_API_CONFIG: ${{ (matrix.BASE_BRANCH == '8.1.x') && 'true' || 'false' }}
 
-      # UI Tests : Upload screenshots
-      - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_COMMAND }}' | tr ':' '-' )" >> $GITHUB_ENV
+      - name: Run Tests
+        id: runTests
+        uses: ./.github/actions/ui-test
+        with:
+          NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          TEST_CAMPAIGN: ${{ matrix.TEST_CAMPAIGN }}
+          INSTALL_BROWSERS: ${{ env.INSTALL_BROWSERS }}
+        env:
+          INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
+
+      - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: failure() && steps.runTests.outcome == 'failure'
 
       - uses: actions/upload-artifact@v3
@@ -345,5 +242,5 @@ jobs:
         with:
           name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
           path: |
-            ${{ env.PS_DIR }}/tests/UI/screenshots/
-            ${{ env.PS_DIR }}/var/logs
+            ./tests/UI/screenshots/
+            ./var/logs
