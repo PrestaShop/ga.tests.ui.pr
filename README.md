@@ -29,14 +29,17 @@ After that, it's very simple :
 
 ### How to fill the form ?
 
-|     Parameter     |                          Description                          |                   Default                    |
-|:-----------------:|:-------------------------------------------------------------:|:--------------------------------------------:|
-|     `Branch`      |             The branch of `testing_pr` repository             |                    `main`                    |
-| `Pull request Id` |   ID of Pull request on `PrestaShop/PrestaShop` repository    | No default value, you must fill it to submit |
-|   `Base Branch`   |    Target Branch of you pull request (ex: 8.0.x, develop)     |                  `develop`                   |
-| `Rebase or merge` | Git method to use to get the last updates for target branches |                   `rebase`                   |
-|   `PHP version`   |      PHP version to use to setup PrestaShop environment       |                    `7.4`                     |
-|  `Node Version`   |      Node version to use to setup PrestaShop environment      |                     `14`                     |
+|      Parameter      |                          Description                          |                   Default                    |
+|:-------------------:|:-------------------------------------------------------------:|:--------------------------------------------:|
+|      `Branch`       |             The branch of `testing_pr` repository             |                    `main`                    |
+|  `Pull request Id`  |   ID of Pull request on `PrestaShop/PrestaShop` repository    | No default value, you must fill it to submit |
+|    `Base Branch`    |    Target Branch of you pull request (ex: 8.0.x, develop)     |                  `develop`                   |
+|     `DEV Mode`      |               Enable/Disable the developer mode               |                   `false`                    |
+|  `Rebase or merge`  | Git method to use to get the last updates for target branches |                   `rebase`                   |
+|    `PHP version`    |      PHP version to use to setup PrestaShop environment       |                    `8.1`                     |
+|   `Node Version`    |      Node version to use to setup PrestaShop environment      |                     `14`                     |
+| `Backoffice layout` |                     `Legacy` or `Symfony`                     |                   `Legacy`                   |
+
 
 ### How to analyze results ?
 

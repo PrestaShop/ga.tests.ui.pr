@@ -1,0 +1,229 @@
+name: Testing Security PrestaShop pull requests (without cache)
+on:
+  workflow_dispatch:
+    inputs:
+      GH_REPOSITORY:
+        description: Pull request private repository
+        required: true
+      GH_TOKEN:
+        description: Github token to access the repository
+        required: true
+      PR_NUMBER:
+        description: Pull request Id
+        required: true
+      BASE_BRANCH:
+        type: choice
+        description: Base branch to rebase the PR
+        required: true
+        options:
+          - 'develop'
+          - '8.1.x'
+          - '8.0.x'
+          - '1.7.8.x'
+        default: 'develop'
+      DEV_MODE:
+        type: choice
+        description: Enable/Disable the developer mode
+        required: true
+        options:
+          - 'true'
+          - 'false'
+        default: 'false'
+      PHP_VERSION:
+        type: choice
+        description: PHP version
+        required: true
+        options:
+          - '7.3'
+          - '7.4'
+          - '8.0'
+          - '8.1'
+          - '8.2'
+          - '8.3'
+        default: '8.1'
+      NODE_VERSION:
+        type: choice
+        description: Node version
+        required: true
+        options:
+          - '14.21.3'
+          - '16.20.1'
+        default: '14.21.3'
+      BO_LAYOUT:
+        type: choice
+        description: Backoffice layout
+        required: true
+        options:
+          - 'legacy'
+          - 'symfony'
+        default: 'legacy'
+
+jobs:
+  testing-pr:
+    runs-on: ubuntu-latest
+    name: Security PR test
+    strategy:
+      fail-fast: false
+      matrix:
+        TEST_CAMPAIGN:
+          - 'cldr'
+          - 'functional:API'
+          - 'functional:BO:login'
+          - 'functional:BO:dashboard'
+          - 'functional:BO:orders:01:0-1'
+          - 'functional:BO:orders:01-create-orders'
+          - 'functional:BO:orders:01-view-and-edit-order'
+          - 'functional:BO:orders:02'
+          - 'functional:BO:orders:03-05'
+          - 'functional:BO:catalog:01-02'
+          - 'functional:BO:catalog:03-04'
+          - 'functional:BO:catalog:05-06'
+          - 'functional:BO:catalog:07-08'
+          - 'functional:BO:customer:01'
+          - 'functional:BO:customer:02-03'
+          - 'functional:BO:customer-service'
+          - 'functional:BO:modules'
+          - 'functional:BO:design'
+          - 'functional:BO:shipping'
+          - 'functional:BO:payment'
+          - 'functional:BO:international:01'
+          - 'functional:BO:international:02'
+          - 'functional:BO:international:03-04'
+          - 'functional:BO:shop-parameters:01-02'
+          - 'functional:BO:shop-parameters:03-04'
+          - 'functional:BO:shop-parameters:05-07'
+          - 'functional:BO:advanced-parameters:01-06'
+          - 'functional:BO:advanced-parameters:07-10'
+          - 'functional:BO:advanced-parameters:11-12'
+          - 'functional:BO:header'
+          - 'functional:FO:01-03'
+          - 'functional:FO:04-07'
+          - 'functional:FO:08-12'
+          - 'functional:FO:classic:01-03'
+          - 'functional:FO:classic:04-07'
+          - 'functional:FO:classic:08-12'
+          - 'functional:FO:hummingbird:01-03'
+          - 'functional:productV2'
+          - 'functional:WS'
+          - 'modules'
+          - 'regression'
+          - 'sanity'
+          - 'sanity:productV2'
+        BASE_BRANCH:
+          - ${{ github.event.inputs.base_branch }}
+        exclude:
+          ## 1.7.8.x
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'cldr'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:BO:dashboard'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:productV2'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:API'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:FO:classic:08-12'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:WS'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'modules'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'sanity:productV2'
+          ## 8.0.x
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'cldr'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:BO:dashboard'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:productV2'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:API'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:FO:classic:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:FO:classic:04-07'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:FO:classic:08-12'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:FO:hummingbird:01-03'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:WS'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'modules'
+          ## 8.1.x
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'functional:FO:01-03'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'functional:FO:04-07'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'functional:FO:08-12'
+          ## develop
+          - BASE_BRANCH: develop
+            TEST_CAMPAIGN: 'functional:FO:01-03'
+          - BASE_BRANCH: develop
+            TEST_CAMPAIGN: 'functional:FO:04-07'
+          - BASE_BRANCH: develop
+            TEST_CAMPAIGN: 'functional:FO:08-12'
+          - BASE_BRANCH: develop
+            TEST_CAMPAIGN: 'functional:productV2'
+          - BASE_BRANCH: develop
+            TEST_CAMPAIGN: 'sanity:productV2'
+
+    steps:
+      # Checkout Private repository
+      - uses: actions/checkout@v3
+        name: Checkout PrestaShop PR security private repository
+        with:
+          fetch-depth: 0
+          repository: ${{ inputs.GH_REPOSITORY }}
+          token: ${{ inputs.GH_TOKEN }}
+          ref: refs/pull/${{ inputs.PR_NUMBER }}/head
+          
+      - name: Setup Environment
+        timeout-minutes: 15
+        uses: ./.github/actions/setup-env
+        with:
+          PHP_VERSION: ${{ inputs.PHP_VERSION }}
+          NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          ENABLE_SSL: ${{ env.ENABLE_SSL }}
+          INSTALL_AUTO: ${{ env.INSTALL_AUTO }}
+          CP_API_CONFIG: ${{ env.CP_API_CONFIG }}
+          DEV_MODE: ${{ inputs.DEV_MODE }}
+          BO_LAYOUT: ${{ inputs.BO_LAYOUT }}
+        env:
+          ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
+          INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
+          CP_API_CONFIG: ${{ (matrix.BASE_BRANCH == '8.1.x') && 'true' || 'false' }}
+
+      - name: Run Tests
+        id: runTests
+        uses: ./.github/actions/ui-test
+        with:
+          NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          TEST_CAMPAIGN: ${{ matrix.TEST_CAMPAIGN }}
+          INSTALL_BROWSERS: ${{ env.INSTALL_BROWSERS }}
+        env:
+          INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
+
+      - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
+        if: failure() && steps.runTests.outcome == 'failure'
+
+      - uses: actions/upload-artifact@v3
+        if: failure() && steps.runTests.outcome == 'failure'
+        with:
+          name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
+          path: |
+            ./tests/UI/screenshots/
+            ./var/logs
