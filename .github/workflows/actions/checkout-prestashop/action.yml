@@ -66,8 +66,8 @@ runs:
       shell: bash
 
     - name: Adapt Back Office layout
-      if: inputs.backoffice_layout == 'symfony'
+      if: inputs.backoffice_layout == 'legacy'
       working-directory: ${{ inputs.ps_dir }}
       run: |
-        echo PS_FF_SYMFONY_LAYOUT=true >> .env
+        echo PS_FF_SYMFONY_LAYOUT=false >> .env
       shell: bash
