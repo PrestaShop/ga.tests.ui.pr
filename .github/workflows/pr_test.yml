@@ -29,9 +29,9 @@ on:
         description: Backoffice layout
         required: true
         options:
-          - 'legacy'
           - 'symfony'
-        default: 'legacy'
+          - 'legacy'
+        default: 'symfony'
       rebase_or_merge:
         type: choice
         required: true
