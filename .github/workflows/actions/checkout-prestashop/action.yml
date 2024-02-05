@@ -21,7 +21,7 @@ runs:
   using: "composite"
   steps:
     # Checkout PrestaShop
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       name: Checkout PrestaShop repository
       with:
         fetch-depth: 0

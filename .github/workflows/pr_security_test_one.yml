@@ -183,7 +183,7 @@ jobs:
 
     steps:
       # Checkout Private repository
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         name: Checkout PrestaShop PR security private repository
         with:
           fetch-depth: 0
@@ -220,7 +220,7 @@ jobs:
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: failure() && steps.runTests.outcome == 'failure'
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure() && steps.runTests.outcome == 'failure'
         with:
           name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
