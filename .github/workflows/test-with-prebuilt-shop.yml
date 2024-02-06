@@ -62,12 +62,12 @@ jobs:
         run: echo "${{ toJSON(inputs) }}"
 
       # Checkout repository to use custom actions
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: custom_actions
 
       - name: Download docker artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: shop-artifacts
           path: /tmp/shop-artifacts
@@ -160,7 +160,7 @@ jobs:
       # but it turns out the archive is much bigger with all this code and it makes upload/download phase so much longer that it is more efficient to install
       # this here
       - name: Setup Node ${{ inputs.node_version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node_version }}
       - name: Build test dependencies

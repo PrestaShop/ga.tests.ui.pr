@@ -68,7 +68,7 @@ jobs:
         run: echo "${{ toJSON(inputs) }}"
 
       # Checkout repository to use custom actions
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: custom_actions
 
@@ -102,7 +102,7 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         shell: bash
       - name: Restore composer cache dir
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         id: composer-cache
         with:
           path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
@@ -114,7 +114,7 @@ jobs:
         shell: bash
       # Save composer cache when it didn't exist
       - name: Save composer cache dir
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         if: steps.composer-cache.outputs.cache-hit != 'true'
         with:
           path: ${{ steps.composer-cache-dir.outputs.composer-cache-dir }}
@@ -122,7 +122,7 @@ jobs:
 
       # Install node dependencies and build assets
       - name: Setup Node ${{ inputs.node_version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node_version }}
       - name: Build assets in parallel and in background
@@ -214,13 +214,13 @@ jobs:
 
       - name: Upload shop artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: shop-artifacts
           path: /tmp/shop-artifacts
 
       - name: Save logs in case of error
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: Build error export logs

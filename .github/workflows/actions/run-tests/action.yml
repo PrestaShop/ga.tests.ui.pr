@@ -85,7 +85,7 @@ runs:
       shell: bash
 
     - name: Export logs and screenshots as artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: failure()
       with:
         name: campaign-${{ steps.screenshot-campaign.outputs.screenshot-campaign }}
