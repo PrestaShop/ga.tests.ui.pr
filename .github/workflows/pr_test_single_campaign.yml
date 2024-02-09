@@ -57,6 +57,8 @@ on:
           - 'functional:FO:classic:04-07'
           - 'functional:FO:classic:08-12'
           - 'functional:FO:hummingbird:01-03'
+          - 'functional:FO:hummingbird:04-07'
+          - 'functional:FO:hummingbird:08-12'
           - 'functional:productV2'
           - 'functional:WS'
           - 'modules'
