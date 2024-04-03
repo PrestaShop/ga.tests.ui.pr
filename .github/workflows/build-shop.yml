@@ -87,12 +87,12 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml pull -q mysql >& /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml build >& /dev/null &
 
       # Run composer install before building the assets since the themes come from composer
       - name: Get Composer Cache Directory
@@ -188,7 +188,7 @@ jobs:
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           # Then build and start the docker
           echo Build docker via docker composer
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose -f docker-compose.yml up -d --build prestashop-git
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 1; done'
 
@@ -210,7 +210,7 @@ jobs:
             "*/tests/Resources/**/*" \
             "*/tests/Unit/**/*" \
             "*/.git/**/*"
-          docker exec my_prestashop_mysql_1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
+          docker exec my_prestashop-mysql-1 /usr/bin/mysqldump -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > /tmp/shop-artifacts/db_dump.sql
 
       - name: Upload shop artifacts
         if: always()
