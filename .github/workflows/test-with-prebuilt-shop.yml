@@ -81,18 +81,18 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml pull -q mysql >& /dev/null &
       - name: Pull keycloak in background
         if: inputs.test_command == 'functional:API'
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull keycloak image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q keycloak >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml pull -q keycloak >& /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml build >& /dev/null &
 
       # Certificate
       - name: Generate a certificate
@@ -117,23 +117,23 @@ jobs:
         timeout-minutes: 5
         run: |
           echo Starting mysql docker alone
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build mysql
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose -f docker-compose.yml up -d --build mysql
           echo Wait until mysql is accessible minimum 10 seconds before testing
           sleep 10
-          until docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
+          until docker exec my_prestashop-mysql-1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }}; do echo "Sleep and retry to check"; sleep 2; done
           echo Copying dump into docker
-          docker cp /tmp/shop-artifacts/db_dump.sql my_prestashop_mysql_1:/tmp/db_dump.sql
+          docker cp /tmp/shop-artifacts/db_dump.sql my_prestashop-mysql-1:/tmp/db_dump.sql
           echo Creating ${{ env.DB_NAME }} database
-          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
+          docker exec my_prestashop-mysql-1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} -e "CREATE DATABASE IF NOT EXISTS ${{ env.DB_NAME }};"
           echo Load dump into DB
-          docker exec my_prestashop_mysql_1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
+          docker exec my_prestashop-mysql-1 /usr/bin/mysql -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} -e "source /tmp/db_dump.sql;"
 
       - name: Build keycloak
         if: inputs.test_command == 'functional:API'
         working-directory: ${{ env.PS_DIR }}
         run: |
           until docker images | grep keycloak; do echo Waiting for keycloak image; sleep 1; done
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml up -d --build keycloak
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml up -d --build keycloak
 
       - name: Start up shop docker
         working-directory: ${{ env.PS_DIR }}
@@ -152,7 +152,7 @@ jobs:
           until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           echo Build the remaining dockers
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build ${{ env.BUILT_CONTAINERS }}
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose -f docker-compose.yml up -d --build ${{ env.BUILT_CONTAINERS }}
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 

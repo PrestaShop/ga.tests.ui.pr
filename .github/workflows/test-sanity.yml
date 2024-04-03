@@ -88,12 +88,12 @@ jobs:
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml pull -q mysql >& /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker-compose -f docker-compose.yml build >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml build >& /dev/null &
 
       # Certificate
       - name: Generate a certificate
@@ -158,7 +158,7 @@ jobs:
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           # Then build and start the docker, no need to wait the install page is accessible right away
           echo Build docker via docker composer
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker-compose -f docker-compose.yml up -d --build prestashop-git
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose -f docker-compose.yml up -d --build prestashop-git
 
       # Install node dependencies and build assets
       - name: Setup Node ${{ inputs.node_version }}
