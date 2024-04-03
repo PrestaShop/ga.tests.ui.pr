@@ -80,7 +80,7 @@ runs:
 
     - name: Export docker keycloak logs
       run: |
-        docker logs my_prestashop-keycloak-1 > ${{ inputs.ps_dir }}/var/docker-logs/keycloak.log
+        docker logs keycloak_connector_demo-keycloak-1 > ${{ inputs.ps_dir }}/var/docker-logs/keycloak.log
       if: failure() && inputs.test_command == 'functional:API'
       shell: bash
 

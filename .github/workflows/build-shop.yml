@@ -82,7 +82,6 @@ jobs:
           ps_dir: ${{ env.PS_DIR }}
 
       # Pre pull/build images
-      # For some reason keycloak must be started before the PrestaShop build or it fails
       - name: Pull images in background
         working-directory: ${{ env.PS_DIR }}
         run: |
