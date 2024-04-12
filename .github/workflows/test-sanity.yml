@@ -100,6 +100,7 @@ jobs:
         if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
         run: |
           ## Install MkCert
+          sudo apt-get update
           sudo apt install libnss3-tools
           curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
           chmod +x mkcert-v*-linux-amd64
