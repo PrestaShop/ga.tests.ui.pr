@@ -83,7 +83,6 @@ jobs:
           backoffice_layout: ${{ inputs.backoffice_layout }}
           ps_dir: ${{ env.PS_DIR }}
 
-      # Pre pull/build images (no need for keycloak)
       - name: Pull mysql image in background
         working-directory: ${{ env.PS_DIR }}
         run: |

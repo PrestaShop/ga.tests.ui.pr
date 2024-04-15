@@ -221,7 +221,7 @@ jobs:
         run: |
           git fetch origin ${{ inputs.BASE_BRANCH }}
           git ${{ inputs.REBASE_OR_MERGE }} origin/${{ inputs.BASE_BRANCH }}
-          
+
       - name: Setup Environment
         timeout-minutes: 15
         uses: ./.github/actions/setup-env
@@ -237,6 +237,15 @@ jobs:
           ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
           INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
           CP_API_CONFIG: ${{ (matrix.BASE_BRANCH == '8.1.x') && 'true' || 'false' }}
+
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v4
+        with:
+          path: custom_actions
+      # Keycloak is only needed for API campaign
+      - name: Launch keycloak
+        uses: ./custom_actions/.github/workflows/actions/launch-keycloak
+        if: matrix.TEST_CAMPAIGN == 'functional:API' && matrix.BASE_BRANCH == 'develop'
 
       - name: Run Tests
         id: runTests
