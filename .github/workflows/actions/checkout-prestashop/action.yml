@@ -61,7 +61,7 @@ runs:
 
     # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
     - name: PrestaShop Configuration (Copy of Config API)
-      if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+      if: (inputs.base_branch == '8.1.x')
       run: cp ./${{ inputs.ps_dir }}/app/config/security_test.yml ./${{ inputs.ps_dir }}/app/config/security_prod.yml
       shell: bash
 
