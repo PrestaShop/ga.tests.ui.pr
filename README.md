@@ -38,7 +38,6 @@ After that, it's very simple :
 |  `Rebase or merge`  | Git method to use to get the last updates for target branches |                   `rebase`                   |
 |    `PHP version`    |      PHP version to use to setup PrestaShop environment       |                    `8.1`                     |
 |   `Node Version`    |      Node version to use to setup PrestaShop environment      |                     `14`                     |
-| `Backoffice layout` |                     `Legacy` or `Symfony`                     |                   `Legacy`                   |
 
 
 ### How to analyze results ?
