@@ -83,7 +83,7 @@ jobs:
   # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
   # delicate balance to maintain The criteria so far was campaign longer than 15min
   test-long-campaigns:
-    name: Run long campaign ${{ matrix.TEST_COMMAND }}
+    name: Long ${{ matrix.TEST_COMMAND }}
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:

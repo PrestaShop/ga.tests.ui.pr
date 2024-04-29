@@ -35,7 +35,7 @@ on:
 jobs:
   test-sanity:
     runs-on: ubuntu-latest
-    name: Run UI Tests ${{ inputs.test_command }}
+    name: Test ${{ inputs.test_command }}
     env:
       # Input values
       PS_MODE_DEV: ${{ inputs.ps_mode_dev && '1' || '0' }}
