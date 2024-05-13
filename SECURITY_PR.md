@@ -88,7 +88,6 @@ You can use the private repository you created following these steps :
 |            `DEV Mode`             |                     Enable/Disable the developer mode                      |                   `false`                    |
 |           `PHP version`           |             PHP version to use to setup PrestaShop environment             |                    `8.1`                     |
 |          `Node Version`           |            Node version to use to setup PrestaShop environment             |                     `14`                     |
-|        `Backoffice layout`        |                           `Legacy` or `Symfony`                            |                   `Legacy`                   |
 
 ## Cleaning up behind
 

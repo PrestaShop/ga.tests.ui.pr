@@ -26,10 +26,6 @@ on:
         type: string
         description: Node version
         required: true
-      backoffice_layout:
-        type: string
-        description: Backoffice layout
-        required: true
       fast_fail:
         type: boolean
         description: Fast fail on first error
@@ -39,7 +35,7 @@ on:
 jobs:
   test-sanity:
     runs-on: ubuntu-latest
-    name: Run UI Tests ${{ inputs.test_command }}
+    name: Test ${{ inputs.test_command }}
     env:
       # Input values
       PS_MODE_DEV: ${{ inputs.ps_mode_dev && '1' || '0' }}
@@ -80,7 +76,6 @@ jobs:
           pr_number: ${{ inputs.pr_number }}
           base_branch: ${{ inputs.base_branch }}
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
-          backoffice_layout: ${{ inputs.backoffice_layout }}
           ps_dir: ${{ env.PS_DIR }}
 
       - name: Pull mysql image in background

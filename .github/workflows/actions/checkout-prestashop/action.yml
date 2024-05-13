@@ -10,9 +10,6 @@ inputs:
   rebase_or_merge:
     required: true
     description: Rebase or merge the pull request
-  backoffice_layout:
-    description: Backoffice layout
-    required: true
   ps_dir:
     description: Directory target
     required: true
@@ -61,13 +58,6 @@ runs:
 
     # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
     - name: PrestaShop Configuration (Copy of Config API)
-      if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+      if: (inputs.base_branch == '8.1.x')
       run: cp ./${{ inputs.ps_dir }}/app/config/security_test.yml ./${{ inputs.ps_dir }}/app/config/security_prod.yml
-      shell: bash
-
-    - name: Adapt Back Office layout
-      if: inputs.backoffice_layout == 'legacy'
-      working-directory: ${{ inputs.ps_dir }}
-      run: |
-        echo PS_FF_SYMFONY_LAYOUT=false >> .env
       shell: bash

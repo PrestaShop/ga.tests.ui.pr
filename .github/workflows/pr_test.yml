@@ -24,14 +24,6 @@ on:
         type: boolean
         description: Use developer mode?
         required: true
-      backoffice_layout:
-        type: choice
-        description: Backoffice layout
-        required: true
-        options:
-          - 'symfony'
-          - 'legacy'
-        default: 'symfony'
       rebase_or_merge:
         type: choice
         required: true
@@ -73,7 +65,6 @@ jobs:
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
-      backoffice_layout: ${{ inputs.backoffice_layout }}
       fast_fail: ${{ inputs.fast_fail }}
 
   # We perform a unique build that is stored as an artifact, only then do we start the campaign that will rely on this build
@@ -87,13 +78,12 @@ jobs:
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
-      backoffice_layout: ${{ inputs.backoffice_layout }}
 
   # These campaigns are run first because they are longer, so we try to optimize the total run However this list must not
   # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
   # delicate balance to maintain The criteria so far was campaign longer than 15min
   test-long-campaigns:
-    name: Run long campaign ${{ matrix.TEST_COMMAND }}
+    name: Long ${{ matrix.TEST_COMMAND }}
     needs: build-shop
     uses: ./.github/workflows/test-with-prebuilt-shop.yml
     with:

@@ -74,14 +74,6 @@ on:
         type: boolean
         description: Use developer mode?
         required: true
-      backoffice_layout:
-        type: choice
-        description: Backoffice layout
-        required: true
-        options:
-          - 'symfony'
-          - 'legacy'
-        default: 'symfony'
       rebase_or_merge:
         type: choice
         required: true
@@ -123,7 +115,6 @@ jobs:
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
-      backoffice_layout: ${{ inputs.backoffice_layout }}
 
   test-pr:
     name: Run single campaign ${{ inputs.test_command }}
@@ -150,5 +141,4 @@ jobs:
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
-      backoffice_layout: ${{ inputs.backoffice_layout }}
       fast_fail: ${{ inputs.fast_fail }}
