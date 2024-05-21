@@ -51,7 +51,7 @@ on:
         options:
           - '14.21.3'
           - '16.20.1'
-        default: '14.21.3'
+        default: '16.20.1'
 
 jobs:
   # Sanity tests are run independently because it's the only campaign that handles the installation itself, since it tests it
