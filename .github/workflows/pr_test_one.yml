@@ -228,6 +228,12 @@ jobs:
           ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
           INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
           CP_API_CONFIG: ${{ (matrix.BASE_BRANCH == '8.1.x') && 'true' || 'false' }}
+      - name: Setup Environment failure
+        uses: ./.github/actions/setup-env-export-logs
+        with:
+          DOCKER_PREFIX: gatestsuipr
+          ARTIFACT_NAME: setup-env-${{ matrix.BASE_BRANCH }}-${{ matrix.TEST_CAMPAIGN }}
+        if: failure() && matrix.BASE_BRANCH == 'develop'
 
       # Checkout repository to use custom actions
       - uses: actions/checkout@v4
