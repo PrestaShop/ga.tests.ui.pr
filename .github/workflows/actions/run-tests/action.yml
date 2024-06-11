@@ -22,6 +22,10 @@ inputs:
   ps_dir:
     description: Directory target
     required: true
+  DB_SERVER:
+    type: string
+    description: Database Type
+    required: true
 
 runs:
   using: "composite"
@@ -47,7 +51,7 @@ runs:
         DB_PASSWD: prestashop
         DB_NAME: prestashop
         DB_PREFIX: tst_
-        DB_SERVER: mysql
+        DB_SERVER: ${{ inputs.DB_SERVER }}
         PS_DIR: 'my_prestashop'
         PS_FOLDER_INSTALL: install-dev
         PS_FOLDER_ADMIN: admin-dev
@@ -73,7 +77,7 @@ runs:
     - name: Export docker logs
       run: |
         mkdir -p ${{ inputs.ps_dir }}/var/docker-logs
-        docker logs my_prestashop-mysql-1 > ${{ inputs.ps_dir }}/var/docker-logs/mysql.log
+        docker logs my_prestashop-${{ inputs.DB_SERVER }}-1 > ${{ inputs.ps_dir }}/var/docker-logs/${{ inputs.DB_SERVER }}.log
         docker logs my_prestashop-prestashop-git-1 > ${{ inputs.ps_dir }}/var/docker-logs/prestashop.log
       if: failure()
       shell: bash

@@ -52,6 +52,14 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '16.20.1'
+      DB_SERVER:
+        type: choice
+        description: Database
+        required: true
+        options:
+          - 'mysql'
+          - 'mariadb'
+        default: 'mysql'
 
 jobs:
   testing-pr:
@@ -224,6 +232,7 @@ jobs:
           INSTALL_AUTO: ${{ env.INSTALL_AUTO }}
           CP_API_CONFIG: ${{ env.CP_API_CONFIG }}
           DEV_MODE: ${{ inputs.DEV_MODE }}
+          DB_SERVER: ${{ inputs.DB_SERVER }}
         env:
           ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
           INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
@@ -232,7 +241,8 @@ jobs:
         uses: ./.github/actions/setup-env-export-logs
         with:
           DOCKER_PREFIX: gatestsuipr
-          ARTIFACT_NAME: setup-env-${{ matrix.BASE_BRANCH }}-${{ matrix.TEST_CAMPAIGN }}
+          ARTIFACT_NAME: setup-env-${{ matrix.BASE_BRANCH }}-${{ matrix.TEST_CAMPAIGN }}-${{ inputs.DB_SERVER }}
+          DB_SERVER: ${{ inputs.DB_SERVER }}
         if: failure() && matrix.BASE_BRANCH == 'develop'
 
       # Checkout repository to use custom actions
@@ -251,6 +261,7 @@ jobs:
           NODE_VERSION: ${{ inputs.NODE_VERSION }}
           TEST_CAMPAIGN: ${{ matrix.TEST_CAMPAIGN }}
           INSTALL_BROWSERS: ${{ env.INSTALL_BROWSERS }}
+          DB_SERVER: ${{ inputs.DB_SERVER }}
         env:
           INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
 

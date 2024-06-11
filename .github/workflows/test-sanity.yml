@@ -31,6 +31,10 @@ on:
         description: Fast fail on first error
         required: true
         default: false
+      DB_SERVER:
+        type: string
+        description: Database Type
+        required: true
 
 jobs:
   test-sanity:
@@ -52,7 +56,7 @@ jobs:
       DB_PASSWD: prestashop
       DB_NAME: prestashop
       DB_PREFIX: tst_
-      DB_SERVER: mysql
+      DB_SERVER: ${{ inputs.DB_SERVER }}
       PS_DIR: 'my_prestashop'
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
@@ -78,16 +82,16 @@ jobs:
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           ps_dir: ${{ env.PS_DIR }}
 
-      - name: Pull mysql image in background
+      - name: Pull database image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
-          # Pull mysql image
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml pull -q mysql >& /dev/null &
+          # Pull ${{ inputs.DB_SERVER }} image
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f ${{ (inputs.DB_SERVER == 'mysql') && 'docker-compose.yml' || 'docker-compose.mariadb.yml' }} pull -q ${{ inputs.DB_SERVER }}  >& /dev/null &
       - name: Build PrestaShop image in background
         working-directory: ${{ env.PS_DIR }}
         run: |
           # Build prestashop image in background
-          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f docker-compose.yml build >& /dev/null &
+          USER_ID=$(id -u) GROUP_ID=$(id -g) nohup docker compose -f ${{ (inputs.DB_SERVER == 'mysql') && 'docker-compose.yml' || 'docker-compose.mariadb.yml' }} build prestashop-git >& /dev/null &
 
       # Certificate
       - name: Generate a certificate
@@ -149,11 +153,11 @@ jobs:
         run: |
           # First wait for all images to be ready
           echo Check that all images are ready
-          until docker images | grep mysql; do echo Waiting for mysql image; sleep 1; done
+          until docker images | grep ${{ inputs.DB_SERVER }} ; do echo Waiting for ${{ inputs.DB_SERVER }} image; sleep 1; done
           until docker images | grep prestashop-git; do echo Waiting for prestashop-git image; sleep 1; done
           # Then build and start the docker, no need to wait the install page is accessible right away
-          echo Build docker via docker composer
-          USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose -f docker-compose.yml up -d --build prestashop-git
+          echo Build docker via docker compose
+          USER_ID=$(id -u) GROUP_ID=$(id -g) docker compose -f ${{ (inputs.DB_SERVER == 'mysql') && 'docker-compose.yml' || 'docker-compose.mariadb.yml' }} up -d --build prestashop-git
 
       # Install node dependencies and build assets
       - name: Setup Node ${{ inputs.node_version }}
@@ -208,3 +212,4 @@ jobs:
           test_command: sanity
           fast_fail: ${{ inputs.fast_fail }}
           ps_dir: ${{ env.PS_DIR }}
+          DB_SERVER: ${{ inputs.DB_SERVER }}
