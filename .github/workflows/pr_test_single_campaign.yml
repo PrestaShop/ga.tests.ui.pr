@@ -102,6 +102,14 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '16.20.1'
+      DB_SERVER:
+        type: choice
+        description: Database
+        required: true
+        options:
+          - 'mysql'
+          - 'mariadb'
+        default: 'mysql'
 
 jobs:
   build-shop:
@@ -115,6 +123,7 @@ jobs:
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
 
   test-pr:
     name: Run single campaign ${{ inputs.test_command }}
@@ -128,6 +137,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
       test_command: ${{ inputs.test_command }}
       fast_fail: ${{ inputs.fast_fail }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
 
   # Sanity campaign is run differently
   sanity-test:
@@ -142,3 +152,4 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       fast_fail: ${{ inputs.fast_fail }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}

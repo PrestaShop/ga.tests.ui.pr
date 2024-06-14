@@ -52,6 +52,14 @@ on:
           - '14.21.3'
           - '16.20.1'
         default: '16.20.1'
+      DB_SERVER:
+        type: choice
+        description: Database
+        required: true
+        options:
+          - 'mysql'
+          - 'mariadb'
+        default: 'mysql'
 
 jobs:
   # Sanity tests are run independently because it's the only campaign that handles the installation itself, since it tests it
@@ -66,6 +74,7 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       fast_fail: ${{ inputs.fast_fail }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
 
   # We perform a unique build that is stored as an artifact, only then do we start the campaign that will rely on this build
   build-shop:
@@ -78,6 +87,7 @@ jobs:
       rebase_or_merge: ${{ inputs.rebase_or_merge }}
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
 
   # These campaigns are run first because they are longer, so we try to optimize the total run However this list must not
   # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
@@ -93,6 +103,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
       test_command: ${{ matrix.TEST_COMMAND }}
       fast_fail: ${{ inputs.fast_fail }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
     strategy:
       fail-fast: false
       matrix:
@@ -152,6 +163,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
       test_command: ${{ matrix.TEST_COMMAND }}
       fast_fail: ${{ inputs.fast_fail }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
     strategy:
       fail-fast: false
       matrix:
