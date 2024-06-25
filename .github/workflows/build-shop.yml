@@ -156,7 +156,7 @@ jobs:
       # everything was built, probably because of the parallelization and background processes)
       - name: Check that all builds are finished
         run: |
-          buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
+          buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/hummingbird/buildLock themes/buildLock"
           echo Checking for all these lock files $buildLocks
           for lockFile in $buildLocks; do
             lockFile="${{ env.PS_DIR }}/$lockFile"
