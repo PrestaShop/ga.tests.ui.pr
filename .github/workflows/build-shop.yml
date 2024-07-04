@@ -129,6 +129,7 @@ jobs:
           (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
           (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
           (pushd ${{ env.PS_DIR }}/themes/classic/_dev; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          (pushd ${{ env.PS_DIR }}/themes/hummingbird; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
           (pushd ${{ env.PS_DIR }}/themes/; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
         shell: bash
 
@@ -155,7 +156,7 @@ jobs:
       # everything was built, probably because of the parallelization and background processes)
       - name: Check that all builds are finished
         run: |
-          buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
+          buildLocks="admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/hummingbird/buildLock themes/buildLock"
           echo Checking for all these lock files $buildLocks
           for lockFile in $buildLocks; do
             lockFile="${{ env.PS_DIR }}/$lockFile"
@@ -201,6 +202,7 @@ jobs:
             "*/admin-dev/themes/new-theme/node_modules/**/*" \
             "*/admin-dev/themes/default/node_modules/**/*" \
             "*/themes/classic/_dev/**/*" \
+            "*/themes/hummingbird/node_modules/**/*" \
             "*/themes/_core/**/*" \
             "*/themes/node_modules/**/*" \
             "*/install-dev/**/*" \
