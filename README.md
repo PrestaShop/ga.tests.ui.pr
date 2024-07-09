@@ -38,6 +38,9 @@ After that, it's very simple :
 |  `Rebase or merge`  | Git method to use to get the last updates for target branches |                   `rebase`                   |
 |    `PHP version`    |      PHP version to use to setup PrestaShop environment       |                    `8.1`                     |
 |   `Node Version`    |      Node version to use to setup PrestaShop environment      |                     `14`                     |
+|     `Database`      |         Database engine on which PrestaShop will run          |                    `mysql`                   |
+
+⚠️ You can test your pull request on mysql or mariadb, if you feel like the SQL engine could have a significant impact on the modifications you made, then you should run both.
 
 
 ### How to analyze results ?
