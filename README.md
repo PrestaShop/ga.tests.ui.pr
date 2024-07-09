@@ -40,7 +40,7 @@ After that, it's very simple :
 |   `Node Version`    |      Node version to use to setup PrestaShop environment      |                     `14`                     |
 |     `Database`      |         Database engine on which PrestaShop will run          |                    `mysql`                   |
 
-⚠️ You can test your pull request on mysql or mariadb, if you feel like the sql engine could have a significant impact on the modifications you made, then you should run both.
+⚠️ You can test your pull request on mysql or mariadb, if you feel like the SQL engine could have a significant impact on the modifications you made, then you should run both.
 
 
 ### How to analyze results ?
