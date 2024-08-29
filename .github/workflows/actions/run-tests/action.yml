@@ -37,7 +37,6 @@ runs:
       run: |
         cp .env.ci .env
         sed -i -e "s/TAKE_SCREENSHOT_AFTER_EACH_STEP.*/TAKE_SCREENSHOT_AFTER_EACH_STEP=${{ inputs.take_screenshot_after_each_step == 'false' && 'false' || 'true' }}/g" .env
-        cat .env
       shell: bash
 
     - name: Run tests
