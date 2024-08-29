@@ -19,17 +19,27 @@ inputs:
   fast_fail:
     description: Fast fail on first error
     required: true
+  take_screenshot_after_each_step:
+    description: Take a screenshot after each step
+    required: true
   ps_dir:
     description: Directory target
     required: true
   DB_SERVER:
-    type: string
     description: Database Type
     required: true
 
 runs:
   using: "composite"
   steps:
+    - name: Use .env.ci
+      working-directory: '${{ inputs.ps_dir }}/tests/UI'
+      run: |
+        cp .env.ci .env
+        sed -i -e "s/TAKE_SCREENSHOT_AFTER_EACH_STEP.*/TAKE_SCREENSHOT_AFTER_EACH_STEP=${{ inputs.take_screenshot_after_each_step == 'false' && 'false' || 'true' }}/g" .env
+        cat .env
+      shell: bash
+
     - name: Run tests
       run: |
         export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"

@@ -70,6 +70,11 @@ on:
         description: Fast fail on first error
         required: true
         default: false
+      take_screenshot_after_each_step:
+        type: boolean
+        description: Take a screenshot after each step
+        required: true
+        default: false
       ps_mode_dev:
         type: boolean
         description: Use developer mode?
@@ -137,6 +142,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
       test_command: ${{ inputs.test_command }}
       fast_fail: ${{ inputs.fast_fail }}
+      take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
 
   # Sanity campaign is run differently
@@ -152,4 +158,5 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       fast_fail: ${{ inputs.fast_fail }}
+      take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
