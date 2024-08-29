@@ -20,6 +20,11 @@ on:
         description: Fast fail on first error
         required: true
         default: false
+      take_screenshot_after_each_step:
+        type: boolean
+        description: Take a screenshot after each step
+        required: true
+        default: false
       ps_mode_dev:
         type: boolean
         description: Use developer mode?
@@ -74,6 +79,7 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       fast_fail: ${{ inputs.fast_fail }}
+      take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
 
   # We perform a unique build that is stored as an artifact, only then do we start the campaign that will rely on this build
@@ -103,6 +109,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
       test_command: ${{ matrix.TEST_COMMAND }}
       fast_fail: ${{ inputs.fast_fail }}
+      take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
     strategy:
       fail-fast: false
@@ -163,6 +170,7 @@ jobs:
       node_version: ${{ inputs.node_version }}
       test_command: ${{ matrix.TEST_COMMAND }}
       fast_fail: ${{ inputs.fast_fail }}
+      take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
     strategy:
       fail-fast: false
