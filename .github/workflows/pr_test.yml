@@ -11,6 +11,7 @@ on:
         required: true
         options:
           - 'develop'
+          - '8.2.x'
           - '8.1.x'
           - '8.0.x'
           - '1.7.8.x'
@@ -158,6 +159,9 @@ jobs:
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:FO:hummingbird:08-12'
+          ## 8.2.x
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'functional:FO:hummingbird:08-12'  
 
   test-short-campaigns:
     name: Run short campaign ${{ matrix.TEST_COMMAND }}
@@ -254,6 +258,17 @@ jobs:
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:FO:08-12'
           - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'functional:FO:hummingbird:04-07'
+          ## 8.2.x
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'functional:FO:01-03'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'functional:FO:04-07'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'functional:FO:08-12'
+          - BASE_BRANCH: 8.2.x
             TEST_COMMAND: 'functional:FO:hummingbird:04-07'
           ## develop
           - BASE_BRANCH: develop
