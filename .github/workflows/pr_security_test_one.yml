@@ -17,6 +17,7 @@ on:
         required: true
         options:
           - 'develop'
+          - '8.2.x'
           - '8.1.x'
           - '8.0.x'
           - '1.7.8.x'
@@ -183,6 +184,19 @@ jobs:
             TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
+          ## 8.2.x
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:FO:01-03'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:FO:04-07'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:FO:08-12'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
           ## develop
           - BASE_BRANCH: develop
             TEST_CAMPAIGN: 'functional:FO:01-03'
@@ -204,7 +218,7 @@ jobs:
           repository: ${{ inputs.GH_REPOSITORY }}
           token: ${{ inputs.GH_TOKEN }}
           ref: refs/pull/${{ inputs.PR_NUMBER }}/head
-          
+
       - name: Setup Environment
         timeout-minutes: 15
         uses: ./.github/actions/setup-env
@@ -219,7 +233,7 @@ jobs:
         env:
           ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
           INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
-          CP_API_CONFIG: ${{ (matrix.BASE_BRANCH == '8.1.x') && 'true' || 'false' }}
+          CP_API_CONFIG: ${{ ((matrix.BASE_BRANCH == '8.1.x') || (matrix.BASE_BRANCH == '8.2.x')) && 'true' || 'false' }}
       - name: Setup Environment failure
         uses: ./.github/actions/setup-env-export-logs
         with:

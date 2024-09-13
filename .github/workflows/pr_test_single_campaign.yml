@@ -11,6 +11,7 @@ on:
         required: true
         options:
           - 'develop'
+          - '8.2.x'
           - '8.1.x'
           - '8.0.x'
           - '1.7.8.x'

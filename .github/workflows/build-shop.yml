@@ -135,7 +135,7 @@ jobs:
 
       # Certificate
       - name: Generate a certificate
-        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == 'develop')
+        if: (inputs.base_branch == '8.1.x') || (inputs.base_branch == '8.2.x') || (inputs.base_branch == 'develop')
         run: |
           ## Install MkCert
           sudo apt-get update
