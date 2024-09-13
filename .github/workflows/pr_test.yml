@@ -161,7 +161,7 @@ jobs:
             TEST_COMMAND: 'functional:FO:hummingbird:08-12'
           ## 8.2.x
           - BASE_BRANCH: 8.2.x
-            TEST_COMMAND: 'functional:FO:hummingbird:08-12'  
+            TEST_COMMAND: 'functional:FO:hummingbird:08-12'
 
   test-short-campaigns:
     name: Run short campaign ${{ matrix.TEST_COMMAND }}
