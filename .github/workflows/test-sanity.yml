@@ -196,6 +196,8 @@ jobs:
             echo $lockFile is no longer present
           done
         shell: bash
+        timeout-minutes: 10
+
       # Playwright must be installed all the time, we only install chromium since it's the only browser used
       - name: Install browsers
         working-directory: ${{ env.PS_DIR }}/tests/UI
