@@ -171,6 +171,7 @@ jobs:
             echo $lockFile is no longer present
           done
         shell: bash
+        timeout-minutes: 10
 
       # Create shop with Docker build assets, and initialize database and shop content
       - name: Start PrestaShop docker
