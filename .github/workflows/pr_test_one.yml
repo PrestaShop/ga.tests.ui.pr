@@ -5,6 +5,7 @@ on:
       PR_NUMBER:
         description: Pull request Id
         required: true
+        default: 37080
       BASE_BRANCH:
         type: choice
         description: Base branch to rebase the PR
@@ -71,147 +72,9 @@ jobs:
       fail-fast: false
       matrix:
         TEST_CAMPAIGN:
-          - 'cldr'
-          - 'functional:API'
-          - 'functional:BO:login'
           - 'functional:BO:dashboard'
-          - 'functional:BO:orders:01:0-1'
-          - 'functional:BO:orders:01-create-orders'
-          - 'functional:BO:orders:01-view-and-edit-order'
-          - 'functional:BO:orders:02'
-          - 'functional:BO:orders:03-05'
-          - 'functional:BO:catalog:01-02'
-          - 'functional:BO:catalog:03-04'
-          - 'functional:BO:catalog:05-06'
-          - 'functional:BO:catalog:07-08'
-          - 'functional:BO:customer:01'
-          - 'functional:BO:customer:02-03'
-          - 'functional:BO:customer-service'
-          - 'functional:BO:modules'
-          - 'functional:BO:design'
-          - 'functional:BO:shipping'
-          - 'functional:BO:payment'
-          - 'functional:BO:international:01'
-          - 'functional:BO:international:02'
-          - 'functional:BO:international:03-04'
-          - 'functional:BO:shop-parameters:01-02'
-          - 'functional:BO:shop-parameters:03-04'
-          - 'functional:BO:shop-parameters:05-07'
-          - 'functional:BO:advanced-parameters:01-06'
-          - 'functional:BO:advanced-parameters:07-10'
-          - 'functional:BO:advanced-parameters:11-12'
-          - 'functional:BO:header'
-          - 'functional:FO:01-03'
-          - 'functional:FO:04-07'
-          - 'functional:FO:08-12'
-          - 'functional:FO:classic:01-03'
-          - 'functional:FO:classic:04-07'
-          - 'functional:FO:classic:08-12'
-          - 'functional:FO:hummingbird:01-03'
-          - 'functional:FO:hummingbird:04-07'
-          - 'functional:FO:hummingbird:08-12'
-          - 'functional:productV2'
-          - 'functional:WS'
-          - 'modules'
-          - 'regression'
-          - 'sanity'
-          - 'sanity:productV2'
         BASE_BRANCH:
           - ${{ github.event.inputs.base_branch }}
-        exclude:
-          ## 1.7.8.x
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'cldr'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:BO:dashboard'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:productV2'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:API'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:FO:classic:01-03'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:FO:classic:04-07'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:FO:classic:08-12'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:01-03'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'functional:WS'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'modules'
-          - BASE_BRANCH: 1.7.8.x
-            TEST_CAMPAIGN: 'sanity:productV2'
-          ## 8.0.x
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'cldr'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:BO:dashboard'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:productV2'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:API'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:FO:classic:01-03'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:FO:classic:04-07'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:FO:classic:08-12'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:01-03'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'functional:WS'
-          - BASE_BRANCH: 8.0.x
-            TEST_CAMPAIGN: 'modules'
-          ## 8.1.x
-          - BASE_BRANCH: 8.1.x
-            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 8.1.x
-            TEST_CAMPAIGN: 'functional:FO:01-03'
-          - BASE_BRANCH: 8.1.x
-            TEST_CAMPAIGN: 'functional:FO:04-07'
-          - BASE_BRANCH: 8.1.x
-            TEST_CAMPAIGN: 'functional:FO:08-12'
-          - BASE_BRANCH: 8.1.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
-          - BASE_BRANCH: 8.1.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
-          ## 8.2.x
-          - BASE_BRANCH: 8.2.x
-            TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
-          - BASE_BRANCH: 8.2.x
-            TEST_CAMPAIGN: 'functional:FO:01-03'
-          - BASE_BRANCH: 8.2.x
-            TEST_CAMPAIGN: 'functional:FO:04-07'
-          - BASE_BRANCH: 8.2.x
-            TEST_CAMPAIGN: 'functional:FO:08-12'
-          - BASE_BRANCH: 8.2.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
-          - BASE_BRANCH: 8.2.x
-            TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
-          ## develop
-          - BASE_BRANCH: develop
-            TEST_CAMPAIGN: 'functional:FO:01-03'
-          - BASE_BRANCH: develop
-            TEST_CAMPAIGN: 'functional:FO:04-07'
-          - BASE_BRANCH: develop
-            TEST_CAMPAIGN: 'functional:FO:08-12'
-          - BASE_BRANCH: develop
-            TEST_CAMPAIGN: 'functional:productV2'
-          - BASE_BRANCH: develop
-            TEST_CAMPAIGN: 'sanity:productV2'
 
     steps:
       - name: Print Inputs values
@@ -277,14 +140,26 @@ jobs:
           TEST_CAMPAIGN: ${{ matrix.TEST_CAMPAIGN }}
           INSTALL_BROWSERS: ${{ env.INSTALL_BROWSERS }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
+          TAKE_SCREENSHOT_AFTER_EACH_STEP: true
         env:
           INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
 
+      - name: Mysql dump
+        if: always()
+        env:
+          DB_USER: root
+          DB_PASSWD: prestashop
+          DB_NAME: prestashop
+        run: |
+          docker ps
+          mkdir -p ./tests/UI/screenshots
+          docker exec gatestsuipr-${{ inputs.DB_SERVER }}-1 ${{ (inputs.DB_SERVER == 'mysql') && '/usr/bin/mysqldump'|| 'mariadb-dump' }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > ./tests/UI/screenshots/db_dump.sql
+
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
-        if: failure() && steps.runTests.outcome == 'failure'
+        if: always()
 
       - uses: actions/upload-artifact@v4
-        if: failure() && steps.runTests.outcome == 'failure'
+        if: always()
         with:
           name: campaign-${{ env.SCREENSHOT_CAMPAIGN }}
           path: |

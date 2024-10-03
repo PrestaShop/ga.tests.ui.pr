@@ -5,6 +5,7 @@ on:
       pr_number:
         description: Pull request Id
         required: true
+        default: 37080
       base_branch:
         type: choice
         description: Base branch to rebase the PR
@@ -20,6 +21,7 @@ on:
         type: choice
         description: Select one test command (it may not be available on the selected branch)
         required: true
+        default: 'functional:BO:dashboard'
         options:
           - 'cldr'
           - 'functional:API'

@@ -76,11 +76,23 @@ runs:
         EXTRA_TEST_PARAMS: ${{ fromJson(inputs.fast_fail) && '--bail' || '' }}
       shell: bash
 
+    - name: Mysql dump
+      if: always()
+      env:
+        DB_USER: root
+        DB_PASSWD: prestashop
+        DB_NAME: prestashop
+      run: |
+        docker ps
+        mkdir -p ${{ inputs.ps_dir }}/tests/UI/screenshots
+        docker exec my_prestashop-${{ inputs.DB_SERVER }}-1 ${{ (inputs.DB_SERVER == 'mysql') && '/usr/bin/mysqldump'|| 'mariadb-dump' }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWD }} ${{ env.DB_NAME }} > ${{ inputs.ps_dir }}/tests/UI/screenshots/db_dump.sql
+      shell: bash
+
     # UI Tests : Upload screenshots
     - name: Prepare screenshot name
       id: screenshot-campaign
       run: echo "screenshot-campaign=$( echo -e '${{ inputs.test_command }}' | tr ':' '-' )" >> $GITHUB_OUTPUT
-      if: failure()
+      if: always()
       shell: bash
 
     - name: Export docker logs
@@ -88,7 +100,7 @@ runs:
         mkdir -p ${{ inputs.ps_dir }}/var/docker-logs
         docker logs my_prestashop-${{ inputs.DB_SERVER }}-1 > ${{ inputs.ps_dir }}/var/docker-logs/${{ inputs.DB_SERVER }}.log
         docker logs my_prestashop-prestashop-git-1 > ${{ inputs.ps_dir }}/var/docker-logs/prestashop.log
-      if: failure()
+      if: always()
       shell: bash
 
     - name: Export docker keycloak logs
@@ -99,7 +111,7 @@ runs:
 
     - name: Export logs and screenshots as artifacts
       uses: actions/upload-artifact@v4
-      if: failure()
+      if: always()
       with:
         name: campaign-${{ steps.screenshot-campaign.outputs.screenshot-campaign }}
         path: |
