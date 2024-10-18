@@ -199,6 +199,17 @@ jobs:
             TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
           - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
+          ## 9.0.x
+          - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'functional:FO:01-03'
+          - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'functional:FO:04-07'
+          - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'functional:FO:08-12'
+          - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'functional:productV2'
+          - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'sanity:productV2'
           ## develop
           - BASE_BRANCH: develop
             TEST_CAMPAIGN: 'functional:FO:01-03'
