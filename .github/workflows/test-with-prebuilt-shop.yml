@@ -171,7 +171,7 @@ jobs:
       # Playwright must be installed all the time, we only install chromium since it's the only browser used
       - name: Install browsers
         working-directory: ${{ env.PS_DIR }}/tests/UI
-        if: ${{ inputs.base_branch == '8.0.x' || inputs.base_branch == '8.1.x' || inputs.base_branch == '8.2.x' || inputs.base_branch == '9.0.x' }}
+        if: ${{ inputs.base_branch == '8.0.x' || inputs.base_branch == '8.1.x' || inputs.base_branch == '8.2.x' }}
         run: npx playwright install chromium
 
       - name: Install browsers
