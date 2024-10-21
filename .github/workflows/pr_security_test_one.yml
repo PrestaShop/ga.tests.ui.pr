@@ -253,7 +253,7 @@ jobs:
           DOCKER_PREFIX: gatestsuipr
           ARTIFACT_NAME: setup-env-${{ matrix.BASE_BRANCH }}-${{ matrix.TEST_CAMPAIGN }}-${{ inputs.DB_SERVER }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
-        if: failure() && matrix.BASE_BRANCH == 'develop'
+        if: failure() && (matrix.BASE_BRANCH == '9.0.x' || matrix.BASE_BRANCH == 'develop')
 
       - name: Run Tests
         id: runTests
