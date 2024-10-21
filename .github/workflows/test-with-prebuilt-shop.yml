@@ -155,7 +155,7 @@ jobs:
       # Keycloak is only needed for API campaign
       - name: Launch keycloak
         uses: ./custom_actions/.github/workflows/actions/launch-keycloak
-        if: inputs.test_command == 'functional:API' && inputs.base_branch == 'develop'
+        if: inputs.test_command == 'functional:API' && (inputs.base_branch == '9.0.x' || inputs.base_branch == 'develop')
 
       # Test dependencies are installed manually in each sub job that test the build, it could have been integrated inside the archive to reduce time here
       # but it turns out the archive is much bigger with all this code and it makes upload/download phase so much longer that it is more efficient to install
