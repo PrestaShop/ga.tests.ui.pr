@@ -164,6 +164,12 @@ jobs:
           ## 8.2.x
           - BASE_BRANCH: 8.2.x
             TEST_COMMAND: 'functional:FO:hummingbird:08-12'
+          ## 9.0.x
+          - BASE_BRANCH: 9.0.x
+            TEST_COMMAND: 'modules'
+          ## develop
+          - BASE_BRANCH: develop
+            TEST_COMMAND: 'modules'
 
   test-short-campaigns:
     name: Run short campaign ${{ matrix.TEST_COMMAND }}
@@ -209,6 +215,10 @@ jobs:
           - 'functional:FO:hummingbird:04-07'
           - 'functional:productV2'
           - 'functional:WS'
+          - 'modules:01-09'
+          - 'modules:10-19'
+          - 'modules:20-29'
+          - 'modules:30-39'
           - 'regression'
           - 'sanity:productV2'
         BASE_BRANCH:
@@ -232,6 +242,14 @@ jobs:
           - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'functional:WS'
           - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules:01-09'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules:10-19'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules:20-29'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_COMMAND: 'modules:30-39'
+          - BASE_BRANCH: 1.7.8.x
             TEST_COMMAND: 'sanity:productV2'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
@@ -250,6 +268,14 @@ jobs:
             TEST_COMMAND: 'functional:FO:hummingbird:04-07'
           - BASE_BRANCH: 8.0.x
             TEST_COMMAND: 'functional:WS'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules:01-09'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules:10-19'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules:20-29'
+          - BASE_BRANCH: 8.0.x
+            TEST_COMMAND: 'modules:30-39'
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
@@ -261,6 +287,14 @@ jobs:
             TEST_COMMAND: 'functional:FO:08-12'
           - BASE_BRANCH: 8.1.x
             TEST_COMMAND: 'functional:FO:hummingbird:04-07'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'modules:01-09'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'modules:10-19'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'modules:20-29'
+          - BASE_BRANCH: 8.1.x
+            TEST_COMMAND: 'modules:30-39'
           ## 8.2.x
           - BASE_BRANCH: 8.2.x
             TEST_COMMAND: 'functional:BO:advanced-parameters:11-12'
@@ -272,6 +306,14 @@ jobs:
             TEST_COMMAND: 'functional:FO:08-12'
           - BASE_BRANCH: 8.2.x
             TEST_COMMAND: 'functional:FO:hummingbird:04-07'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'modules:01-09'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'modules:10-19'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'modules:20-29'
+          - BASE_BRANCH: 8.2.x
+            TEST_COMMAND: 'modules:30-39'
           ## 9.0.x
           - BASE_BRANCH: 9.0.x
             TEST_COMMAND: 'functional:FO:01-03'
