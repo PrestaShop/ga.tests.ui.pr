@@ -111,6 +111,10 @@ jobs:
           - 'functional:productV2'
           - 'functional:WS'
           - 'modules'
+          - 'modules:01-09'
+          - 'modules:10-19'
+          - 'modules:20-29'
+          - 'modules:30-39'
           - 'regression'
           - 'sanity'
           - 'sanity:productV2'
@@ -145,6 +149,14 @@ jobs:
           - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'modules'
           - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'modules:01-09'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'modules:10-19'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'modules:20-29'
+          - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'modules:30-39'
+          - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'sanity:productV2'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
@@ -173,6 +185,14 @@ jobs:
             TEST_CAMPAIGN: 'functional:WS'
           - BASE_BRANCH: 8.0.x
             TEST_CAMPAIGN: 'modules'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'modules:01-09'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'modules:10-19'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'modules:20-29'
+          - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'modules:30-39'
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
@@ -186,6 +206,14 @@ jobs:
             TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'modules:01-09'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'modules:10-19'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'modules:20-29'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'modules:30-39'
           ## 8.2.x
           - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
@@ -199,6 +227,14 @@ jobs:
             TEST_CAMPAIGN: 'functional:FO:hummingbird:04-07'
           - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:FO:hummingbird:08-12'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'modules:01-09'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'modules:10-19'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'modules:20-29'
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'modules:30-39'
           ## 9.0.x
           - BASE_BRANCH: 9.0.x
             TEST_CAMPAIGN: 'functional:FO:01-03'
@@ -210,6 +246,8 @@ jobs:
             TEST_CAMPAIGN: 'functional:productV2'
           - BASE_BRANCH: 9.0.x
             TEST_CAMPAIGN: 'sanity:productV2'
+          - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'modules'
           ## develop
           - BASE_BRANCH: develop
             TEST_CAMPAIGN: 'functional:FO:01-03'
@@ -221,6 +259,8 @@ jobs:
             TEST_CAMPAIGN: 'functional:productV2'
           - BASE_BRANCH: develop
             TEST_CAMPAIGN: 'sanity:productV2'
+          - BASE_BRANCH: develop
+            TEST_CAMPAIGN: 'modules'
 
     steps:
       # Checkout Private repository
