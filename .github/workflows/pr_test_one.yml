@@ -45,6 +45,7 @@ on:
           - '8.1'
           - '8.2'
           - '8.3'
+          - '8.4'
         default: '8.1'
       NODE_VERSION:
         type: choice
