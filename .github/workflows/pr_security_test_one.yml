@@ -70,6 +70,7 @@ jobs:
       fail-fast: false
       matrix:
         TEST_CAMPAIGN:
+          - 'audit'
           - 'cldr'
           - 'functional:API'
           - 'functional:BO:login'
@@ -124,6 +125,8 @@ jobs:
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'audit'
+          - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'cldr'
           - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
@@ -161,6 +164,8 @@ jobs:
             TEST_CAMPAIGN: 'sanity:productV2'
           ## 8.0.x
           - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'audit'
+          - BASE_BRANCH: 8.0.x
             TEST_CAMPAIGN: 'cldr'
           - BASE_BRANCH: 8.0.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
@@ -196,6 +201,8 @@ jobs:
             TEST_CAMPAIGN: 'modules:30-39'
           ## 8.1.x
           - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'audit'
+          - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:FO:01-03'
@@ -216,6 +223,8 @@ jobs:
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'modules:30-39'
           ## 8.2.x
+          - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'audit'
           - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 8.2.x
