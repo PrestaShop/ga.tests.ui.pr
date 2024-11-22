@@ -22,6 +22,7 @@ on:
         description: Select one test command (it may not be available on the selected branch)
         required: true
         options:
+          - 'audit'
           - 'cldr'
           - 'functional:API'
           - 'functional:BO:login'
