@@ -64,10 +64,18 @@ on:
           - 'mysql'
           - 'mariadb'
         default: 'mysql'
+      RUNNER_VERSION:
+        type: choice
+        description: Runner
+        required: true
+        options:
+          - 'ubuntu-latest'
+          - 'ubuntu-22.04'
+        default: 'ubuntu-latest'
 
 jobs:
   testing-pr:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.RUNNER_VERSION }}
     name: test
     strategy:
       fail-fast: false
