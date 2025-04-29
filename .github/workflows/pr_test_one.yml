@@ -72,6 +72,11 @@ on:
           - 'ubuntu-latest'
           - 'ubuntu-22.04'
         default: 'ubuntu-latest'
+      FAST_FAIL:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: false
 
 jobs:
   testing-pr:
@@ -349,6 +354,7 @@ jobs:
           DB_SERVER: ${{ inputs.DB_SERVER }}
         env:
           INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
+          EXTRA_TEST_PARAMS: ${{ fromJson(inputs.FAST_FAIL) && '--bail' || '' }}
 
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: failure() && steps.runTests.outcome == 'failure'
