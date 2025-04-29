@@ -76,7 +76,7 @@ on:
         type: boolean
         description: Fast fail on first error
         required: true
-        default: false
+        default: true
 
 jobs:
   testing-pr:
