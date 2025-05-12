@@ -69,6 +69,11 @@ on:
           - 'mysql'
           - 'mariadb'
         default: 'mysql'
+      PHP_FPM:
+        type: boolean
+        required: true
+        description: Use PHP FPM instead of apache (default false)
+        default: false
 
 jobs:
   # Sanity tests are run independently because it's the only campaign that handles the installation itself, since it tests it
@@ -85,6 +90,7 @@ jobs:
       fast_fail: ${{ inputs.fast_fail }}
       take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
 
   # We perform a unique build that is stored as an artifact, only then do we start the campaign that will rely on this build
   build-shop:
@@ -98,6 +104,7 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
 
   # These campaigns are run first because they are longer, so we try to optimize the total run However this list must not
   # be too long or too many runners will be blocked by these campaigns and the split would be counter-productive, it's a
@@ -115,6 +122,7 @@ jobs:
       fast_fail: ${{ inputs.fast_fail }}
       take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
     strategy:
       fail-fast: false
       matrix:
@@ -185,6 +193,7 @@ jobs:
       fast_fail: ${{ inputs.fast_fail }}
       take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
     strategy:
       fail-fast: false
       matrix:
