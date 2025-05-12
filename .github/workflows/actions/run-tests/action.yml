@@ -28,6 +28,10 @@ inputs:
   DB_SERVER:
     description: Database Type
     required: true
+  PHP_FPM:
+    required: false
+    description: Use PHP FPM instead of apache (default false)
+    default: 'false'
 
 runs:
   using: "composite"
@@ -50,7 +54,7 @@ runs:
         PS_DEV_MODE: ${{ fromJson(inputs.ps_mode_dev) && '1' || '0' }}
         PHP_VERSION: ${{ inputs.php_version }}
         NODE_VERSION: ${{ inputs.node_version }}
-        VERSION: ${{ inputs.php_version }}-apache
+        VERSION: ${{ inputs.php_version }}-${{ (inputs.PHP_FPM == 'true') && 'fpm' || 'apache' }}
         PS_DOMAIN: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && 'localhost:8001' || 'localhost:8002' }}
         PS_ENABLE_SSL: ${{ ((inputs.base_branch == '8.0.x') || (inputs.base_branch == '1.7.8.x')) && '0' || '1' }}
         PS_USE_DOCKER_MAILDEV: 0

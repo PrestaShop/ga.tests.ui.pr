@@ -124,6 +124,11 @@ on:
           - 'mysql'
           - 'mariadb'
         default: 'mysql'
+      PHP_FPM:
+        type: boolean
+        required: true
+        description: Use PHP FPM instead of apache (default false)
+        default: false
 
 jobs:
   build-shop:
@@ -138,6 +143,7 @@ jobs:
       php_version: ${{ inputs.php_version }}
       node_version: ${{ inputs.node_version }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
 
   test-pr:
     name: Run single campaign ${{ inputs.test_command }}
@@ -153,6 +159,7 @@ jobs:
       fast_fail: ${{ inputs.fast_fail }}
       take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
 
   # Sanity campaign is run differently
   sanity-test:
@@ -169,3 +176,4 @@ jobs:
       fast_fail: ${{ inputs.fast_fail }}
       take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
       DB_SERVER: ${{ inputs.DB_SERVER }}
+      PHP_FPM: ${{ inputs.PHP_FPM }}
