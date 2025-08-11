@@ -64,6 +64,8 @@ jobs:
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       ADMIN_MAIL: 'demo@prestashop.com'
+      CLIENT_ID_API: ui-test-client
+      CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
 
     steps:
       - name: Print Inputs values
@@ -152,6 +154,12 @@ jobs:
           echo Waiting for response from the FO
           bash -c 'while [[ "$(curl -L -s -o /dev/null -w %{http_code} ${{ env.URL_FO }}en/)" != "200" ]]; do sleep 5; done'
 
+      # Create API Client for API campaign
+      - name: Create API client
+        if: inputs.test_command == 'functional:API' && (inputs.base_branch == '9.0.x' || inputs.base_branch == 'develop')
+        run: |
+          docker ps
+          docker exec my_prestashop-prestashop-git-1 php ./bin/console prestashop:api-client create ${{ env.CLIENT_ID_API }} --all-scopes --name='Test client' --description='Test client with all scopes' --timeout=3600 --secret=${{ env.CLIENT_SECRET_API }}
       # Keycloak is only needed for API campaign
       - name: Launch keycloak
         uses: ./custom_actions/.github/workflows/actions/launch-keycloak
@@ -186,3 +194,6 @@ jobs:
           take_screenshot_after_each_step: ${{ inputs.take_screenshot_after_each_step }}
           ps_dir: ${{ env.PS_DIR }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
+        env:
+          CLIENT_ID_API: ${{ env.CLIENT_ID_API }}
+          CLIENT_SECRET_API: ${{ env.CLIENT_SECRET_API }}
