@@ -77,6 +77,11 @@ on:
         description: Fast fail on first error
         required: true
         default: true
+      TELEMETRY:
+        type: boolean
+        description: Enable Telemetry
+        required: true
+        default: false
 
 jobs:
   testing-pr:
@@ -292,6 +297,12 @@ jobs:
             TEST_CAMPAIGN: 'modules'
 
     steps:
+      - name: Telemetry
+        if: ${{ inputs.TELEMETRY }}
+        uses: catchpoint/workflow-telemetry-action@v2
+        with:
+          theme: dark
+
       - name: Print Inputs values
         shell: bash
         run: echo "${{ toJSON(github.event.inputs) }}"
