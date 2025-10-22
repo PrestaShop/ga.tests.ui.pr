@@ -54,8 +54,8 @@ on:
         options:
           - '14.21.3'
           - '16.20.1'
-          - '20.17.0'
-        default: '20.17.0'
+          - '20.19.5'
+        default: '20.19.5'
       DB_SERVER:
         type: choice
         description: Database
