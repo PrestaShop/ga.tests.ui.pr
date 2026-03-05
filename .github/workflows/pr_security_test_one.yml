@@ -70,11 +70,19 @@ on:
         options:
           - 'ubuntu-latest'
           - 'ubuntu-22.04'
+      FAST_FAIL:
+        type: boolean
+        description: Fast fail on first error
+        required: true
+        default: true
 
 jobs:
   testing-pr:
     runs-on: ${{ inputs.RUNNER_VERSION }}
     name: Security PR test
+    env:
+      CLIENT_ID_API: ui-test-client
+      CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
     strategy:
       fail-fast: false
       matrix:
@@ -295,6 +303,10 @@ jobs:
             TEST_CAMPAIGN: 'modules'
 
     steps:
+      - name: Print Inputs values
+        shell: bash
+        run: echo "${{ toJSON(github.event.inputs) }}"
+
       # Checkout Private repository
       - uses: actions/checkout@v4
         name: Checkout PrestaShop PR security private repository
@@ -325,7 +337,21 @@ jobs:
           DOCKER_PREFIX: gatestsuipr
           ARTIFACT_NAME: setup-env-${{ matrix.BASE_BRANCH }}-${{ matrix.TEST_CAMPAIGN }}-${{ inputs.DB_SERVER }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
-        if: failure() && (startsWith(matrix.BASE_BRANCH, '9.') || matrix.BASE_BRANCH == 'develop')
+        if: failure() && hashFiles('./.github/actions/setup-env-export-logs') != ''
+
+      # Checkout repository to use custom actions
+      - uses: actions/checkout@v4
+        with:
+          path: custom_actions
+      # Create API Client for API campaign
+      - name: Create API client
+        if: matrix.TEST_CAMPAIGN == 'functional:API' && (startsWith(matrix.BASE_BRANCH, '9.') || matrix.BASE_BRANCH == 'develop')
+        run: |
+          docker exec gatestsuipr-prestashop-git-1 php ./bin/console prestashop:api-client create ${{ env.CLIENT_ID_API }} --all-scopes --name='Test client' --description='Test client with all scopes' --timeout=3600 --secret=${{ env.CLIENT_SECRET_API }}
+      # Keycloak is only needed for API campaign
+      - name: Launch keycloak
+        uses: ./custom_actions/.github/workflows/actions/launch-keycloak
+        if: matrix.TEST_CAMPAIGN == 'functional:API' && (startsWith(matrix.BASE_BRANCH, '9.') || matrix.BASE_BRANCH == 'develop')
 
       - name: Run Tests
         id: runTests
@@ -337,6 +363,10 @@ jobs:
           DB_SERVER: ${{ inputs.DB_SERVER }}
         env:
           INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
+          EXTRA_TEST_PARAMS: ${{ fromJson(inputs.FAST_FAIL) && '--bail' || '' }}
+          CLIENT_ID_API: ${{ env.CLIENT_ID_API }}
+          CLIENT_SECRET_API: ${{ env.CLIENT_SECRET_API }}
+          PS_VERSION: ${{ inputs.BASE_BRANCH }}
 
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: failure() && steps.runTests.outcome == 'failure'
