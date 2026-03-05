@@ -325,7 +325,11 @@ jobs:
       - name: Prepare docker prefix with repository name lower cased
         run: |
           REPOSITORY_NAME=${{ github.event.repository.name }}
-          echo "DOCKER_PREFIX=${REPOSITORY_NAME@L}" >> $GITHUB_ENV
+          # Lower case
+          DOCKER_PREFIX=${REPOSITORY_NAME,,}
+          # Remove dots
+          DOCKER_PREFIX=${DOCKER_PREFIX//.}
+          echo "DOCKER_PREFIX=${DOCKER_PREFIX}" >> $GITHUB_ENV
 
       # Checkout PrestaShop
       - uses: actions/checkout@v4
