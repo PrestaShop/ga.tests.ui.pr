@@ -307,6 +307,11 @@ jobs:
         shell: bash
         run: echo "${{ toJSON(github.event.inputs) }}"
 
+      - name: Prepare docker prefix with repository name lower cased
+        run: |
+          REPOSITORY_NAME=${{ github.event.repository.name }}
+          echo "DOCKER_PREFIX=${REPOSITORY_NAME@L}" >> $GITHUB_ENV
+
       # Checkout Private repository
       - uses: actions/checkout@v4
         name: Checkout PrestaShop PR security private repository
@@ -334,7 +339,7 @@ jobs:
       - name: Setup Environment failure
         uses: ./.github/actions/setup-env-export-logs
         with:
-          DOCKER_PREFIX: gatestsuipr
+          DOCKER_PREFIX: ${{ env.DOCKER_PREFIX }}
           ARTIFACT_NAME: setup-env-${{ matrix.BASE_BRANCH }}-${{ matrix.TEST_CAMPAIGN }}-${{ inputs.DB_SERVER }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
         if: failure() && hashFiles('./.github/actions/setup-env-export-logs') != ''
@@ -347,7 +352,7 @@ jobs:
       - name: Create API client
         if: matrix.TEST_CAMPAIGN == 'functional:API' && (startsWith(matrix.BASE_BRANCH, '9.') || matrix.BASE_BRANCH == 'develop')
         run: |
-          docker exec gatestsuipr-prestashop-git-1 php ./bin/console prestashop:api-client create ${{ env.CLIENT_ID_API }} --all-scopes --name='Test client' --description='Test client with all scopes' --timeout=3600 --secret=${{ env.CLIENT_SECRET_API }}
+          docker exec ${{ env.DOCKER_PREFIX }}-prestashop-git-1 php ./bin/console prestashop:api-client create ${{ env.CLIENT_ID_API }} --all-scopes --name='Test client' --description='Test client with all scopes' --timeout=3600 --secret=${{ env.CLIENT_SECRET_API }}
       # Keycloak is only needed for API campaign
       - name: Launch keycloak
         uses: ./custom_actions/.github/workflows/actions/launch-keycloak
