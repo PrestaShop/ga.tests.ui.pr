@@ -5,19 +5,6 @@ on:
       PR_NUMBER:
         description: Pull request Id
         required: true
-      BASE_BRANCH:
-        type: choice
-        description: Base branch to rebase the PR
-        required: true
-        options:
-          - 'develop'
-          - '9.1.x'
-          - '9.0.x'
-          - '8.2.x'
-          - '8.1.x'
-          - '8.0.x'
-          - '1.7.8.x'
-        default: 'develop'
       DEV_MODE:
         type: choice
         description: Enable/Disable the developer mode
@@ -26,20 +13,12 @@ on:
           - 'true'
           - 'false'
         default: 'false'
-      REBASE_OR_MERGE:
-        type: choice
-        required: true
-        description: Rebase or merge the pull request
-        options:
-          - 'rebase'
-          - 'merge'
-          - 'head'
-        default: 'rebase'
       PHP_VERSION:
         type: choice
-        description: PHP version
+        description: PHP version (Auto = derived from PrestaShop version)
         required: true
         options:
+          - 'Auto'
           - '7.3'
           - '7.4'
           - '8.0'
@@ -48,16 +27,17 @@ on:
           - '8.3'
           - '8.4'
           - '8.5'
-        default: '8.1'
+        default: 'Auto'
       NODE_VERSION:
         type: choice
-        description: Node version
+        description: Node version (Auto = derived from PrestaShop version)
         required: true
         options:
+          - 'Auto'
           - '14.21.3'
           - '16.20.1'
           - '20.19.5'
-        default: '20.19.5'
+        default: 'Auto'
       DB_SERVER:
         type: choice
         description: Database
@@ -68,12 +48,13 @@ on:
         default: 'mysql'
       RUNNER_VERSION:
         type: choice
-        description: Runner
+        description: Runner (Auto = derived from PrestaShop version)
         required: true
         options:
+          - 'Auto'
           - 'ubuntu-latest'
           - 'ubuntu-22.04'
-        default: 'ubuntu-latest'
+        default: 'Auto'
       FAST_FAIL:
         type: boolean
         description: Fast fail on first error
@@ -86,8 +67,169 @@ on:
         default: false
 
 jobs:
+  prep:
+    name: Resolve PR + PrestaShop version
+    runs-on: ubuntu-latest
+    outputs:
+      base_branch: ${{ steps.pr.outputs.base_branch }}
+      branch_key: ${{ steps.resolve.outputs.branch_key }}
+      rebase_or_merge: ${{ steps.pr.outputs.rebase_or_merge }}
+      ps_version: ${{ steps.version.outputs.ps_version }}
+      ps_major: ${{ steps.version.outputs.ps_major }}
+      ps_minor: ${{ steps.version.outputs.ps_minor }}
+      php_version: ${{ steps.resolve.outputs.php_version }}
+      node_version: ${{ steps.resolve.outputs.node_version }}
+      runner_version: ${{ steps.resolve.outputs.runner_version }}
+      enable_ssl: ${{ steps.resolve.outputs.enable_ssl }}
+      install_browsers: ${{ steps.resolve.outputs.install_browsers }}
+      cp_api_config: ${{ steps.resolve.outputs.cp_api_config }}
+      needs_api_client: ${{ steps.resolve.outputs.needs_api_client }}
+    steps:
+      - name: Fetch PR info (target branch + body)
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PR_JSON=$(gh api repos/PrestaShop/PrestaShop/pulls/${{ inputs.PR_NUMBER }})
+          BASE_BRANCH=$(echo "$PR_JSON" | jq -r '.base.ref')
+          BODY=$(echo "$PR_JSON" | jq -r '.body // ""')
+          echo "Detected PR target branch: $BASE_BRANCH"
+          echo "base_branch=$BASE_BRANCH" >> "$GITHUB_OUTPUT"
+
+          # Default to rebase. Switch to merge if PR description has `| Category? | ME |`
+          # (same rule as PrestaShop/PrestaShop pr.yml).
+          REBASE_OR_MERGE=rebase
+          if printf '%s' "$BODY" | grep -Eq '\|?[[:space:]]*Category\?[[:space:]]*\|[[:space:]]*ME([[:space:]]|$)'; then
+            REBASE_OR_MERGE=merge
+          fi
+          echo "Detected integration mode: $REBASE_OR_MERGE"
+          echo "rebase_or_merge=$REBASE_OR_MERGE" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout PR head (shallow, for version detection)
+        uses: actions/checkout@v4
+        with:
+          repository: PrestaShop/PrestaShop
+          ref: refs/pull/${{ inputs.PR_NUMBER }}/head
+          fetch-depth: 1
+
+      - name: Detect PrestaShop version
+        id: version
+        run: |
+          PS_VERSION=
+          # PrestaShop 8.x / 9.x: src/Core/Version.php → public const VERSION = '...';
+          if [ -f src/Core/Version.php ]; then
+            PS_VERSION=$(grep -E "public const VERSION = '" src/Core/Version.php | head -n1 | sed -E "s/.*'([^']+)'.*/\1/")
+          fi
+          # PrestaShop 1.7.x fallback: install-dev/install_version.php
+          if [ -z "$PS_VERSION" ] && [ -f install-dev/install_version.php ]; then
+            PS_VERSION=$(grep -E "_PS_INSTALL_VERSION_" install-dev/install_version.php | head -n1 | sed -E "s/.*'([^']+)'.*/\1/")
+          fi
+          if [ -z "$PS_VERSION" ]; then
+            echo "::error::Could not detect PrestaShop version (looked for src/Core/Version.php and install-dev/install_version.php)"
+            exit 1
+          fi
+          PS_MAJOR=$(echo "$PS_VERSION" | cut -d. -f1)
+          PS_MINOR=$(echo "$PS_VERSION" | cut -d. -f2)
+          echo "Detected PrestaShop version: $PS_VERSION (major=$PS_MAJOR minor=$PS_MINOR)"
+          echo "ps_version=$PS_VERSION" >> "$GITHUB_OUTPUT"
+          echo "ps_major=$PS_MAJOR" >> "$GITHUB_OUTPUT"
+          echo "ps_minor=$PS_MINOR" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve Auto values, branch key, and version-derived flags
+        id: resolve
+        env:
+          PS_MAJOR: ${{ steps.version.outputs.ps_major }}
+          PS_MINOR: ${{ steps.version.outputs.ps_minor }}
+          INPUT_PHP_VERSION: ${{ inputs.PHP_VERSION }}
+          INPUT_NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          INPUT_RUNNER_VERSION: ${{ inputs.RUNNER_VERSION }}
+        run: |
+          # Branch key (used by the matrix exclude rules and as PS_VERSION for ui-test).
+          # Maps the detected version to one of the known exclude keys.
+          if [ "$PS_MAJOR" = "1" ]; then
+            BRANCH_KEY=1.7.8.x
+          elif [ "$PS_MAJOR" = "8" ]; then
+            BRANCH_KEY="8.${PS_MINOR}.x"
+          elif [ "$PS_MAJOR" = "9" ] && { [ "$PS_MINOR" = "0" ] || [ "$PS_MINOR" = "1" ]; }; then
+            BRANCH_KEY="9.${PS_MINOR}.x"
+          else
+            BRANCH_KEY=develop
+          fi
+          echo "branch_key=$BRANCH_KEY" >> "$GITHUB_OUTPUT"
+
+          # PHP version
+          if [ "$INPUT_PHP_VERSION" = "Auto" ]; then
+            if [ "$PS_MAJOR" = "1" ]; then
+              PHP=7.3
+            elif [ "$PS_MAJOR" = "8" ]; then
+              PHP=8.1
+            elif [ "$PS_MAJOR" = "9" ] && [ "$PS_MINOR" = "0" ]; then
+              PHP=8.4
+            else
+              PHP=8.5
+            fi
+          else
+            PHP="$INPUT_PHP_VERSION"
+          fi
+          echo "php_version=$PHP" >> "$GITHUB_OUTPUT"
+
+          # Node version
+          if [ "$INPUT_NODE_VERSION" = "Auto" ]; then
+            if [ "$PS_MAJOR" = "1" ]; then
+              NODE=14.21.3
+            elif [ "$PS_MAJOR" = "8" ]; then
+              NODE=16.20.1
+            else
+              NODE=20.19.5
+            fi
+          else
+            NODE="$INPUT_NODE_VERSION"
+          fi
+          echo "node_version=$NODE" >> "$GITHUB_OUTPUT"
+
+          # Runner
+          if [ "$INPUT_RUNNER_VERSION" = "Auto" ]; then
+            if [ "$PS_MAJOR" -ge 9 ]; then
+              RUNNER=ubuntu-latest
+            else
+              RUNNER=ubuntu-22.04
+            fi
+          else
+            RUNNER="$INPUT_RUNNER_VERSION"
+          fi
+          echo "runner_version=$RUNNER" >> "$GITHUB_OUTPUT"
+
+          # ENABLE_SSL: false on 1.7.x and 8.0.x
+          ENABLE_SSL=true
+          if [ "$PS_MAJOR" = "1" ] || { [ "$PS_MAJOR" = "8" ] && [ "$PS_MINOR" = "0" ]; }; then
+            ENABLE_SSL=false
+          fi
+          echo "enable_ssl=$ENABLE_SSL" >> "$GITHUB_OUTPUT"
+
+          # INSTALL_BROWSERS: false on 1.7.x only
+          INSTALL_BROWSERS=true
+          if [ "$PS_MAJOR" = "1" ]; then
+            INSTALL_BROWSERS=false
+          fi
+          echo "install_browsers=$INSTALL_BROWSERS" >> "$GITHUB_OUTPUT"
+
+          # CP_API_CONFIG: true on 8.1.x and 8.2.x only
+          CP_API_CONFIG=false
+          if [ "$PS_MAJOR" = "8" ] && { [ "$PS_MINOR" = "1" ] || [ "$PS_MINOR" = "2" ]; }; then
+            CP_API_CONFIG=true
+          fi
+          echo "cp_api_config=$CP_API_CONFIG" >> "$GITHUB_OUTPUT"
+
+          # API client + Keycloak: only on 9.x and above
+          NEEDS_API_CLIENT=false
+          if [ "$PS_MAJOR" -ge 9 ]; then
+            NEEDS_API_CLIENT=true
+          fi
+          echo "needs_api_client=$NEEDS_API_CLIENT" >> "$GITHUB_OUTPUT"
+
   testing-pr:
-    runs-on: ${{ inputs.RUNNER_VERSION }}
+    needs: prep
+    runs-on: ${{ needs.prep.outputs.runner_version }}
     name: test
     env:
       CLIENT_ID_API: ui-test-client
@@ -147,7 +289,7 @@ jobs:
           - 'sanity'
           - 'sanity:productV2'
         BASE_BRANCH:
-          - ${{ github.event.inputs.base_branch }}
+          - ${{ needs.prep.outputs.branch_key }}
         exclude:
           ## 1.7.8.x
           - BASE_BRANCH: 1.7.8.x
@@ -318,9 +460,24 @@ jobs:
         with:
           theme: dark
 
-      - name: Print Inputs values
+      - name: Print inputs and resolved values
         shell: bash
-        run: echo "${{ toJSON(github.event.inputs) }}"
+        run: |
+          echo "Inputs:"
+          echo '${{ toJSON(github.event.inputs) }}'
+          echo ""
+          echo "Resolved from PR / detected PrestaShop version:"
+          echo "  base_branch (PR target): ${{ needs.prep.outputs.base_branch }}"
+          echo "  branch_key (matrix key): ${{ needs.prep.outputs.branch_key }}"
+          echo "  rebase_or_merge:         ${{ needs.prep.outputs.rebase_or_merge }}"
+          echo "  ps_version:              ${{ needs.prep.outputs.ps_version }}"
+          echo "  php_version:             ${{ needs.prep.outputs.php_version }}"
+          echo "  node_version:            ${{ needs.prep.outputs.node_version }}"
+          echo "  runner_version:          ${{ needs.prep.outputs.runner_version }}"
+          echo "  enable_ssl:              ${{ needs.prep.outputs.enable_ssl }}"
+          echo "  install_browsers:        ${{ needs.prep.outputs.install_browsers }}"
+          echo "  cp_api_config:           ${{ needs.prep.outputs.cp_api_config }}"
+          echo "  needs_api_client:        ${{ needs.prep.outputs.needs_api_client }}"
 
       - name: Prepare docker prefix with repository name lower cased
         run: |
@@ -345,26 +502,23 @@ jobs:
           git config --local user.name "$(git log --format='%an' HEAD^!)"
 
       - name: Rebase or Merge
-        if: ${{ inputs.REBASE_OR_MERGE != 'head' }}
         run: |
-          git fetch origin ${{ inputs.BASE_BRANCH }}
-          git ${{ inputs.REBASE_OR_MERGE }} origin/${{ inputs.BASE_BRANCH }}
+          git fetch origin ${{ needs.prep.outputs.base_branch }}
+          git ${{ needs.prep.outputs.rebase_or_merge }} origin/${{ needs.prep.outputs.base_branch }}
 
       - name: Setup Environment
         timeout-minutes: 15
         uses: ./.github/actions/setup-env
         with:
-          PHP_VERSION: ${{ inputs.PHP_VERSION }}
-          NODE_VERSION: ${{ inputs.NODE_VERSION }}
-          ENABLE_SSL: ${{ env.ENABLE_SSL }}
+          PHP_VERSION: ${{ needs.prep.outputs.php_version }}
+          NODE_VERSION: ${{ needs.prep.outputs.node_version }}
+          ENABLE_SSL: ${{ needs.prep.outputs.enable_ssl }}
           INSTALL_AUTO: ${{ env.INSTALL_AUTO }}
-          CP_API_CONFIG: ${{ env.CP_API_CONFIG }}
+          CP_API_CONFIG: ${{ needs.prep.outputs.cp_api_config }}
           DEV_MODE: ${{ inputs.DEV_MODE }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
         env:
-          ENABLE_SSL: ${{ ((inputs.BASE_BRANCH == '1.7.8.x') || (inputs.BASE_BRANCH == '8.0.x')) && 'false' || 'true' }}
           INSTALL_AUTO: ${{ (matrix.TEST_CAMPAIGN == 'sanity') && 'false' || 'true' }}
-          CP_API_CONFIG: ${{ ((matrix.BASE_BRANCH == '8.1.x') || (matrix.BASE_BRANCH == '8.2.x')) && 'true' || 'false' }}
       - name: Setup Environment failure
         uses: ./.github/actions/setup-env-export-logs
         with:
@@ -379,28 +533,27 @@ jobs:
           path: custom_actions
       # Create API Client for API campaign
       - name: Create API client
-        if: matrix.TEST_CAMPAIGN == 'functional:API' && (startsWith(matrix.BASE_BRANCH, '9.') || matrix.BASE_BRANCH == 'develop')
+        if: matrix.TEST_CAMPAIGN == 'functional:API' && needs.prep.outputs.needs_api_client == 'true'
         run: |
           docker exec ${{ env.DOCKER_PREFIX }}-prestashop-git-1 php ./bin/console prestashop:api-client create ${{ env.CLIENT_ID_API }} --all-scopes --name='Test client' --description='Test client with all scopes' --timeout=3600 --secret=${{ env.CLIENT_SECRET_API }}
       # Keycloak is only needed for API campaign
       - name: Launch keycloak
         uses: ./custom_actions/.github/workflows/actions/launch-keycloak
-        if: matrix.TEST_CAMPAIGN == 'functional:API' && (startsWith(matrix.BASE_BRANCH, '9.') || matrix.BASE_BRANCH == 'develop')
+        if: matrix.TEST_CAMPAIGN == 'functional:API' && needs.prep.outputs.needs_api_client == 'true'
 
       - name: Run Tests
         id: runTests
         uses: ./.github/actions/ui-test
         with:
-          NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          NODE_VERSION: ${{ needs.prep.outputs.node_version }}
           TEST_CAMPAIGN: ${{ matrix.TEST_CAMPAIGN }}
-          INSTALL_BROWSERS: ${{ env.INSTALL_BROWSERS }}
+          INSTALL_BROWSERS: ${{ needs.prep.outputs.install_browsers }}
           DB_SERVER: ${{ inputs.DB_SERVER }}
         env:
-          INSTALL_BROWSERS: ${{ (inputs.BASE_BRANCH == '1.7.8.x') && 'false' || 'true' }}
           EXTRA_TEST_PARAMS: ${{ fromJson(inputs.FAST_FAIL) && '--bail' || '' }}
           CLIENT_ID_API: ${{ env.CLIENT_ID_API }}
           CLIENT_SECRET_API: ${{ env.CLIENT_SECRET_API }}
-          PS_VERSION: ${{ inputs.BASE_BRANCH }}
+          PS_VERSION: ${{ needs.prep.outputs.branch_key }}
 
       - run: echo "SCREENSHOT_CAMPAIGN=$( echo -e '${{ matrix.TEST_CAMPAIGN }}' | tr ':' '-' )" >> $GITHUB_ENV
         if: failure() && steps.runTests.outcome == 'failure'
