@@ -54,6 +54,7 @@ on:
           - 'functional:BO:advanced-parameters:07-10'
           - 'functional:BO:advanced-parameters:11-12'
           - 'functional:BO:header'
+          - 'functional:BO:community'
           - 'functional:FO:01-03'
           - 'functional:FO:04-07'
           - 'functional:FO:08-12'
