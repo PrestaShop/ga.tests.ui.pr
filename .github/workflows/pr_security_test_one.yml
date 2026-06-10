@@ -260,6 +260,7 @@ jobs:
           - 'functional:BO:advanced-parameters:07-10'
           - 'functional:BO:advanced-parameters:11-12'
           - 'functional:BO:header'
+          - 'functional:BO:community'
           - 'functional:FO:01-03'
           - 'functional:FO:04-07'
           - 'functional:FO:08-12'
@@ -310,6 +311,8 @@ jobs:
           - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'functional:WS'
           - BASE_BRANCH: 1.7.8.x
+            TEST_CAMPAIGN: 'functional:BO:community'
+          - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'modules'
           - BASE_BRANCH: 1.7.8.x
             TEST_CAMPAIGN: 'modules:01-09'
@@ -349,6 +352,8 @@ jobs:
           - BASE_BRANCH: 8.0.x
             TEST_CAMPAIGN: 'functional:WS'
           - BASE_BRANCH: 8.0.x
+            TEST_CAMPAIGN: 'functional:BO:community'
+          - BASE_BRANCH: 8.0.x
             TEST_CAMPAIGN: 'modules'
           - BASE_BRANCH: 8.0.x
             TEST_CAMPAIGN: 'modules:01-09'
@@ -363,6 +368,8 @@ jobs:
             TEST_CAMPAIGN: 'audit'
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
+          - BASE_BRANCH: 8.1.x
+            TEST_CAMPAIGN: 'functional:BO:community'
           - BASE_BRANCH: 8.1.x
             TEST_CAMPAIGN: 'functional:FO:01-03'
           - BASE_BRANCH: 8.1.x
@@ -387,6 +394,8 @@ jobs:
           - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:BO:advanced-parameters:11-12'
           - BASE_BRANCH: 8.2.x
+            TEST_CAMPAIGN: 'functional:BO:community'
+          - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:FO:01-03'
           - BASE_BRANCH: 8.2.x
             TEST_CAMPAIGN: 'functional:FO:04-07'
@@ -406,6 +415,8 @@ jobs:
             TEST_CAMPAIGN: 'modules:30-39'
           ## 9.0.x
           - BASE_BRANCH: 9.0.x
+            TEST_CAMPAIGN: 'functional:BO:community'
+          - BASE_BRANCH: 9.0.x
             TEST_CAMPAIGN: 'functional:FO:01-03'
           - BASE_BRANCH: 9.0.x
             TEST_CAMPAIGN: 'functional:FO:04-07'
@@ -418,6 +429,8 @@ jobs:
           - BASE_BRANCH: 9.0.x
             TEST_CAMPAIGN: 'modules'
           ## 9.1.x
+          - BASE_BRANCH: 9.1.x
+            TEST_CAMPAIGN: 'functional:BO:community'
           - BASE_BRANCH: 9.1.x
             TEST_CAMPAIGN: 'functional:FO:01-03'
           - BASE_BRANCH: 9.1.x
