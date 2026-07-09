@@ -11,6 +11,7 @@ on:
         required: true
         options:
           - 'develop'
+          - '9.2.x'
           - '9.1.x'
           - '9.0.x'
           - '8.2.x'
