@@ -1,0 +1,360 @@
+name: Resolve PR context
+
+# Reusable workflow shared by the PR testing workflows: it resolves everything that can be
+# derived from a pull request instead of being asked to the user, so the callers only have to
+# forward the PR number and the `Auto`-able inputs:
+#   - the target branch and the integration mode (rebase or merge) of the pull request
+#   - the PrestaShop version of the pull request head, and the flags that depend on it
+#   - the list of test campaigns that actually exist on that version
+on:
+  workflow_call:
+    inputs:
+      PR_NUMBER:
+        description: Pull request Id
+        required: true
+        type: string
+      GH_REPOSITORY:
+        description: Repository holding the pull request
+        required: false
+        type: string
+        default: PrestaShop/PrestaShop
+      PHP_VERSION:
+        description: PHP version, or `Auto` to derive it from the PrestaShop version
+        required: false
+        type: string
+        default: Auto
+      NODE_VERSION:
+        description: Node version, or `Auto` to derive it from the PrestaShop version
+        required: false
+        type: string
+        default: Auto
+      RUNNER_VERSION:
+        description: Runner, or `Auto` to derive it from the PrestaShop version
+        required: false
+        type: string
+        default: Auto
+    secrets:
+      GH_TOKEN:
+        description: Token to read the pull request, only needed for a private repository
+        required: false
+    outputs:
+      base_branch:
+        description: Branch targeted by the pull request
+        value: ${{ jobs.prep.outputs.base_branch }}
+      branch_key:
+        description: Version line under test (develop, 9.2.x, 1.7.8.x, ...)
+        value: ${{ jobs.prep.outputs.branch_key }}
+      campaigns:
+        description: JSON array of the test campaigns available on this version
+        value: ${{ jobs.prep.outputs.campaigns }}
+      rebase_or_merge:
+        description: Integration mode expected by the pull request
+        value: ${{ jobs.prep.outputs.rebase_or_merge }}
+      ps_version:
+        description: PrestaShop version detected on the pull request head
+        value: ${{ jobs.prep.outputs.ps_version }}
+      ps_major:
+        description: Major part of the detected PrestaShop version
+        value: ${{ jobs.prep.outputs.ps_major }}
+      ps_minor:
+        description: Minor part of the detected PrestaShop version
+        value: ${{ jobs.prep.outputs.ps_minor }}
+      php_version:
+        description: PHP version to use
+        value: ${{ jobs.prep.outputs.php_version }}
+      node_version:
+        description: Node version to use
+        value: ${{ jobs.prep.outputs.node_version }}
+      runner_version:
+        description: Runner to use
+        value: ${{ jobs.prep.outputs.runner_version }}
+      enable_ssl:
+        description: Whether the shop must be installed with SSL
+        value: ${{ jobs.prep.outputs.enable_ssl }}
+      install_browsers:
+        description: Whether Playwright browsers must be installed
+        value: ${{ jobs.prep.outputs.install_browsers }}
+      cp_api_config:
+        description: Whether the API config file must be copied
+        value: ${{ jobs.prep.outputs.cp_api_config }}
+      needs_api_client:
+        description: Whether an API client and Keycloak are needed
+        value: ${{ jobs.prep.outputs.needs_api_client }}
+
+jobs:
+  prep:
+    name: Resolve PR + PrestaShop version
+    runs-on: ubuntu-latest
+    outputs:
+      base_branch: ${{ steps.pr.outputs.base_branch }}
+      branch_key: ${{ steps.resolve.outputs.branch_key }}
+      campaigns: ${{ steps.campaigns.outputs.campaigns }}
+      rebase_or_merge: ${{ steps.pr.outputs.rebase_or_merge }}
+      ps_version: ${{ steps.version.outputs.ps_version }}
+      ps_major: ${{ steps.version.outputs.ps_major }}
+      ps_minor: ${{ steps.version.outputs.ps_minor }}
+      php_version: ${{ steps.resolve.outputs.php_version }}
+      node_version: ${{ steps.resolve.outputs.node_version }}
+      runner_version: ${{ steps.resolve.outputs.runner_version }}
+      enable_ssl: ${{ steps.resolve.outputs.enable_ssl }}
+      install_browsers: ${{ steps.resolve.outputs.install_browsers }}
+      cp_api_config: ${{ steps.resolve.outputs.cp_api_config }}
+      needs_api_client: ${{ steps.resolve.outputs.needs_api_client }}
+    steps:
+      - name: Fetch PR info (target branch + body)
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
+        run: |
+          PR_JSON=$(gh api repos/${{ inputs.GH_REPOSITORY }}/pulls/${{ inputs.PR_NUMBER }})
+          BASE_BRANCH=$(echo "$PR_JSON" | jq -r '.base.ref')
+          BODY=$(echo "$PR_JSON" | jq -r '.body // ""')
+          echo "Detected PR target branch: $BASE_BRANCH"
+          echo "base_branch=$BASE_BRANCH" >> "$GITHUB_OUTPUT"
+
+          # Default to rebase. Switch to merge if PR description has `| Category? | ME |`
+          # (same rule as PrestaShop/PrestaShop pr.yml).
+          REBASE_OR_MERGE=rebase
+          if printf '%s' "$BODY" | grep -Eq '\|?[[:space:]]*Category\?[[:space:]]*\|[[:space:]]*ME([[:space:]]|$)'; then
+            REBASE_OR_MERGE=merge
+          fi
+          echo "Detected integration mode: $REBASE_OR_MERGE"
+          echo "rebase_or_merge=$REBASE_OR_MERGE" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout PR head (shallow, for version detection)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.GH_REPOSITORY }}
+          token: ${{ secrets.GH_TOKEN || github.token }}
+          ref: refs/pull/${{ inputs.PR_NUMBER }}/head
+          fetch-depth: 1
+
+      - name: Detect PrestaShop version
+        id: version
+        run: |
+          PS_VERSION=
+          # PrestaShop 8.x / 9.x: src/Core/Version.php → public const VERSION = '...';
+          if [ -f src/Core/Version.php ]; then
+            PS_VERSION=$(grep -E "public const VERSION = '" src/Core/Version.php | head -n1 | sed -E "s/.*'([^']+)'.*/\1/")
+          fi
+          # PrestaShop 1.7.x fallback: install-dev/install_version.php
+          if [ -z "$PS_VERSION" ] && [ -f install-dev/install_version.php ]; then
+            PS_VERSION=$(grep -E "_PS_INSTALL_VERSION_" install-dev/install_version.php | head -n1 | sed -E "s/.*'([^']+)'.*/\1/")
+          fi
+          if [ -z "$PS_VERSION" ]; then
+            echo "::error::Could not detect PrestaShop version (looked for src/Core/Version.php and install-dev/install_version.php)"
+            exit 1
+          fi
+          PS_MAJOR=$(echo "$PS_VERSION" | cut -d. -f1)
+          PS_MINOR=$(echo "$PS_VERSION" | cut -d. -f2)
+          echo "Detected PrestaShop version: $PS_VERSION (major=$PS_MAJOR minor=$PS_MINOR)"
+          echo "ps_version=$PS_VERSION" >> "$GITHUB_OUTPUT"
+          echo "ps_major=$PS_MAJOR" >> "$GITHUB_OUTPUT"
+          echo "ps_minor=$PS_MINOR" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve Auto values, branch key, and version-derived flags
+        id: resolve
+        env:
+          BASE_BRANCH: ${{ steps.pr.outputs.base_branch }}
+          PS_MAJOR: ${{ steps.version.outputs.ps_major }}
+          PS_MINOR: ${{ steps.version.outputs.ps_minor }}
+          INPUT_PHP_VERSION: ${{ inputs.PHP_VERSION }}
+          INPUT_NODE_VERSION: ${{ inputs.NODE_VERSION }}
+          INPUT_RUNNER_VERSION: ${{ inputs.RUNNER_VERSION }}
+        run: |
+          # Branch key: the version line under test, used for logs, artifact names and as
+          # PS_VERSION for ui-test. The PR target branch is authoritative, so new version
+          # branches (9.3.x, 10.0.x, ...) need no change here. Only fall back on the
+          # detected version when the PR targets something else than a release branch.
+          case "$BASE_BRANCH" in
+            1.7.*)
+              BRANCH_KEY=1.7.8.x
+              ;;
+            develop | master | [0-9]*.[0-9]*.x)
+              BRANCH_KEY="$BASE_BRANCH"
+              ;;
+            *)
+              if [ "$PS_MAJOR" = "1" ]; then
+                BRANCH_KEY=1.7.8.x
+              else
+                BRANCH_KEY="${PS_MAJOR}.${PS_MINOR}.x"
+              fi
+              ;;
+          esac
+          echo "branch_key=$BRANCH_KEY" >> "$GITHUB_OUTPUT"
+
+          # PHP version
+          if [ "$INPUT_PHP_VERSION" = "Auto" ]; then
+            if [ "$PS_MAJOR" = "1" ]; then
+              PHP=7.3
+            elif [ "$PS_MAJOR" = "8" ]; then
+              PHP=8.1
+            elif [ "$PS_MAJOR" = "9" ] && [ "$PS_MINOR" = "0" ]; then
+              PHP=8.4
+            else
+              PHP=8.5
+            fi
+          else
+            PHP="$INPUT_PHP_VERSION"
+          fi
+          echo "php_version=$PHP" >> "$GITHUB_OUTPUT"
+
+          # Node version
+          if [ "$INPUT_NODE_VERSION" = "Auto" ]; then
+            if [ "$PS_MAJOR" = "1" ]; then
+              NODE=14.21.3
+            elif [ "$PS_MAJOR" = "8" ]; then
+              NODE=16.20.1
+            else
+              NODE=20.19.5
+            fi
+          else
+            NODE="$INPUT_NODE_VERSION"
+          fi
+          echo "node_version=$NODE" >> "$GITHUB_OUTPUT"
+
+          # Runner
+          if [ "$INPUT_RUNNER_VERSION" = "Auto" ]; then
+            if [ "$PS_MAJOR" -ge 9 ]; then
+              RUNNER=ubuntu-latest
+            else
+              RUNNER=ubuntu-22.04
+            fi
+          else
+            RUNNER="$INPUT_RUNNER_VERSION"
+          fi
+          echo "runner_version=$RUNNER" >> "$GITHUB_OUTPUT"
+
+          # ENABLE_SSL: false on 1.7.x and 8.0.x
+          ENABLE_SSL=true
+          if [ "$PS_MAJOR" = "1" ] || { [ "$PS_MAJOR" = "8" ] && [ "$PS_MINOR" = "0" ]; }; then
+            ENABLE_SSL=false
+          fi
+          echo "enable_ssl=$ENABLE_SSL" >> "$GITHUB_OUTPUT"
+
+          # INSTALL_BROWSERS: false on 1.7.x only
+          INSTALL_BROWSERS=true
+          if [ "$PS_MAJOR" = "1" ]; then
+            INSTALL_BROWSERS=false
+          fi
+          echo "install_browsers=$INSTALL_BROWSERS" >> "$GITHUB_OUTPUT"
+
+          # CP_API_CONFIG: true on 8.1.x and 8.2.x only
+          CP_API_CONFIG=false
+          if [ "$PS_MAJOR" = "8" ] && { [ "$PS_MINOR" = "1" ] || [ "$PS_MINOR" = "2" ]; }; then
+            CP_API_CONFIG=true
+          fi
+          echo "cp_api_config=$CP_API_CONFIG" >> "$GITHUB_OUTPUT"
+
+          # API client + Keycloak: only on 9.x and above
+          NEEDS_API_CLIENT=false
+          if [ "$PS_MAJOR" -ge 9 ]; then
+            NEEDS_API_CLIENT=true
+          fi
+          echo "needs_api_client=$NEEDS_API_CLIENT" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve the test campaigns available on this version
+        id: campaigns
+        env:
+          BRANCH_KEY: ${{ steps.resolve.outputs.branch_key }}
+        run: |
+          PACKAGE_JSON=tests/UI/package.json
+          if [ ! -f "$PACKAGE_JSON" ]; then
+            echo "::error::$PACKAGE_JSON not found, cannot resolve the list of test campaigns"
+            exit 1
+          fi
+
+          # Campaigns we would like to run, whatever the version. A campaign with no
+          # matching `test:<campaign>` script in the PR's tests/UI/package.json is dropped.
+          # That is how version differences are handled: nothing to maintain here when a
+          # new version branch appears, or when a campaign is added, renamed or split.
+          CANDIDATES="
+          audit
+          cldr
+          functional:API
+          functional:BO:login
+          functional:BO:dashboard
+          functional:BO:orders:01:0-1
+          functional:BO:orders:01-create-orders
+          functional:BO:orders:01-view-and-edit-order
+          functional:BO:orders:02
+          functional:BO:orders:03-05
+          functional:BO:catalog:01-02
+          functional:BO:catalog:03-04
+          functional:BO:catalog:05-06
+          functional:BO:catalog:07-08
+          functional:BO:customer:01
+          functional:BO:customer:02-03
+          functional:BO:customer-service
+          functional:BO:modules
+          functional:BO:design
+          functional:BO:shipping
+          functional:BO:payment
+          functional:BO:international:01
+          functional:BO:international:02
+          functional:BO:international:03-04
+          functional:BO:shop-parameters:01-02
+          functional:BO:shop-parameters:03-04
+          functional:BO:shop-parameters:05-07
+          functional:BO:advanced-parameters:01-06
+          functional:BO:advanced-parameters:07-10
+          functional:BO:advanced-parameters:11-12
+          functional:BO:header
+          functional:BO:community
+          functional:FO:01-03
+          functional:FO:04-07
+          functional:FO:08-12
+          functional:FO:classic:01-03
+          functional:FO:classic:04-07
+          functional:FO:classic:08-12
+          functional:FO:hummingbird:01-03
+          functional:FO:hummingbird:04-07
+          functional:FO:hummingbird:08-12
+          functional:productV2
+          functional:WS
+          modules
+          modules:01-09
+          modules:10-19
+          modules:20-29
+          modules:30-39
+          regression
+          sanity
+          sanity:productV2
+          "
+
+          # Campaigns that do exist in tests/UI but are known to be broken on a version line.
+          case "$BRANCH_KEY" in
+            1.7.8.x) KNOWN_BROKEN="functional:BO:dashboard" ;;
+            *) KNOWN_BROKEN="" ;;
+          esac
+
+          KEPT=()
+          SKIPPED=()
+          for CAMPAIGN in $CANDIDATES; do
+            case " $KNOWN_BROKEN " in
+              *" $CAMPAIGN "*)
+                SKIPPED+=("$CAMPAIGN (known broken on $BRANCH_KEY)")
+                continue
+                ;;
+            esac
+            if jq -e --arg script "test:$CAMPAIGN" '.scripts | has($script)' "$PACKAGE_JSON" > /dev/null; then
+              KEPT+=("$CAMPAIGN")
+            else
+              SKIPPED+=("$CAMPAIGN (no test:$CAMPAIGN script)")
+            fi
+          done
+
+          if [ ${#KEPT[@]} -eq 0 ]; then
+            echo "::error::None of the candidate campaigns exist in $PACKAGE_JSON"
+            exit 1
+          fi
+
+          echo "Campaigns to run (${#KEPT[@]}):"
+          printf '  %s\n' "${KEPT[@]}"
+          if [ ${#SKIPPED[@]} -gt 0 ]; then
+            echo "Campaigns skipped (${#SKIPPED[@]}):"
+            printf '  %s\n' "${SKIPPED[@]}"
+          fi
+
+          CAMPAIGNS=$(printf '%s\n' "${KEPT[@]}" | jq -Rsc 'split("\n") | map(select(length > 0))')
+          echo "campaigns=$CAMPAIGNS" >> "$GITHUB_OUTPUT"
