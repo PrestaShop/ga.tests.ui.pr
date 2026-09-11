@@ -1,0 +1,521 @@
+﻿2026-09-10T11:55:25.4171629Z Current runner version: '2.337.0'
+2026-09-10T11:55:25.4199814Z ##[group]Runner Image Provisioner
+2026-09-10T11:55:25.4200803Z Hosted Compute Agent
+2026-09-10T11:55:25.4201591Z Version: 20260828.587
+2026-09-10T11:55:25.4202376Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-10T11:55:25.4203300Z Build Date: 2026-08-28T16:44:25Z
+2026-09-10T11:55:25.4204204Z Worker ID: {a6c813fc-a6c9-4072-ad3f-4294700b4b75}
+2026-09-10T11:55:25.4205073Z Azure Region: northcentralus
+2026-09-10T11:55:25.4205910Z ##[endgroup]
+2026-09-10T11:55:25.4207670Z ##[group]Operating System
+2026-09-10T11:55:25.4208733Z Ubuntu
+2026-09-10T11:55:25.4209489Z 24.04.4
+2026-09-10T11:55:25.4210128Z LTS
+2026-09-10T11:55:25.4210727Z ##[endgroup]
+2026-09-10T11:55:25.4211501Z ##[group]Runner Image
+2026-09-10T11:55:25.4212238Z Image: ubuntu-24.04
+2026-09-10T11:55:25.4212954Z Version: 20260831.293.1
+2026-09-10T11:55:25.4214506Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-10T11:55:25.4216523Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-10T11:55:25.4217753Z ##[endgroup]
+2026-09-10T11:55:25.4222140Z ##[group]GITHUB_TOKEN Permissions
+2026-09-10T11:55:25.4224786Z Actions: write
+2026-09-10T11:55:25.4225594Z ArtifactMetadata: write
+2026-09-10T11:55:25.4226361Z Attestations: write
+2026-09-10T11:55:25.4227020Z Checks: write
+2026-09-10T11:55:25.4227762Z CodeQuality: write
+2026-09-10T11:55:25.4228816Z Contents: write
+2026-09-10T11:55:25.4229570Z CopilotRequests: write
+2026-09-10T11:55:25.4230388Z Deployments: write
+2026-09-10T11:55:25.4231127Z Discussions: write
+2026-09-10T11:55:25.4231910Z Drives: write
+2026-09-10T11:55:25.4232573Z Issues: write
+2026-09-10T11:55:25.4233315Z Metadata: read
+2026-09-10T11:55:25.4234152Z Models: read
+2026-09-10T11:55:25.4234810Z Packages: write
+2026-09-10T11:55:25.4235544Z Pages: write
+2026-09-10T11:55:25.4236203Z PullRequests: write
+2026-09-10T11:55:25.4237009Z RepositoryProjects: write
+2026-09-10T11:55:25.4237990Z SecurityEvents: write
+2026-09-10T11:55:25.4238691Z Statuses: write
+2026-09-10T11:55:25.4239483Z VulnerabilityAlerts: read
+2026-09-10T11:55:25.4240236Z ##[endgroup]
+2026-09-10T11:55:25.4242654Z Secret source: Actions
+2026-09-10T11:55:25.4243939Z Cache mode: write
+2026-09-10T11:55:25.4244794Z Prepare workflow directory
+2026-09-10T11:55:25.4651733Z Prepare all required actions
+2026-09-10T11:55:25.4705839Z Getting action download info
+2026-09-10T11:55:25.6917265Z Download action repository 'catchpoint/workflow-telemetry-action@v2' (SHA:94c3c3d9567a0205de6da68a76c428ce4e769af1)
+2026-09-10T11:55:26.3586094Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-10T11:55:26.3983044Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-10T11:55:26.7189919Z Complete job name: test (functional:API)
+2026-09-10T11:55:26.7718598Z ##[group]Run echo "Inputs:"
+2026-09-10T11:55:26.7719133Z [36;1mecho "Inputs:"[0m
+2026-09-10T11:55:26.7719536Z [36;1mecho '{[0m
+2026-09-10T11:55:26.7719936Z [36;1m  "PR_NUMBER": "42816",[0m
+2026-09-10T11:55:26.7720345Z [36;1m  "DEV_MODE": "false",[0m
+2026-09-10T11:55:26.7720754Z [36;1m  "PHP_VERSION": "Auto",[0m
+2026-09-10T11:55:26.7721183Z [36;1m  "NODE_VERSION": "Auto",[0m
+2026-09-10T11:55:26.7721604Z [36;1m  "DB_SERVER": "mysql",[0m
+2026-09-10T11:55:26.7722009Z [36;1m  "RUNNER_VERSION": "Auto",[0m
+2026-09-10T11:55:26.7722424Z [36;1m  "FAST_FAIL": "true",[0m
+2026-09-10T11:55:26.7722810Z [36;1m  "TELEMETRY": "false"[0m
+2026-09-10T11:55:26.7723195Z [36;1m}'[0m
+2026-09-10T11:55:26.7723515Z [36;1mecho ""[0m
+2026-09-10T11:55:26.7723968Z [36;1mecho "Resolved from PR / detected PrestaShop version:"[0m
+2026-09-10T11:55:26.7724545Z [36;1mecho "  base_branch (PR target): develop"[0m
+2026-09-10T11:55:26.7725094Z [36;1mecho "  branch_key (version):    develop"[0m
+2026-09-10T11:55:26.7730475Z [36;1mecho "  campaigns:               audit, cldr, functional:API, functional:BO:login, functional:BO:dashboard, functional:BO:orders:01:0-1, functional:BO:orders:01-create-orders, functional:BO:orders:01-view-and-edit-order, functional:BO:orders:02, functional:BO:orders:03-05, functional:BO:catalog:01-02, functional:BO:catalog:03-04, functional:BO:catalog:05-06, functional:BO:catalog:07-08, functional:BO:customer:01, functional:BO:customer:02-03, functional:BO:customer-service, functional:BO:modules, functional:BO:design, functional:BO:shipping, functional:BO:payment, functional:BO:international:01, functional:BO:international:02, functional:BO:international:03-04, functional:BO:shop-parameters:01-02, functional:BO:shop-parameters:03-04, functional:BO:shop-parameters:05-07, functional:BO:advanced-parameters:01-06, functional:BO:advanced-parameters:07-10, functional:BO:advanced-parameters:11-12, functional:BO:header, functional:BO:community, functional:FO:classic:01-03, functional:FO:classic:04-07, functional:FO:classic:08-12, functional:FO:hummingbird:01-03, functional:FO:hummingbird:04-07, functional:FO:hummingbird:08-12, functional:WS, modules:01-09, modules:10-19, modules:20-29, modules:30-39, regression, sanity"[0m
+2026-09-10T11:55:26.7736206Z [36;1mecho "  rebase_or_merge:         merge"[0m
+2026-09-10T11:55:26.7736691Z [36;1mecho "  ps_version:              9.3.0"[0m
+2026-09-10T11:55:26.7737162Z [36;1mecho "  php_version:             8.5"[0m
+2026-09-10T11:55:26.7737638Z [36;1mecho "  node_version:            20.19.5"[0m
+2026-09-10T11:55:26.7738230Z [36;1mecho "  runner_version:          ubuntu-latest"[0m
+2026-09-10T11:55:26.7738739Z [36;1mecho "  enable_ssl:              true"[0m
+2026-09-10T11:55:26.7739208Z [36;1mecho "  install_browsers:        true"[0m
+2026-09-10T11:55:26.7739682Z [36;1mecho "  cp_api_config:           false"[0m
+2026-09-10T11:55:26.7740157Z [36;1mecho "  needs_api_client:        true"[0m
+2026-09-10T11:55:26.7775994Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-10T11:55:26.7776705Z env:
+2026-09-10T11:55:26.7777058Z   CLIENT_ID_API: ui-test-client
+2026-09-10T11:55:26.7777523Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T11:55:26.7778140Z ##[endgroup]
+2026-09-10T11:55:26.7883324Z Inputs:
+2026-09-10T11:55:26.7883721Z {
+2026-09-10T11:55:26.7884047Z   "PR_NUMBER": "42816",
+2026-09-10T11:55:26.7884444Z   "DEV_MODE": "false",
+2026-09-10T11:55:26.7884823Z   "PHP_VERSION": "Auto",
+2026-09-10T11:55:26.7885199Z   "NODE_VERSION": "Auto",
+2026-09-10T11:55:26.7885562Z   "DB_SERVER": "mysql",
+2026-09-10T11:55:26.7885923Z   "RUNNER_VERSION": "Auto",
+2026-09-10T11:55:26.7886291Z   "FAST_FAIL": "true",
+2026-09-10T11:55:26.7886642Z   "TELEMETRY": "false"
+2026-09-10T11:55:26.7886981Z }
+2026-09-10T11:55:26.7887149Z 
+2026-09-10T11:55:26.7887344Z Resolved from PR / detected PrestaShop version:
+2026-09-10T11:55:26.7888071Z   base_branch (PR target): develop
+2026-09-10T11:55:26.7888536Z   branch_key (version):    develop
+2026-09-10T11:55:26.7893915Z   campaigns:               audit, cldr, functional:API, functional:BO:login, functional:BO:dashboard, functional:BO:orders:01:0-1, functional:BO:orders:01-create-orders, functional:BO:orders:01-view-and-edit-order, functional:BO:orders:02, functional:BO:orders:03-05, functional:BO:catalog:01-02, functional:BO:catalog:03-04, functional:BO:catalog:05-06, functional:BO:catalog:07-08, functional:BO:customer:01, functional:BO:customer:02-03, functional:BO:customer-service, functional:BO:modules, functional:BO:design, functional:BO:shipping, functional:BO:payment, functional:BO:international:01, functional:BO:international:02, functional:BO:international:03-04, functional:BO:shop-parameters:01-02, functional:BO:shop-parameters:03-04, functional:BO:shop-parameters:05-07, functional:BO:advanced-parameters:01-06, functional:BO:advanced-parameters:07-10, functional:BO:advanced-parameters:11-12, functional:BO:header, functional:BO:community, functional:FO:classic:01-03, functional:FO:classic:04-07, functional:FO:classic:08-12, functional:FO:hummingbird:01-03, functional:FO:hummingbird:04-07, functional:FO:hummingbird:08-12, functional:WS, modules:01-09, modules:10-19, modules:20-29, modules:30-39, regression, sanity
+2026-09-10T11:55:26.7899678Z   rebase_or_merge:         merge
+2026-09-10T11:55:26.7900088Z   ps_version:              9.3.0
+2026-09-10T11:55:26.7900479Z   php_version:             8.5
+2026-09-10T11:55:26.7900865Z   node_version:            20.19.5
+2026-09-10T11:55:26.7901272Z   runner_version:          ubuntu-latest
+2026-09-10T11:55:26.7901698Z   enable_ssl:              true
+2026-09-10T11:55:26.7902088Z   install_browsers:        true
+2026-09-10T11:55:26.7902502Z   cp_api_config:           false
+2026-09-10T11:55:26.7902900Z   needs_api_client:        true
+2026-09-10T11:55:26.7978804Z ##[group]Run REPOSITORY_NAME=ga.tests.ui.pr
+2026-09-10T11:55:26.7979335Z [36;1mREPOSITORY_NAME=ga.tests.ui.pr[0m
+2026-09-10T11:55:26.7979775Z [36;1m# Lower case[0m
+2026-09-10T11:55:26.7980170Z [36;1mDOCKER_PREFIX=${REPOSITORY_NAME,,}[0m
+2026-09-10T11:55:26.7980625Z [36;1m# Remove dots[0m
+2026-09-10T11:55:26.7981029Z [36;1mDOCKER_PREFIX=${DOCKER_PREFIX//.}[0m
+2026-09-10T11:55:26.7981551Z [36;1mecho "DOCKER_PREFIX=${DOCKER_PREFIX}" >> $GITHUB_ENV[0m
+2026-09-10T11:55:26.8010546Z shell: /usr/bin/bash -e {0}
+2026-09-10T11:55:26.8010948Z env:
+2026-09-10T11:55:26.8011341Z   CLIENT_ID_API: ui-test-client
+2026-09-10T11:55:26.8011798Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T11:55:26.8012267Z ##[endgroup]
+2026-09-10T11:55:26.8228519Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T11:55:26.8235495Z ##[group]Run actions/checkout@v4
+2026-09-10T11:55:26.8235926Z with:
+2026-09-10T11:55:26.8236254Z   fetch-depth: 0
+2026-09-10T11:55:26.8236627Z   repository: PrestaShop/PrestaShop
+2026-09-10T11:55:26.8237069Z   ref: refs/pull/42816/head
+2026-09-10T11:55:26.8240392Z   token: ***
+2026-09-10T11:55:26.8240735Z   ssh-strict: true
+2026-09-10T11:55:26.8241074Z   ssh-user: git
+2026-09-10T11:55:26.8241419Z   persist-credentials: true
+2026-09-10T11:55:26.8241792Z   clean: true
+2026-09-10T11:55:26.8242140Z   sparse-checkout-cone-mode: true
+2026-09-10T11:55:26.8242539Z   fetch-tags: false
+2026-09-10T11:55:26.8242888Z   show-progress: true
+2026-09-10T11:55:26.8243259Z   lfs: false
+2026-09-10T11:55:26.8243584Z   submodules: false
+2026-09-10T11:55:26.8243938Z   set-safe-directory: true
+2026-09-10T11:55:26.8244326Z   allow-unsafe-pr-checkout: false
+2026-09-10T11:55:26.8244712Z env:
+2026-09-10T11:55:26.8245034Z   CLIENT_ID_API: ui-test-client
+2026-09-10T11:55:26.8245467Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T11:55:26.8245938Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T11:55:26.8246304Z ##[endgroup]
+2026-09-10T11:55:26.9034252Z Syncing repository: PrestaShop/PrestaShop
+2026-09-10T11:55:26.9036206Z ##[group]Getting Git version info
+2026-09-10T11:55:26.9037227Z Working directory is '/home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr'
+2026-09-10T11:55:26.9038926Z [command]/usr/bin/git version
+2026-09-10T11:55:26.9064322Z git version 2.55.0
+2026-09-10T11:55:26.9087240Z ##[endgroup]
+2026-09-10T11:55:26.9097377Z Temporarily overriding HOME='/home/runner/work/_temp/4e67aab1-de07-4dad-b933-4df01e337983' before making global git config changes
+2026-09-10T11:55:26.9105806Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T11:55:26.9107411Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr
+2026-09-10T11:55:26.9140134Z Deleting the contents of '/home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr'
+2026-09-10T11:55:26.9142257Z ##[group]Initializing the repository
+2026-09-10T11:55:26.9145586Z [command]/usr/bin/git init /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr
+2026-09-10T11:55:26.9219839Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-10T11:55:26.9223296Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-10T11:55:26.9224698Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-10T11:55:26.9225806Z hint: call:
+2026-09-10T11:55:26.9226553Z hint:
+2026-09-10T11:55:26.9227378Z hint: 	git config --global init.defaultBranch <name>
+2026-09-10T11:55:26.9228485Z hint:
+2026-09-10T11:55:26.9229391Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-10T11:55:26.9230743Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-10T11:55:26.9231858Z hint:
+2026-09-10T11:55:26.9232559Z hint: 	git branch -m <name>
+2026-09-10T11:55:26.9233327Z hint:
+2026-09-10T11:55:26.9234299Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-10T11:55:26.9235898Z Initialized empty Git repository in /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/.git/
+2026-09-10T11:55:26.9238626Z [command]/usr/bin/git remote add origin https://github.com/PrestaShop/PrestaShop
+2026-09-10T11:55:26.9270882Z ##[endgroup]
+2026-09-10T11:55:26.9271826Z ##[group]Disabling automatic garbage collection
+2026-09-10T11:55:26.9274554Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-10T11:55:26.9301482Z ##[endgroup]
+2026-09-10T11:55:26.9302371Z ##[group]Setting up auth
+2026-09-10T11:55:26.9307715Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T11:55:26.9335846Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T11:55:26.9633126Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T11:55:26.9664116Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T11:55:26.9864154Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T11:55:26.9893844Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T11:55:27.0087582Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-10T11:55:27.0119675Z ##[endgroup]
+2026-09-10T11:55:27.0120290Z ##[group]Fetching the repository
+2026-09-10T11:55:27.0128074Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +refs/pull/42816/head:refs/remotes/pull/42816/head
+2026-09-10T11:55:58.6408276Z From https://github.com/PrestaShop/PrestaShop
+2026-09-10T11:55:58.6408877Z  * [new branch]              8.2.x                -> origin/8.2.x
+2026-09-10T11:55:58.6409246Z  * [new branch]              9.2.x                -> origin/9.2.x
+2026-09-10T11:55:58.6409832Z  * [new branch]              chore/update-prestashop-packages-9.1.x -> origin/chore/update-prestashop-packages-9.1.x
+2026-09-10T11:55:58.6410421Z  * [new branch]              copilot/fix-create-merge-pr-job -> origin/copilot/fix-create-merge-pr-job
+2026-09-10T11:55:58.6410950Z  * [new branch]              copilot/fix-php-cs-fixer-job -> origin/copilot/fix-php-cs-fixer-job
+2026-09-10T11:55:58.6411682Z  * [new branch]              dependabot/npm_and_yarn/tests/UI/develop/eslint-plugin-html-8.2.0 -> origin/dependabot/npm_and_yarn/tests/UI/develop/eslint-plugin-html-8.2.0
+2026-09-10T11:55:58.6412623Z  * [new branch]              dependabot/npm_and_yarn/tests/UI/develop/mocha-12.0.0 -> origin/dependabot/npm_and_yarn/tests/UI/develop/mocha-12.0.0
+2026-09-10T11:55:58.6413792Z  * [new branch]              dependabot/npm_and_yarn/tests/UI/develop/mysql2-3.24.3 -> origin/dependabot/npm_and_yarn/tests/UI/develop/mysql2-3.24.3
+2026-09-10T11:55:58.6415415Z  * [new branch]              dependabot/npm_and_yarn/tests/UI/develop/types/node-26.4.1 -> origin/dependabot/npm_and_yarn/tests/UI/develop/types/node-26.4.1
+2026-09-10T11:55:58.6416290Z  * [new branch]              develop              -> origin/develop
+2026-09-10T11:55:58.6416879Z  * [new branch]              merge-92x-develop-20260807 -> origin/merge-92x-develop-20260807
+2026-09-10T11:55:58.6417584Z  * [new branch]              merge-92x-develop-20260824 -> origin/merge-92x-develop-20260824
+2026-09-10T11:55:58.6418591Z  * [new branch]              migration/customer-service -> origin/migration/customer-service
+2026-09-10T11:55:58.6419271Z  * [new tag]                 1.5.0.0              -> 1.5.0.0
+2026-09-10T11:55:58.6419894Z  * [new tag]                 1.5.0.1              -> 1.5.0.1
+2026-09-10T11:55:58.6420382Z  * [new tag]                 1.5.0.13             -> 1.5.0.13
+2026-09-10T11:55:58.6420832Z  * [new tag]                 1.5.0.15             -> 1.5.0.15
+2026-09-10T11:55:58.6421379Z  * [new tag]                 1.5.0.17             -> 1.5.0.17
+2026-09-10T11:55:58.6421848Z  * [new tag]                 1.5.0.2              -> 1.5.0.2
+2026-09-10T11:55:58.6422325Z  * [new tag]                 1.5.0.3              -> 1.5.0.3
+2026-09-10T11:55:58.6422861Z  * [new tag]                 1.5.0.5              -> 1.5.0.5
+2026-09-10T11:55:58.6423360Z  * [new tag]                 1.5.0.9              -> 1.5.0.9
+2026-09-10T11:55:58.6424069Z  * [new tag]                 1.5.1.0              -> 1.5.1.0
+2026-09-10T11:55:58.6424558Z  * [new tag]                 1.5.2.0              -> 1.5.2.0
+2026-09-10T11:55:58.6425067Z  * [new tag]                 1.5.3.0              -> 1.5.3.0
+2026-09-10T11:55:58.6425532Z  * [new tag]                 1.5.3.1              -> 1.5.3.1
+2026-09-10T11:55:58.6426000Z  * [new tag]                 1.5.4.0              -> 1.5.4.0
+2026-09-10T11:55:58.6426460Z  * [new tag]                 1.5.4.1              -> 1.5.4.1
+2026-09-10T11:55:58.6427050Z  * [new tag]                 1.5.5.0              -> 1.5.5.0
+2026-09-10T11:55:58.6427623Z  * [new tag]                 1.5.6.0              -> 1.5.6.0
+2026-09-10T11:55:58.6428382Z  * [new tag]                 1.5.6.1              -> 1.5.6.1
+2026-09-10T11:55:58.6428943Z  * [new tag]                 1.5.6.2              -> 1.5.6.2
+2026-09-10T11:55:58.6429433Z  * [new tag]                 1.6.0.1              -> 1.6.0.1
+2026-09-10T11:55:58.6430118Z  * [new tag]                 1.6.0.10             -> 1.6.0.10
+2026-09-10T11:55:58.6430571Z  * [new tag]                 1.6.0.11             -> 1.6.0.11
+2026-09-10T11:55:58.6430991Z  * [new tag]                 1.6.0.12             -> 1.6.0.12
+2026-09-10T11:55:58.6431425Z  * [new tag]                 1.6.0.13             -> 1.6.0.13
+2026-09-10T11:55:58.6431876Z  * [new tag]                 1.6.0.14             -> 1.6.0.14
+2026-09-10T11:55:58.6432311Z  * [new tag]                 1.6.0.2              -> 1.6.0.2
+2026-09-10T11:55:58.6432762Z  * [new tag]                 1.6.0.3              -> 1.6.0.3
+2026-09-10T11:55:58.6433225Z  * [new tag]                 1.6.0.4              -> 1.6.0.4
+2026-09-10T11:55:58.6433681Z  * [new tag]                 1.6.0.5              -> 1.6.0.5
+2026-09-10T11:55:58.6434120Z  * [new tag]                 1.6.0.6              -> 1.6.0.6
+2026-09-10T11:55:58.6434572Z  * [new tag]                 1.6.0.7              -> 1.6.0.7
+2026-09-10T11:55:58.6435029Z  * [new tag]                 1.6.0.8              -> 1.6.0.8
+2026-09-10T11:55:58.6435457Z  * [new tag]                 1.6.0.9              -> 1.6.0.9
+2026-09-10T11:55:58.6435882Z  * [new tag]                 1.6.1.0              -> 1.6.1.0
+2026-09-10T11:55:58.6436388Z  * [new tag]                 1.6.1.1              -> 1.6.1.1
+2026-09-10T11:55:58.6437022Z  * [new tag]                 1.6.1.10             -> 1.6.1.10
+2026-09-10T11:55:58.6437364Z  * [new tag]                 1.6.1.11             -> 1.6.1.11
+2026-09-10T11:55:58.6437674Z  * [new tag]                 1.6.1.11-beta.1.0    -> 1.6.1.11-beta.1.0
+2026-09-10T11:55:58.6438338Z  * [new tag]                 1.6.1.12             -> 1.6.1.12
+2026-09-10T11:55:58.6438630Z  * [new tag]                 1.6.1.13             -> 1.6.1.13
+2026-09-10T11:55:58.6438912Z  * [new tag]                 1.6.1.14             -> 1.6.1.14
+2026-09-10T11:55:58.6439193Z  * [new tag]                 1.6.1.15             -> 1.6.1.15
+2026-09-10T11:55:58.6439476Z  * [new tag]                 1.6.1.16             -> 1.6.1.16
+2026-09-10T11:55:58.6439822Z  * [new tag]                 1.6.1.17             -> 1.6.1.17
+2026-09-10T11:55:58.6440105Z  * [new tag]                 1.6.1.18             -> 1.6.1.18
+2026-09-10T11:55:58.6440382Z  * [new tag]                 1.6.1.19             -> 1.6.1.19
+2026-09-10T11:55:58.6440667Z  * [new tag]                 1.6.1.2              -> 1.6.1.2
+2026-09-10T11:55:58.6440956Z  * [new tag]                 1.6.1.2-RC3          -> 1.6.1.2-RC3
+2026-09-10T11:55:58.6441256Z  * [new tag]                 1.6.1.2-RC4          -> 1.6.1.2-RC4
+2026-09-10T11:55:58.6441550Z  * [new tag]                 1.6.1.20             -> 1.6.1.20
+2026-09-10T11:55:58.6441838Z  * [new tag]                 1.6.1.21             -> 1.6.1.21
+2026-09-10T11:55:58.6442115Z  * [new tag]                 1.6.1.22             -> 1.6.1.22
+2026-09-10T11:55:58.6442386Z  * [new tag]                 1.6.1.23             -> 1.6.1.23
+2026-09-10T11:55:58.6442662Z  * [new tag]                 1.6.1.24             -> 1.6.1.24
+2026-09-10T11:55:58.6443048Z  * [new tag]                 1.6.1.3              -> 1.6.1.3
+2026-09-10T11:55:58.6443342Z  * [new tag]                 1.6.1.4              -> 1.6.1.4
+2026-09-10T11:55:58.6443623Z  * [new tag]                 1.6.1.5              -> 1.6.1.5
+2026-09-10T11:55:58.6443901Z  * [new tag]                 1.6.1.6              -> 1.6.1.6
+2026-09-10T11:55:58.6444280Z  * [new tag]                 1.6.1.7              -> 1.6.1.7
+2026-09-10T11:55:58.6444719Z  * [new tag]                 1.6.1.8              -> 1.6.1.8
+2026-09-10T11:55:58.6445138Z  * [new tag]                 1.6.1.9              -> 1.6.1.9
+2026-09-10T11:55:58.6445661Z  * [new tag]                 1.7.0.0              -> 1.7.0.0
+2026-01-01T00:00:00.0000000Z [fixture] ... 2128 lines of setup/docker output removed ...
+2026-09-10T12:01:09.3491862Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T12:01:09.3492112Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T12:01:09.3492316Z   EXTRA_TEST_PARAMS: --bail
+2026-09-10T12:01:09.3492502Z   PS_VERSION: develop
+2026-09-10T12:01:09.3492670Z   BROWSER: chromium
+2026-09-10T12:01:09.3492846Z   ENABLE_SSL: true
+2026-09-10T12:01:09.3493039Z   URL_FO: https://localhost:8002/
+2026-09-10T12:01:09.3493273Z   URL_BO: https://localhost:8002/admin-dev/
+2026-09-10T12:01:09.3493514Z   URL_API: https://localhost:8002/admin-api/
+2026-09-10T12:01:09.3493761Z   URL_INSTALL: https://localhost:8002/install-dev/
+2026-09-10T12:01:09.3493988Z   DB_SERVER: mysql
+2026-09-10T12:01:09.3494142Z   LANG: en-GB
+2026-09-10T12:01:09.3494294Z   DEBUG: 
+2026-09-10T12:01:09.3494442Z ##[endgroup]
+2026-09-10T12:01:09.4360325Z 
+2026-09-10T12:01:09.4360889Z > ui-tests@1.0.0 test:functional:API
+2026-09-10T12:01:09.4361371Z > TEST_PATH='functional/API/{**/*,*.ts}' npm run test:specific
+2026-09-10T12:01:09.4361590Z 
+2026-09-10T12:01:09.5199962Z 
+2026-09-10T12:01:09.5200487Z > ui-tests@1.0.0 test:specific
+2026-09-10T12:01:09.5200946Z > ts-mocha $EXTRA_TEST_PARAMS --file utils/setup.ts campaigns/$TEST_PATH
+2026-09-10T12:01:09.5201206Z 
+2026-09-10T12:01:12.3106601Z 
+2026-09-10T12:01:12.3144677Z 
+2026-09-10T12:01:13.9975642Z   API : Basic Test
+2026-09-10T12:01:14.0000271Z     Basic Test
+2026-09-10T12:01:20.4929120Z       ✔ should request the endpoint /admin-api
+2026-09-10T12:01:20.5551195Z       ✔ should request the endpoint /hooks
+2026-09-10T12:01:20.5564890Z 
+2026-09-10T12:01:20.5565248Z   API : Internal Auth Server - Authorization Endpoint
+2026-09-10T12:01:20.5959618Z     API Client : Fetch the client secret
+2026-09-10T12:01:25.8749110Z       ✔ should login in BO
+2026-09-10T12:01:29.2363011Z       ✔ should go to 'Advanced Parameters > API Client' page
+2026-09-10T12:01:29.2411025Z       ✔ should check that at least one API client is present
+2026-09-10T12:01:32.2769252Z       ✔ should go to add New API Client page
+2026-09-10T12:01:33.5105739Z       ✔ should create API Client
+2026-09-10T12:01:33.5659656Z       ✔ should copy client secret
+2026-09-10T12:01:33.5660593Z     Authorization Endpoint
+2026-09-10T12:01:33.6187403Z       ✔ should request the endpoint /access_token with method GET
+2026-09-10T12:01:33.6960101Z       ✔ should request the endpoint /access_token with method POST
+2026-09-10T12:01:33.7426100Z       ✔ should request the endpoint /access_token with method POST with unuseful data
+2026-09-10T12:01:33.7762874Z       ✔ should request the endpoint /access_token with method POST with invalid data
+2026-09-10T12:01:34.2116964Z       ✔ should request the endpoint /access_token with method POST with valid + unuseful data
+2026-09-10T12:01:34.6452727Z       ✔ should request the endpoint /access_token with method POST with valid data
+2026-09-10T12:01:34.6453342Z     Delete an API Client
+2026-09-10T12:01:35.8888035Z       ✔ should login in BO
+2026-09-10T12:01:39.0701668Z       ✔ should go to 'Advanced Parameters > API Client' page
+2026-09-10T12:01:40.0138689Z       ✔ should delete API Client by clientId 506c1d40-d1b6-47db-9987-fe10e1d8c483
+2026-09-10T12:01:40.0271657Z 
+2026-09-10T12:01:40.0287711Z   API : Internal Auth Server - Resource Endpoint
+2026-09-10T12:01:40.0750794Z     BO - Advanced Parameter - API Client : CRUD
+2026-09-10T12:01:41.2139078Z       ✔ should login in BO
+2026-09-10T12:01:44.3724639Z       ✔ should go to 'Advanced Parameters > API Client' page
+2026-09-10T12:01:44.3763398Z       ✔ should check that at least one API client is present
+2026-09-10T12:01:44.6273019Z       ✔ should go to add New API Client page
+2026-09-10T12:01:45.7121989Z       ✔ should create API Client
+2026-09-10T12:01:45.7666451Z       ✔ should copy client secret
+2026-09-10T12:01:45.7667225Z     Resource Endpoint
+2026-09-10T12:01:46.2106485Z       ✔ should request the authorization endpoint and fetch valid token
+2026-09-10T12:01:46.6851997Z       ✔ should request the endpoint /hooks/1 without access token
+2026-09-10T12:01:46.7233123Z       ✔ should request the endpoint /hooks/1 with invalid access token
+2026-09-10T12:01:46.7540680Z       ✔ should request the endpoint /hooks/1 with expired access token
+2026-09-10T12:01:46.8288402Z       ✔ should request the endpoint /hooks/1 with valid access token
+2026-09-10T12:01:46.8288987Z     Delete an API Client
+2026-09-10T12:01:47.9571636Z       ✔ should login in BO
+2026-09-10T12:01:51.1118270Z       ✔ should go to 'Advanced Parameters > API Client' page
+2026-09-10T12:01:51.9599496Z       ✔ should delete API Client by clientId fccdac0b-fefd-4e65-987b-64fff0f81bc5
+2026-09-10T12:01:51.9729312Z 
+2026-09-10T12:01:51.9788839Z   API : External Auth Server - Authorization Endpoint
+2026-09-10T12:01:51.9814650Z     Authorization Endpoint
+2026-09-10T12:01:52.3483705Z       ✔ should request the endpoint /realms/prestashop/protocol/openid-connect/token (Keycloak) with method POST with valid data
+2026-09-10T12:01:52.3484272Z 
+2026-09-10T12:01:52.3484636Z   API : External Auth Server - Resource Endpoint
+2026-09-10T12:01:52.4019005Z     Install module Keycloak OAuth2 connector demo
+2026-09-10T12:01:53.5700039Z       ✔ should login in BO
+2026-09-10T12:01:53.9112764Z       ✔ should download the zip of the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:01:58.5027154Z       ✔ should go to 'Modules > Module Manager' page
+2026-09-10T12:02:08.3740873Z       ✔ should upload the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:02:08.6086419Z       ✔ should close upload module modal
+2026-09-10T12:02:11.7613446Z       ✔ should search the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:02:11.7695696Z     Resource Endpoint
+2026-09-10T12:02:13.2639485Z       ✔ should login in BO
+2026-09-10T12:02:16.5916719Z       ✔ should go to 'Modules > Module Manager' page
+2026-09-10T12:02:17.0352944Z       ✔ should search the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:02:18.3440362Z       ✔ should go to the configuration page of the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:02:18.7419713Z       ✔ should define the Keycloak Realm endpoint
+2026-09-10T12:02:21.3590872Z       ✔ should request the endpoint /api-clients without access token
+2026-09-10T12:02:21.4989347Z       ✔ should request the endpoint /api-clients with invalid access token
+2026-09-10T12:02:21.5404152Z       ✔ should request the endpoint /api-clients with expired access token
+2026-09-10T12:02:21.6797351Z       ✔ should request the endpoint /api-clients with valid access token
+2026-09-10T12:02:21.7476242Z       ✔ should request the endpoint /api-clients/{apiClientId} with valid access token
+2026-09-10T12:02:21.7476844Z     Delete an API Client
+2026-09-10T12:02:22.9094770Z       ✔ should login in BO
+2026-09-10T12:02:26.1799059Z       ✔ should go to 'Advanced Parameters > API Client' page
+2026-09-10T12:02:27.0451746Z       ✔ should delete API Client by clientId prestashop-keycloak
+2026-09-10T12:02:27.0513431Z     Uninstall module Keycloak OAuth2 connector demo
+2026-09-10T12:02:28.2688426Z       ✔ should login in BO
+2026-09-10T12:02:31.6596293Z       ✔ should go to 'Modules > Module Manager' page
+2026-09-10T12:02:32.0819919Z       ✔ should search the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:02:42.9373756Z       ✔ should uninstall the module 'Keycloak OAuth2 connector demo'
+2026-09-10T12:02:42.9404911Z 
+2026-09-10T12:02:42.9405404Z   API : Check endpoints
+2026-09-10T12:02:42.9720888Z     Enable the feature flag "Admin API - Enable experimental endpoints"
+2026-09-10T12:02:45.9487529Z       ✔ should login in BO
+2026-09-10T12:02:49.2783955Z       ✔ should go to 'Advanced Parameters > New & Experimental Features' page
+2026-09-10T12:02:59.6229826Z       ✔ should enable "Admin API - Enable experimental endpoints"
+2026-09-10T12:02:59.6300053Z     Check endpoints
+2026-09-10T12:03:01.3698456Z       ✔ should login in BO
+2026-09-10T12:03:04.6356132Z       ✔ should go to 'Advanced Parameters > API Client' page
+2026-09-10T12:03:04.6393519Z       ✔ should check that at least one API client is present
+2026-09-10T12:03:10.3143902Z       ✔ should fetch the documentation in JSON
+2026-09-10T12:03:10.3183011Z       1) should check endpoints
+2026-09-10T12:03:59.7388437Z 
+2026-09-10T12:03:59.8151752Z 
+2026-09-10T12:03:59.8152578Z   62 passing (3m)
+2026-09-10T12:03:59.8154460Z   1 failing
+2026-09-10T12:03:59.8168272Z 
+2026-09-10T12:03:59.8178428Z   1) API : Check endpoints
+2026-09-10T12:03:59.8178762Z        Check endpoints
+2026-09-10T12:03:59.8179089Z          should check endpoints:
+2026-09-10T12:03:59.8179310Z 
+2026-09-10T12:03:59.8225924Z       AssertionError: expected [ '/addresses/bulk-delete: DELETE', '/addresses/carts/{cartId}: PATCH', '/addresses/customers/{addressId}: GET', '/addresses/customers/{addressId}: PATCH', '/addresses/customers: POST', '/addresses/manufacturers/{addressId}: GET', '/addresses/manufacturers/{addressId}: PATCH', '/addresses/manufacturers: POST', '/addresses/orders/{orderId}: PATCH', '/addresses/{addressId}: DELETE', '/addresses: GET', '/api-clients/infos: GET', '/api-clients/{apiClientId}: DELETE', '/api-clients/{apiClientId}: GET', '/api-clients/{apiClientId}: PATCH', '/api-clients: GET', '/api-clients: POST', '/attachments/search: GET', '/attachments/{attachmentId}/files: GET', '/attachments/{attachmentId}/information: GET', '/attributes/attributes/bulk-delete: DELETE', '/attributes/attributes/{attributeId}: DELETE', '/attributes/attributes/{attributeId}: GET', '/attributes/attributes/{attributeId}: PATCH', '/attributes/attributes: POST', '/attributes/groups-with-attributes: GET', '/attributes/groups/bulk-delete: DELETE', '/attributes/groups/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes: GET', '/attributes/groups/{attributeGroupId}: DELETE', '/attributes/groups/{attributeGroupId}: GET', '/attributes/groups/{attributeGroupId}: PATCH', '/attributes/groups: GET', '/attributes/groups: POST', '/carriers/search-compatible-carriers: GET', '/carriers/{carrierId}/ranges: GET', '/carriers/{carrierId}/ranges: PATCH', '/carriers/{carrierId}/set-tax-rule-group: PATCH', '/carriers/{carrierId}: GET', '/carriers/{carrierId}: POST', '/carriers: GET', '/carriers: POST', '/cart-rules/search: GET', '/carts/{cartId}/emails: PUT', '/categories/bulk-delete/{deleteMode}: DELETE', '/categories/bulk-update-status: PUT', '/categories/{categoryId}/cover: DELETE', '/categories/{categoryId}/status: PATCH', '/categories/{categoryId}/thumbnail: DELETE', '/categories/{categoryId}/{mode}: DELETE', '/categories/{categoryId}: GET', '/categories/{categoryId}: PATCH', '/categories: GET', '/categories: POST', '/contacts/{contactId}: GET', '/contacts/{contactId}: PATCH', '/contacts: GET', '/contacts: POST', '/countries/{countryId}: DELETE', '/countries/{countryId}: GET', '/countries/{countryId}: PATCH', '/countries: GET', '/countries: POST', '/customers/bulk-delete: DELETE', '/customers/bulk-disable: PUT', '/customers/bulk-enable: PUT', '/customers/groups/{customerGroupId}: DELETE', '/customers/groups/{customerGroupId}: GET', '/customers/groups/{customerGroupId}: PUT', '/customers/groups: GET', '/customers/groups: POST', '/customers/required-fields: GET', '/customers/required-fields: PUT', '/customers/search: GET', '/customers/{customerId}/details: GET', '/customers/{customerId}: DELETE', '/customers/{customerId}: GET', '/customers/{customerId}: PATCH', '/customers: POST', '/discounts/bulk-delete: DELETE', '/discounts/bulk-update-status: PATCH', '/discounts/types: GET', '/discounts/{discountId}/duplicate: POST', '/discounts/{discountId}: DELETE', '/discounts/{discountId}: GET', '/discounts/{discountId}: PATCH', '/discounts: GET', '/discounts: POST', '/employees/send-password-reset-email: POST', '/extra-property-definitions/bulk-delete: DELETE', '/extra-property-definitions/{extraPropertyDefinitionId}: DELETE', '/extra-property-definitions/{extraPropertyDefinitionId}: GET', '/extra-property-definitions/{extraPropertyDefinitionId}: PATCH', '/extra-property-definitions: GET', '/extra-property-definitions: POST', '/features/bulk-delete: DELETE', '/features/values/bulk-delete: DELETE', '/features/values/{featureValueId}: DELETE', '/features/values/{featureValueId}: GET', '/features/values/{featureValueId}: PATCH', '/features/values: POST', '/features/{featureId}/values: GET', '/features/{featureId}: DELETE', '/features/{featureId}: GET', '/features/{featureId}: PATCH', '/features: GET', '/features: POST', '/hooks/{hookId}/status: GET', '/hooks/{hookId}/status: PUT', '/hooks/{hookId}: GET', '/hooks: GET', '/languages: GET', '/manufacturers/bulk-delete: PUT', '/manufacturers/{manufacturerId}: DELETE', '/manufacturers/{manufacturerId}: GET', '/manufacturers/{manufacturerId}: PATCH', '/manufacturers: GET', '/manufacturers: POST', '/modules/bulk-uninstall: PUT', '/modules/bulk-update-status: PUT', '/modules/upload-archive: POST', '/modules/upload-source: POST', '/modules/{technicalName}/install: PUT', '/modules/{technicalName}/reset: PATCH', '/modules/{technicalName}/status: PUT', '/modules/{technicalName}/uninstall: PUT', '/modules/{technicalName}/upgrade: PUT', '/modules/{technicalName}: GET', '/modules: GET', '/order-messages/bulk-delete: DELETE', '/order-messages/{orderMessageId}: DELETE', '/order-messages/{orderMessageId}: GET', '/order-messages/{orderMessageId}: PATCH', '/order-messages: GET', '/order-messages: POST', '/order-return-states/bulk-delete: DELETE', '/order-return-states/{orderReturnStateId}: DELETE', '/order-return-states/{orderReturnStateId}: GET', '/order-return-states/{orderReturnStateId}: PATCH', '/order-return-states: GET', '/order-return-states: POST', '/order-returns/{orderReturnId}: GET', '/order-returns/{orderReturnId}: PATCH', '/products/combinations/{combinationId}: GET', '/products/images/{imageId}: DELETE', '/products/images/{imageId}: GET', '/products/images/{imageId}: POST', '/products/search: GET', '/products/{productId}/assign-to-categories: POST', '/products/{productId}/carriers: GET', '/products/{productId}/carriers: PUT', '/products/{productId}/categories: DELETE', '/products/{productId}/categories: POST', '/products/{productId}/combination-ids: GET', '/products/{productId}/combinations: GET', '/products/{productId}/generate-combinations: POST', '/products/{productId}/images: GET', '/products/{productId}/images: POST', '/products/{productId}/shops: PATCH', '/products/{productId}: DELETE', '/products/{productId}: GET', '/products/{productId}: PATCH', '/products: GET', '/products: POST', '/profiles/{profileId}: DELETE', '/profiles/{profileId}: GET', '/profiles: POST', '/search-aliases/bulk-delete: DELETE', '/search-aliases/{searchTerm}: GET', '/search-aliases/{searchTerm}: PUT', '/search-aliases: GET', '/search-aliases: POST', '/search-engines/bulk-delete: DELETE', '/search-engines/{searchEngineId}: DELETE', '/search-engines/{searchEngineId}: GET', '/search-engines/{searchEngineId}: PATCH', '/search-engines: GET', '/search-engines: POST', '/showcase-cards/{showcaseCardName}/{employeeId}/close: PUT', '/showcase-cards/{showcaseCardName}/{employeeId}: GET', '/stores/bulk-delete: DELETE', '/stores/bulk-update-status: PUT', '/stores/{storeId}/toggle-status: PUT', '/stores/{storeId}: DELETE', '/stores/{storeId}: GET', '/suppliers/bulk-delete: DELETE', '/suppliers/bulk-disable: PUT', '/suppliers/bulk-enable: PUT', '/suppliers/{supplierId}/logo: DELETE', '/suppliers/{supplierId}/toggle-status: PUT', '/suppliers/{supplierId}: DELETE', '/suppliers/{supplierId}: GET', '/suppliers/{supplierId}: PATCH', '/suppliers: GET', '/suppliers: POST', '/tabs/{className}: PUT', '/tax-rules-groups/bulk-delete: DELETE', '/tax-rules-groups/bulk-update-status: PUT', '/tax-rules-groups/{taxRulesGroupId}/set-status: PATCH', '/tax-rules-groups/{taxRulesGroupId}: DELETE', '/tax-rules-groups/{taxRulesGroupId}: GET', '/tax-rules-groups/{taxRulesGroupId}: PATCH', '/tax-rules-groups: GET', '/tax-rules-groups: POST', '/tax-rules/{taxRuleId}: DELETE', '/tax-rules: GET', '/tax-rules: POST', '/taxes/bulk-delete: PUT', '/taxes/bulk-set-status: PUT', '/taxes/{taxId}: DELETE', '/taxes/{taxId}: GET', '/taxes/{taxId}: PATCH', '/taxes: GET', '/taxes: POST', '/titles/bulk-delete: DELETE', '/titles/{titleId}: DELETE', '/titles/{titleId}: GET', '/titles/{titleId}: PATCH', '/titles: GET', '/titles: POST', '/webservice-keys/{webserviceKeyId}: GET', '/webservice-keys/{webserviceKeyId}: PATCH', '/webservice-keys: GET', '/webservice-keys: POST', '/zones/bulk-delete: DELETE', '/zones/bulk-update-status: PUT', '/zones/{zoneId}/toggle-status: PUT', '/zones/{zoneId}: DELETE', '/zones/{zoneId}: GET', '/zones/{zoneId}: PUT', '/zones: GET', '/zones: POST' ] to deeply equal [ '/addresses/bulk-delete: DELETE', '/addresses/carts/{cartId}: PATCH', '/addresses/customers/{addressId}: GET', '/addresses/customers/{addressId}: PATCH', '/addresses/customers: POST', '/addresses/manufacturers/{addressId}: GET', '/addresses/manufacturers/{addressId}: PATCH', '/addresses/manufacturers: POST', '/addresses/orders/{orderId}: PATCH', '/addresses/{addressId}: DELETE', '/addresses: GET', '/api-clients/infos: GET', '/api-clients/{apiClientId}: DELETE', '/api-clients/{apiClientId}: GET', '/api-clients/{apiClientId}: PATCH', '/api-clients: GET', '/api-clients: POST', '/attachments/search: GET', '/attachments/{attachmentId}/files: GET', '/attachments/{attachmentId}/information: GET', '/attributes/attributes/bulk-delete: DELETE', '/attributes/attributes/{attributeId}: DELETE', '/attributes/attributes/{attributeId}: GET', '/attributes/attributes/{attributeId}: PATCH', '/attributes/attributes: POST', '/attributes/groups-with-attributes: GET', '/attributes/groups/bulk-delete: DELETE', '/attributes/groups/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes: GET', '/attributes/groups/{attributeGroupId}: DELETE', '/attributes/groups/{attributeGroupId}: GET', '/attributes/groups/{attributeGroupId}: PATCH', '/attributes/groups: GET', '/attributes/groups: POST', '/carriers/search-compatible-carriers: GET', '/carriers/{carrierId}/ranges: GET', '/carriers/{carrierId}/ranges: PATCH', '/carriers/{carrierId}/set-tax-rule-group: PATCH', '/carriers/{carrierId}: GET', '/carriers/{carrierId}: POST', '/carriers: GET', '/carriers: POST', '/cart-rules/search: GET', '/carts/{cartId}/emails: PUT', '/categories/bulk-delete/{deleteMode}: DELETE', '/categories/bulk-update-status: PUT', '/categories/{categoryId}/cover: DELETE', '/categories/{categoryId}/status: PATCH', '/categories/{categoryId}/thumbnail: DELETE', '/categories/{categoryId}/{mode}: DELETE', '/categories/{categoryId}: GET', '/categories/{categoryId}: PATCH', '/categories: GET', '/categories: POST', '/contacts/{contactId}: GET', '/contacts/{contactId}: PATCH', '/contacts: GET', '/contacts: POST', '/countries/{countryId}: DELETE', '/countries/{countryId}: GET', '/countries/{countryId}: PATCH', '/countries: GET', '/countries: POST', '/customers/bulk-delete: DELETE', '/customers/bulk-disable: PUT', '/customers/bulk-enable: PUT', '/customers/groups/{customerGroupId}: DELETE', '/customers/groups/{customerGroupId}: GET', '/customers/groups/{customerGroupId}: PUT', '/customers/groups: GET', '/customers/groups: POST', '/customers/required-fields: GET', '/customers/required-fields: PUT', '/customers/search: GET', '/customers/{customerId}/details: GET', '/customers/{customerId}: DELETE', '/customers/{customerId}: GET', '/customers/{customerId}: PATCH', '/customers: POST', '/discounts/bulk-delete: DELETE', '/discounts/bulk-update-status: PATCH', '/discounts/types: GET', '/discounts/{discountId}/duplicate: POST', '/discounts/{discountId}: DELETE', '/discounts/{discountId}: GET', '/discounts/{discountId}: PATCH', '/discounts: GET', '/discounts: POST', '/employees/send-password-reset-email: POST', '/features/bulk-delete: DELETE', '/features/values/bulk-delete: DELETE', '/features/values/{featureValueId}: DELETE', '/features/values/{featureValueId}: GET', '/features/values/{featureValueId}: PATCH', '/features/values: POST', '/features/{featureId}/values: GET', '/features/{featureId}: DELETE', '/features/{featureId}: GET', '/features/{featureId}: PATCH', '/features: GET', '/features: POST', '/hooks/{hookId}/status: GET', '/hooks/{hookId}/status: PUT', '/hooks/{hookId}: GET', '/hooks: GET', '/languages: GET', '/manufacturers/bulk-delete: PUT', '/manufacturers/{manufacturerId}: DELETE', '/manufacturers/{manufacturerId}: GET', '/manufacturers/{manufacturerId}: PATCH', '/manufacturers: GET', '/manufacturers: POST', '/modules/bulk-uninstall: PUT', '/modules/bulk-update-status: PUT', '/modules/upload-archive: POST', '/modules/upload-source: POST', '/modules/{technicalName}/install: PUT', '/modules/{technicalName}/reset: PATCH', '/modules/{technicalName}/status: PUT', '/modules/{technicalName}/uninstall: PUT', '/modules/{technicalName}/upgrade: PUT', '/modules/{technicalName}: GET', '/modules: GET', '/order-messages/bulk-delete: DELETE', '/order-messages/{orderMessageId}: DELETE', '/order-messages/{orderMessageId}: GET', '/order-messages/{orderMessageId}: PATCH', '/order-messages: GET', '/order-messages: POST', '/order-return-states/bulk-delete: DELETE', '/order-return-states/{orderReturnStateId}: DELETE', '/order-return-states/{orderReturnStateId}: GET', '/order-return-states/{orderReturnStateId}: PATCH', '/order-return-states: GET', '/order-return-states: POST', '/order-returns/{orderReturnId}: GET', '/order-returns/{orderReturnId}: PATCH', '/products/combinations/{combinationId}: GET', '/products/images/{imageId}: DELETE', '/products/images/{imageId}: GET', '/products/images/{imageId}: POST', '/products/search: GET', '/products/{productId}/assign-to-categories: POST', '/products/{productId}/carriers: GET', '/products/{productId}/carriers: PUT', '/products/{productId}/categories: DELETE', '/products/{productId}/categories: POST', '/products/{productId}/combination-ids: GET', '/products/{productId}/combinations: GET', '/products/{productId}/generate-combinations: POST', '/products/{productId}/images: GET', '/products/{productId}/images: POST', '/products/{productId}/shops: PATCH', '/products/{productId}: DELETE', '/products/{productId}: GET', '/products/{productId}: PATCH', '/products: GET', '/products: POST', '/profiles/{profileId}: DELETE', '/profiles/{profileId}: GET', '/profiles: POST', '/search-aliases/bulk-delete: DELETE', '/search-aliases/{searchTerm}: GET', '/search-aliases/{searchTerm}: PUT', '/search-aliases: GET', '/search-aliases: POST', '/search-engines/bulk-delete: DELETE', '/search-engines/{searchEngineId}: DELETE', '/search-engines/{searchEngineId}: GET', '/search-engines/{searchEngineId}: PATCH', '/search-engines: GET', '/search-engines: POST', '/showcase-cards/{showcaseCardName}/{employeeId}/close: PUT', '/showcase-cards/{showcaseCardName}/{employeeId}: GET', '/stores/bulk-delete: DELETE', '/stores/bulk-update-status: PUT', '/stores/{storeId}/toggle-status: PUT', '/stores/{storeId}: DELETE', '/stores/{storeId}: GET', '/suppliers/bulk-delete: DELETE', '/suppliers/bulk-disable: PUT', '/suppliers/bulk-enable: PUT', '/suppliers/{supplierId}/logo: DELETE', '/suppliers/{supplierId}/toggle-status: PUT', '/suppliers/{supplierId}: DELETE', '/suppliers/{supplierId}: GET', '/suppliers/{supplierId}: PATCH', '/suppliers: GET', '/suppliers: POST', '/tabs/{className}: PUT', '/tax-rules-groups/bulk-delete: DELETE', '/tax-rules-groups/bulk-update-status: PUT', '/tax-rules-groups/{taxRulesGroupId}/set-status: PATCH', '/tax-rules-groups/{taxRulesGroupId}: DELETE', '/tax-rules-groups/{taxRulesGroupId}: GET', '/tax-rules-groups/{taxRulesGroupId}: PATCH', '/tax-rules-groups: GET', '/tax-rules-groups: POST', '/tax-rules/{taxRuleId}: DELETE', '/tax-rules: GET', '/tax-rules: POST', '/taxes/bulk-delete: PUT', '/taxes/bulk-set-status: PUT', '/taxes/{taxId}: DELETE', '/taxes/{taxId}: GET', '/taxes/{taxId}: PATCH', '/taxes: GET', '/taxes: POST', '/titles/bulk-delete: DELETE', '/titles/{titleId}: DELETE', '/titles/{titleId}: GET', '/titles/{titleId}: PATCH', '/titles: GET', '/titles: POST', '/webservice-keys/{webserviceKeyId}: GET', '/webservice-keys/{webserviceKeyId}: PATCH', '/webservice-keys: GET', '/webservice-keys: POST', '/zones/bulk-delete: DELETE', '/zones/bulk-update-status: PUT', '/zones/{zoneId}/toggle-status: PUT', '/zones/{zoneId}: DELETE', '/zones/{zoneId}: GET', '/zones/{zoneId}: PUT', '/zones: GET', '/zones: POST' ]
+2026-09-10T12:03:59.8263656Z       + expected - actual
+2026-09-10T12:03:59.8263788Z 
+2026-09-10T12:03:59.8263907Z          "/discounts/{discountId}: PATCH"
+2026-09-10T12:03:59.8264137Z          "/discounts: GET"
+2026-09-10T12:03:59.8264326Z          "/discounts: POST"
+2026-09-10T12:03:59.8264581Z          "/employees/send-password-reset-email: POST"
+2026-09-10T12:03:59.8264890Z       -  "/extra-property-definitions/bulk-delete: DELETE"
+2026-09-10T12:03:59.8265266Z       -  "/extra-property-definitions/{extraPropertyDefinitionId}: DELETE"
+2026-09-10T12:03:59.8265662Z       -  "/extra-property-definitions/{extraPropertyDefinitionId}: GET"
+2026-09-10T12:03:59.8266059Z       -  "/extra-property-definitions/{extraPropertyDefinitionId}: PATCH"
+2026-09-10T12:03:59.8266387Z       -  "/extra-property-definitions: GET"
+2026-09-10T12:03:59.8266654Z       -  "/extra-property-definitions: POST"
+2026-09-10T12:03:59.8266914Z          "/features/bulk-delete: DELETE"
+2026-09-10T12:03:59.8267166Z          "/features/values/bulk-delete: DELETE"
+2026-09-10T12:03:59.8267431Z          "/features/values/{featureValueId}: DELETE"
+2026-09-10T12:03:59.8267707Z          "/features/values/{featureValueId}: GET"
+2026-09-10T12:03:59.8268156Z --
+2026-09-10T12:03:59.8268339Z          "/webservice-keys: GET"
+2026-09-10T12:03:59.8268706Z          "/webservice-keys: POST"
+2026-09-10T12:03:59.8268933Z          "/zones/bulk-delete: DELETE"
+2026-09-10T12:03:59.8269175Z          "/zones/bulk-update-status: PUT"
+2026-09-10T12:03:59.8269386Z       -  "/zones/{zon
+2026-09-10T12:03:59.8269600Z       +  "/zones/{zoneId}/toggle-status: PUT"
+2026-09-10T12:03:59.8269835Z       +  "/zones/{zoneId}: DELETE"
+2026-09-10T12:03:59.8270047Z       +  "/zones/{zoneId}: GET"
+2026-09-10T12:03:59.8270249Z       +  "/zones/{zoneId}: PUT"
+2026-09-10T12:03:59.8270427Z       +  "/zones: GET"
+2026-09-10T12:03:59.8270602Z       +  "/zones: POST"
+2026-09-10T12:03:59.8270771Z       +]
+2026-09-10T12:03:59.8270914Z       
+2026-09-10T12:03:59.8271213Z       [mocha] output truncated to 8192 characters, see "maxDiffSize" reporter-option
+2026-09-10T12:03:59.8271460Z 
+2026-09-10T12:03:59.8271707Z       at Context.<anonymous> (campaigns/functional/API/02_checkEndpoints.ts:553:33)
+2026-09-10T12:03:59.8271957Z 
+2026-09-10T12:03:59.8271962Z 
+2026-09-10T12:03:59.8271966Z 
+2026-09-10T12:03:59.9679560Z [mochawesome] Report JSON saved to /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/tests/UI/mochawesome-report/mochawesome.json
+2026-09-10T12:03:59.9686259Z 
+2026-09-10T12:03:59.9708863Z [mochawesome] Report HTML saved to /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/tests/UI/mochawesome-report/mochawesome.html
+2026-09-10T12:03:59.9738087Z 
+2026-09-10T12:04:00.0620186Z ##[error]Process completed with exit code 1.
+2026-09-10T12:04:00.0626060Z ##[end-action id=runTests.__run_4;outcome=failure;conclusion=failure;duration_ms=170718]
+2026-09-10T12:04:00.0657112Z ##[group]Run echo "SCREENSHOT_CAMPAIGN=$( echo -e 'functional:API' | tr ':' '-' )" >> $GITHUB_ENV
+2026-09-10T12:04:00.0657618Z [36;1mecho "SCREENSHOT_CAMPAIGN=$( echo -e 'functional:API' | tr ':' '-' )" >> $GITHUB_ENV[0m
+2026-09-10T12:04:00.0812018Z shell: /usr/bin/bash -e {0}
+2026-09-10T12:04:00.0812228Z env:
+2026-09-10T12:04:00.0812399Z   CLIENT_ID_API: ui-test-client
+2026-09-10T12:04:00.0812640Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T12:04:00.0812884Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T12:04:00.0813070Z ##[endgroup]
+2026-09-10T12:04:00.0919905Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:00.0920885Z ##[group]Run actions/upload-artifact@v4
+2026-09-10T12:04:00.0921100Z with:
+2026-09-10T12:04:00.0921269Z   name: campaign-functional-API
+2026-09-10T12:04:00.0921486Z   path: ./tests/UI/screenshots/
+./var/logs
+
+2026-09-10T12:04:00.0921721Z   if-no-files-found: warn
+2026-09-10T12:04:00.0921911Z   compression-level: 6
+2026-09-10T12:04:00.0922086Z   overwrite: false
+2026-09-10T12:04:00.0922264Z   include-hidden-files: false
+2026-09-10T12:04:00.0922455Z env:
+2026-09-10T12:04:00.0922611Z   CLIENT_ID_API: ui-test-client
+2026-09-10T12:04:00.0922841Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T12:04:00.0923106Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T12:04:00.0923321Z   SCREENSHOT_CAMPAIGN: functional-API
+2026-09-10T12:04:00.0923524Z ##[endgroup]
+2026-09-10T12:04:00.3214643Z (node:10537) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-10T12:04:00.3215674Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-10T12:04:00.3344068Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-10T12:04:00.3346596Z The least common ancestor is /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr. This will be the root directory of the artifact
+2026-09-10T12:04:00.3347760Z With the provided path, there will be 5 files uploaded
+2026-09-10T12:04:00.3349987Z Artifact name is valid!
+2026-09-10T12:04:00.3351690Z Root directory input is valid!
+2026-09-10T12:04:00.5835370Z Beginning upload of artifact content to blob storage
+2026-09-10T12:04:00.8299830Z (node:10537) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-10T12:04:01.2348206Z Uploaded bytes 8388608
+2026-09-10T12:04:01.5313003Z Uploaded bytes 16777216
+2026-09-10T12:04:01.6521681Z Uploaded bytes 21927442
+2026-09-10T12:04:01.6868838Z Finished uploading artifact content to blob storage!
+2026-09-10T12:04:01.6869942Z SHA256 digest of uploaded artifact zip is 632de0ef8c314bda0fc576024664f2b918b13722a1a03e626be3bff341cc27b2
+2026-09-10T12:04:01.6870969Z Finalizing artifact upload
+2026-09-10T12:04:01.9327156Z Artifact campaign-functional-API.zip successfully finalized. Artifact ID 10150931413
+2026-09-10T12:04:01.9328487Z Artifact campaign-functional-API has been successfully uploaded! Final size is 21927442 bytes. Artifact ID is 10150931413
+2026-09-10T12:04:01.9333694Z Artifact download URL: https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/34473576823/artifacts/10150931413
+2026-09-10T12:04:01.9536780Z Post job cleanup.
+2026-09-10T12:04:01.9539919Z ##[start-action display=Setup Node;id=__ffcc22ad-b87e-47d6-9e03-e065657d80d7.__actions_setup-node]
+2026-09-10T12:04:01.9542586Z ##[end-action id=__ffcc22ad-b87e-47d6-9e03-e065657d80d7.__actions_setup-node;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-10T12:04:01.9573390Z Post job cleanup.
+2026-09-10T12:04:01.9575761Z ##[start-action display=Checkout keycloak module;id=__956c10c3-f0ed-473c-b6b1-8afb401bd5a1.__actions_checkout]
+2026-09-10T12:04:01.9631964Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:01.9632901Z Post job cleanup.
+2026-09-10T12:04:02.0333695Z [command]/usr/bin/git version
+2026-09-10T12:04:02.0378000Z git version 2.55.0
+2026-09-10T12:04:02.0407007Z Temporarily overriding HOME='/home/runner/work/_temp/a5470c6b-6641-4617-916f-11a8c0c8fc6c' before making global git config changes
+2026-09-10T12:04:02.0408297Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.0411267Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/keycloak_connector_demo
+2026-09-10T12:04:02.0448114Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.0478807Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.0700320Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.0722825Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.0731270Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.0763811Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.0988661Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.1021194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.1311783Z ##[end-action id=__956c10c3-f0ed-473c-b6b1-8afb401bd5a1.__actions_checkout;outcome=success;conclusion=success;duration_ms=173]
+2026-09-10T12:04:02.1364665Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:02.1365634Z Post job cleanup.
+2026-09-10T12:04:02.2071976Z [command]/usr/bin/git version
+2026-09-10T12:04:02.2108774Z git version 2.55.0
+2026-09-10T12:04:02.2143132Z Temporarily overriding HOME='/home/runner/work/_temp/0ede90b5-9b30-497a-9542-dda9a1d9b311' before making global git config changes
+2026-09-10T12:04:02.2144079Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.2148819Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/custom_actions
+2026-09-10T12:04:02.2186997Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.2218557Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.2430866Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.2453938Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.2463312Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.2498077Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.2713314Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.2746086Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.3100124Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:02.3101075Z Post job cleanup.
+2026-09-10T12:04:02.3829080Z [command]/usr/bin/git version
+2026-09-10T12:04:02.3856822Z git version 2.55.0
+2026-09-10T12:04:02.3890761Z Temporarily overriding HOME='/home/runner/work/_temp/f2c27c7c-ceb3-4cdd-92f0-4c027cc38a0d' before making global git config changes
+2026-09-10T12:04:02.3891596Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.3896183Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr
+2026-09-10T12:04:02.3935621Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.3968583Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.4199518Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.4222600Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.4232530Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.4269984Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.4505019Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.4542572Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.4911133Z Cleaning up orphan processes
+2026-09-10T12:04:02.5500140Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

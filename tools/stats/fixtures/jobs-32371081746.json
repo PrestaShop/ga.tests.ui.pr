@@ -1,0 +1,1046 @@
+{
+  "_note": "Run 32371081746 (pr_test.yml, prebuilt-shop). Nested reusable job names: `<caller> / <inner>`. Run was cancelled; used for name parsing and for the aborted/cancelled path.",
+  "run_id": 32371081746,
+  "repo": "alicjacichocka-bitbag/ga.tests.ui.pr",
+  "jobs": [
+    {
+      "completed_at": "2026-08-20T13:19:08Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96431583094",
+      "id": 96431583094,
+      "name": "Sanity campaign / Test",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:52:07Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Checkout PrestaShop",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Pull database image in background",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PrestaShop image in background",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Generate a certificate",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Get Composer Cache Directory",
+          "number": 8
+        },
+        {
+          "conclusion": "success",
+          "name": "Restore composer cache dir",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Composer dependencies",
+          "number": 10
+        },
+        {
+          "conclusion": "success",
+          "name": "Save composer cache dir",
+          "number": 11
+        },
+        {
+          "conclusion": "success",
+          "name": "Build and run shop with docker",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node 20.19.5",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build assets in parallel and in background",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Check that all builds are finished",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Install browsers",
+          "number": 16
+        },
+        {
+          "conclusion": "cancelled",
+          "name": "Run sanity campaign",
+          "number": 17
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node 20.19.5",
+          "number": 32
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Checkout PrestaShop",
+          "number": 33
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 34
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 35
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-08-20T12:56:20Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96431583276",
+      "id": 96431583276,
+      "name": "Prebuild shop and export artifacts / Build shop artifacts",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:52:07Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-08-20T13:18:58Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779484",
+      "id": 96432779484,
+      "name": "Long functional:BO:shop-parameters:01-02 / Test functional:BO:shop-parameters:01-02",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:22Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Download docker artifacts",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Extract PrestaShop sources",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Pull database in background",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PrestaShop image in background",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Generate a certificate",
+          "number": 8
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup database",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Start up shop docker",
+          "number": 10
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Create API client",
+          "number": 11
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Launch keycloak",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node 20.19.5",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build test dependencies",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Install browsers",
+          "number": 15
+        },
+        {
+          "conclusion": "cancelled",
+          "name": "Run campaign functional:BO:shop-parameters:01-02 on prebuilt shop",
+          "number": 16
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node 20.19.5",
+          "number": 31
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 32
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 33
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-08-20T13:19:00Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779517",
+      "id": 96432779517,
+      "name": "Long functional:FO:classic:01-03 / Test functional:FO:classic:01-03",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:24Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Download docker artifacts",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Extract PrestaShop sources",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Pull database in background",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PrestaShop image in background",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Generate a certificate",
+          "number": 8
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup database",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Start up shop docker",
+          "number": 10
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Create API client",
+          "number": 11
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Launch keycloak",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node 20.19.5",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build test dependencies",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Install browsers",
+          "number": 15
+        },
+        {
+          "conclusion": "cancelled",
+          "name": "Run campaign functional:FO:classic:01-03 on prebuilt shop",
+          "number": 16
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node 20.19.5",
+          "number": 31
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 32
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 33
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779530",
+      "id": 96432779530,
+      "name": "Long functional:BO:orders:03-05 / Test functional:BO:orders:03-05",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:19:01Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779546",
+      "id": 96432779546,
+      "name": "Long functional:FO:hummingbird:08-12 / Test functional:FO:hummingbird:08-12",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:24Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Download docker artifacts",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Extract PrestaShop sources",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Pull database in background",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PrestaShop image in background",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Generate a certificate",
+          "number": 8
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup database",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Start up shop docker",
+          "number": 10
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Create API client",
+          "number": 11
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Launch keycloak",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node 20.19.5",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build test dependencies",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Install browsers",
+          "number": 15
+        },
+        {
+          "conclusion": "cancelled",
+          "name": "Run campaign functional:FO:hummingbird:08-12 on prebuilt shop",
+          "number": 16
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node 20.19.5",
+          "number": 31
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 32
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 33
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779595",
+      "id": 96432779595,
+      "name": "Long functional:BO:catalog:07-08 / Test functional:BO:catalog:07-08",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:19:09Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779623",
+      "id": 96432779623,
+      "name": "Long functional:BO:orders:01-view-and-edit-order / Test functional:BO:orders:01-view-and-edit-order",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:23Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Download docker artifacts",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Extract PrestaShop sources",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Pull database in background",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PrestaShop image in background",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Generate a certificate",
+          "number": 8
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup database",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Start up shop docker",
+          "number": 10
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Create API client",
+          "number": 11
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Launch keycloak",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node 20.19.5",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build test dependencies",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Install browsers",
+          "number": 15
+        },
+        {
+          "conclusion": "cancelled",
+          "name": "Run campaign functional:BO:orders:01-view-and-edit-order on prebuilt shop",
+          "number": 16
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node 20.19.5",
+          "number": 31
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 32
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 33
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779664",
+      "id": 96432779664,
+      "name": "Long functional:BO:catalog:01-02 / Test functional:BO:catalog:01-02",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779715",
+      "id": 96432779715,
+      "name": "Long functional:BO:design / Test functional:BO:design",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779720",
+      "id": 96432779720,
+      "name": "Long functional:BO:advanced-parameters:07-10 / Test functional:BO:advanced-parameters:07-10",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779774",
+      "id": 96432779774,
+      "name": "Long functional:FO:classic:08-12 / Test functional:FO:classic:08-12",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779829",
+      "id": 96432779829,
+      "name": "Long functional:BO:shop-parameters:03-04 / Test functional:BO:shop-parameters:03-04",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432780164",
+      "id": 96432780164,
+      "name": "Long functional:BO:catalog:03-04 / Test functional:BO:catalog:03-04",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432780638",
+      "id": 96432780638,
+      "name": "Long functional:FO:hummingbird:01-03 / Test functional:FO:hummingbird:01-03",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432780786",
+      "id": 96432780786,
+      "name": "Long functional:BO:header / Test functional:BO:header",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781377",
+      "id": 96432781377,
+      "name": "Run short campaign functional:BO:customer:01 / Test functional:BO:customer:01",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781618",
+      "id": 96432781618,
+      "name": "Run short campaign audit / Test audit",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781650",
+      "id": 96432781650,
+      "name": "Run short campaign functional:BO:shipping / Test functional:BO:shipping",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:47Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781666",
+      "id": 96432781666,
+      "name": "Run short campaign modules:20-29 / Test modules:20-29",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781678",
+      "id": 96432781678,
+      "name": "Run short campaign functional:BO:customer:02-03 / Test functional:BO:customer:02-03",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781728",
+      "id": 96432781728,
+      "name": "Run short campaign functional:BO:modules / Test functional:BO:modules",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781766",
+      "id": 96432781766,
+      "name": "Run short campaign functional:BO:international:02 / Test functional:BO:international:02",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781797",
+      "id": 96432781797,
+      "name": "Run short campaign functional:BO:orders:01-create-orders / Test functional:BO:orders:01-create-orders",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781880",
+      "id": 96432781880,
+      "name": "Run short campaign functional:BO:international:03-04 / Test functional:BO:international:03-04",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781911",
+      "id": 96432781911,
+      "name": "Run short campaign functional:BO:orders:01:0-1 / Test functional:BO:orders:01:0-1",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:47Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781972",
+      "id": 96432781972,
+      "name": "Run short campaign modules:30-39 / Test modules:30-39",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781996",
+      "id": 96432781996,
+      "name": "Run short campaign functional:BO:advanced-parameters:11-12 / Test functional:BO:advanced-parameters:11-12",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782025",
+      "id": 96432782025,
+      "name": "Run short campaign functional:BO:international:01 / Test functional:BO:international:01",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782101",
+      "id": 96432782101,
+      "name": "Run short campaign functional:productV2 / Test functional:productV2",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782216",
+      "id": 96432782216,
+      "name": "Run short campaign functional:FO:hummingbird:04-07 / Test functional:FO:hummingbird:04-07",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782233",
+      "id": 96432782233,
+      "name": "Run short campaign functional:WS / Test functional:WS",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782260",
+      "id": 96432782260,
+      "name": "Run short campaign modules:01-09 / Test modules:01-09",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782263",
+      "id": 96432782263,
+      "name": "Run short campaign functional:BO:orders:02 / Test functional:BO:orders:02",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782286",
+      "id": 96432782286,
+      "name": "Run short campaign functional:FO:04-07 / Test functional:FO:04-07",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782297",
+      "id": 96432782297,
+      "name": "Run short campaign functional:BO:shop-parameters:05-07 / Test functional:BO:shop-parameters:05-07",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782346",
+      "id": 96432782346,
+      "name": "Run short campaign functional:API / Test functional:API",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782357",
+      "id": 96432782357,
+      "name": "Run short campaign cldr / Test cldr",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:47Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782395",
+      "id": 96432782395,
+      "name": "Run short campaign regression / Test regression",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782396",
+      "id": 96432782396,
+      "name": "Run short campaign functional:BO:advanced-parameters:01-06 / Test functional:BO:advanced-parameters:01-06",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:45Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782398",
+      "id": 96432782398,
+      "name": "Run short campaign functional:BO:payment / Test functional:BO:payment",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782440",
+      "id": 96432782440,
+      "name": "Run short campaign functional:FO:08-12 / Test functional:FO:08-12",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782484",
+      "id": 96432782484,
+      "name": "Run short campaign functional:BO:catalog:05-06 / Test functional:BO:catalog:05-06",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782545",
+      "id": 96432782545,
+      "name": "Run short campaign functional:BO:login / Test functional:BO:login",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:47Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782618",
+      "id": 96432782618,
+      "name": "Run short campaign sanity:productV2 / Test sanity:productV2",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782647",
+      "id": 96432782647,
+      "name": "Run short campaign functional:BO:customer-service / Test functional:BO:customer-service",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782655",
+      "id": 96432782655,
+      "name": "Run short campaign modules:10-19 / Test modules:10-19",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782853",
+      "id": 96432782853,
+      "name": "Run short campaign functional:BO:dashboard / Test functional:BO:dashboard",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782914",
+      "id": 96432782914,
+      "name": "Run short campaign functional:FO:01-03 / Test functional:FO:01-03",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:46Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432782926",
+      "id": 96432782926,
+      "name": "Run short campaign functional:FO:classic:04-07 / Test functional:FO:classic:04-07",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    }
+  ]
+}

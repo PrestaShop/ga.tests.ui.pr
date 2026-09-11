@@ -1,0 +1,12 @@
+{
+  "name": "ga-tests-ui-pr-stats",
+  "private": true,
+  "type": "module",
+  "description": "Collects UI test campaign results from every fork of ga.tests.ui.pr and builds flaky-test statistics. No runtime dependencies.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  }
+}

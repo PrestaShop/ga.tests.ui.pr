@@ -1,0 +1,52 @@
+name: Statistics tool tests
+
+# Unit tests for tools/stats, the puller behind the UI test statistics dashboard.
+#
+# Scoped to its own paths: this repository exists to run PrestaShop UI test campaigns, and
+# a pull request that only touches those workflows has no reason to pay for this.
+#
+# The suite is offline. It runs against recorded API responses and real job logs committed
+# under tools/stats/fixtures, so it needs no token, no network and no rate limit.
+
+on:
+  pull_request:
+    paths:
+      - 'tools/stats/**'
+      - '.github/workflows/stats-tests.yml'
+      - '.github/workflows/stats.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'tools/stats/**'
+      - '.github/workflows/stats-tests.yml'
+      - '.github/workflows/stats.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stats-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: node --test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Matches the runtime the scheduled workflow uses. No dependencies to install.
+          node-version: '20'
+
+      - name: Run the tests
+        working-directory: tools/stats
+        run: node --test
+
+      - name: Check the command-line entry point still starts
+        run: node tools/stats/run.mjs --help

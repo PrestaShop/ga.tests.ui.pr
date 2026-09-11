@@ -1,0 +1,641 @@
+{
+  "_note": "Captured from run 24509737743 (2026-04-16), legacy job names carrying the branch: test (<campaign>, <branch>). Single attempt, logs already expired (410).",
+  "run_id": 24509737743,
+  "repo": "jolelievre/ga.tests.ui.pr",
+  "jobs": [
+    {
+      "completed_at": "2026-04-16T12:28:44Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343429",
+      "id": 71637343429,
+      "name": "test (functional:BO:orders:02, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:38:32Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343441",
+      "id": 71637343441,
+      "name": "test (functional:BO:catalog:03-04, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:35:50Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343444",
+      "id": 71637343444,
+      "name": "test (functional:BO:orders:01-create-orders, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:54Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:24:23Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343446",
+      "id": 71637343446,
+      "name": "test (functional:BO:login, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:42:57Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343450",
+      "id": 71637343450,
+      "name": "test (functional:BO:catalog:01-02, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:37:35Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343451",
+      "id": 71637343451,
+      "name": "test (audit, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:54Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:04:46Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343457",
+      "id": 71637343457,
+      "name": "test (functional:BO:orders:03-05, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:44:11Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:40:30Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343464",
+      "id": 71637343464,
+      "name": "test (functional:BO:orders:01-view-and-edit-order, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:27:24Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343467",
+      "id": 71637343467,
+      "name": "test (cldr, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:54Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:25:20Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343478",
+      "id": 71637343478,
+      "name": "test (functional:BO:dashboard, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:30:23Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343480",
+      "id": 71637343480,
+      "name": "test (functional:BO:orders:01:0-1, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:54:54Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343496",
+      "id": 71637343496,
+      "name": "test (functional:API, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:35:35Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343497",
+      "id": 71637343497,
+      "name": "test (functional:BO:shipping, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:14:13Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343504",
+      "id": 71637343504,
+      "name": "test (functional:BO:shop-parameters:05-07, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:52:10Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:38:33Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343510",
+      "id": 71637343510,
+      "name": "test (functional:BO:design, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:42:46Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343515",
+      "id": 71637343515,
+      "name": "test (functional:BO:international:02, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:36:07Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343529",
+      "id": 71637343529,
+      "name": "test (functional:FO:hummingbird:01-03, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:52:22Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343532",
+      "id": 71637343532,
+      "name": "test (functional:BO:international:01, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:35:54Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:47:27Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343533",
+      "id": 71637343533,
+      "name": "test (functional:FO:hummingbird:08-12, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:37:57Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343535",
+      "id": 71637343535,
+      "name": "test (functional:BO:shop-parameters:03-04, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:00:33Z",
+      "conclusion": "failure",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343539",
+      "id": 71637343539,
+      "name": "test (functional:BO:advanced-parameters:07-10, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:45:28Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Telemetry",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Prepare docker prefix with repository name lower cased",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Checkout PrestaShop repository",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Config git",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Rebase or Merge",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Environment",
+          "number": 8
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Setup Environment failure",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 10
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Create API client",
+          "number": 11
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Launch keycloak",
+          "number": 12
+        },
+        {
+          "conclusion": "failure",
+          "name": "Run Tests",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Run echo \"SCREENSHOT_CAMPAIGN=$( echo -e 'functional:BO:advanced-parameters:07-10' | tr ':' '-' )\" >> $GITHUB_ENV",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run Tests",
+          "number": 28
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 29
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Checkout PrestaShop repository",
+          "number": 30
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 31
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-04-16T12:44:17Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343540",
+      "id": 71637343540,
+      "name": "test (functional:BO:customer:02-03, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:29:05Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343547",
+      "id": 71637343547,
+      "name": "test (functional:BO:catalog:05-06, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:39:26Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343549",
+      "id": 71637343549,
+      "name": "test (functional:BO:payment, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:29:26Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:54:02Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343551",
+      "id": 71637343551,
+      "name": "test (functional:BO:shop-parameters:01-02, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:37:17Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:44:16Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343552",
+      "id": 71637343552,
+      "name": "test (functional:FO:classic:04-07, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:28:10Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:50:40Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343557",
+      "id": 71637343557,
+      "name": "test (functional:BO:customer-service, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:39:27Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:29:37Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343560",
+      "id": 71637343560,
+      "name": "test (functional:BO:international:03-04, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:17:53Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:40:27Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343563",
+      "id": 71637343563,
+      "name": "test (functional:FO:classic:08-12, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:48:00Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:45:11Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343564",
+      "id": 71637343564,
+      "name": "test (functional:BO:modules, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:34:55Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:08:07Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343567",
+      "id": 71637343567,
+      "name": "test (modules:20-29, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:42:18Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:54:46Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343570",
+      "id": 71637343570,
+      "name": "test (functional:FO:hummingbird:04-07, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:43:37Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:52:22Z",
+      "conclusion": "failure",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343571",
+      "id": 71637343571,
+      "name": "test (functional:FO:classic:01-03, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:38:35Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Telemetry",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Prepare docker prefix with repository name lower cased",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Checkout PrestaShop repository",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Config git",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Rebase or Merge",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Environment",
+          "number": 8
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Setup Environment failure",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 10
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Create API client",
+          "number": 11
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Launch keycloak",
+          "number": 12
+        },
+        {
+          "conclusion": "failure",
+          "name": "Run Tests",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Run echo \"SCREENSHOT_CAMPAIGN=$( echo -e 'functional:FO:classic:01-03' | tr ':' '-' )\" >> $GITHUB_ENV",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run Tests",
+          "number": 28
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 29
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Checkout PrestaShop repository",
+          "number": 30
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 31
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-04-16T12:46:55Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343572",
+      "id": 71637343572,
+      "name": "test (functional:BO:advanced-parameters:01-06, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:30:21Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:35:19Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343582",
+      "id": 71637343582,
+      "name": "test (functional:BO:catalog:07-08, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:45:26Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:59:56Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343583",
+      "id": 71637343583,
+      "name": "test (functional:BO:advanced-parameters:11-12, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:52:38Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:57:33Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343586",
+      "id": 71637343586,
+      "name": "test (functional:WS, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:47:32Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:50:42Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343595",
+      "id": 71637343595,
+      "name": "test (functional:BO:customer:01, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:37:58Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:56:57Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343596",
+      "id": 71637343596,
+      "name": "test (sanity, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:47:31Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:37:13Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343602",
+      "id": 71637343602,
+      "name": "test (modules:10-19, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:27:28Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:59:30Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343615",
+      "id": 71637343615,
+      "name": "test (modules:30-39, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:46:50Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T12:59:59Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343617",
+      "id": 71637343617,
+      "name": "test (regression, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:52:25Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:16:07Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343625",
+      "id": 71637343625,
+      "name": "test (functional:BO:header, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:53:24Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-04-16T13:07:03Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/24509737743/job/71637343649",
+      "id": 71637343649,
+      "name": "test (modules:01-09, develop)",
+      "run_attempt": 1,
+      "started_at": "2026-04-16T12:52:25Z",
+      "status": "completed"
+    }
+  ]
+}
