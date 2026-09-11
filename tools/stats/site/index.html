@@ -70,6 +70,17 @@
   .scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
   .detail td { background: var(--panel); white-space: normal; font-size: 13px; }
   .detail ul { margin: 4px 0; padding-left: 18px; }
+  .detail .note { margin: 10px 0 4px; color: var(--muted); }
+  .sub-table { margin: 8px 0 4px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .sub-table th, .sub-table td { font-size: 12px; padding: 5px 8px; border-bottom: 1px solid var(--border); }
+  .sub-table thead th { position: static; cursor: default; background: var(--bg); }
+  .sub-table td:first-child { white-space: normal; min-width: 220px; }
+  .sub-table code { font-size: 11px; color: var(--muted); }
+  .sub-table .err { white-space: normal; max-width: 320px; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+  button.link {
+    background: none; border: 0; padding: 0; font: inherit;
+    color: var(--accent); cursor: pointer; text-decoration: underline;
+  }
 
   .trend { display: flex; align-items: flex-end; gap: 3px; height: 80px; margin-top: 8px; }
   .trend .bar {

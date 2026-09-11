@@ -43,8 +43,11 @@ export function parseLog(text) {
   if (resolved) out.resolved = resolved;
   const summary = parseMochaSummary(lines);
   if (summary) out.summary = summary;
-  const failingTest = parseFailingTest(lines);
-  if (failingTest) out.failingTest = failingTest;
+  const failingTests = parseFailingTests(lines);
+  if (failingTests.length > 0) {
+    out.failingTests = failingTests;
+    out.failingTest = failingTests[0];
+  }
   return out;
 }
 
@@ -162,26 +165,60 @@ export function parseMochaSummary(lines) {
  * @returns {{suite: string, title: string, error: string, file: string|null, line: number|null}|undefined}
  */
 export function parseFailingTest(lines) {
+  return parseFailingTests(lines)[0];
+}
+
+/**
+ * Every failure block of a mocha spec report.
+ *
+ * With `--bail` (the default on pr_test_one.yml) there is only one, but the flag is not
+ * always on, and a campaign that reports three failing scenarios should be credited with
+ * three rather than only its first.
+ *
+ * @param {string[]} lines
+ * @returns {Array<{suite: string, title: string, error: string, file: string|null, line: number|null}>}
+ */
+export function parseFailingTests(lines) {
   // The spec reporter already prints `1) <title>` inline where the test ran, so anchor on
-  // the `N failing` summary and take the block that follows it. Without that anchor the
+  // the `N failing` summary and read the blocks that follow it. Without that anchor the
   // inline line matches first and yields a heading with no suite.
   const summaryAt = lines.findIndex((line) => /^\s*\d+\s+failing\b/.test(line));
-  const searchFrom = summaryAt === -1 ? 0 : summaryAt;
+  if (summaryAt === -1) return [];
 
-  let start = -1;
-  for (let i = searchFrom; i < lines.length; i += 1) {
-    if (/^\s*1\)\s+\S/.test(lines[i])) {
-      start = i;
-      break;
-    }
+  /** Indices of each `N) ...` heading after the summary. */
+  const starts = [];
+  for (let i = summaryAt; i < lines.length; i += 1) {
+    if (/^\s*\d+\)\s+\S/.test(lines[i])) starts.push(i);
   }
-  if (start === -1) return undefined;
+  if (starts.length === 0) return [];
 
-  // The heading is the failure number followed by the suite path, one segment per line,
-  // the last of which ends with a colon and is the test title.
-  const heading = [lines[start].replace(/^\s*1\)\s*/, '').trim()];
+  return starts
+    .map((start, n) => parseOneFailure(lines, start, starts[n + 1] ?? lines.length))
+    .filter(Boolean);
+}
+
+/**
+ * One failure block:
+ *
+ *     1) API : Check endpoints
+ *          Check endpoints
+ *            should check endpoints:
+ *
+ *         AssertionError: expected [ ... ] to deeply equal [ ... ]
+ *         at Context.<anonymous> (campaigns/functional/API/02_checkEndpoints.ts:553:33)
+ */
+function parseOneFailure(lines, start, end) {
+  const first = lines[start].replace(/^\s*\d+\)\s*/, '').trim();
+  const heading = [first];
   let i = start + 1;
-  for (; i < Math.min(lines.length, start + 12); i += 1) {
+
+  // A hook failure puts everything on the heading line, ending in a colon:
+  //     1) "after each" hook for "should click on the PDF button":
+  // Without this the loop would keep swallowing lines and end up calling the scenario
+  // "Call log", which is part of Playwright's error output rather than a test name.
+  const headingComplete = /:$/.test(first);
+
+  for (; !headingComplete && i < Math.min(end, start + 12); i += 1) {
     const line = lines[i];
     if (line.trim() === '') break;
     heading.push(line.trim());
@@ -193,36 +230,47 @@ export function parseFailingTest(lines) {
 
   const titleRaw = heading[heading.length - 1] ?? '';
   const title = titleRaw.replace(/:$/, '').trim();
+  if (!title) return null;
   const suite = heading.slice(0, -1).join(' > ');
 
   // First non-empty line after the heading is the assertion message. It can be enormous
   // (a full endpoint-list diff runs to 10 KB on one line), and only its head is useful for
   // grouping failures, so it is capped.
   let error = '';
-  for (let j = i; j < Math.min(lines.length, i + 10); j += 1) {
+  for (let j = i; j < Math.min(end, i + 10); j += 1) {
     if (lines[j].trim() !== '') {
       error = truncate(lines[j].trim(), 400);
       break;
     }
   }
 
-  const where = findSpecLocation(lines, start);
+  const where = findSpecLocation(lines, start, end);
   return { suite, title, error, file: where?.file ?? null, line: where?.line ?? null };
 }
 
 /**
- * The first `at ... (campaigns/....ts:LINE:COL)` frame after a failure block, which points
- * at the spec rather than at a helper.
+ * Where the failure happened, preferring the campaign spec.
+ *
+ * A timeout inside a page object reports the helper first
+ * (`tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js:8`), which
+ * names no scenario and is the same file for every such failure. The first frame under
+ * `campaigns/` is the spec somebody would actually open, so it wins whenever the stack has
+ * one.
  *
  * @param {string[]} lines
  * @param {number} from
+ * @param {number} [to]
  */
-function findSpecLocation(lines, from) {
-  for (let i = from; i < lines.length; i += 1) {
+function findSpecLocation(lines, from, to = lines.length) {
+  let fallback = null;
+  for (let i = from; i < to; i += 1) {
     const m = lines[i].match(/\(?((?:campaigns|tests)\/[^\s():]+\.[tj]s):(\d+):(\d+)\)?/);
-    if (m) return { file: m[1], line: Number(m[2]) };
+    if (!m) continue;
+    const found = { file: m[1], line: Number(m[2]) };
+    if (found.file.startsWith('campaigns/')) return found;
+    if (!fallback) fallback = found;
   }
-  return null;
+  return fallback;
 }
 
 /**

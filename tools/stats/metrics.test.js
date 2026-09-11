@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { campaignOutcomes, campaignStats, runLevelStats, weeklyTrend, filterRuns, isoWeekStart, wallClockSeconds, runTiming, median, mean } from './metrics.js';
+import { campaignOutcomes, campaignStats, runLevelStats, weeklyTrend, filterRuns, isoWeekStart, wallClockSeconds, runTiming, median, mean, scenarioStats } from './metrics.js';
 
 /** Builds a run file the way collect.js writes one. */
 function run({ id = 1, pr = 100, branch = 'develop', attempts = 1, created = '2026-09-10T10:00:00Z', ...rest }, executions) {
@@ -369,4 +369,131 @@ test('the median duration ignores the order it was given in', () => {
   assert.equal(median([300]), 300);
   assert.equal(median([900, 100, 500]), 500);
   assert.equal(median([400, 200]), 300);
+});
+
+const withScenario = (campaign, attempt, conclusion, scenario, extra = {}) => ({
+  ...exec(campaign, attempt, conclusion, extra),
+  ...(scenario
+    ? { failing_tests: [{ title: scenario.title, suite: scenario.suite ?? 'Suite', file: scenario.file, line: scenario.line ?? 1, error: scenario.error ?? 'AssertionError: nope' }] }
+    : {}),
+});
+
+test('one scenario is blamed for the share of the campaign failures it caused', () => {
+  const runs = [
+    run({ id: 1, pr: 11, attempts: 2 }, [
+      withScenario('functional:BO:catalog:03-04', 1, 'failure', { title: 'should filter by name', file: 'campaigns/functional/BO/03_catalog/01_filter.ts', line: 42 }),
+      withScenario('functional:BO:catalog:03-04', 2, 'success', null),
+    ]),
+    run({ id: 2, pr: 12, attempts: 2 }, [
+      withScenario('functional:BO:catalog:03-04', 1, 'failure', { title: 'should filter by name', file: 'campaigns/functional/BO/03_catalog/01_filter.ts', line: 42 }),
+      withScenario('functional:BO:catalog:03-04', 2, 'success', null),
+    ]),
+    run({ id: 3, pr: 13, attempts: 2 }, [
+      withScenario('functional:BO:catalog:03-04', 1, 'failure', { title: 'should open the product', file: 'campaigns/functional/BO/03_catalog/02_product.ts', line: 7 }),
+      withScenario('functional:BO:catalog:03-04', 2, 'success', null),
+    ]),
+  ];
+
+  const { scenarios, campaignFailures, unattributed } = scenarioStats(runs, 'functional:BO:catalog:03-04');
+
+  assert.equal(campaignFailures, 3);
+  assert.equal(unattributed, 0);
+  assert.equal(scenarios.length, 2);
+
+  const [worst, second] = scenarios;
+  assert.equal(worst.title, 'should filter by name');
+  assert.equal(worst.failures, 2);
+  assert.equal(worst.shareOfFailuresPct, 66.7, 'two of the three failures of this campaign');
+  assert.equal(worst.file, 'campaigns/functional/BO/03_catalog/01_filter.ts');
+  assert.equal(worst.line, 42);
+  assert.equal(worst.distinctPrs, 2, 'failed on two unrelated pull requests');
+  assert.equal(worst.flakyFailures, 2, 'the campaign went green on a later attempt both times');
+
+  assert.equal(second.title, 'should open the product');
+  assert.equal(second.shareOfFailuresPct, 33.3);
+});
+
+test('two scenarios with the same title in different files stay apart', () => {
+  const runs = [
+    run({ id: 1 }, [
+      withScenario('a', 1, 'failure', { title: 'should log in', file: 'campaigns/functional/BO/00_login/01.ts' }),
+    ]),
+    run({ id: 2 }, [
+      withScenario('b', 1, 'failure', { title: 'should log in', file: 'campaigns/functional/FO/01_login/01.ts' }),
+    ]),
+  ];
+  const { scenarios } = scenarioStats(runs);
+  assert.equal(scenarios.length, 2, 'the spec file distinguishes them, the title alone does not');
+  assert.deepEqual(scenarios.map((s) => s.campaigns).flat().sort(), ['a', 'b']);
+});
+
+test('failures whose log has expired are reported as unattributed, not dropped', () => {
+  const runs = [
+    run({ id: 1 }, [
+      withScenario('a', 1, 'failure', { title: 'should do a thing', file: 'campaigns/x.ts' }),
+      // Older than 90 days: the log is gone, so no scenario could be read.
+      withScenario('a', 1, 'failure', null),
+    ]),
+  ];
+  const stats = scenarioStats(runs, 'a');
+
+  assert.equal(stats.campaignFailures, 2);
+  assert.equal(stats.attributed, 1);
+  assert.equal(stats.unattributed, 1);
+  assert.equal(stats.scenarios[0].shareOfFailuresPct, 50, 'the share is of every failure, attributed or not');
+});
+
+test('the most common error message is kept for each scenario', () => {
+  const runs = [
+    run({ id: 1 }, [withScenario('a', 1, 'failure', { title: 't', file: 'f.ts', error: 'TimeoutError: waiting for selector' })]),
+    run({ id: 2 }, [withScenario('a', 1, 'failure', { title: 't', file: 'f.ts', error: 'TimeoutError: waiting for selector' })]),
+    run({ id: 3 }, [withScenario('a', 1, 'failure', { title: 't', file: 'f.ts', error: 'AssertionError: expected 1 to equal 2' })]),
+  ];
+  assert.equal(scenarioStats(runs, 'a').scenarios[0].topError, 'TimeoutError: waiting for selector');
+});
+
+test('a campaign with no failure at all yields nothing to blame', () => {
+  const runs = [run({ id: 1 }, [exec('a', 1, 'success')])];
+  const stats = scenarioStats(runs, 'a');
+  assert.deepEqual(stats.scenarios, []);
+  assert.equal(stats.campaignFailures, 0);
+  assert.equal(stats.unattributed, 0);
+});
+
+test('an execution that reported several failing scenarios credits all of them', () => {
+  // --bail is not always on, so one red campaign can name more than one scenario.
+  const runs = [
+    run({ id: 1, pr: 5 }, [
+      {
+        ...exec('a', 1, 'failure'),
+        failing_tests: [
+          { title: 'first scenario', suite: 'S', file: 'campaigns/a.ts', line: 1, error: 'boom' },
+          { title: 'second scenario', suite: 'S', file: 'campaigns/b.ts', line: 2, error: 'bang' },
+        ],
+      },
+    ]),
+  ];
+  const { scenarios, campaignFailures, attributed, unattributed } = scenarioStats(runs, 'a');
+
+  assert.equal(scenarios.length, 2);
+  assert.deepEqual(scenarios.map((s) => s.title).sort(), ['first scenario', 'second scenario']);
+  assert.equal(campaignFailures, 1, 'still one failing execution');
+  assert.equal(attributed, 1);
+  assert.equal(unattributed, 0);
+});
+
+test('an environment failure is not counted as a missing scenario', () => {
+  const runs = [
+    run({ id: 1 }, [
+      withScenario('a', 1, 'failure', { title: 'a real scenario', file: 'campaigns/x.ts' }),
+      // Died in setup: mocha never ran, so there is no scenario to find and nothing missing.
+      { ...exec('a', 1, 'failure', { failure_kind: 'infra' }), started_at: '2026-09-10T11:00:00Z' },
+    ]),
+  ];
+  const stats = scenarioStats(runs, 'a');
+
+  assert.equal(stats.campaignFailures, 2);
+  assert.equal(stats.attributed, 1);
+  assert.equal(stats.infraFailures, 1);
+  assert.equal(stats.unattributed, 0, 'no log was missing, the campaign simply never started');
 });

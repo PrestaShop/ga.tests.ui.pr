@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { cleanLines, parseLog, parseInputs, parseResolved, parseFailingTest, parseMochaSummary } from './parse-log.js';
+import { cleanLines, parseLog, parseInputs, parseResolved, parseFailingTest, parseFailingTests, parseMochaSummary } from './parse-log.js';
 
 const fixture = (name) =>
   readFileSync(fileURLToPath(new URL(`./fixtures/${name}`, import.meta.url)), 'utf8');
@@ -76,6 +76,10 @@ test('the failing test is located with its spec file and line', () => {
 test('a diff truncated by mocha at 8 KB still parses', () => {
   // mocha prints this marker instead of the rest of the diff; the frame still follows.
   const log = [
+    // Real mocha output always prints the summary before the failure blocks, and the
+    // parser anchors on it so it cannot latch onto the reporter's inline `1) <title>`.
+    '  1 failing',
+    '',
     '  1) FO : Cart',
     '       add to cart',
     '         should add the product:',
@@ -112,5 +116,96 @@ test('a log with none of the blocks yields nothing rather than throwing', () => 
 
 test('parseLog assembles every block it can find', () => {
   const parsed = parseLog(FAILURE);
-  assert.deepEqual(Object.keys(parsed).sort(), ['failingTest', 'inputs', 'resolved', 'summary']);
+  assert.deepEqual(Object.keys(parsed).sort(), ['failingTest', 'failingTests', 'inputs', 'resolved', 'summary']);
+});
+
+test('the campaign spec wins over a page-object helper deeper in the stack', () => {
+  // A timeout inside a page object reports the helper first. That file names no scenario and
+  // is identical for every such failure, so the spec under campaigns/ is the useful one.
+  const log = [
+    '  1 failing',
+    '',
+    '  1) BO - Catalog : Attributes',
+    '       should reset third attribute position to 1:',
+    '',
+    '      page.waitForSelector: Timeout 10000ms exceeded.',
+    '      at CommonPage.waitForSelectorAndClick (tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js:8:15)',
+    '      at Context.<anonymous> (campaigns/functional/BO/03_catalog/05_attributes/01_positions.ts:88:5)',
+  ].join('\n');
+
+  const failing = parseFailingTest(cleanLines(log));
+  assert.equal(failing.file, 'campaigns/functional/BO/03_catalog/05_attributes/01_positions.ts');
+  assert.equal(failing.line, 88);
+  assert.equal(failing.title, 'should reset third attribute position to 1');
+});
+
+test('the helper is still reported when the stack has no campaign frame', () => {
+  const log = [
+    '  1 failing',
+    '',
+    '  1) Suite',
+    '       should do a thing:',
+    '',
+    '      Error: nope',
+    '      at Helper (tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js:8:15)',
+  ].join('\n');
+  assert.equal(parseFailingTest(cleanLines(log)).file, 'tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js');
+});
+
+test('every failure block is read, not only the first', () => {
+  const log = [
+    '  60 passing (3m)',
+    '  2 failing',
+    '',
+    '  1) Suite A',
+    '       should do the first thing:',
+    '',
+    '      AssertionError: first',
+    '      at Context.<anonymous> (campaigns/functional/a.ts:10:1)',
+    '',
+    '  2) Suite B',
+    '       should do the second thing:',
+    '',
+    '      AssertionError: second',
+    '      at Context.<anonymous> (campaigns/functional/b.ts:20:1)',
+  ].join('\n');
+
+  const failures = parseFailingTests(cleanLines(log));
+  assert.equal(failures.length, 2);
+  assert.deepEqual(failures.map((f) => [f.title, f.file, f.line]), [
+    ['should do the first thing', 'campaigns/functional/a.ts', 10],
+    ['should do the second thing', 'campaigns/functional/b.ts', 20],
+  ]);
+  assert.equal(failures[0].error, 'AssertionError: first');
+  assert.equal(failures[1].error, 'AssertionError: second');
+});
+
+test('a log with no failure summary yields an empty list', () => {
+  assert.deepEqual(parseFailingTests(cleanLines(PASS)), []);
+  assert.deepEqual(parseFailingTests([]), []);
+});
+
+test('failure blocks are ignored without the summary that anchors them', () => {
+  // The spec reporter prints `1) <title>` inline where the test ran, long before the
+  // report at the end. Anchoring on `N failing` is what keeps those out.
+  const log = ['      1) should check endpoints', '  ✔ should do something else'].join('\n');
+  assert.deepEqual(parseFailingTests(cleanLines(log)), []);
+});
+
+test('a hook failure keeps the hook as its name, not Playwright error text', () => {
+  // Everything is on the heading line for a hook, ending in a colon. Reading on would
+  // swallow the error output and call the scenario "Call log".
+  const log = [
+    '  1 failing',
+    '',
+    '  1) "after each" hook for "should click on the "PDF" button":',
+    '       page.screenshot: Timeout 30000ms exceeded.',
+    '     Call log:',
+    '       - taking page screenshot',
+  ].join('\n');
+
+  const failing = parseFailingTest(cleanLines(log));
+  assert.equal(failing.title, '"after each" hook for "should click on the "PDF" button"');
+  assert.equal(failing.suite, '');
+  assert.equal(failing.error, 'page.screenshot: Timeout 30000ms exceeded.');
 });

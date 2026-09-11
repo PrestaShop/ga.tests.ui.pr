@@ -43,6 +43,7 @@ const MAX_ATTEMPTS = 6;
  * @param {string[]} [options.repos]      explicit list, skips fork discovery
  * @param {number} [options.maxRuns]      cap on runs processed, not on runs listed
  * @param {boolean} [options.withLogs]    read a log head to resolve the PrestaShop version
+ * @param {boolean} [options.withTests]   also read failing jobs' logs for the scenario that failed
  * @param {(msg: string) => void} [options.log]
  */
 export async function collect({
@@ -52,6 +53,7 @@ export async function collect({
   repos,
   maxRuns = 150,
   withLogs = true,
+  withTests = true,
   log = () => {},
 }) {
   const stats = {
@@ -96,7 +98,7 @@ export async function collect({
     log(`${stats.runsListed} runs listed, ${stats.runsQueued} to process, cap ${maxRuns}`);
 
     for (const { repo, run } of queue.slice(0, maxRuns)) {
-      const runFile = await processRun({ github, store, repo, run, withLogs, log });
+      const runFile = await processRun({ github, store, repo, run, withLogs, withTests, log });
       await store.saveRun(repo, runFile);
       stats.runsProcessed += 1;
       stats.executions += runFile.executions.length;
@@ -128,7 +130,7 @@ export function isTestWorkflow(run) {
 /**
  * Everything worth keeping about one run.
  */
-async function processRun({ github, store, repo, run, withLogs, log }) {
+async function processRun({ github, store, repo, run, withLogs, withTests, log }) {
   const jobs = await github.listRunJobs(repo, run.id);
   const { executions, branchFromJobName, buildShopFailed, rawRows } = toExecutions(jobs);
   const isSecurity = (run.path ?? '').endsWith(SECURITY_WORKFLOW);
@@ -142,6 +144,10 @@ async function processRun({ github, store, repo, run, withLogs, log }) {
     withLogs: withLogs && !isSecurity,
     log,
   });
+
+  if (withTests && !isSecurity) {
+    await attachFailingTests({ github, repo, executions, log });
+  }
 
   // A failed shop prebuild means the campaigns never ran. Recording them as failures would
   // invent ~45 phantom failures per run, so the run is marked and left out of the rates.
@@ -237,6 +243,35 @@ async function resolveVersion({ github, store, repo, jobs, branchFromJobName, wi
   }
 
   return out;
+}
+
+/**
+ * Reads which scenario failed inside each red campaign.
+ *
+ * The mocha report sits at the very end of the log, and the store does not honour suffix
+ * ranges, so finding it with a range would mean one request to learn the size and another
+ * to fetch the tail. The whole log is one request for about seven times the bytes, and the
+ * rate limit is the scarce resource here, not bandwidth.
+ *
+ * Only campaigns whose test step failed are read: an environment failure has no mocha
+ * report to find, and a passing campaign has nothing to say.
+ */
+async function attachFailingTests({ github, repo, executions, log }) {
+  for (const exec of executions) {
+    if (exec.failure_kind !== 'test' || !exec.job_id) continue;
+    try {
+      const text = await github.getJobLog(repo, exec.job_id);
+      if (text === null) continue; // expired past 90 days
+      const { failingTests, summary } = parseLog(text);
+      // `--bail` usually stops at the first, but it is not always on, and a campaign that
+      // reported three failing scenarios should be credited with three.
+      if (failingTests?.length) exec.failing_tests = failingTests;
+      if (summary) exec.test_counts = summary;
+    } catch (err) {
+      if (err instanceof RateLimitReached) throw err;
+      log(`could not read the log of job ${exec.job_id}: ${err.message}`);
+    }
+  }
 }
 
 /**

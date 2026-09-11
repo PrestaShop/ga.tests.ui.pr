@@ -8,11 +8,11 @@
  */
 
 import { decodeDataset } from './dataset.js';
-import { campaignOutcomes, campaignStats, filterRuns, runLevelStats, weeklyTrend } from './metrics.js';
+import { campaignOutcomes, campaignStats, filterRuns, runLevelStats, scenarioStats, weeklyTrend } from './metrics.js';
 
 const el = (id) => document.getElementById(id);
 // Default order: most machine time wasted first, which is the work queue.
-const state = { runs: [], sort: { key: 'lostMinutes', dir: -1 }, expanded: null, lastWindowDays: 90 };
+const state = { runs: [], sort: { key: 'lostMinutes', dir: -1 }, expanded: null, expandedRuns: null, lastWindowDays: 90 };
 
 init();
 
@@ -267,38 +267,123 @@ function renderTable(rows, runs) {
     })
     .join('');
 
+  body.querySelectorAll('button[data-expand]').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      state.expandedRuns = state.expandedRuns === button.dataset.expand ? null : button.dataset.expand;
+      render();
+    });
+  });
+
   body.querySelectorAll('tr.campaign').forEach((tr) => {
     tr.addEventListener('click', () => {
       const name = tr.dataset.campaign;
       state.expanded = state.expanded === name ? null : name;
+      state.expandedRuns = null;
       render();
     });
   });
 }
 
-/** The runs behind one campaign's numbers, so a figure can always be traced to its evidence. */
+/**
+ * Why some failures name no scenario. The two reasons are different and should not be
+ * conflated: an environment failure never reached mocha, so nothing is missing, whereas an
+ * expired log is a real gap in the data.
+ */
+function caveatText(unattributed, infraFailures) {
+  const parts = [];
+  if (infraFailures) {
+    parts.push(`${infraFailures} failed in the environment before any test ran`);
+  }
+  if (unattributed) {
+    parts.push(`${unattributed} lost to the 90 day log retention`);
+  }
+  return parts.length ? `${parts.join(', ')}.` : '';
+}
+
+function caveats(campaignFailures, unattributed, infraFailures) {
+  const text = caveatText(unattributed, infraFailures);
+  return text ? `<p class="note">Of ${campaignFailures} failures: ${text}</p>` : '';
+}
+
+/** How many failing runs to list before folding the rest behind a link. */
+const RUNS_SHOWN = 12;
+
+/**
+ * What is behind one campaign's numbers: first which scenarios failed, then the runs
+ * themselves.
+ *
+ * The scenario table comes first because it is the actionable half. The run list can be
+ * hundreds of entries once the whole backfill is in, so only the most recent are shown and
+ * the rest are one click away.
+ */
 function detailRow(campaign, runs) {
-  const items = [];
+  const { scenarios, campaignFailures, unattributed, infraFailures } = scenarioStats(runs, campaign);
+
+  const scenarioTable = scenarios.length
+    ? `<table class="sub-table">
+         <thead><tr>
+           <th>Failing scenario</th><th>Failures</th><th>Share</th><th>Flaky</th><th>PRs</th><th>Last error</th>
+         </tr></thead>
+         <tbody>${scenarios
+           .slice(0, 15)
+           .map(
+             (s) =>
+               `<tr><td><strong>${escapeHtml(s.title)}</strong>` +
+               (s.file ? `<br><code>${escapeHtml(s.file)}${s.line ? `:${s.line}` : ''}</code>` : '') +
+               `</td><td>${s.failures}</td><td>${s.shareOfFailuresPct}%</td>` +
+               `<td>${s.flakyFailures}</td><td>${s.distinctPrs}</td>` +
+               `<td class="err">${s.topError ? escapeHtml(s.topError.slice(0, 90)) : ''}</td></tr>`,
+           )
+           .join('')}</tbody>
+       </table>` +
+      caveats(campaignFailures, unattributed, infraFailures)
+    : `<p class="note">${
+        campaignFailures
+          ? `No scenario to show for ${campaignFailures} failure${campaignFailures === 1 ? '' : 's'}.` +
+            ` ${caveatText(unattributed, infraFailures)}`
+          : 'No failure in this window.'
+      }</p>`;
+
+  const failing = [];
   for (const run of runs) {
     if (run.aborted) continue;
     const outcome = campaignOutcomes(run).find((o) => o.campaign === campaign);
     if (!outcome || (!outcome.firstFailed && !outcome.hardFailure)) continue;
-
-    const verdict = outcome.hardFailure
-      ? 'never green, no time lost'
-      : `green on attempt ${outcome.attempts}, ${Math.round(outcome.lostSeconds / 60)} min lost`;
-    const pr = run.pr_number ? `PR #${run.pr_number}` : 'security run';
-    items.push(
-      `<li><a href="${run.html_url}" target="_blank" rel="noopener">${run.owner} #${run.run_id}</a> — ` +
-        `${pr}, ${run.branch_key}, ${run.created_at.slice(0, 10)} — ${verdict}` +
-        `${outcome.infra ? ' (environment failure)' : ''}</li>`,
-    );
+    failing.push({ run, outcome });
   }
+  failing.sort((a, b) => (b.run.created_at ?? '').localeCompare(a.run.created_at ?? ''));
 
-  const list = items.length
-    ? `<ul>${items.slice(0, 40).join('')}</ul>${items.length > 40 ? `<p>…and ${items.length - 40} more.</p>` : ''}`
-    : '<p>No failure in this window.</p>';
-  return `<tr class="detail"><td colspan="11"><strong>${escapeHtml(campaign)}</strong>${list}</td></tr>`;
+  const expanded = state.expandedRuns === campaign;
+  const shown = expanded ? failing : failing.slice(0, RUNS_SHOWN);
+  const runList = failing.length
+    ? `<ul>${shown
+        .map(({ run, outcome }) => {
+          const verdict = outcome.hardFailure
+            ? 'never green, no time lost'
+            : `green on attempt ${outcome.attempts}, ${Math.round(outcome.lostSeconds / 60)} min lost`;
+          const pr = run.pr_number ? `PR #${run.pr_number}` : 'security run';
+          return (
+            `<li><a href="${run.html_url}" target="_blank" rel="noopener">${run.owner} #${run.run_id}</a> — ` +
+            `${pr}, ${run.branch_key}, ${(run.created_at ?? '').slice(0, 10)} — ${verdict}` +
+            `${outcome.infra ? ' (environment failure)' : ''}</li>`
+          );
+        })
+        .join('')}</ul>` +
+      (failing.length > RUNS_SHOWN
+        ? `<p><button type="button" class="link" data-expand="${escapeAttr(campaign)}">${
+            expanded ? 'Show fewer runs' : `Show all ${failing.length} runs`
+          }</button></p>`
+        : '')
+    : '';
+
+  return (
+    `<tr class="detail"><td colspan="11">` +
+    `<strong>${escapeHtml(campaign)}</strong>` +
+    scenarioTable +
+    (runList ? `<p class="note">Runs where it failed, most recent first (${failing.length}):</p>${runList}` : '') +
+    `</td></tr>`
+  );
 }
 
 function compare(a, b) {

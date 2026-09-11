@@ -31,10 +31,18 @@ export function encodeDataset(runs) {
     conclusion: new Dictionary(),
     failureKind: new Dictionary(),
     source: new Dictionary(),
+    // Which scenario failed. Repeated heavily by definition: a flaky scenario is one that
+    // fails again and again, so these compress well.
+    suite: new Dictionary(),
+    title: new Dictionary(),
+    file: new Dictionary(),
+    error: new Dictionary(),
   };
 
   const packedRuns = [];
   const packedExecs = [];
+  // Sparse: only failing executions have a scenario, so they are kept out of the main rows.
+  const packedTests = [];
 
   const ordered = [...runs].sort((a, b) => Date.parse(a.created_at ?? 0) - Date.parse(b.created_at ?? 0));
 
@@ -58,6 +66,18 @@ export function encodeDataset(runs) {
     ]);
 
     for (const exec of run.executions ?? []) {
+      const execIndex = packedExecs.length;
+      // One row per failing scenario: an execution can report several when --bail is off.
+      for (const failing of exec.failing_tests ?? []) {
+        packedTests.push([
+          execIndex,
+          dicts.suite.index(failing.suite),
+          dicts.title.index(failing.title),
+          dicts.file.index(failing.file),
+          failing.line ?? 0,
+          dicts.error.index(failing.error),
+        ]);
+      }
       packedExecs.push([
         runIndex,
         dicts.campaign.index(exec.campaign),
@@ -76,6 +96,7 @@ export function encodeDataset(runs) {
     dict: Object.fromEntries(Object.entries(dicts).map(([name, d]) => [name, d.values])),
     runs: packedRuns,
     execs: packedExecs,
+    tests: packedTests,
   };
 }
 
@@ -105,10 +126,13 @@ export function decodeDataset(dataset) {
     executions: [],
   }));
 
+  /** Execution objects in the same order they were packed, so `tests` can point at them. */
+  const flatExecs = [];
+
   for (const e of dataset.execs) {
     const startedAt = e[6];
     const duration = e[5] || null;
-    runs[e[0]]?.executions.push({
+    const exec = {
       campaign: d.campaign[e[1]],
       attempt: e[2],
       conclusion: d.conclusion[e[3]],
@@ -118,6 +142,20 @@ export function decodeDataset(dataset) {
       // Rebuilt rather than stored: the duration was computed from exactly these two
       // timestamps, so this is lossless and saves a column on every execution.
       completed_at: startedAt && duration !== null ? isoString(startedAt + duration) : null,
+    };
+    flatExecs.push(exec);
+    runs[e[0]]?.executions.push(exec);
+  }
+
+  for (const t of dataset.tests ?? []) {
+    const exec = flatExecs[t[0]];
+    if (!exec) continue;
+    (exec.failing_tests ??= []).push({
+      suite: d.suite[t[1]],
+      title: d.title[t[2]],
+      file: d.file[t[3]],
+      line: t[4] || null,
+      error: d.error[t[5]],
     });
   }
 
@@ -167,7 +205,7 @@ export function toCsv(runs) {
   const header = [
     'owner', 'run_id', 'run_url', 'workflow', 'pr_number', 'branch_key', 'branch_key_source',
     'db', 'created_at', 'aborted', 'campaign', 'attempt', 'conclusion', 'failure_kind',
-    'duration_s', 'started_at',
+    'duration_s', 'started_at', 'failed_scenarios', 'failed_scenario_files',
   ];
   const rows = [header.join(',')];
 
@@ -179,6 +217,8 @@ export function toCsv(runs) {
           run.branch_key_source, run.db ?? '', run.created_at, run.aborted ? 'yes' : 'no',
           exec.campaign, exec.attempt, exec.conclusion ?? '', exec.failure_kind ?? '',
           exec.duration_s ?? '', exec.started_at ?? '',
+          (exec.failing_tests ?? []).map((t) => t.title).join(' | '),
+          (exec.failing_tests ?? []).map((t) => (t.line ? `${t.file}:${t.line}` : t.file)).join(' | '),
         ]
           .map(csvCell)
           .join(','),

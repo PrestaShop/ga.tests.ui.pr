@@ -424,3 +424,110 @@ function round(value, digits) {
   const f = 10 ** digits;
   return Math.round(value * f) / f;
 }
+
+/**
+ * Which scenario inside a campaign is responsible for its failures.
+ *
+ * With `--bail` a failing campaign stops at its first failing scenario, so each red
+ * execution names exactly one. The share below is therefore a share of that campaign's
+ * failures, which is the number that says where to start: a campaign failing 47% of the
+ * time because of one scenario is a different job from one failing for a dozen reasons.
+ *
+ * Only available inside the 90 days that job logs survive; older failures contribute to the
+ * campaign totals but have no scenario, and are counted as `unattributed`.
+ *
+ * @param {Array<object>} runs
+ * @param {string} [campaign] restrict to one campaign; omit for every campaign at once
+ */
+export function scenarioStats(runs, campaign) {
+  /** @type {Map<string, any>} */
+  const acc = new Map();
+  let campaignFailures = 0;
+  let attributed = 0;
+  let infraFailures = 0;
+
+  for (const run of runs) {
+    if (run.aborted) continue;
+    for (const exec of run.executions ?? []) {
+      if (campaign && exec.campaign !== campaign) continue;
+      if (exec.conclusion !== 'failure') continue;
+      campaignFailures += 1;
+      // A campaign that died in its environment never reached mocha, so it has no scenario
+      // to name. That is not a gap in the data, and counting it as one would suggest logs
+      // were missing when nothing was.
+      if (exec.failure_kind === 'infra') {
+        infraFailures += 1;
+        continue;
+      }
+
+      const failing = (exec.failing_tests ?? []).filter((t) => t?.title);
+      if (failing.length === 0) continue;
+      attributed += 1;
+
+      for (const test of failing) {
+      // The spec file identifies a scenario better than its title, which is not unique
+      // across campaigns; the title alone is what a person recognises.
+      const key = `${test.file ?? ''}::${test.title}`;
+      let row = acc.get(key);
+      if (!row) {
+        row = {
+          title: test.title,
+          suite: test.suite ?? '',
+          file: test.file ?? null,
+          line: test.line ?? null,
+          campaigns: new Set(),
+          failures: 0,
+          flakyFailures: 0,
+          infraFailures: 0,
+          prs: new Set(),
+          errors: new Map(),
+          lastFailureAt: null,
+        };
+        acc.set(key, row);
+      }
+
+      row.failures += 1;
+      row.campaigns.add(exec.campaign);
+      if (exec.failure_kind === 'infra') row.infraFailures += 1;
+      if (run.pr_number) row.prs.add(run.pr_number);
+      if (test.error) row.errors.set(test.error, (row.errors.get(test.error) ?? 0) + 1);
+      if (!row.lastFailureAt || (exec.started_at ?? '') > row.lastFailureAt) {
+        row.lastFailureAt = exec.started_at ?? null;
+      }
+      // A failure inside a campaign that went green later is flakiness by the same rule
+      // used everywhere else: the code did not change between attempts.
+      const outcome = campaignOutcomes(run).find((o) => o.campaign === exec.campaign);
+      if (outcome?.flaky) row.flakyFailures += 1;
+      }
+    }
+  }
+
+  const scenarios = [...acc.values()]
+    .map((row) => ({
+      title: row.title,
+      suite: row.suite,
+      file: row.file,
+      line: row.line,
+      campaigns: [...row.campaigns].sort(),
+      failures: row.failures,
+      // Share of this campaign's failures that this one scenario accounts for.
+      shareOfFailuresPct: pct(row.failures, campaignFailures),
+      flakyFailures: row.flakyFailures,
+      infraFailures: row.infraFailures,
+      distinctPrs: row.prs.size,
+      topError: [...row.errors.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null,
+      lastFailureAt: row.lastFailureAt,
+    }))
+    .sort((a, b) => b.failures - a.failures || a.title.localeCompare(b.title));
+
+  return {
+    scenarios,
+    campaignFailures,
+    attributed,
+    // Environment failures: no mocha report exists, so no scenario is expected.
+    infraFailures,
+    // Test failures whose log has expired past the 90 day retention, so the scenario could
+    // not be read. Shown rather than hidden, otherwise the shares silently stop adding up.
+    unattributed: campaignFailures - attributed - infraFailures,
+  };
+}

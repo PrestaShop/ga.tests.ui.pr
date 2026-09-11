@@ -130,6 +130,36 @@ failing campaign short, so its failures are not representative of what it costs 
 - **Security workflow runs** count towards campaign statistics, but their pull request
   number and inputs are not stored and their logs are not read.
 
+## Which scenario failed
+
+The collector reads the log of every job whose test step failed and keeps, for each failing
+scenario, the suite, the title, the assertion message and the spec file with its line, for
+example `campaigns/functional/API/02_checkEndpoints.ts:553`.
+
+`--bail` usually stops a campaign at its first failing scenario, but the flag is not always
+on, so every failure block is read rather than just the first.
+
+The stack frame matters. A timeout inside a page object reports the helper first
+(`tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js:8`), which names
+no scenario and is the same file for every such failure; the first frame under `campaigns/`
+is the spec somebody would actually open, so it wins whenever the stack has one.
+
+Parsing anchors on the `N failing` summary. The spec reporter also prints `1) <title>`
+inline where the test ran, long before the report at the end, and without the anchor that
+line matches first and yields a heading with no suite.
+
+The share reported against a scenario is a share of that campaign's failures, which is what
+says where to start: a campaign that is red half the time because of a single scenario is a
+very different job from one that is red for a dozen reasons.
+
+The whole log is fetched rather than a tail slice. The mocha report sits at the very end and
+the log store does not honour suffix ranges, so a tail would cost one request to learn the
+size and another to fetch it; the whole log is one request for about seven times the bytes,
+and the rate limit is the scarce resource here, not bandwidth.
+
+Failures whose log has expired are counted as `unattributed` rather than dropped, so the
+shares visibly stop adding up to 100% instead of silently misleading.
+
 ## Retention
 
 Run and job metadata outlive logs by a long way. A run from five months ago still returns
