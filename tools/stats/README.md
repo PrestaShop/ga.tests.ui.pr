@@ -12,6 +12,17 @@ services have the same blind spot, since they only see repositories inside the o
 Code lives on the default branch. Data and the dashboard live on the orphan `stats` branch,
 so the forks of this repository carry none of it.
 
+## What it looks like
+
+![Dashboard overview](docs/dashboard-overview.png)
+
+Clicking a campaign shows which scenarios are behind its failures, with the spec file from
+the core repository and the share of that campaign's failures each one accounts for:
+
+![Failing scenarios inside a campaign](docs/campaign-scenarios.png)
+
+Screenshots are regenerated with `docs/take-screenshots.mjs`.
+
 ## The one thing to know before touching this code
 
 The GitHub API reports the same campaign several times when a run has been retried. When
