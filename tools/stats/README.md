@@ -25,6 +25,7 @@ Screenshots are regenerated with `docs/take-screenshots.mjs`.
 
 ## The one thing to know before touching this code
 
+
 The GitHub API reports the same campaign several times when a run has been retried. When
 `gh run rerun --failed` creates attempt N, every job of the run is re-listed under attempt
 N, including the ones that were not re-run. Those carried-over rows get a **new job id** and
@@ -41,19 +42,68 @@ down against a recorded copy of that run; keep it passing.
 
 ## Layout
 
+TypeScript throughout: `tsc` compiles `src/` to `dist/`, which is what the workflows run, and
+Vite builds `ui/` into the static page the aggregator publishes.
+
 | File | Role |
 |---|---|
-| `github.js` | REST client: runs, jobs, logs (byte ranges), pull requests. Retries transient failures, stops at a rate-limit floor |
-| `executions.js` | Job rows → real campaign executions. The dedupe rule above, campaign names, test vs infra failures |
-| `parse-log.js` | Job log → dispatch inputs, resolved PrestaShop version, failing test |
-| `branch-key.js` | A pull request's target branch → version line (`develop`, `9.2.x`, …) |
-| `collect.js` | One invocation: list every repository, diff against the index, store what is new |
-| `metrics.js` | The statistics. Imported by the aggregator **and** by the dashboard, so the page and the generated summary cannot disagree |
-| `dataset.js` | Packs run files into one small file the browser downloads whole; CSV export (on demand, `--csv`) |
-| `aggregate.js` | Run files → `site/` |
-| `store.js` | One JSON file per run, plus the index of what has been processed |
-| `cache.js` | Record and replay of API responses |
-| `site/` | The dashboard: `index.html` + `app.js` |
+| `src/types.ts` | The shapes that travel between the collector, the stored run files, the packed dataset and the page |
+| `src/github.ts` | REST client: runs, jobs, logs (byte ranges), pull requests. Retries transient failures, stops at a rate-limit floor |
+| `src/executions.ts` | Job rows → real campaign executions. The dedupe rule above, campaign names, test vs infra failures |
+| `src/parse-log.ts` | Job log → dispatch inputs, resolved PrestaShop version, failing test |
+| `src/branch-key.ts` | A pull request's target branch → version line (`develop`, `9.2.x`, …) |
+| `src/collect.ts` | One invocation: list every repository, diff against the index, store what is new |
+| `src/metrics.ts` | The statistics. Imported by the aggregator **and** by the dashboard, so the page and the generated summary cannot disagree |
+| `src/dataset.ts` | Packs run files into one small file the browser downloads whole; CSV export (on demand, `--csv`) |
+| `src/aggregate.ts` | Run files → the published site |
+| `src/store.ts` | One JSON file per run, plus the index of what has been processed |
+| `src/cache.ts` | Record and replay of API responses |
+| `src/run.ts`, `src/serve.ts` | The command line, and a loopback server for looking at a build |
+| `ui/` | The dashboard: Vue 3 single-file components, `ui/src/App.vue` and `ui/src/components/` |
+
+### What this costs
+
+The tool used to have no dependencies and no build step, which was a genuine feature: `node
+--test` and nothing else. It is now Vue 3.5 and TypeScript, which means a `node_modules`, a
+lockfile, and `npm ci && npm run build` in both workflows before anything runs. The page it
+ships is 91 KB of JavaScript, 35 KB gzipped, where the hand-written one was 14 KB.
+
+That is a deliberate trade, made so the dashboard follows the same convention as
+`admin-dev/themes/new-theme` in PrestaShop/PrestaShop rather than being the one hand-rolled
+page in the organisation. What it buys: components instead of HTML assembled from strings,
+which retires a class of escaping bug by construction; a typed contract between the collector
+and the page; and `npm run dev`, so editing the dashboard no longer means re-running the
+aggregator to see the change.
+
+| | here | what core pins | note |
+|---|---|---|---|
+| Vue | 3.5 | `^3.5.9` | same line |
+| TypeScript | 6.0 | `^4.9.5` | core's pin is from 2022. 6.0 is as new as the toolchain allows: `typescript-eslint` caps at `<6.1` |
+| Vite, Vitest | current | n/a, core uses Webpack and Jest | not shared with the back-office build, so nothing to match |
+| `eslint-plugin-vue`, `@vue/eslint-config-typescript` | current | `^9.28`, `^11.0.3` | same tools, newer |
+
+Node 22 or newer is needed to install, because npm 10.8 (which ships with Node 20) crashes
+resolving Vitest's optional peer dependencies. The compiled output itself runs on Node 20.
+
+## Scripts
+
+Run these from `tools/stats`, or with `npm --prefix tools/stats run <script>` from the
+repository root.
+
+| Script | What it does |
+|---|---|
+| `npm run build` | `build:node` then `build:ui` |
+| `npm run build:node` | `tsc` → `dist/`, what the workflows execute |
+| `npm run build:ui` | `vite build` → `dist-site/`, the page the aggregator publishes |
+| `npm run dev` | Vite dev server with hot reload, serving the dataset from `.local/site/data` |
+| `npm test` / `npm run test:watch` | Vitest, once or in watch mode |
+| `npm run typecheck` | `tsc` over the collector and its tests, `vue-tsc` over the dashboard |
+| `npm run lint` / `lint:fix` | ESLint over `.ts` and `.vue` |
+| `npm run collect` | Collects into `.local/data` and rebuilds `.local/site`. Pass more flags after `--` |
+| `npm run aggregate` | Rebuilds `.local/site` from `.local/data`, no API calls |
+| `npm run serve` | Serves `.local/site` on 4173, loopback only |
+| `npm run screenshots` | Regenerates `docs/*.png` against the served site |
+| `npm run clean` | Removes the build output, never `.local/data` |
 
 ## Why there is no watermark
 
@@ -196,17 +246,22 @@ while anything that needs a log is limited to the last 90 days.
 This is also how the dashboard is developed and how screenshots are produced.
 
 ```bash
+cd tools/stats
+npm ci
 export GITHUB_TOKEN=$(gh auth token)      # a normal user token is enough
 
-# Pull a couple of forks into a local directory (no commit, no stats branch involved)
-node tools/stats/run.mjs \
+# Pull a couple of forks into .local (no commit, no stats branch involved)
+npm run collect -- \
   --repo jolelievre/ga.tests.ui.pr \
   --repo Progi1984/ga.tests.ui.pr \
-  --max-runs 40 --data-dir .local/data --out .local/site --record .local/fixtures
+  --max-runs 40 --record .local/fixtures
 
 # Look at the result. Opening index.html from the filesystem does not work: the page fetches
-# its data and imports ES modules, and browsers refuse both over file://
-node tools/stats/serve.mjs .local/site     # http://localhost:4173, loopback only
+# its data, and browsers refuse that over file://
+npm run serve                              # http://localhost:4173, loopback only
+
+# Or, to work on the dashboard itself: hot reload against the same data
+npm run dev
 ```
 
 The flat one-row-per-execution CSV is not part of the published site, because it is a
@@ -214,23 +269,20 @@ full-history rebuild that would be re-committed daily for something the page nev
 Ask for it when you want it:
 
 ```bash
-node tools/stats/run.mjs --aggregate-only --data-dir .local/data --out .local/site \
-  --csv .local/executions.csv
+npm run aggregate -- --csv .local/executions.csv
 ```
 
 `--record` saves every API response; `--replay <dir>` serves them back, so the dashboard and
 the statistics can be iterated on with no token, no network and no rate limit:
 
 ```bash
-node tools/stats/run.mjs --repo jolelievre/ga.tests.ui.pr \
-  --replay .local/fixtures --data-dir .local/data --out .local/site
+npm run collect -- --repo jolelievre/ga.tests.ui.pr --replay .local/fixtures
 
 # Rebuild the site from data already pulled, without calling GitHub at all
-node tools/stats/run.mjs --aggregate-only --data-dir .local/data --out .local/site
+npm run aggregate
 ```
 
-Run `node tools/stats/run.mjs --help` for every option, and `node --test` in this directory
-for the test suite.
+Run `node dist/run.js --help` for every option, and `npm test` for the suite.
 
 ## In CI
 
@@ -245,5 +297,11 @@ Partial failures are annotated too: repositories that could not be listed, runs 
 to process, and job names that matched no known shape, which is how a workflow rename shows
 up as a number rather than as a plausible spike in aborted runs. The job only goes red when
 nothing at all could be collected, so a partial collection still commits the progress it made.
+
+Both workflows run `npm ci && npm run build` first and then execute `dist/run.js`, so the
+collector runs compiled rather than transpiling on import — it makes thousands of API calls,
+and a type error should surface in the pull request rather than at 05:17 the next morning.
+`.github/workflows/stats-tests.yml` runs on any pull request that touches `tools/stats/**`
+and type-checks, lints, builds and tests.
 
 GitHub Pages should be pointed at the `stats` branch, `/site` folder.

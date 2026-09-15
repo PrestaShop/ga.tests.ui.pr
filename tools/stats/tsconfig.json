@@ -1,0 +1,16 @@
+{
+  "//": [
+    "What editors and ESLint pick up: everything, checked but never emitted. The two configs",
+    "that actually build are tsconfig.node.json (tsc -> dist/) and tsconfig.ui.json",
+    "(vue-tsc, with Vite doing the bundling)."
+  ],
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "types": ["node", "vite/client"]
+  },
+  "include": ["src/**/*.ts", "ui/**/*.ts", "*.ts", "*.js"]
+}

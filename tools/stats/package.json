@@ -2,11 +2,41 @@
   "name": "ga-tests-ui-pr-stats",
   "private": true,
   "type": "module",
-  "description": "Collects UI test campaign results from every fork of ga.tests.ui.pr and builds flaky-test statistics. No runtime dependencies.",
+  "description": "Collects UI test campaign results from every fork of ga.tests.ui.pr and builds flaky-test statistics.",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
-    "test": "node --test"
+    "build": "npm run build:node && npm run build:ui",
+    "build:node": "tsc -p tsconfig.node.json",
+    "build:ui": "vite build",
+    "dev": "vite",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.check.json && vue-tsc -p tsconfig.ui.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "collect": "npm run build && node dist/run.js --data-dir .local/data --out .local/site",
+    "aggregate": "npm run build && node dist/run.js --aggregate-only --data-dir .local/data --out .local/site",
+    "serve": "npm run build:node && node dist/serve.js .local/site",
+    "screenshots": "node docs/take-screenshots.mjs docs",
+    "clean": "node -e \"for (const d of ['dist','dist-site','node_modules/.vite']) fs.rmSync(d,{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "@vue/test-utils": "^2.5.0",
+    "eslint": "^10.10.0",
+    "eslint-plugin-vue": "^10.11.0",
+    "happy-dom": "^20.14.5",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1",
+    "vue-tsc": "^3.3.11"
+  },
+  "dependencies": {
+    "vue": "^3.5.9"
   }
 }

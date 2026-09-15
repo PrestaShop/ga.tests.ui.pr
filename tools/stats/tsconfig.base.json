@@ -1,0 +1,25 @@
+{
+  "//": [
+    "Shared compiler options. The three configs beside this one differ only in what they",
+    "cover and how they resolve modules: the collector is compiled for Node, the dashboard",
+    "is bundled by Vite, and metrics.ts and dataset.ts are checked by both because both",
+    "import them.",
+    "",
+    "noUncheckedIndexedAccess is deliberately off. The dataset decoder is an unbroken run of",
+    "positional array reads, and turning every one of them into `T | undefined` would buy",
+    "assertions rather than safety: a dataset with an out-of-range dictionary index is",
+    "already refused by the version guard."
+  ],
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2023"],
+    "strict": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}

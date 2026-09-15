@@ -72,11 +72,21 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          # 24 rather than 20 for the npm that ships with it: npm 10.8 crashes resolving
+          # Vitest's optional peer dependencies. The compiled output itself runs on 20.
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: code/tools/stats/package-lock.json
+
+      - name: Install and build
+        working-directory: code/tools/stats
+        run: |
+          npm ci
+          npm run build
 
       - name: Check the puller itself
         working-directory: code/tools/stats
-        run: node --test
+        run: npm test
 
       - name: Collect and aggregate
         working-directory: code
@@ -96,7 +106,7 @@ jobs:
           fi
           ARGS=(--data-dir ../data/data --out ../data/site --max-runs "$MAX_RUNS")
           if [ -n "$ONLY_REPO" ]; then ARGS+=(--repo "$ONLY_REPO"); fi
-          node tools/stats/run.mjs "${ARGS[@]}"
+          node tools/stats/dist/run.js "${ARGS[@]}"
 
       - name: Commit the new data
         working-directory: data

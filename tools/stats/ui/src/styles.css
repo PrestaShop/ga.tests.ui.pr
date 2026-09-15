@@ -1,0 +1,72 @@
+/*
+ * Global styles. Component-specific rules live in the components themselves; what is here is
+ * the palette, the page frame, and the table and card styles shared by several of them.
+ */
+
+:root {
+  color-scheme: light dark;
+  --bg: #fff;
+  --panel: #f6f8fa;
+  --border: #d0d7de;
+  --text: #1f2328;
+  --muted: #656d76;
+  --accent: #0969da;
+  --bad: #cf222e;
+  --warn: #bc4c00;
+  --good: #1a7f37;
+  --radius: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d; --text: #e6edf3;
+    --muted: #8b949e; --accent: #4493f8; --bad: #f85149; --warn: #d29922; --good: #3fb950;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 24px 16px 64px;
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg); color: var(--text);
+}
+.wrap { max-width: 1180px; margin: 0 auto; }
+h1 { font-size: 20px; margin: 0 0 4px; }
+h2 { font-size: 15px; margin: 28px 0 10px; }
+h2 .qualifier { font-weight: 400; color: var(--muted); }
+.sub { color: var(--muted); margin: 0 0 20px; }
+a { color: var(--accent); }
+
+.good { color: var(--good); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+.card { padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel); }
+.card .n { font-size: 22px; font-weight: 600; }
+.card .k { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.card .hint { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+thead th { cursor: pointer; user-select: none; font-size: 12px; color: var(--muted); position: sticky; top: 0; background: var(--bg); }
+thead th:hover { color: var(--text); }
+thead th[aria-sort] { color: var(--text); }
+tbody tr:hover { background: var(--panel); }
+tbody tr.campaign { cursor: pointer; }
+.scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+
+.detail td { background: var(--panel); white-space: normal; font-size: 13px; }
+.detail ul { margin: 4px 0; padding-left: 18px; }
+.detail .note { margin: 10px 0 4px; color: var(--muted); }
+.sub-table { margin: 8px 0 4px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.sub-table th, .sub-table td { font-size: 12px; padding: 5px 8px; border-bottom: 1px solid var(--border); }
+.sub-table thead th { position: static; cursor: default; background: var(--bg); }
+.sub-table td:first-child { white-space: normal; min-width: 220px; }
+.sub-table code { font-size: 11px; color: var(--muted); }
+.sub-table .err { white-space: normal; max-width: 320px; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+
+button.link {
+  background: none; border: 0; padding: 0; font: inherit;
+  color: var(--accent); cursor: pointer; text-decoration: underline;
+}
+
+footer { margin-top: 32px; color: var(--muted); font-size: 12px; }
+.empty { padding: 24px; text-align: center; color: var(--muted); }
