@@ -89,9 +89,10 @@ export class GitHub {
         if (!retryable || attempt === attempts) return res;
         await sleep(backoffMs(attempt, res));
       } catch (err) {
-        // Network-level failure: ECONNRESET, socket hang up, DNS, TLS.
+        // Network-level failure: ECONNRESET, socket hang up, DNS, TLS. A transport can opt
+        // out when it knows better — a replay miss will never resolve itself.
         lastError = err;
-        if (attempt === attempts) break;
+        if (err?.retryable === false || attempt === attempts) break;
         await sleep(backoffMs(attempt));
       }
     }
@@ -138,18 +139,18 @@ export class GitHub {
    */
   async listDispatchRuns(repo) {
     const runs = [];
-    try {
-      let url = `/repos/${repo}/actions/runs?per_page=100&event=workflow_dispatch&exclude_pull_requests=true`;
-      while (url) {
-        const res = await this.request(url, { allow: [404, 403] });
-        if (res.status === 404 || res.status === 403) return null;
-        const body = await res.json();
-        for (const run of body?.workflow_runs ?? []) runs.push(run);
-        url = nextPageUrl(res.headers.get('link'));
-      }
-    } catch (err) {
-      if (err instanceof RateLimitReached) throw err;
-      return null;
+    let url = `/repos/${repo}/actions/runs?per_page=100&event=workflow_dispatch&exclude_pull_requests=true`;
+    while (url) {
+      // Only these two answers mean the repository itself cannot be read. Everything else —
+      // a 502, a dropped connection, a secondary rate limit that outlasted the retries — is
+      // a transport failure and must not be laundered into "Actions disabled", which is how
+      // a cascade of throttling once made every remaining fork look deliberately closed
+      // while the invocation finished green with nothing collected.
+      const res = await this.request(url, { allow: [404, 403] });
+      if (res.status === 404 || res.status === 403) return null;
+      const body = await res.json();
+      for (const run of body?.workflow_runs ?? []) runs.push(run);
+      url = nextPageUrl(res.headers.get('link'));
     }
     return runs;
   }

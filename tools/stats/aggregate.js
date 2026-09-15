@@ -6,7 +6,7 @@
  * takes well under a second for the entire history.
  */
 
-import { cp, mkdir, writeFile } from 'node:fs/promises';
+import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -20,9 +20,10 @@ const HERE = dirname(fileURLToPath(import.meta.url));
  * @param {object} options
  * @param {string} options.dataDir  where collect.js wrote its run files
  * @param {string} options.outDir   the site directory to (re)generate
+ * @param {string} [options.csvPath] also write the flat CSV export here
  * @param {(msg: string) => void} [options.log]
  */
-export async function aggregate({ dataDir, outDir, log = () => {} }) {
+export async function aggregate({ dataDir, outDir, csvPath, log = () => {} }) {
   const store = new Store(dataDir);
   const runs = [];
   for await (const run of store.allRuns()) runs.push(run);
@@ -32,8 +33,25 @@ export async function aggregate({ dataDir, outDir, log = () => {} }) {
   await mkdir(dataOut, { recursive: true });
 
   const dataset = encodeDataset(runs);
-  await writeJson(join(dataOut, 'dataset.json'), dataset);
-  await writeFile(join(outDir, 'executions.csv'), toCsv(runs), 'utf8');
+  // Not pretty-printed: this is the one file every visitor downloads whole, and it is
+  // dictionary-packed columnar arrays, so indenting puts each integer on its own line and
+  // triples the size of exactly the thing the packing exists to keep small. It is also
+  // re-committed daily, where no amount of indentation makes a diff of renumbered arrays
+  // readable. The per-run files stay pretty-printed, because those diffs are worth reading.
+  await writeJson(join(dataOut, 'dataset.json'), dataset, { pretty: false });
+
+  // The flat CSV is a full-history rebuild every time, so committing it would add a
+  // megabyte-scale file to the data branch daily for a convenience nobody reads from the
+  // page. It is written only when asked for, with `--csv <path>`. Earlier builds published
+  // one here unconditionally, and the site directory is merged rather than replaced, so the
+  // stale copy is cleared out or it would sit on the data branch for good.
+  await rm(join(outDir, 'executions.csv'), { force: true });
+
+  if (csvPath) {
+    await mkdir(dirname(csvPath), { recursive: true });
+    await writeFile(csvPath, toCsv(runs), 'utf8');
+    log(`wrote ${csvPath}`);
+  }
 
   // A precomputed snapshot for the default view, so the page shows numbers immediately and
   // so the figures are greppable in the repository without opening a browser.

@@ -480,7 +480,76 @@ test('an execution that reported several failing scenarios credits all of them',
   assert.equal(campaignFailures, 1, 'still one failing execution');
   assert.equal(attributed, 1);
   assert.equal(unattributed, 0);
+
+  // Each scenario was named once, so each shows one failure — but there was only ever one
+  // failing execution between them, so they split it rather than claiming it twice. Counting
+  // both as whole failures against a denominator of executions is what once reported three
+  // campaigns at 175%, 150% and 105% of their own failures.
+  assert.deepEqual(scenarios.map((s) => s.failures), [1, 1]);
+  assert.deepEqual(scenarios.map((s) => s.shareOfFailuresPct), [50, 50]);
 });
+
+test('scenario shares never add up to more than the campaign failed', () => {
+  const runs = [
+    // Three failing executions. One names a single scenario, one names three at once, and
+    // one died in its environment before mocha ran.
+    run({ id: 1 }, [withScenario('a', 1, 'failure', { title: 'solo', file: 'campaigns/a.ts' })]),
+    run({ id: 2 }, [
+      {
+        ...exec('a', 1, 'failure'),
+        failing_tests: [
+          { title: 'one', suite: 'S', file: 'campaigns/b.ts' },
+          { title: 'two', suite: 'S', file: 'campaigns/c.ts' },
+          { title: 'three', suite: 'S', file: 'campaigns/d.ts' },
+        ],
+      },
+    ]),
+    run({ id: 3 }, [{ ...exec('a', 1, 'failure'), failure_kind: 'infra' }]),
+  ];
+  const { scenarios, campaignFailures, attributed, infraFailures, unattributed } = scenarioStats(runs, 'a');
+
+  assert.equal(campaignFailures, 3);
+  assert.equal(attributed, 2);
+  assert.equal(infraFailures, 1);
+  assert.equal(unattributed, 0);
+  assert.equal(scenarios.length, 4, 'four scenarios named across two executions');
+
+  const total = scenarios.reduce((n, s) => n + s.shareOfFailuresPct, 0);
+  assert.ok(total <= 100, `shares sum to ${total}, which must not exceed 100`);
+  // 2 of the 3 failures are attributed; the remaining third is the environment failure the
+  // caveat line reports. The shares account for exactly that attributed two thirds, less a
+  // tenth lost to rounding each row to one decimal (33.3 + 11.1 + 11.1 + 11.1).
+  assert.equal(round(total, 1), 66.6);
+  assert.equal(scenarios.find((s) => s.title === 'solo').shareOfFailuresPct, 33.3);
+  assert.equal(scenarios.find((s) => s.title === 'one').shareOfFailuresPct, 11.1, 'a third of a third');
+});
+
+test('scenario shares add up to 100 when every failure names a scenario', () => {
+  const runs = [
+    run({ id: 1 }, [withScenario('a', 1, 'failure', { title: 'solo', file: 'campaigns/a.ts' })]),
+    run({ id: 2 }, [
+      {
+        ...exec('a', 1, 'failure'),
+        failing_tests: [
+          { title: 'one', suite: 'S', file: 'campaigns/b.ts' },
+          { title: 'two', suite: 'S', file: 'campaigns/c.ts' },
+        ],
+      },
+    ]),
+  ];
+  const { scenarios, campaignFailures, unattributed, infraFailures } = scenarioStats(runs, 'a');
+
+  assert.equal(campaignFailures, 2);
+  assert.equal(unattributed, 0);
+  assert.equal(infraFailures, 0);
+  assert.equal(scenarios.reduce((n, s) => n + s.shareOfFailuresPct, 0), 100);
+});
+
+/** Rounds the way pct() does, so summing rounded shares can be compared without drift. */
+function round(value, digits) {
+  const factor = 10 ** digits;
+  return Math.round(value * factor) / factor;
+}
 
 test('an environment failure is not counted as a missing scenario', () => {
   const runs = [

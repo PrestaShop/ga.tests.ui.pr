@@ -209,3 +209,96 @@ test('a hook failure keeps the hook as its name, not Playwright error text', () 
   assert.equal(failing.suite, '');
   assert.equal(failing.error, 'page.screenshot: Timeout 30000ms exceeded.');
 });
+
+test('the log does not stop at the report, and neither did the scan', () => {
+  // This fixture carries its real tail: 144 lines of artifact upload, `##[endgroup]`
+  // markers, git cleanup and deprecation warnings after the mocha report. The scan used to
+  // run to the last line of the log, so everything down there was in range.
+  const lines = cleanLines(FAILURE);
+  const reportAt = lines.findIndex((l) => /^\s*\d+\s+failing\b/.test(l));
+
+  assert.ok(lines.length - reportAt > 100, 'there is a substantial tail after the report');
+  assert.ok(lines.some((l) => l.trim() === '##[endgroup]'), 'including the markers that became phantom titles');
+  assert.equal(parseFailingTests(lines).length, 1, 'still exactly the one failure mocha counted');
+});
+
+test('teardown output shaped like a failure block is not a scenario', () => {
+  // Synthetic, and deliberately so: the real logs above happen not to print a numbered list
+  // after the report, but nothing stops one — a retry loop, a docker-compose teardown, an
+  // npm error list. The heading parser then names the scenario after the following line,
+  // which is how `##[endgroup]` reached a ranking of the worst scenarios in review.
+  const log = [
+    '  62 passing (3m)',
+    '  1 failing',
+    '',
+    '  1) API : Check endpoints',
+    '       should check endpoints:',
+    '',
+    '     AssertionError: expected [] to deeply equal []',
+    '      at Context.<anonymous> (campaigns/functional/API/02_checkEndpoints.ts:553:33)',
+    '',
+    '##[group]Run docker compose down',
+    'Stopping the containers in order:',
+    '  1) restart mysql container',
+    '##[endgroup]',
+    '  2) remove the network',
+    '##[endgroup]',
+  ].join('\n');
+
+  const found = parseFailingTests(cleanLines(log));
+
+  assert.equal(found.length, 1, 'mocha said one failure, so there is one failure');
+  assert.equal(found[0].title, 'should check endpoints');
+  assert.equal(found[0].file, 'campaigns/functional/API/02_checkEndpoints.ts');
+  assert.ok(
+    !found.some((t) => t.title.includes('endgroup') || t.title.includes('mysql')),
+    'nothing from the teardown got in',
+  );
+});
+
+test('the real failure block still ends where the teardown begins', () => {
+  // The cap decides how many blocks are real; the block after the last real one still has to
+  // bound it, or the error and the stack frame would be read out of the teardown instead.
+  const log = [
+    '  1 failing',
+    '',
+    '  1) API : Check endpoints',
+    '       should check endpoints:',
+    '',
+    '     TimeoutError: waited too long',
+    '      at Context.<anonymous> (campaigns/functional/API/02_checkEndpoints.ts:553:33)',
+    '  2) cleanup step',
+    '     at Context.<anonymous> (campaigns/teardown/99_wrong.ts:1:1)',
+  ].join('\n');
+
+  const found = parseFailingTests(cleanLines(log));
+
+  assert.equal(found.length, 1);
+  assert.equal(found[0].error, 'TimeoutError: waited too long');
+  assert.equal(found[0].file, 'campaigns/functional/API/02_checkEndpoints.ts', 'not the teardown frame');
+});
+
+test('a second summary further down the log does not redefine the counts', () => {
+  // A job log can print anything after the report. Only the first epilogue describes what
+  // this campaign did, and the summary and the failure scan have to agree on which one that
+  // is: they used to disagree, one keeping the last match and the other anchoring on the first.
+  const log = [
+    '  62 passing (3m)',
+    '  2 pending',
+    '  1 failing',
+    '',
+    '  1) API : Check endpoints',
+    '       should check endpoints:',
+    '',
+    '     AssertionError: boom',
+    '      at Context.<anonymous> (campaigns/functional/API/02_checkEndpoints.ts:553:33)',
+    '',
+    'Uploading the mochawesome report, which happens to quote its own totals:',
+    '  9 passing (1s)',
+    '  3 failing',
+  ].join('\n');
+  const lines = cleanLines(log);
+
+  assert.deepEqual(parseMochaSummary(lines), { passing: 62, failing: 1, pending: 2 });
+  assert.equal(parseFailingTests(lines).length, 1);
+});

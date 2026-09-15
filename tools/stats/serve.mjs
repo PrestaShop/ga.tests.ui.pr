@@ -25,7 +25,17 @@ const TYPES = {
 };
 
 createServer(async (req, res) => {
-  const requested = decodeURIComponent((req.url ?? '/').split('?')[0]);
+  let requested;
+  try {
+    // `decodeURIComponent` throws URIError on a malformed escape such as a bare `%`, and an
+    // uncaught throw in this handler takes the whole server down.
+    requested = decodeURIComponent((req.url ?? '/').split('?')[0]);
+  } catch {
+    res.writeHead(400, { 'content-type': 'text/plain' });
+    res.end('Bad request');
+    return;
+  }
+
   // Keep the server inside the directory it was pointed at.
   const relative = normalize(requested === '/' ? '/index.html' : requested).replace(/^(\.\.[/\\])+/, '');
   const path = join(root, relative);
@@ -41,6 +51,8 @@ createServer(async (req, res) => {
     res.writeHead(404, { 'content-type': 'text/plain' });
     res.end('Not found');
   }
-}).listen(port, () => {
+// Loopback only: this serves a directory with no access control, and it exists to look at a
+// local build, not to publish one to whatever network the laptop is on.
+}).listen(port, '127.0.0.1', () => {
   console.log(`Serving ${root} at http://localhost:${port}/  (ctrl+c to stop)`);
 });

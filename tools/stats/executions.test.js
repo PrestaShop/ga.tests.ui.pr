@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { classifyJob, failureKind, toExecutions, durationSeconds } from './executions.js';
+import { classifyJob, executionKey, failureKind, toExecutions, durationSeconds } from './executions.js';
 
 const fixture = (name) =>
   JSON.parse(readFileSync(fileURLToPath(new URL(`./fixtures/${name}`, import.meta.url)), 'utf8'));
@@ -11,6 +11,7 @@ const fixture = (name) =>
 const RETRIED_RUN = fixture('jobs-34473576823.json'); // 3 attempts, current job names
 const LEGACY_RUN = fixture('jobs-24509737743.json'); //  1 attempt, legacy names carrying the branch
 const PREBUILT_RUN = fixture('jobs-32371081746.json'); // pr_test.yml, nested reusable names
+const SECURITY_RUN = fixture('jobs-21282045781.json'); // pr_security_test_one.yml, prefixed names
 
 test('job names are classified across every workflow generation', () => {
   assert.deepEqual(classifyJob('test (functional:API)'), { kind: 'campaign', campaign: 'functional:API' });
@@ -181,4 +182,96 @@ test('empty and malformed input do not throw', () => {
   assert.deepEqual(toExecutions([]).executions, []);
   assert.deepEqual(toExecutions(undefined).executions, []);
   assert.equal(toExecutions([{}, { name: null }]).executions.length, 0);
+});
+
+test('the execution key separates its two parts with a NUL', () => {
+  const key = executionKey({ name: 'test (audit)', started_at: '2026-09-10T11:58:23Z' });
+
+  // A campaign name can contain anything a matrix value can, so the separator has to be a
+  // byte that cannot appear in either half. It is spelled `\0` rather than written as a raw
+  // byte: a literal NUL makes the file binary, which is how it once reached a pull request
+  // as `Bin 0 -> 7295 bytes` with no diff to review, and some editors silently strip it on
+  // save, which would quietly change the identity the whole dedupe rests on.
+  assert.ok(key.includes('\0'), 'the separator is a NUL');
+  assert.equal(key, 'test (audit)\u00002026-09-10T11:58:23Z');
+
+  // Why a NUL and not something readable: a job name contains spaces, commas, colons and
+  // parentheses, so any of those as a separator would let two different rows produce the
+  // same key and be collapsed into one execution.
+  for (const { jobs } of [RETRIED_RUN, LEGACY_RUN, PREBUILT_RUN, SECURITY_RUN]) {
+    for (const job of jobs) {
+      assert.ok(!String(job.name ?? '').includes('\0'), `a job name never contains one: ${job.name}`);
+      assert.ok(!String(job.started_at ?? '').includes('\0'), 'nor does a timestamp');
+    }
+  }
+});
+
+test('a job name the workflow gave a display name is still a campaign', () => {
+  // pr_security_test_one.yml calls its matrix job `Security PR test`, so the rows arrive as
+  // `Security PR test (audit, 9.0.x)`. Requiring the name to start with `test (` dropped
+  // every one of them, which left the run with no executions at all and therefore counted
+  // as aborted: a run that worked, filed as a run that never started.
+  assert.deepEqual(classifyJob('Security PR test (audit, 9.0.x)'), {
+    kind: 'campaign',
+    campaign: 'audit',
+    branch: '9.0.x',
+  });
+  assert.deepEqual(classifyJob('Security PR test (audit)'), { kind: 'campaign', campaign: 'audit' });
+  assert.deepEqual(classifyJob('test (audit)'), { kind: 'campaign', campaign: 'audit' });
+
+  // The prefix stops at the reusable-workflow separator, so a nested name is still read by
+  // the rules below rather than being mistaken for a flat matrix row.
+  assert.deepEqual(classifyJob('Prebuild shop and export artifacts / Build shop artifacts'), { kind: 'build-shop' });
+  assert.deepEqual(classifyJob('Resolve PR context / Resolve PR + PrestaShop version'), { kind: 'prep' });
+});
+
+test('a matrix that never expanded is known, not unrecognised', () => {
+  // A run cancelled before `prep` returned the campaign list lists a single job under the
+  // bare `name:` of the matrix job. Nothing ran, so it is not a campaign — but it is a state
+  // this repository produces regularly, and treating it as an unknown name would cry
+  // workflow-rename on every collection that happens to include one.
+  for (const name of ['test', 'Test', 'Security PR test']) {
+    assert.deepEqual(classifyJob(name), { kind: 'campaign-unexpanded' }, name);
+  }
+  assert.deepEqual(classifyJob('latest'), { kind: 'other' }, 'not just any short name');
+
+  const { executions, unclassified } = toExecutions([
+    { name: 'Resolve PR context / Resolve PR + PrestaShop version', run_attempt: 1, conclusion: 'cancelled' },
+    { name: 'test', run_attempt: 1, conclusion: 'cancelled' },
+  ]);
+  assert.deepEqual(executions, [], 'no campaign ran, so the run is still aborted');
+  assert.deepEqual(unclassified, []);
+});
+
+test('a real security run yields its campaigns rather than nothing', () => {
+  const { executions, branchFromJobName, unclassified } = toExecutions(SECURITY_RUN.jobs);
+
+  assert.equal(SECURITY_RUN.jobs.length, 44);
+  assert.equal(executions.length, 44, 'one execution per matrix row, none dropped');
+  assert.equal(branchFromJobName, '9.0.x', 'the second matrix axis still carries the version');
+  assert.deepEqual(unclassified, []);
+  assert.ok(executions.some((e) => e.campaign === 'audit'));
+  assert.ok(executions.every((e) => e.attempt === 1));
+});
+
+test('job names that match no rule are reported instead of vanishing', () => {
+  // A workflow rename turns every campaign of a run into nothing, and a run with no
+  // executions is recorded as aborted. That reads as a run that never started rather than
+  // as a bug in here, so the names come back out to be counted.
+  const { executions, unclassified } = toExecutions([
+    { name: 'Run the tests, why not (audit)', run_attempt: 1, conclusion: 'success' },
+    { name: 'Run the tests, why not (audit)', run_attempt: 1, conclusion: 'success' },
+    { name: 'something else entirely', run_attempt: 1, conclusion: 'success' },
+    { name: 'test (audit)', run_attempt: 1, conclusion: 'success', started_at: '2026-09-10T11:58:23Z' },
+  ]);
+
+  assert.equal(executions.length, 1);
+  assert.deepEqual(unclassified, ['Run the tests, why not (audit)', 'something else entirely'],
+    'distinct names, so a 45-job matrix is one problem rather than 45');
+});
+
+test('the known fixtures classify every one of their rows', () => {
+  for (const [name, run] of [['retried', RETRIED_RUN], ['legacy', LEGACY_RUN], ['prebuilt', PREBUILT_RUN], ['security', SECURITY_RUN]]) {
+    assert.deepEqual(toExecutions(run.jobs).unclassified, [], `${name}: nothing unrecognised`);
+  }
 });

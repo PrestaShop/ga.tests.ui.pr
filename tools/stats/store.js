@@ -7,7 +7,7 @@
  * everything already written intact.
  */
 
-import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
 /** @typedef {{run_attempt: number, status: string, updated_at?: string}} IndexEntry */
@@ -107,8 +107,22 @@ export async function readJson(path) {
   }
 }
 
-/** @param {string} path @param {any} value */
-export async function writeJson(path, value) {
+/**
+ * Writes JSON without ever leaving a half-written file behind.
+ *
+ * `writeFile` truncates the target first, so a kill between the truncate and the flush
+ * leaves a zero-length or partial file. `readJson` forgives a missing file but not a
+ * corrupt one, so a torn `index.json` would stop every later invocation until somebody
+ * deleted it by hand. Writing beside the target and renaming makes the swap atomic.
+ *
+ * @param {string} path
+ * @param {any} value
+ * @param {{pretty?: boolean}} [options] pretty prints by default, so run files stay diffable
+ */
+export async function writeJson(path, value, { pretty = true } = {}) {
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+  const body = pretty ? `${JSON.stringify(value, null, 2)}\n` : `${JSON.stringify(value)}\n`;
+  const tmp = `${path}.tmp`;
+  await writeFile(tmp, body, 'utf8');
+  await rename(tmp, path);
 }

@@ -35,6 +35,9 @@ const LOG_HEAD_BYTES = 64 * 1024;
 /** Retries stop at attempt 6 (auto_retry_failed_jobs.yml), so a failure there is final. */
 const MAX_ATTEMPTS = 6;
 
+/** How often the index is written out mid-run, so a hard kill costs at most this many runs. */
+const FLUSH_EVERY_RUNS = 25;
+
 /**
  * @param {object} options
  * @param {GitHub} options.github
@@ -58,13 +61,23 @@ export async function collect({
 }) {
   const stats = {
     repos: 0,
+    // Answered 404/403: private, deleted, or Actions disabled. Expected and harmless.
     reposUnreadable: 0,
+    // Failed for any other reason. Kept apart, because this one means data is missing.
+    reposErrored: 0,
     runsListed: 0,
     runsQueued: 0,
     runsProcessed: 0,
+    runsFailed: 0,
     executions: 0,
     rateLimited: false,
+    /** @type {Array<{repo: string, run_id?: number, message: string}>} */
+    failures: [],
+    /** @type {string[]} job names no rule matched; a workflow rename shows up here first. */
+    unclassifiedJobNames: [],
   };
+  /** @type {Set<string>} */
+  const unclassified = new Set();
 
   const targets = repos ?? [rootRepo, ...(await github.listForks(rootRepo))];
   log(`${targets.length} repositories to scan`);
@@ -74,7 +87,18 @@ export async function collect({
 
   try {
     for (const repo of targets) {
-      const runs = await github.listDispatchRuns(repo);
+      /** @type {Array<object>|null} */
+      let runs;
+      try {
+        runs = await github.listDispatchRuns(repo);
+      } catch (err) {
+        if (err instanceof RateLimitReached) throw err;
+        // One fork failing to list must not cost the scan every fork after it.
+        stats.reposErrored += 1;
+        stats.failures.push({ repo, message: err.message });
+        log(`could not list the runs of ${repo}: ${err.message}`);
+        continue;
+      }
       if (runs === null) {
         stats.reposUnreadable += 1;
         continue;
@@ -97,11 +121,35 @@ export async function collect({
     queue.sort((a, b) => Date.parse(b.run.created_at) - Date.parse(a.run.created_at));
     log(`${stats.runsListed} runs listed, ${stats.runsQueued} to process, cap ${maxRuns}`);
 
+    let sinceFlush = 0;
     for (const { repo, run } of queue.slice(0, maxRuns)) {
-      const runFile = await processRun({ github, store, repo, run, withLogs, withTests, log });
-      await store.saveRun(repo, runFile);
-      stats.runsProcessed += 1;
-      stats.executions += runFile.executions.length;
+      try {
+        const runFile = await processRun({ github, store, repo, run, withLogs, withTests, log });
+        await store.saveRun(repo, runFile);
+        stats.runsProcessed += 1;
+        stats.executions += runFile.executions.length;
+        for (const name of runFile.unclassified_job_names ?? []) unclassified.add(name);
+      } catch (err) {
+        // A rate-limit stop is global: nothing further in the queue could succeed either.
+        if (err instanceof RateLimitReached) throw err;
+        // Anything else belongs to this one run — a truncated log, a job deleted mid-read, a
+        // 502 on one endpoint. The queue is sorted newest first, so letting it unwind would
+        // keep fresh runs flowing while every older run stalls behind it for good, which is
+        // exactly the backfill this tool exists to drain.
+        stats.runsFailed += 1;
+        stats.failures.push({ repo, run_id: run.id, message: err.message });
+        log(`run ${repo}#${run.id} failed: ${err.message}`);
+      }
+
+      // The index is what lets the next invocation skip what is already on disk. Flushing it
+      // only at the end covers a throw, but not SIGKILL, an OOM kill, or the workflow's
+      // `timeout-minutes`, which fires on precisely the long backfill invocations. Losing it
+      // there means redoing every run again, so the backlog may never drain.
+      sinceFlush += 1;
+      if (sinceFlush >= FLUSH_EVERY_RUNS) {
+        await store.saveIndex();
+        sinceFlush = 0;
+      }
     }
   } catch (err) {
     // Whatever went wrong, every run already written stays written and the index below
@@ -118,6 +166,7 @@ export async function collect({
     await store.saveIndex();
   }
 
+  stats.unclassifiedJobNames = [...unclassified].sort();
   return stats;
 }
 
@@ -132,7 +181,7 @@ export function isTestWorkflow(run) {
  */
 async function processRun({ github, store, repo, run, withLogs, withTests, log }) {
   const jobs = await github.listRunJobs(repo, run.id);
-  const { executions, branchFromJobName, buildShopFailed, rawRows } = toExecutions(jobs);
+  const { executions, branchFromJobName, buildShopFailed, rawRows, unclassified } = toExecutions(jobs);
   const isSecurity = (run.path ?? '').endsWith(SECURITY_WORKFLOW);
 
   const version = await resolveVersion({
@@ -177,6 +226,7 @@ async function processRun({ github, store, repo, run, withLogs, withTests, log }
     base_branch: version.baseBranch ?? null,
     ps_version: version.psVersion ?? null,
     raw_job_rows: rawRows,
+    ...(unclassified.length > 0 ? { unclassified_job_names: unclassified } : {}),
     executions,
   };
 }

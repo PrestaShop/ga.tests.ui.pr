@@ -364,8 +364,9 @@ function detailRow(campaign, runs) {
             : `green on attempt ${outcome.attempts}, ${Math.round(outcome.lostSeconds / 60)} min lost`;
           const pr = run.pr_number ? `PR #${run.pr_number}` : 'security run';
           return (
-            `<li><a href="${run.html_url}" target="_blank" rel="noopener">${run.owner} #${run.run_id}</a> — ` +
-            `${pr}, ${run.branch_key}, ${(run.created_at ?? '').slice(0, 10)} — ${verdict}` +
+            `<li><a href="${escapeAttr(run.html_url ?? '')}" target="_blank" rel="noopener">` +
+            `${escapeHtml(run.owner)} #${run.run_id}</a> — ` +
+            `${pr}, ${escapeHtml(run.branch_key)}, ${(run.created_at ?? '').slice(0, 10)} — ${verdict}` +
             `${outcome.infra ? ' (environment failure)' : ''}</li>`
           );
         })

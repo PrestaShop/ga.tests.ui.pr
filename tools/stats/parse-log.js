@@ -133,20 +133,48 @@ export function parseResolved(lines) {
  * @returns {{passing: number, failing: number, pending: number}|undefined}
  */
 export function parseMochaSummary(lines) {
+  return epilogue(lines)?.counts;
+}
+
+/**
+ * The mocha epilogue and the line its failure count sits on.
+ *
+ * Only the FIRST one counts, and only the few lines it spans. A job log does not stop at the
+ * report: teardown, container logs and `##[endgroup]` markers follow it, and the counts must
+ * not be redefined by whatever down there happens to read as `3 failing`. This is also the
+ * anchor `parseFailingTests` uses, so the two can never disagree about which report they are
+ * describing.
+ *
+ * @param {string[]} lines
+ * @returns {{counts: {passing: number, failing: number, pending: number}, failingAt: number}|undefined}
+ */
+function epilogue(lines) {
+  const start = lines.findIndex((line) => /^\s*\d+\s+(?:passing|failing)\b/.test(line));
+  if (start === -1) return undefined;
+
   let passing;
   let failing;
   let pending;
-  for (const line of lines) {
-    const p = line.match(/^\s*(\d+)\s+passing\b/);
-    if (p) passing = Number(p[1]);
-    const f = line.match(/^\s*(\d+)\s+failing\b/);
-    if (f) failing = Number(f[1]);
-    const g = line.match(/^\s*(\d+)\s+pending\b/);
-    if (g) pending = Number(g[1]);
+  let failingAt = -1;
+  for (let i = start; i < Math.min(lines.length, start + EPILOGUE_LINES); i += 1) {
+    const p = lines[i].match(/^\s*(\d+)\s+passing\b/);
+    if (p && passing === undefined) passing = Number(p[1]);
+    const g = lines[i].match(/^\s*(\d+)\s+pending\b/);
+    if (g && pending === undefined) pending = Number(g[1]);
+    const f = lines[i].match(/^\s*(\d+)\s+failing\b/);
+    if (f && failing === undefined) {
+      failing = Number(f[1]);
+      failingAt = i;
+    }
   }
-  if (passing === undefined && failing === undefined) return undefined;
-  return { passing: passing ?? 0, failing: failing ?? 0, pending: pending ?? 0 };
+  return {
+    counts: { passing: passing ?? 0, failing: failing ?? 0, pending: pending ?? 0 },
+    failingAt,
+  };
 }
+
+/** `62 passing (3m)` / `2 pending` / `1 failing`, with at most a blank line between them. */
+const EPILOGUE_LINES = 6;
 
 /**
  * The first failure block of a mocha spec report:
@@ -182,17 +210,26 @@ export function parseFailingTests(lines) {
   // The spec reporter already prints `1) <title>` inline where the test ran, so anchor on
   // the `N failing` summary and read the blocks that follow it. Without that anchor the
   // inline line matches first and yields a heading with no suite.
-  const summaryAt = lines.findIndex((line) => /^\s*\d+\s+failing\b/.test(line));
-  if (summaryAt === -1) return [];
+  const found = epilogue(lines);
+  if (!found || found.failingAt === -1 || found.counts.failing === 0) return [];
 
   /** Indices of each `N) ...` heading after the summary. */
   const starts = [];
-  for (let i = summaryAt; i < lines.length; i += 1) {
+  for (let i = found.failingAt; i < lines.length; i += 1) {
     if (/^\s*\d+\)\s+\S/.test(lines[i])) starts.push(i);
   }
   if (starts.length === 0) return [];
 
-  return starts
+  // mocha prints exactly as many failure blocks as it counted, and the log keeps going
+  // afterwards. A teardown line of the shape `1) restart mysql container` reads as another
+  // heading, and the block parser would then name the scenario after whatever followed it —
+  // `##[endgroup]`, in the case that turned up in review — and rank that phantom alongside
+  // real failures. The count is the authority on how many there are.
+  const real = starts.slice(0, found.counts.failing);
+
+  // The end bound still comes from the full list, so the last real block stops where the
+  // next heading-shaped line begins rather than running to the end of the log.
+  return real
     .map((start, n) => parseOneFailure(lines, start, starts[n + 1] ?? lines.length))
     .filter(Boolean);
 }

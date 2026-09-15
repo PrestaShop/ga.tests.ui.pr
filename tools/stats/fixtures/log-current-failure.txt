@@ -133,3 +133,78 @@
 2026-09-10T12:04:00.0922264Z   include-hidden-files: false
 2026-09-10T12:04:00.0922455Z env:
 2026-09-10T12:04:00.0922611Z   CLIENT_ID_API: ui-test-client
+2026-09-10T12:04:00.0922841Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T12:04:00.0923106Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T12:04:00.0923321Z   SCREENSHOT_CAMPAIGN: functional-API
+2026-09-10T12:04:00.0923524Z ##[endgroup]
+2026-09-10T12:04:00.3214643Z (node:10537) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-10T12:04:00.3215674Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-10T12:04:00.3344068Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-10T12:04:00.3346596Z The least common ancestor is /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr. This will be the root directory of the artifact
+2026-09-10T12:04:00.3347760Z With the provided path, there will be 5 files uploaded
+2026-09-10T12:04:00.3349987Z Artifact name is valid!
+2026-09-10T12:04:00.3351690Z Root directory input is valid!
+2026-09-10T12:04:00.5835370Z Beginning upload of artifact content to blob storage
+2026-09-10T12:04:00.8299830Z (node:10537) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-10T12:04:01.2348206Z Uploaded bytes 8388608
+2026-09-10T12:04:01.5313003Z Uploaded bytes 16777216
+2026-09-10T12:04:01.6521681Z Uploaded bytes 21927442
+2026-09-10T12:04:01.6868838Z Finished uploading artifact content to blob storage!
+2026-09-10T12:04:01.6869942Z SHA256 digest of uploaded artifact zip is 632de0ef8c314bda0fc576024664f2b918b13722a1a03e626be3bff341cc27b2
+2026-09-10T12:04:01.6870969Z Finalizing artifact upload
+2026-09-10T12:04:01.9327156Z Artifact campaign-functional-API.zip successfully finalized. Artifact ID 10150931413
+2026-09-10T12:04:01.9328487Z Artifact campaign-functional-API has been successfully uploaded! Final size is 21927442 bytes. Artifact ID is 10150931413
+2026-09-10T12:04:01.9333694Z Artifact download URL: https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/34473576823/artifacts/10150931413
+2026-09-10T12:04:01.9536780Z Post job cleanup.
+2026-09-10T12:04:01.9539919Z ##[start-action display=Setup Node;id=__ffcc22ad-b87e-47d6-9e03-e065657d80d7.__actions_setup-node]
+2026-09-10T12:04:01.9542586Z ##[end-action id=__ffcc22ad-b87e-47d6-9e03-e065657d80d7.__actions_setup-node;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-10T12:04:01.9573390Z Post job cleanup.
+2026-09-10T12:04:01.9575761Z ##[start-action display=Checkout keycloak module;id=__956c10c3-f0ed-473c-b6b1-8afb401bd5a1.__actions_checkout]
+2026-09-10T12:04:01.9631964Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:01.9632901Z Post job cleanup.
+2026-09-10T12:04:02.0333695Z [command]/usr/bin/git version
+2026-09-10T12:04:02.0378000Z git version 2.55.0
+2026-09-10T12:04:02.0407007Z Temporarily overriding HOME='/home/runner/work/_temp/a5470c6b-6641-4617-916f-11a8c0c8fc6c' before making global git config changes
+2026-09-10T12:04:02.0408297Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.0411267Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/keycloak_connector_demo
+2026-09-10T12:04:02.0448114Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.0478807Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.0700320Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.0722825Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.0731270Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.0763811Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.0988661Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.1021194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.1311783Z ##[end-action id=__956c10c3-f0ed-473c-b6b1-8afb401bd5a1.__actions_checkout;outcome=success;conclusion=success;duration_ms=173]
+2026-09-10T12:04:02.1364665Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:02.1365634Z Post job cleanup.
+2026-09-10T12:04:02.2071976Z [command]/usr/bin/git version
+2026-09-10T12:04:02.2108774Z git version 2.55.0
+2026-09-10T12:04:02.2143132Z Temporarily overriding HOME='/home/runner/work/_temp/0ede90b5-9b30-497a-9542-dda9a1d9b311' before making global git config changes
+2026-09-10T12:04:02.2144079Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.2148819Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/custom_actions
+2026-09-10T12:04:02.2186997Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.2218557Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.2430866Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.2453938Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.2463312Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.2498077Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.2713314Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.2746086Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.3100124Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:02.3101075Z Post job cleanup.
+2026-09-10T12:04:02.3829080Z [command]/usr/bin/git version
+2026-09-10T12:04:02.3856822Z git version 2.55.0
+2026-09-10T12:04:02.3890761Z Temporarily overriding HOME='/home/runner/work/_temp/f2c27c7c-ceb3-4cdd-92f0-4c027cc38a0d' before making global git config changes
+2026-09-10T12:04:02.3891596Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.3896183Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr
+2026-09-10T12:04:02.3935621Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.3968583Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.4199518Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.4222600Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.4232530Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.4269984Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.4505019Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.4542572Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.4911133Z Cleaning up orphan processes
+2026-09-10T12:04:02.5500140Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

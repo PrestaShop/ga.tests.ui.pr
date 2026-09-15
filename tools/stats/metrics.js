@@ -290,6 +290,9 @@ export function campaignStats(runs) {
       if (outcome.final === 'success' && !outcome.firstFailed) row.greenFirstTry += 1;
       if (outcome.flaky) row.flaky += 1;
       if (outcome.hardFailure) row.neverGreen += 1;
+      // Runs affected, not executions. `scenarioStats` counts infra *executions*, because
+      // its remainder arithmetic is per execution, so the same campaign can legitimately
+      // read 3 here and 4 there when one run failed its environment on two attempts.
       if (outcome.infra) row.infraFailures += 1;
       row.attemptsTotal += outcome.attempts;
       row.lostSeconds += outcome.lostSeconds;
@@ -428,10 +431,19 @@ function round(value, digits) {
 /**
  * Which scenario inside a campaign is responsible for its failures.
  *
- * With `--bail` a failing campaign stops at its first failing scenario, so each red
- * execution names exactly one. The share below is therefore a share of that campaign's
- * failures, which is the number that says where to start: a campaign failing 47% of the
- * time because of one scenario is a different job from one failing for a dozen reasons.
+ * The share below is a share of that campaign's failing executions, which is the number that
+ * says where to start: a campaign failing 47% of the time because of one scenario is a
+ * different job from one failing for a dozen reasons.
+ *
+ * ⚠️ Two different units meet here. `--bail` is usually on, so a red execution names exactly
+ * one scenario and the two coincide — but it is not always on, and an execution that names
+ * three scenarios produces three rows. Counting each of them as a whole failure against a
+ * denominator of failing *executions* is what once made three campaigns report 175%, 150%
+ * and 105% of their own failures. So a scenario's `failures` stays an honest integer count
+ * of the times it was named, while the share divides `executionShare` — the execution
+ * credited as `1/n` across the n scenarios it blamed — by the execution total. Those two
+ * are in the same unit, so the shares sum to at most 100, and what is left over is exactly
+ * the infra and expired-log remainder the caveat line reports.
  *
  * Only available inside the 90 days that job logs survive; older failures contribute to the
  * campaign totals but have no scenario, and are counted as `unattributed`.
@@ -477,8 +489,10 @@ export function scenarioStats(runs, campaign) {
           line: test.line ?? null,
           campaigns: new Set(),
           failures: 0,
+          // Execution-equivalents: `1/n` per scenario of an execution that named n of them,
+          // so this column and `campaignFailures` are in the same unit.
+          executionShare: 0,
           flakyFailures: 0,
-          infraFailures: 0,
           prs: new Set(),
           errors: new Map(),
           lastFailureAt: null,
@@ -487,8 +501,8 @@ export function scenarioStats(runs, campaign) {
       }
 
       row.failures += 1;
+      row.executionShare += 1 / failing.length;
       row.campaigns.add(exec.campaign);
-      if (exec.failure_kind === 'infra') row.infraFailures += 1;
       if (run.pr_number) row.prs.add(run.pr_number);
       if (test.error) row.errors.set(test.error, (row.errors.get(test.error) ?? 0) + 1);
       if (!row.lastFailureAt || (exec.started_at ?? '') > row.lastFailureAt) {
@@ -509,11 +523,11 @@ export function scenarioStats(runs, campaign) {
       file: row.file,
       line: row.line,
       campaigns: [...row.campaigns].sort(),
+      // How many times this scenario was named by a failing execution.
       failures: row.failures,
-      // Share of this campaign's failures that this one scenario accounts for.
-      shareOfFailuresPct: pct(row.failures, campaignFailures),
+      // Share of this campaign's failing executions it accounts for. See the unit note above.
+      shareOfFailuresPct: pct(row.executionShare, campaignFailures),
       flakyFailures: row.flakyFailures,
-      infraFailures: row.infraFailures,
       distinctPrs: row.prs.size,
       topError: [...row.errors.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null,
       lastFailureAt: row.lastFailureAt,
@@ -524,7 +538,8 @@ export function scenarioStats(runs, campaign) {
     scenarios,
     campaignFailures,
     attributed,
-    // Environment failures: no mocha report exists, so no scenario is expected.
+    // Environment failures: no mocha report exists, so no scenario is expected. Counted per
+    // execution, unlike the campaign table's column, which counts runs affected.
     infraFailures,
     // Test failures whose log has expired past the 90 day retention, so the scenario could
     // not be read. Shown rather than hidden, otherwise the shares silently stop adding up.

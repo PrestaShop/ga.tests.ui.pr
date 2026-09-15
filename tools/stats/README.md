@@ -31,8 +31,9 @@ N, including the ones that were not re-run. Those carried-over rows get a **new 
 a **relabelled `run_attempt`**, and keep their **original timestamps**.
 
 On run `jolelievre/ga.tests.ui.pr#34473576823` (3 attempts) the API returns **138 rows for
-51 real executions**. Counting rows would report 5 failures out of 138 (3.6%) instead of 5
-out of 51 (9.8%), and would count a campaign that passed once as having passed three times.
+51 real jobs**, 50 of which are campaign executions and one the prep job. Counting rows
+would report 5 failures out of 138 (3.6%) instead of 5 out of 50 (10.0%), and would count a
+campaign that passed once as having passed three times.
 
 An execution is therefore identified by `(job name, started_at)`, and its true attempt is
 the **lowest** `run_attempt` among the rows sharing that key. `executions.test.js` pins this
@@ -48,7 +49,7 @@ down against a recorded copy of that run; keep it passing.
 | `branch-key.js` | A pull request's target branch → version line (`develop`, `9.2.x`, …) |
 | `collect.js` | One invocation: list every repository, diff against the index, store what is new |
 | `metrics.js` | The statistics. Imported by the aggregator **and** by the dashboard, so the page and the generated summary cannot disagree |
-| `dataset.js` | Packs run files into one small file the browser downloads whole; CSV export |
+| `dataset.js` | Packs run files into one small file the browser downloads whole; CSV export (on demand, `--csv`) |
 | `aggregate.js` | Run files → `site/` |
 | `store.js` | One JSON file per run, plus the index of what has been processed |
 | `cache.js` | Record and replay of API responses |
@@ -155,13 +156,23 @@ The stack frame matters. A timeout inside a page object reports the helper first
 no scenario and is the same file for every such failure; the first frame under `campaigns/`
 is the spec somebody would actually open, so it wins whenever the stack has one.
 
-Parsing anchors on the `N failing` summary. The spec reporter also prints `1) <title>`
-inline where the test ran, long before the report at the end, and without the anchor that
-line matches first and yields a heading with no suite.
+Parsing anchors on the `N failing` summary, and stops after exactly that many blocks. The
+spec reporter prints `1) <title>` inline where the test ran, long before the report at the
+end, and without the anchor that line matches first and yields a heading with no suite. The
+log does not stop at the report either: a hundred lines of teardown, artifact upload and
+`##[endgroup]` markers follow it, and anything down there shaped like `1) restart mysql
+container` would otherwise be read as another failure and named after the line beneath it.
 
-The share reported against a scenario is a share of that campaign's failures, which is what
-says where to start: a campaign that is red half the time because of a single scenario is a
-very different job from one that is red for a dozen reasons.
+The share reported against a scenario is a share of that campaign's failing **executions**,
+which is what says where to start: a campaign that is red half the time because of a single
+scenario is a very different job from one that is red for a dozen reasons.
+
+Those are two different units, and the difference is only visible when `--bail` is off. A
+scenario's *failures* column counts the times it was named; its *share* credits it `1/n` of
+an execution that blamed n scenarios at once. Counting each of them as a whole failure
+against a denominator of executions is what made one campaign report 175% of its own
+failures. So the columns can legitimately total more than the campaign's failure count while
+the shares never exceed 100%.
 
 The whole log is fetched rather than a tail slice. The mocha report sits at the very end and
 the log store does not honour suffix ranges, so a tail would cost one request to learn the
@@ -169,7 +180,9 @@ size and another to fetch it; the whole log is one request for about seven times
 and the rate limit is the scarce resource here, not bandwidth.
 
 Failures whose log has expired are counted as `unattributed` rather than dropped, so the
-shares visibly stop adding up to 100% instead of silently misleading.
+shares visibly stop adding up to 100% instead of silently misleading. What the shares fall
+short by is exactly the infra plus expired-log remainder the caveat line under the table
+reports.
 
 ## Retention
 
@@ -191,8 +204,18 @@ node tools/stats/run.mjs \
   --repo Progi1984/ga.tests.ui.pr \
   --max-runs 40 --data-dir .local/data --out .local/site --record .local/fixtures
 
-# Look at the result
-npx --yes serve .local/site        # or: python3 -m http.server -d .local/site
+# Look at the result. Opening index.html from the filesystem does not work: the page fetches
+# its data and imports ES modules, and browsers refuse both over file://
+node tools/stats/serve.mjs .local/site     # http://localhost:4173, loopback only
+```
+
+The flat one-row-per-execution CSV is not part of the published site, because it is a
+full-history rebuild that would be re-committed daily for something the page never reads.
+Ask for it when you want it:
+
+```bash
+node tools/stats/run.mjs --aggregate-only --data-dir .local/data --out .local/site \
+  --csv .local/executions.csv
 ```
 
 `--record` saves every API response; `--replay <dir>` serves them back, so the dashboard and
@@ -213,7 +236,14 @@ for the test suite.
 
 `.github/workflows/stats.yml` runs daily, and on demand with a `max_runs` cap for draining
 the backlog. It is inert on forks. It reads with `secrets.STATS_GH_TOKEN` (a fine-grained
-token with read-only Actions access on public repositories; it falls back to the job token,
-which cannot read forks) and pushes the data with the job token.
+token with read-only Actions access on public repositories) and pushes the data with the job
+token. Without that secret it falls back to the job token, which is scoped to this repository
+and cannot list a fork's runs at all; the job then annotates itself with a warning rather
+than quietly collecting upstream-only data.
+
+Partial failures are annotated too: repositories that could not be listed, runs that failed
+to process, and job names that matched no known shape, which is how a workflow rename shows
+up as a number rather than as a plausible spike in aborted runs. The job only goes red when
+nothing at all could be collected, so a partial collection still commits the progress it made.
 
 GitHub Pages should be pointed at the `stats` branch, `/site` folder.

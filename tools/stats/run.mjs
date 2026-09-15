@@ -11,6 +11,9 @@
  * See tools/stats/README.md.
  */
 
+import { realpathSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
 import { GitHub } from './github.js';
 import { Store } from './store.js';
 import { collect } from './collect.js';
@@ -25,6 +28,7 @@ Usage: node tools/stats/run.mjs [options]
   --max-runs <n>        Cap on runs processed in this invocation. Default: 150
   --data-dir <path>     Where run files live. Default: ./data
   --out <path>          Where the site is generated. Default: ./site
+  --csv <path>          Also write the flat one-row-per-execution CSV export there
   --no-logs             Skip log reads (faster, but the version of recent runs is less precise)
   --aggregate-only      Rebuild the site from stored run files without calling GitHub
   --collect-only        Pull without rebuilding the site
@@ -34,13 +38,37 @@ Usage: node tools/stats/run.mjs [options]
   -h, --help
 `;
 
-function parseArgs(argv) {
+/**
+ * `Number('all')` is NaN, and NaN poisons quietly: `queue.slice(0, NaN)` is empty, so a cap
+ * of `all` collects nothing and still exits green, while `remaining <= NaN` is always false,
+ * so a bad floor turns the rate-limit guard off altogether. Both are reachable from the
+ * workflow_dispatch inputs, so both are rejected loudly here instead.
+ *
+ * @param {string} value
+ * @param {string} flag
+ * @param {number} min
+ */
+function wholeNumber(value, flag, min) {
+  // `Number('')` is 0, which would pass a floor of zero as a deliberate "never stop" when it
+  // is really an unset shell variable.
+  const n = String(value).trim() === '' ? NaN : Number(value);
+  if (!Number.isInteger(n) || n < min) {
+    throw new Error(
+      `${flag} needs a whole number >= ${min}, got: ${JSON.stringify(value)}`
+        + (flag === '--max-runs' ? ' (there is no "no cap" value; pass a large number)' : ''),
+    );
+  }
+  return n;
+}
+
+export function parseArgs(argv) {
   const options = {
     repos: [],
     root: 'PrestaShop/ga.tests.ui.pr',
     maxRuns: 150,
     dataDir: './data',
     outDir: './site',
+    csvPath: null,
     withLogs: true,
     collect: true,
     aggregate: true,
@@ -61,15 +89,16 @@ function parseArgs(argv) {
     switch (arg) {
       case '--repo': options.repos.push(next()); break;
       case '--root': options.root = next(); break;
-      case '--max-runs': options.maxRuns = Number(next()); break;
+      case '--max-runs': options.maxRuns = wholeNumber(next(), arg, 1); break;
       case '--data-dir': options.dataDir = next(); break;
       case '--out': options.outDir = next(); break;
+      case '--csv': options.csvPath = next(); break;
       case '--no-logs': options.withLogs = false; break;
       case '--aggregate-only': options.collect = false; break;
       case '--collect-only': options.aggregate = false; break;
       case '--record': options.record = next(); break;
       case '--replay': options.replay = next(); break;
-      case '--rate-floor': options.rateFloor = Number(next()); break;
+      case '--rate-floor': options.rateFloor = wholeNumber(next(), arg, 0); break;
       case '-h':
       case '--help': options.help = true; break;
       default: throw new Error(`Unknown option: ${arg}`);
@@ -122,23 +151,72 @@ async function main() {
     log(
       `collected: ${stats.runsProcessed}/${stats.runsQueued} queued runs processed, ` +
         `${stats.executions} executions, ${stats.repos} repositories ` +
-        `(${stats.reposUnreadable} unreadable), ${github.requestCount} API requests`,
+        `(${stats.reposUnreadable} unreadable, ${stats.reposErrored} errored), ` +
+        `${github.requestCount} API requests`,
     );
     if (stats.rateLimited) log('stopped on the rate-limit floor; re-run to continue');
-    if (stats.error) log(`stopped on an error, progress was saved: ${stats.error}`);
     if (stats.runsQueued > stats.runsProcessed) {
       log(`${stats.runsQueued - stats.runsProcessed} runs still queued for the next invocation`);
+    }
+
+    // A partial failure used to be a log line in a green job, which is how a permanently
+    // stalled backfill can look like a working one for weeks. Anything that lost data is
+    // now an annotation, so it shows on the run itself.
+    if (stats.reposErrored > 0) {
+      warn(`${stats.reposErrored} repositories could not be listed; their runs are missing from this collection`);
+    }
+    if (stats.runsFailed > 0) {
+      warn(`${stats.runsFailed} runs failed to process and will be retried next time`);
+    }
+    if (stats.unclassifiedJobNames.length > 0) {
+      warn(
+        `${stats.unclassifiedJobNames.length} job names matched no known shape, so their campaigns `
+          + `were not counted: ${stats.unclassifiedJobNames.slice(0, 10).join(', ')}`,
+      );
+    }
+    for (const f of stats.failures.slice(0, 20)) {
+      log(`  failed: ${f.repo}${f.run_id ? `#${f.run_id}` : ''}: ${f.message}`);
+    }
+
+    // Nothing at all got through, or the scan itself died: that is not a partial result, and
+    // a green job would hide it. Partial progress is still on disk and still committed,
+    // because failing the job there would throw away the runs that did succeed.
+    if (stats.error) {
+      fail(`the collection stopped on an error, progress was saved: ${stats.error}`);
+    } else if (stats.runsQueued > 0 && stats.runsProcessed === 0 && !stats.rateLimited) {
+      fail(`${stats.runsQueued} runs were queued and none could be processed`);
     }
   }
 
   if (options.aggregate) {
-    await aggregate({ dataDir: options.dataDir, outDir: options.outDir, log });
+    await aggregate({
+      dataDir: options.dataDir,
+      outDir: options.outDir,
+      csvPath: options.csvPath,
+      log,
+    });
   }
 
   log(`done in ${Math.round((Date.now() - started) / 1000)}s`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+/** GitHub Actions renders these on the run itself; elsewhere they are just prefixed lines. */
+const IN_ACTIONS = Boolean(process.env.GITHUB_ACTIONS);
+
+function warn(message) {
+  console.log(IN_ACTIONS ? `::warning::${message}` : `[stats] warning: ${message}`);
+}
+
+function fail(message) {
+  console.error(IN_ACTIONS ? `::error::${message}` : `[stats] error: ${message}`);
+  process.exitCode = 1;
+}
+
+// Only when run as a command. The argument parsing is imported by the tests, and importing
+// this file must not start a collection.
+if (process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

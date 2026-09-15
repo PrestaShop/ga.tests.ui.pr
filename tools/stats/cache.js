@@ -26,7 +26,15 @@ export function cachingTransport({ dir, mode, upstream = globalThis.fetch }) {
 
       if (mode === 'replay') {
         const stored = await readFile(file, 'utf8').catch(() => null);
-        if (stored === null) throw new Error(`No recorded response for ${url} (looked in ${file})`);
+        if (stored === null) {
+          const missing = new Error(`No recorded response for ${url} (looked in ${file})`);
+          // Not a transient failure: the file will not appear between attempts. Without this
+          // the client reads it as a dropped connection and backs off four times, so every
+          // gap in a recording costs seven seconds of a run that is supposed to be offline
+          // and instant.
+          missing.retryable = false;
+          throw missing;
+        }
         return toResponse(JSON.parse(stored));
       }
 
