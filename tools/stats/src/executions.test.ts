@@ -65,9 +65,9 @@ test('a campaign carried over across attempts is counted once, in the attempt it
   const login = executions.filter((e) => e.campaign === 'functional:BO:login');
 
   assert.equal(login.length, 1, 'passed on attempt 1 and was never re-run');
-  assert.equal(login[0].attempt, 1);
-  assert.equal(login[0].conclusion, 'success');
-  assert.equal(login[0].started_at, '2026-09-10T11:58:23Z');
+  assert.equal(login[0]!.attempt, 1);
+  assert.equal(login[0]!.conclusion, 'success');
+  assert.equal(login[0]!.started_at, '2026-09-10T11:58:23Z');
 });
 
 test('a campaign that failed then passed is kept as separate executions', () => {
@@ -176,7 +176,7 @@ test('a failed shop prebuild is reported so the run can be discarded', () => {
 
   assert.equal(buildShopFailed, true);
   assert.equal(executions.length, 1, 'the campaign row exists but never ran');
-  assert.equal(executions[0].conclusion, 'skipped');
+  assert.equal(executions[0]!.conclusion, 'skipped');
 });
 
 test('duration is null while a job is unfinished', () => {

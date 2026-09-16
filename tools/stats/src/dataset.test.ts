@@ -51,7 +51,7 @@ test('a dataset survives the round trip unchanged', () => {
 
   // Encoding sorts by date, so compare by run id.
   const byId = Object.fromEntries(decoded.map((r) => [r.run_id, r]));
-  const first = byId[34473576823];
+  const first = byId[34473576823]!;
 
   assert.equal(first.owner, 'jolelievre');
   assert.equal(first.workflow, 'pr_test_one.yml');
@@ -64,7 +64,7 @@ test('a dataset survives the round trip unchanged', () => {
   assert.equal(first.is_security, false);
   assert.equal(first.created_at, '2026-09-10T11:52:13Z');
   assert.equal(first.html_url, 'https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/34473576823');
-  assert.deepEqual(first.executions, sample[0].executions);
+  assert.deepEqual(first.executions, sample[0]!.executions);
 });
 
 test('null values round trip as null, not as an empty string', () => {

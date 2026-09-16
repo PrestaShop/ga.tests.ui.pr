@@ -59,6 +59,13 @@ class FakeGitHub {
   readonly failRuns: Record<number, Error>;
   requestCount = 0;
   readonly seenRuns: number[] = [];
+  readonly seenLogs: number[] = [];
+  /** What a readable log says. Enough for parseLog to find the resolved-version block. */
+  logText = [
+    'Resolved from PR / detected PrestaShop version:',
+    '  base_branch (PR target): 9.2.x',
+    '  ps_version (detected): 9.2.0',
+  ].join('\n');
   onListJobs: ((runId: number) => Promise<void>) | null = null;
 
   constructor({ forks = [], runs = {}, jobs = {}, failRepos = {}, failRuns = {} }: FakeOptions = {}) {
@@ -89,8 +96,14 @@ class FakeGitHub {
     return this.jobs[runId] ?? [];
   }
 
-  async getJobLog(): Promise<string | null> {
-    return null;
+  /** Per job id: the status the log store answers with. Anything unlisted is a readable log. */
+  logStatus: Record<number, number> = {};
+
+  async getJobLog(_repo: string, jobId: number): Promise<{ status: number; text: string | null }> {
+    this.requestCount += 1;
+    this.seenLogs.push(jobId);
+    const status = this.logStatus[jobId] ?? 200;
+    return { status, text: status === 200 ? this.logText : null };
   }
 
   async getPullRequest(): Promise<null> {
@@ -229,7 +242,7 @@ test('one run that throws does not strand the rest of the queue', async () => {
     assert.deepEqual(github.seenRuns, [3, 2, 1], 'run 1 was still reached');
     assert.deepEqual(stats.failures, [{ repo: REPO, run_id: 2, message: 'GitHub 502 on /jobs' }]);
 
-    const stored = [];
+    const stored: number[] = [];
     for await (const r of store.allRuns()) stored.push(r.run_id);
     assert.deepEqual(stored.sort(), [1, 3]);
   });
@@ -326,8 +339,70 @@ test('a workflow rename surfaces as job names rather than as aborted runs', asyn
     const runs = [];
     for await (const r of store.allRuns()) runs.push(r);
     const [stored] = runs;
-    assert.deepEqual(stored.executions, []);
-    assert.equal(stored.aborted, true, 'which is why the names have to come out with it');
-    assert.deepEqual(stored.unclassified_job_names, ['run the campaign [audit]']);
+    assert.deepEqual(stored!.executions, []);
+    assert.equal(stored!.aborted, true, 'which is why the names have to come out with it');
+    assert.deepEqual(stored!.unclassified_job_names, ['run the campaign [audit]']);
   });
 });
+
+test('an expired log stops the run, a missing one only skips that job', async () => {
+  await withStore(async (_dir, store) => {
+    const github = new FakeGitHub({
+      runs: { [REPO]: [runRow(1)] },
+      // Three job rows, so readRunLog has siblings to fall back on. The campaign row is the
+      // one that carries the branch in its name, which is the fallback being avoided.
+      jobs: {
+        1: [
+          { id: 11, run_attempt: 1, name: 'Resolve PR context / Resolve PR + PrestaShop version', conclusion: 'success' },
+          { id: 12, run_attempt: 1, name: 'test (audit, develop)', conclusion: 'success', started_at: '2026-09-10T11:58:23Z' },
+          { id: 13, run_attempt: 1, name: 'test (sanity, develop)', conclusion: 'success', started_at: '2026-09-10T11:58:24Z' },
+        ],
+      },
+    });
+    // The first job has no log at all; the others do.
+    github.logStatus = { 11: 404 };
+
+    const stats = await collect({
+      github: github as unknown as GitHub,
+      store,
+      repos: [REPO],
+      withTests: false,
+    });
+
+    assert.equal(stats.runsProcessed, 1);
+    const stored: RunFile[] = [];
+    for await (const r of store.allRuns()) stored.push(r);
+
+    assert.deepEqual(github.seenLogs, [11, 12], 'a 404 moves on to the next candidate');
+    assert.equal(stored[0]!.branch_key_source, 'resolved-log',
+      'one job without a log must not cost the run its version');
+    assert.equal(stored[0]!.branch_key, '9.2.x');
+  });
+});
+
+test('an expired log is not re-asked for on every job of the run', async () => {
+  await withStore(async (_dir, store) => {
+    const github = new FakeGitHub({
+      runs: { [REPO]: [runRow(1)] },
+      jobs: {
+        1: [
+          { id: 11, run_attempt: 1, name: 'Resolve PR context / Resolve PR + PrestaShop version', conclusion: 'success' },
+          { id: 12, run_attempt: 1, name: 'test (audit, develop)', conclusion: 'success', started_at: '2026-09-10T11:58:23Z' },
+          { id: 13, run_attempt: 1, name: 'test (sanity, develop)', conclusion: 'success', started_at: '2026-09-10T11:58:24Z' },
+        ],
+      },
+    });
+    // Past the 90 day retention: the whole run is gone, not just this job.
+    github.logStatus = { 11: 410, 12: 410, 13: 410 };
+
+    await collect({ github: github as unknown as GitHub, store, repos: [REPO], withTests: false });
+
+    // Most of an 1800 run backfill is expired, so two extra requests per run is not free.
+    assert.deepEqual(github.seenLogs, [11], 'one 410 answers for the whole run');
+    const stored: RunFile[] = [];
+    for await (const r of store.allRuns()) stored.push(r);
+    assert.equal(stored[0]!.branch_key_source, 'job-name', 'and the job name is the fallback');
+    assert.equal(stored[0]!.branch_key, 'develop');
+  });
+});
+

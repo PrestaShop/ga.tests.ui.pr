@@ -61,13 +61,24 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          # Depth 1: the whole point of this checkout is the current state of the data, and
-          # the branch gains a commit every day. Its history is never read here.
-          if git fetch --depth 1 origin stats; then
+          # Ask whether the branch exists before trying to fetch it, so the two cases stay
+          # apart. Letting a failed `git fetch` mean "no branch yet" sends the collector at
+          # an empty data directory: it reprocesses the entire backlog, spends the hour's
+          # rate limit, and then cannot push because it is not a fast-forward. Nothing is
+          # lost, but the invocation is wasted and the log points at the wrong thing.
+          # `ls-remote --exit-code` answers 2 for absent and anything else for a real failure.
+          git ls-remote --exit-code --heads origin stats >/dev/null && exists=$? || exists=$?
+          if [ "$exists" = "2" ]; then
+            echo "No stats branch yet, starting an empty one"
+          elif [ "$exists" != "0" ]; then
+            echo "::error::Could not reach the data branch (git ls-remote exit $exists). Refusing to collect against an empty directory."
+            exit 1
+          else
+            # Depth 1: the whole point of this checkout is the current state of the data, and
+            # the branch gains a commit every day. Its history is never read here.
+            git fetch --depth 1 origin stats
             git reset --hard FETCH_HEAD
             echo "Data branch checked out at $(git rev-parse --short HEAD)"
-          else
-            echo "No stats branch yet, starting an empty one"
           fi
 
       - uses: actions/setup-node@v4

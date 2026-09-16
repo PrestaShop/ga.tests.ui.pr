@@ -10,7 +10,7 @@ import WeeklyTrend from './components/WeeklyTrend.vue';
 import { forDateTimeInput, histogram, hours } from './format.js';
 import { useDataset } from './useDataset.js';
 
-const { runs, generatedAt, error, load } = useDataset();
+const { runs, generatedAt, error, loading, load } = useDataset();
 
 const filters = ref<FilterState>({
   branchKey: '',
@@ -59,7 +59,11 @@ function asFilters(ignoreRange = false): Filters {
     db: f.db || undefined,
     owner: f.owner || undefined,
     workflow: f.workflow || undefined,
-    sinceDays: custom || !f.window ? undefined : Number(f.window),
+    // `f.window === 'custom'` has to be tested on its own: with `ignoreRange`, `custom` is
+    // false while the window is still the string 'custom', and `Number('custom')` is NaN.
+    // `!explicitRange && NaN` is falsy, so that NaN would reach filterRuns as "no cutoff" and
+    // silently widen the prefill to the whole history instead of the window being shown.
+    sinceDays: custom || !f.window || f.window === 'custom' ? undefined : Number(f.window),
     // The fields hold local time; Date parses them in the reader's own zone, which is what
     // they mean by it.
     from: custom && f.from ? new Date(f.from).toISOString() : undefined,
@@ -80,6 +84,11 @@ const campaigns = computed(() => {
 
 const coverage = computed(() => {
   if (error.value) return `Could not load the dataset: ${error.value}`;
+  // Until the dataset lands the page would otherwise render a complete and entirely plausible
+  // empty dashboard: every card at zero, "Nothing matches these filters." Locally that is one
+  // frame. At the full backlog dataset.json is megabytes, and several seconds of a dashboard
+  // that looks empty reads as broken rather than as loading.
+  if (loading.value) return 'Loading…';
   const owners = new Set(visible.value.map((r) => r.owner)).size;
   const unknown = visible.value.filter((r) => r.branch_key === 'unknown').length;
   const generated = generatedAt.value ? new Date(generatedAt.value).toLocaleString() : 'unknown';
@@ -140,28 +149,30 @@ const timeCards = computed<Card[]>(() => {
       {{ coverage }}
     </p>
 
-    <FilterBar v-model="filters" :runs="runs" />
+    <template v-if="!loading && !error">
+      <FilterBar v-model="filters" :runs="runs" />
 
-    <h2>Run health</h2>
-    <StatCards :cards="healthCards" />
+      <h2>Run health</h2>
+      <StatCards :cards="healthCards" />
 
-    <h2>
-      Time
-      <span class="qualifier">— machine time, how much of it bought nothing, and how long a run takes to reach a verdict</span>
-    </h2>
-    <StatCards :cards="timeCards" />
+      <h2>
+        Time
+        <span class="qualifier">— machine time, how much of it bought nothing, and how long a run takes to reach a verdict</span>
+      </h2>
+      <StatCards :cards="timeCards" />
 
-    <h2>
-      Weekly trend
-      <span class="qualifier">— runs per week: green on the first attempt, green after a retry, never green</span>
-    </h2>
-    <WeeklyTrend :weeks="weeks" />
+      <h2>
+        Weekly trend
+        <span class="qualifier">— runs per week: green on the first attempt, green after a retry, never green</span>
+      </h2>
+      <WeeklyTrend :weeks="weeks" />
 
-    <h2>
-      Campaigns
-      <span class="qualifier">— click a row for the runs behind the numbers</span>
-    </h2>
-    <CampaignTable :rows="campaigns" :runs="visible" />
+      <h2>
+        Campaigns
+        <span class="qualifier">— click a row for the runs behind the numbers</span>
+      </h2>
+      <CampaignTable :rows="campaigns" :runs="visible" />
+    </template>
 
     <footer>
       A campaign that fails then passes on a later attempt of the same run is flaky: the code

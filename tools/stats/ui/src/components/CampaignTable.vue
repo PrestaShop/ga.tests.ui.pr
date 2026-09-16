@@ -115,7 +115,12 @@ function ariaSort(key: keyof CampaignRow): 'ascending' | 'descending' | undefine
             <td>{{ row.distinctPrsFailed }}/{{ row.distinctPrsRun }}</td>
             <td>{{ row.lastFailureAt ? row.lastFailureAt.slice(0, 10) : '' }}</td>
           </tr>
-          <CampaignDetail v-if="expanded === row.campaign" :campaign="row.campaign" :runs="runs" />
+          <CampaignDetail
+            v-if="expanded === row.campaign"
+            :campaign="row.campaign"
+            :runs="runs"
+            :columns="COLUMNS.length"
+          />
         </template>
       </tbody>
     </table>

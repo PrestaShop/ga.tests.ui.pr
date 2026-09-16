@@ -5,15 +5,19 @@
     "is bundled by Vite, and metrics.ts and dataset.ts are checked by both because both",
     "import them.",
     "",
-    "noUncheckedIndexedAccess is deliberately off. The dataset decoder is an unbroken run of",
-    "positional array reads, and turning every one of them into `T | undefined` would buy",
-    "assertions rather than safety: a dataset with an out-of-range dictionary index is",
-    "already refused by the version guard."
+    "noUncheckedIndexedAccess is on. It was off at first, on the argument that the dataset",
+    "decoder is an unbroken run of positional reads and would only gain assertions. The",
+    "argument did not survive review: with the flag off, every `x[i]!` in the tree asserts",
+    "nothing a compiler is checking, so 28 of them read as deliberate nullability decisions",
+    "that were not being made. Turning it on cost exactly one production fix, and that one",
+    "was a real bug — an unguarded read in the decoder that would have thrown Invalid Date",
+    "on a truncated row and killed the page with no message."
   ],
   "compilerOptions": {
     "target": "es2022",
     "lib": ["es2023"],
     "strict": true,
+    "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

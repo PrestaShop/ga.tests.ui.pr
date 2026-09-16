@@ -226,16 +226,26 @@ export class GitHub {
    * Note: suffix ranges (`bytes=-N`) are not honoured by the log store, which answers 200
    * with the full body, so only head ranges are offered here.
    *
-   * @returns null when the log has expired (410, after 90 days).
+   * The status comes back with the text because 404 and 410 mean different things to the
+   * caller: 410 is the 90 day retention, so every job of that run is equally gone, while a
+   * 404 is about this job alone and says nothing about its siblings.
    */
-  async getJobLog(repo: string, jobId: number, { bytes }: { bytes?: number } = {}): Promise<string | null> {
+  async getJobLog(
+    repo: string,
+    jobId: number,
+    { bytes }: { bytes?: number } = {},
+  ): Promise<{ status: number; text: string | null }> {
+    const path = `/repos/${repo}/actions/jobs/${jobId}/logs`;
     const headers: Record<string, string> = bytes ? { range: `bytes=0-${bytes - 1}` } : {};
-    const res = await this.request(`/repos/${repo}/actions/jobs/${jobId}/logs`, {
-      headers,
-      allow: [404, 410],
-    });
-    if (res.status === 404 || res.status === 410) return null;
-    return res.text();
+    let res = await this.request(path, { headers, allow: [404, 410, 416] });
+
+    // A log shorter than the head range. Most stores answer 206 with the short body, but a
+    // 416 is legal and would otherwise throw, failing that run on every later invocation
+    // too. The body is what was wanted anyway, so ask for it without the range.
+    if (res.status === 416) res = await this.request(path, { allow: [404, 410] });
+
+    if (res.status === 404 || res.status === 410) return { status: res.status, text: null };
+    return { status: res.status, text: await res.text() };
   }
 }
 

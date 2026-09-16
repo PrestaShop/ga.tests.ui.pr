@@ -18,7 +18,7 @@ const busiest = computed(() => Math.max(...props.weeks.map((w) => w.runs), 1));
 interface Bar {
   week: string;
   heightPct: number;
-  segments: Array<{ colour: string; pct: number }>;
+  segments: Array<{ outcome: string; colour: string; pct: number }>;
   tooltip: string;
 }
 
@@ -28,10 +28,13 @@ const bars = computed<Bar[]>(() =>
     return {
       week: w.week,
       heightPct: Math.max(4, (w.runs / busiest.value) * 100),
+      // Keyed by outcome rather than by index: the filter below drops empty segments, so
+      // position does not identify a segment across renders and Vue could patch a green
+      // block into a red one.
       segments: [
-        { colour: 'var(--good)', pct: share(w.greenFirstAttempt) },
-        { colour: 'var(--warn)', pct: share(w.greenEventually) },
-        { colour: 'var(--bad)', pct: share(w.neverGreen) },
+        { outcome: 'green-first', colour: 'var(--good)', pct: share(w.greenFirstAttempt) },
+        { outcome: 'green-after-retry', colour: 'var(--warn)', pct: share(w.greenEventually) },
+        { outcome: 'never-green', colour: 'var(--bad)', pct: share(w.neverGreen) },
       ].filter((s) => s.pct > 0),
       tooltip:
         `${w.week}: ${w.runs} run${w.runs === 1 ? '' : 's'} — ` +
@@ -52,8 +55,8 @@ const bars = computed<Bar[]>(() =>
       :style="{ height: `${bar.heightPct}%` }"
     >
       <i
-        v-for="(segment, i) in bar.segments"
-        :key="i"
+        v-for="segment in bar.segments"
+        :key="segment.outcome"
         :style="{ height: `${segment.pct}%`, background: segment.colour }"
       />
       <span>{{ bar.tooltip }}</span>

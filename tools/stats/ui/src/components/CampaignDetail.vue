@@ -13,7 +13,7 @@ import { caveatText } from '../format.js';
  * hundreds of entries once the whole backfill is in, so only the most recent are shown and
  * the rest are one click away.
  */
-const props = defineProps<{ campaign: string; runs: DecodedRun[] }>();
+const props = defineProps<{ campaign: string; runs: DecodedRun[]; columns: number }>();
 
 /** How many failing runs to list before folding the rest behind a link. */
 const RUNS_SHOWN = 12;
@@ -51,7 +51,7 @@ function verdict(outcome: CampaignOutcome): string {
 
 <template>
   <tr class="detail">
-    <td :colspan="11">
+    <td :colspan="columns">
       <strong>{{ campaign }}</strong>
 
       <table v-if="scenarios.length" class="sub-table">

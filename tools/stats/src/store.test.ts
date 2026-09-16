@@ -63,7 +63,7 @@ test('the index decides what still needs processing', async () => {
 
     const stored: number[] = [];
     for await (const r of reloaded.allRuns()) stored.push(r.run_id);
-    assert.deepEqual(stored.sort(), [7, 8]);
+    assert.deepEqual(stored!.sort(), [7, 8]);
   });
 });
 
@@ -116,7 +116,7 @@ test('a write is never visible half-finished', async () => {
 test('a torn file is an error rather than a silent empty index', async () => {
   await withStore(async (dir) => {
     // If one ever does turn up, losing it quietly would mean recollecting the entire history
-    // as though nothing had been stored. Better to stop and say so.
+    // as though nothing had been stored!. Better to stop and say so.
     await writeFile(join(dir, 'index.json'), '{"runs": {"a/b#1"', 'utf8');
     await assert.rejects(() => new Store(dir).load(), /JSON/);
   });

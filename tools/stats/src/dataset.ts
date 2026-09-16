@@ -127,7 +127,7 @@ export function decodeDataset(dataset: PackedDataset): DecodedRun[] {
       branch_key: text('branch', r[3]),
       db: maybe('db', r[4]),
       pr_number: r[5] || null,
-      created_at: isoString(r[6]) ?? '',
+      created_at: isoString(r[6] ?? 0) ?? '',
       run_attempt: r[7]!,
       status: 'completed',
       aborted: Boolean((r[8] ?? 0) & ABORTED),

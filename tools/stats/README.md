@@ -68,12 +68,19 @@ The tool used to have no dependencies and no build step, which was a genuine fea
 lockfile, and `npm ci && npm run build` in both workflows before anything runs. The page it
 ships is 91 KB of JavaScript, 35 KB gzipped, where the hand-written one was 14 KB.
 
-That is a deliberate trade, made so the dashboard follows the same convention as
-`admin-dev/themes/new-theme` in PrestaShop/PrestaShop rather than being the one hand-rolled
-page in the organisation. What it buys: components instead of HTML assembled from strings,
+That is a deliberate trade. What it buys: components instead of HTML assembled from strings,
 which retires a class of escaping bug by construction; a typed contract between the collector
 and the page; and `npm run dev`, so editing the dashboard no longer means re-running the
 aggregator to see the change.
+
+The framework is Vue because that is what the organisation standardised on — the back office
+is Vue 3.5 — but this dashboard is written in the **current** Vue idiom rather than the one
+`admin-dev/themes/new-theme` uses. Of its 68 single-file components, none use `<script
+setup>`: they are all `defineComponent` with the Options API, and their filenames are mostly
+kebab-case. This page uses `<script setup lang="ts">`, type-based `defineProps`, `defineModel`
+and PascalCase filenames throughout. That is a deliberate choice for a standalone tool with no
+shared build and no shared components, not an alignment claim: nothing here is imported by the
+back office, so there is nothing to stay compatible with.
 
 | | here | what core pins | note |
 |---|---|---|---|

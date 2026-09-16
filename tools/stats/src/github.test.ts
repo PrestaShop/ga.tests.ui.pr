@@ -71,8 +71,8 @@ test('pagination follows the Link header and stops at the last page', async () =
   const jobs = await gh.listRunJobs('o/r', 42);
   assert.deepEqual(jobs.map((j) => j.id), [1, 2, 3]);
   assert.equal(calls.length, 2);
-  assert.match(calls[0].url, /filter=all/, 'every attempt must be requested, not just the latest');
-  assert.equal(calls[1].url, 'https://api.github.com/page2');
+  assert.match(calls[0]!.url, /filter=all/, 'every attempt must be requested, not just the latest');
+  assert.equal(calls[1]!.url, 'https://api.github.com/page2');
 });
 
 test('an endpoint returning a bare array paginates too', async () => {
@@ -94,8 +94,8 @@ test('an expired log reads as null rather than an error', async () => {
   const { transport, calls } = fakeTransport([{ status: 410, body: 'Gone' }]);
   const gh = new GitHub({ token: 't', transport });
 
-  assert.equal(await gh.getJobLog('o/r', 1, { bytes: 1024 }), null);
-  assert.equal(calls[0].headers.range, 'bytes=0-1023', 'only the head of the log is fetched');
+  assert.equal((await gh.getJobLog('o/r', 1, { bytes: 1024 })).text, null);
+  assert.equal(calls[0]!.headers.range, 'bytes=0-1023', 'only the head of the log is fetched');
 });
 
 test('a transient failure is retried instead of losing the invocation', async () => {
@@ -142,8 +142,40 @@ test('the next page URL is read out of the Link header', () => {
 test('the token is sent, and omitted when there is none', async () => {
   const { transport, calls } = fakeTransport([{ body: {} }, { body: {} }]);
   await new GitHub({ token: 'secret', transport }).json('/a');
-  assert.equal(calls[0].headers.authorization, 'Bearer secret');
+  assert.equal(calls[0]!.headers.authorization, 'Bearer secret');
 
   await new GitHub({ token: undefined, transport }).json('/b');
-  assert.equal(calls[1].headers.authorization, undefined);
+  assert.equal(calls[1]!.headers.authorization, undefined);
 });
+
+test('a log shorter than the head range is read, not mistaken for an expired one', async () => {
+  // The store may answer 416 rather than serving the short body. Treating that as expired
+  // would lose every quick job's log; letting it throw fails the run on every later
+  // invocation too, because the range is the same every time.
+  const { calls, transport } = fakeTransport([
+    { status: 416, body: '' },
+    { body: 'the whole short log', headers: { 'content-type': 'text/plain' } },
+  ]);
+  const gh = new GitHub({ token: 't', transport });
+
+  const { status, text } = await gh.getJobLog('o/r', 1, { bytes: 65536 });
+
+  assert.equal(status, 200);
+  assert.equal(text, 'the whole short log');
+  assert.equal(calls.length, 2);
+  assert.equal(calls[0]!.headers.range, 'bytes=0-65535');
+  assert.equal(calls[1]!.headers.range, undefined, 'the retry asks for the whole thing');
+});
+
+test('an expired log and a missing one are told apart', async () => {
+  // 410 is the 90 day retention and applies to every job of the run; 404 is about one job,
+  // so the caller can still try its siblings.
+  for (const status of [404, 410]) {
+    const { transport } = fakeTransport([{ status, body: 'gone' }]);
+    const gh = new GitHub({ token: 't', transport });
+    const res = await gh.getJobLog('o/r', 1);
+    assert.equal(res.text, null);
+    assert.equal(res.status, status, 'the caller needs to know which');
+  }
+});
+

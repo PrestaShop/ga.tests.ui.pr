@@ -176,8 +176,8 @@ test('every failure block is read, not only the first', () => {
     ['should do the first thing', 'campaigns/functional/a.ts', 10],
     ['should do the second thing', 'campaigns/functional/b.ts', 20],
   ]);
-  assert.equal(failures[0].error, 'AssertionError: first');
-  assert.equal(failures[1].error, 'AssertionError: second');
+  assert.equal(failures[0]!.error, 'AssertionError: first');
+  assert.equal(failures[1]!.error, 'AssertionError: second');
 });
 
 test('a log with no failure summary yields an empty list', () => {
@@ -248,8 +248,8 @@ test('teardown output shaped like a failure block is not a scenario', () => {
   const found = parseFailingTests(cleanLines(log));
 
   assert.equal(found.length, 1, 'mocha said one failure, so there is one failure');
-  assert.equal(found[0].title, 'should check endpoints');
-  assert.equal(found[0].file, 'campaigns/functional/API/02_checkEndpoints.ts');
+  assert.equal(found[0]!.title, 'should check endpoints');
+  assert.equal(found[0]!.file, 'campaigns/functional/API/02_checkEndpoints.ts');
   assert.ok(
     !found.some((t) => t.title.includes('endgroup') || t.title.includes('mysql')),
     'nothing from the teardown got in',
@@ -274,8 +274,8 @@ test('the real failure block still ends where the teardown begins', () => {
   const found = parseFailingTests(cleanLines(log));
 
   assert.equal(found.length, 1);
-  assert.equal(found[0].error, 'TimeoutError: waited too long');
-  assert.equal(found[0].file, 'campaigns/functional/API/02_checkEndpoints.ts', 'not the teardown frame');
+  assert.equal(found[0]!.error, 'TimeoutError: waited too long');
+  assert.equal(found[0]!.file, 'campaigns/functional/API/02_checkEndpoints.ts', 'not the teardown frame');
 });
 
 test('a second summary further down the log does not redefine the counts', () => {

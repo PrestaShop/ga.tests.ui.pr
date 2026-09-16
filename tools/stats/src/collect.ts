@@ -387,8 +387,8 @@ async function attachFailingTests({
   for (const exec of executions) {
     if (exec.failure_kind !== 'test' || !exec.job_id) continue;
     try {
-      const text = await github.getJobLog(repo, exec.job_id);
-      if (text === null) continue; // expired past 90 days
+      const { text } = await github.getJobLog(repo, exec.job_id);
+      if (text === null) continue; // expired past 90 days, or this one job has no log
       const { failingTests, summary } = parseLog(text);
       // `--bail` usually stops at the first, but it is not always on, and a campaign that
       // reported three failing scenarios should be credited with three.
@@ -408,8 +408,14 @@ async function attachFailingTests({
 async function readRunLog({ github, repo, jobs }: { github: GitHub; repo: string; jobs: JobRow[] }) {
   for (const job of jobs.slice(0, 3)) {
     if (!job?.id) continue;
-    const text = await github.getJobLog(repo, job.id, { bytes: LOG_HEAD_BYTES });
-    if (text === null) return null; // expired (410): every job of the run is equally gone
+    const { status, text } = await github.getJobLog(repo, job.id, { bytes: LOG_HEAD_BYTES });
+    // 410 is the retention cutoff and applies to the whole run, so stop: trying the other
+    // two candidates would cost two more requests per expired run, and most of an 1800 run
+    // backfill is expired. A 404 is about this job alone — a cancelled sibling with no log
+    // should not cost the run its version, which is the whole point of preferring the log
+    // over the job name.
+    if (status === 410) return null;
+    if (text === null) continue;
     const parsed = parseLog(text);
     if (parsed.inputs || parsed.resolved) return parsed;
   }

@@ -2,7 +2,7 @@ import { test } from 'vitest';
 import assert from 'node:assert/strict';
 
 import { campaignOutcomes, campaignStats, runLevelStats, weeklyTrend, filterRuns, isoWeekStart, wallClockSeconds, runTiming, median, mean, scenarioStats } from './metrics.js';
-import type { Execution, RunFile } from './types.js';
+import type { CampaignRow, Execution, RunFile, ScenarioRow } from './types.js';
 
 interface RunOptions extends Partial<RunFile> {
   id?: number;
@@ -69,21 +69,21 @@ test('a campaign rescued by a retry is flaky, one that stays red is not', () => 
   );
   const by = Object.fromEntries(outcomes.map((o) => [o.campaign, o]));
 
-  assert.equal(by['flaky-one'].flaky, true);
-  assert.equal(by['flaky-one'].hardFailure, false);
+  assert.equal(by['flaky-one']!.flaky, true);
+  assert.equal(by['flaky-one']!.hardFailure, false);
 
-  assert.equal(by['broken-one'].flaky, false);
-  assert.equal(by['broken-one'].hardFailure, true);
+  assert.equal(by['broken-one']!.flaky, false);
+  assert.equal(by['broken-one']!.hardFailure, true);
 
-  assert.equal(by['fine-one'].flaky, false);
-  assert.equal(by['fine-one'].firstFailed, false);
+  assert.equal(by['fine-one']!.flaky, false);
+  assert.equal(by['fine-one']!.firstFailed, false);
 });
 
 test('cancelled and skipped executions do not count as outcomes', () => {
   const [outcome] = campaignOutcomes(run({}, [exec('c', 1, 'cancelled'), exec('c', 2, 'success')]));
-  assert.equal(outcome.firstFailed, false);
-  assert.equal(outcome.final, 'success');
-  assert.equal(outcome.flaky, false, 'a cancelled first attempt is not evidence of flakiness');
+  assert.equal(outcome!.firstFailed, false);
+  assert.equal(outcome!.final, 'success');
+  assert.equal(outcome!.flaky, false, 'a cancelled first attempt is not evidence of flakiness');
 });
 
 test('run health splits green-first-try, green-after-retry and never-green', () => {
@@ -257,17 +257,17 @@ test('per campaign, time lost drives the ranking and the typical duration is sho
   ];
   const rows = campaignStats(runs);
 
-  assert.equal(rows[0].campaign, 'slow-flaky', 'ranked by time lost, not by failure count');
-  assert.equal(rows[0].lostMinutes, 30);
-  assert.equal(rows[0].medianDurationMin, 30, 'measured on successful runs only');
+  assert.equal(rows[0]!.campaign, 'slow-flaky', 'ranked by time lost, not by failure count');
+  assert.equal(rows[0]!.lostMinutes, 30);
+  assert.equal(rows[0]!.medianDurationMin, 30, 'measured on successful runs only');
 
   const by = Object.fromEntries(rows.map((r) => [r.campaign, r]));
-  assert.equal(by['fast-flaky'].lostMinutes, 1);
-  assert.equal(by['fast-flaky'].flakyPct, 100, 'just as flaky, far cheaper');
+  assert.equal(by['fast-flaky']!.lostMinutes, 1);
+  assert.equal(by['fast-flaky']!.flakyPct, 100, 'just as flaky, far cheaper');
 
-  assert.equal(by.broken.lostMinutes, 0);
-  assert.equal(by.broken.hardRetryMinutes, 20);
-  assert.equal(by.broken.computeMinutes, 40);
+  assert.equal(by.broken!.lostMinutes, 0);
+  assert.equal(by.broken!.hardRetryMinutes, 20);
+  assert.equal(by.broken!.computeMinutes, 40);
 });
 
 test('aborted runs are set aside instead of counted as failures', () => {
@@ -291,7 +291,7 @@ test('campaign ranking puts the flakiest first and counts the PR spread', () => 
     // A campaign broken by one PR only: same failure count, but confined to a single PR.
     run({ id: 4, pr: 104 }, [exec('solid', 1, 'failure'), exec('solid', 2, 'failure'), exec('flaky', 1, 'success')]),
   ];
-  const [first, second] = campaignStats(runs);
+  const [first, second] = campaignStats(runs) as [CampaignRow, CampaignRow];
 
   assert.equal(first.campaign, 'flaky');
   assert.equal(first.flakyPct, 75);
@@ -314,9 +314,9 @@ test('infra failures are tallied apart from test failures', () => {
   ];
   const by = Object.fromEntries(campaignStats(runs).map((r) => [r.campaign, r]));
 
-  assert.equal(by.a.infraFailures, 1);
-  assert.equal(by.b.infraFailures, 0);
-  assert.equal(by.a.flakyPct, 100, 'still flaky, but for an environment reason');
+  assert.equal(by.a!.infraFailures, 1);
+  assert.equal(by.b!.infraFailures, 0);
+  assert.equal(by.a!.flakyPct, 100, 'still flaky, but for an environment reason');
 });
 
 test('an explicit date range overrides the rolling window', () => {
@@ -434,7 +434,7 @@ test('one scenario is blamed for the share of the campaign failures it caused', 
   assert.equal(unattributed, 0);
   assert.equal(scenarios.length, 2);
 
-  const [worst, second] = scenarios;
+  const [worst, second] = scenarios as [ScenarioRow, ScenarioRow];
   assert.equal(worst.title, 'should filter by name');
   assert.equal(worst.failures, 2);
   assert.equal(worst.shareOfFailuresPct, 66.7, 'two of the three failures of this campaign');
@@ -474,7 +474,7 @@ test('failures whose log has expired are reported as unattributed, not dropped',
   assert.equal(stats.campaignFailures, 2);
   assert.equal(stats.attributed, 1);
   assert.equal(stats.unattributed, 1);
-  assert.equal(stats.scenarios[0].shareOfFailuresPct, 50, 'the share is of every failure, attributed or not');
+  assert.equal(stats.scenarios[0]!.shareOfFailuresPct, 50, 'the share is of every failure, attributed or not');
 });
 
 test('the most common error message is kept for each scenario', () => {
@@ -483,7 +483,7 @@ test('the most common error message is kept for each scenario', () => {
     run({ id: 2 }, [withScenario('a', 1, 'failure', { title: 't', file: 'f.ts', error: 'TimeoutError: waiting for selector' })]),
     run({ id: 3 }, [withScenario('a', 1, 'failure', { title: 't', file: 'f.ts', error: 'AssertionError: expected 1 to equal 2' })]),
   ];
-  assert.equal(scenarioStats(runs, 'a').scenarios[0].topError, 'TimeoutError: waiting for selector');
+  assert.equal(scenarioStats(runs, 'a').scenarios[0]!.topError, 'TimeoutError: waiting for selector');
 });
 
 test('a campaign with no failure at all yields nothing to blame', () => {
