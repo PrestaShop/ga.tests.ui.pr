@@ -1,0 +1,1001 @@
+{
+  "repo": "boo-code/ga.tests.ui.pr",
+  "owner": "boo-code",
+  "run_id": 30771472325,
+  "run_number": 20,
+  "run_attempt": 2,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-08-02T23:04:12Z",
+  "updated_at": "2026-08-03T00:58:22Z",
+  "html_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42063,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 92,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:23:37Z",
+      "duration_s": 1151,
+      "failure_kind": "none",
+      "job_id": 91559267545,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267545"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:14:00Z",
+      "duration_s": 574,
+      "failure_kind": "none",
+      "job_id": 91559267538,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267538"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:32:13Z",
+      "duration_s": 1667,
+      "failure_kind": "test",
+      "job_id": 91559267554,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267554",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-08-03 01:32:10' to include '2026-08-02'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 200
+        }
+      ],
+      "test_counts": {
+        "passing": 972,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:11:07Z",
+      "duration_s": 401,
+      "failure_kind": "test",
+      "job_id": 91559267594,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267594",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should disable debug mode",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 11,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:11:57Z",
+      "completed_at": "2026-08-02T23:21:56Z",
+      "duration_s": 599,
+      "failure_kind": "test",
+      "job_id": 91559267630,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267630",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:33Z",
+      "completed_at": "2026-08-02T23:12:13Z",
+      "duration_s": 460,
+      "failure_kind": "none",
+      "job_id": 91559267564,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267564"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:32Z",
+      "completed_at": "2026-08-02T23:12:08Z",
+      "duration_s": 456,
+      "failure_kind": "test",
+      "job_id": 91559267550,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267550",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit combinations",
+          "title": "should check the recent stock movement in the modal",
+          "error": "AssertionError: expected '2026-08-03 01:12:04' to include '2026-08-02'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/03_CRUDProductWithCombinations.ts",
+          "line": 284
+        }
+      ],
+      "test_counts": {
+        "passing": 63,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:20:01Z",
+      "duration_s": 935,
+      "failure_kind": "test",
+      "job_id": 91559267544,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267544",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:14:09Z",
+      "completed_at": "2026-08-02T23:25:36Z",
+      "duration_s": 687,
+      "failure_kind": "none",
+      "job_id": 91559267559,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267559"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:26:10Z",
+      "completed_at": "2026-08-02T23:52:11Z",
+      "duration_s": 1561,
+      "failure_kind": "test",
+      "job_id": 91559267586,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267586",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 715,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:19:21Z",
+      "completed_at": "2026-08-02T23:26:09Z",
+      "duration_s": 408,
+      "failure_kind": "none",
+      "job_id": 91559267645,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267645"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:17:53Z",
+      "completed_at": "2026-08-02T23:29:49Z",
+      "duration_s": 716,
+      "failure_kind": "test",
+      "job_id": 91559267606,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267606",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:12:35Z",
+      "completed_at": "2026-08-02T23:22:28Z",
+      "duration_s": 593,
+      "failure_kind": "test",
+      "job_id": 91559267595,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267595",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Annie Baumbach Email Annie_Baumbach12@prestashop.com Social Title Mrs. Age 41 years old (birth date: 08/31/1984) Registration Date 08/03/2026 01:22:02 Last Visit 08/03/2026 01:22:06 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 08/03/2026 01:22:02 Status check Active Customer type Registered customer' to include '…",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 328
+        }
+      ],
+      "test_counts": {
+        "passing": 158,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:27:14Z",
+      "completed_at": "2026-08-02T23:41:51Z",
+      "duration_s": 877,
+      "failure_kind": "none",
+      "job_id": 91559267682,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267682"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:27Z",
+      "completed_at": "2026-08-02T23:12:27Z",
+      "duration_s": 480,
+      "failure_kind": "none",
+      "job_id": 91559267569,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267569"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:25:12Z",
+      "duration_s": 1246,
+      "failure_kind": "none",
+      "job_id": 91559267591,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267591"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:16:29Z",
+      "completed_at": "2026-08-02T23:39:16Z",
+      "duration_s": 1367,
+      "failure_kind": "none",
+      "job_id": 91559267596,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267596"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:15:08Z",
+      "completed_at": "2026-08-02T23:30:32Z",
+      "duration_s": 924,
+      "failure_kind": "none",
+      "job_id": 91559267598,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267598"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:22:36Z",
+      "completed_at": "2026-08-02T23:34:31Z",
+      "duration_s": 715,
+      "failure_kind": "none",
+      "job_id": 91559267619,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267619"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:11:49Z",
+      "completed_at": "2026-08-02T23:24:03Z",
+      "duration_s": 734,
+      "failure_kind": "none",
+      "job_id": 91559267602,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267602"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:11:15Z",
+      "completed_at": "2026-08-02T23:17:43Z",
+      "duration_s": 388,
+      "failure_kind": "none",
+      "job_id": 91559267581,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267581"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:32Z",
+      "completed_at": "2026-08-02T23:15:05Z",
+      "duration_s": 633,
+      "failure_kind": "none",
+      "job_id": 91559267590,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267590"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:11:48Z",
+      "duration_s": 442,
+      "failure_kind": "test",
+      "job_id": 91559267537,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267537",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 67,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:16:40Z",
+      "duration_s": 734,
+      "failure_kind": "test",
+      "job_id": 91559267541,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267541",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '08/03/2026 01:16:33' to include '08/02/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:32Z",
+      "completed_at": "2026-08-02T23:17:32Z",
+      "duration_s": 780,
+      "failure_kind": "none",
+      "job_id": 91559267536,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267536"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:27Z",
+      "completed_at": "2026-08-02T23:11:30Z",
+      "duration_s": 423,
+      "failure_kind": "test",
+      "job_id": 91559267531,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267531",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Generate invoice by date",
+          "title": "should generate PDF file by date and check the file existence",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 6,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:19:19Z",
+      "duration_s": 893,
+      "failure_kind": "test",
+      "job_id": 91559267543,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267543",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Shopping carts: Filter shopping cart table > Filter the Shopping carts table",
+          "title": "should filter by date 'From' and 'To' in the future",
+          "error": "AssertionError: expected 23 to equal +0",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/01_filterShoppingCarts.ts",
+          "line": 235
+        }
+      ],
+      "test_counts": {
+        "passing": 332,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:24:04Z",
+      "completed_at": "2026-08-02T23:33:57Z",
+      "duration_s": 593,
+      "failure_kind": "none",
+      "job_id": 91559267629,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267629"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:26:07Z",
+      "completed_at": "2026-08-02T23:31:42Z",
+      "duration_s": 335,
+      "failure_kind": "test",
+      "job_id": 91559267627,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267627"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:25:44Z",
+      "completed_at": "2026-08-02T23:43:00Z",
+      "duration_s": 1036,
+      "failure_kind": "none",
+      "job_id": 91559267628,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267628"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:12:21Z",
+      "completed_at": "2026-08-02T23:32:38Z",
+      "duration_s": 1217,
+      "failure_kind": "none",
+      "job_id": 91559267611,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267611"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:23:45Z",
+      "completed_at": "2026-08-02T23:46:23Z",
+      "duration_s": 1358,
+      "failure_kind": "none",
+      "job_id": 91559267623,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267623"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:11:33Z",
+      "completed_at": "2026-08-02T23:28:16Z",
+      "duration_s": 1003,
+      "failure_kind": "test",
+      "job_id": 91559267616,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267616",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '08/03/2026' to equal '08/02/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:21:57Z",
+      "completed_at": "2026-08-02T23:38:35Z",
+      "duration_s": 998,
+      "failure_kind": "none",
+      "job_id": 91559267626,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267626"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:12:11Z",
+      "completed_at": "2026-08-03T00:05:21Z",
+      "duration_s": 3190,
+      "failure_kind": "none",
+      "job_id": 91559267599,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267599"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-02T23:04:34Z",
+      "completed_at": "2026-08-02T23:16:28Z",
+      "duration_s": 714,
+      "failure_kind": "test",
+      "job_id": 91559267592,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267592",
+      "failing_tests": [
+        {
+          "suite": "FO - User account - Order history : Consult details and Reorder > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '08/03/2026' to equal '08/02/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_consultDetailsAndReorder.ts",
+          "line": 156
+        }
+      ],
+      "test_counts": {
+        "passing": 303,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:17:45Z",
+      "completed_at": "2026-08-02T23:27:48Z",
+      "duration_s": 603,
+      "failure_kind": "none",
+      "job_id": 91559267644,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267644"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:25:14Z",
+      "completed_at": "2026-08-02T23:52:02Z",
+      "duration_s": 1608,
+      "failure_kind": "none",
+      "job_id": 91559267605,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267605"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:20:03Z",
+      "completed_at": "2026-08-02T23:31:36Z",
+      "duration_s": 693,
+      "failure_kind": "none",
+      "job_id": 91559267609,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267609"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:07:25Z",
+      "completed_at": "2026-08-02T23:22:39Z",
+      "duration_s": 914,
+      "failure_kind": "none",
+      "job_id": 91559267612,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267612"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:22:41Z",
+      "completed_at": "2026-08-02T23:31:06Z",
+      "duration_s": 505,
+      "failure_kind": "none",
+      "job_id": 91559267621,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267621"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:17:32Z",
+      "completed_at": "2026-08-02T23:45:27Z",
+      "duration_s": 1675,
+      "failure_kind": "none",
+      "job_id": 91559267614,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267614"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:04:26Z",
+      "completed_at": "2026-08-02T23:17:30Z",
+      "duration_s": 784,
+      "failure_kind": "none",
+      "job_id": 91559267603,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267603"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:17:33Z",
+      "completed_at": "2026-08-02T23:27:06Z",
+      "duration_s": 573,
+      "failure_kind": "none",
+      "job_id": 91559267640,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267640"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-02T23:16:41Z",
+      "completed_at": "2026-08-02T23:25:58Z",
+      "duration_s": 557,
+      "failure_kind": "none",
+      "job_id": 91559267646,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91559267646"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:58:21Z",
+      "duration_s": 3161,
+      "failure_kind": "none",
+      "job_id": 91565028513,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028513"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:22:41Z",
+      "duration_s": 1021,
+      "failure_kind": "none",
+      "job_id": 91565028592,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028592"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:23:42Z",
+      "duration_s": 1082,
+      "failure_kind": "none",
+      "job_id": 91565028574,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028574"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:27:40Z",
+      "duration_s": 1320,
+      "failure_kind": "none",
+      "job_id": 91565028531,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028531"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:27:00Z",
+      "duration_s": 1280,
+      "failure_kind": "none",
+      "job_id": 91565028542,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028542"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:57:25Z",
+      "duration_s": 3105,
+      "failure_kind": "none",
+      "job_id": 91565028551,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028551"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:11:35Z",
+      "completed_at": "2026-08-03T00:23:58Z",
+      "duration_s": 743,
+      "failure_kind": "none",
+      "job_id": 91565028577,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028577"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:45Z",
+      "completed_at": "2026-08-03T00:17:42Z",
+      "duration_s": 717,
+      "failure_kind": "none",
+      "job_id": 91565028526,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028526"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:24:32Z",
+      "duration_s": 1132,
+      "failure_kind": "none",
+      "job_id": 91565028521,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028521"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:28:40Z",
+      "duration_s": 1380,
+      "failure_kind": "none",
+      "job_id": 91565028516,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028516"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:46Z",
+      "completed_at": "2026-08-03T00:16:43Z",
+      "duration_s": 657,
+      "failure_kind": "none",
+      "job_id": 91565028502,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028502"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:16:45Z",
+      "completed_at": "2026-08-03T00:37:52Z",
+      "duration_s": 1267,
+      "failure_kind": "none",
+      "job_id": 91565028529,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028529"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:40Z",
+      "completed_at": "2026-08-03T00:23:03Z",
+      "duration_s": 1043,
+      "failure_kind": "none",
+      "job_id": 91565028533,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028533"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:05:46Z",
+      "completed_at": "2026-08-03T00:35:24Z",
+      "duration_s": 1778,
+      "failure_kind": "none",
+      "job_id": 91565028576,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028576"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-03T00:09:25Z",
+      "completed_at": "2026-08-03T00:26:20Z",
+      "duration_s": 1015,
+      "failure_kind": "none",
+      "job_id": 91565028590,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/30771472325/job/91565028590"
+    }
+  ]
+}

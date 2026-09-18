@@ -1,0 +1,893 @@
+{
+  "repo": "Quetzacoalt91/ga.tests.ui.pr",
+  "owner": "Quetzacoalt91",
+  "run_id": 29327446533,
+  "run_number": 18,
+  "run_attempt": 7,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-07-14T11:01:42Z",
+  "updated_at": "2026-07-14T13:53:00Z",
+  "html_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42058,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 322,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T11:13:46Z",
+      "completed_at": "2026-07-14T11:29:44Z",
+      "duration_s": 958,
+      "failure_kind": "infra",
+      "job_id": 87067095786,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095786"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:11:49Z",
+      "duration_s": 592,
+      "failure_kind": "none",
+      "job_id": 87067095851,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095851"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:43:54Z",
+      "duration_s": 2517,
+      "failure_kind": "none",
+      "job_id": 87067095769,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095769"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:22:12Z",
+      "completed_at": "2026-07-14T11:40:02Z",
+      "duration_s": 1070,
+      "failure_kind": "none",
+      "job_id": 87067096174,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096174"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:24:55Z",
+      "completed_at": "2026-07-14T11:42:22Z",
+      "duration_s": 1047,
+      "failure_kind": "none",
+      "job_id": 87067096137,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096137"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:21:05Z",
+      "completed_at": "2026-07-14T11:29:21Z",
+      "duration_s": 496,
+      "failure_kind": "none",
+      "job_id": 87067095967,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095967"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:24:16Z",
+      "completed_at": "2026-07-14T11:48:41Z",
+      "duration_s": 1465,
+      "failure_kind": "none",
+      "job_id": 87067095923,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095923"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:22:23Z",
+      "duration_s": 1225,
+      "failure_kind": "none",
+      "job_id": 87067095812,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095812"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:12:56Z",
+      "completed_at": "2026-07-14T11:24:53Z",
+      "duration_s": 717,
+      "failure_kind": "none",
+      "job_id": 87067095915,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095915"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:54:53Z",
+      "duration_s": 3175,
+      "failure_kind": "none",
+      "job_id": 87067095896,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095896"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:09:24Z",
+      "duration_s": 446,
+      "failure_kind": "none",
+      "job_id": 87067095993,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095993"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:14:00Z",
+      "duration_s": 722,
+      "failure_kind": "none",
+      "job_id": 87067095995,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095995"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:10:24Z",
+      "duration_s": 507,
+      "failure_kind": "test",
+      "job_id": 87067095961,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095961",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : Pagination and sort customers table > PRE-TEST: Import file 'customers.csv'",
+          "title": "should check that the import is completed",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 74,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:09:05Z",
+      "completed_at": "2026-07-14T11:23:27Z",
+      "duration_s": 862,
+      "failure_kind": "none",
+      "job_id": 87067095973,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095973"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:10:08Z",
+      "duration_s": 490,
+      "failure_kind": "none",
+      "job_id": 87067095700,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095700"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:23:29Z",
+      "completed_at": "2026-07-14T11:41:40Z",
+      "duration_s": 1091,
+      "failure_kind": "none",
+      "job_id": 87067096154,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096154"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:13:17Z",
+      "completed_at": "2026-07-14T11:35:54Z",
+      "duration_s": 1357,
+      "failure_kind": "none",
+      "job_id": 87067096015,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096015"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:20:22Z",
+      "completed_at": "2026-07-14T11:34:38Z",
+      "duration_s": 856,
+      "failure_kind": "none",
+      "job_id": 87067096139,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096139"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:13:45Z",
+      "duration_s": 707,
+      "failure_kind": "none",
+      "job_id": 87067095989,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095989"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:17:10Z",
+      "completed_at": "2026-07-14T11:28:59Z",
+      "duration_s": 709,
+      "failure_kind": "none",
+      "job_id": 87067096159,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096159"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:09:04Z",
+      "duration_s": 427,
+      "failure_kind": "none",
+      "job_id": 87067095792,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095792"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:12:53Z",
+      "duration_s": 656,
+      "failure_kind": "none",
+      "job_id": 87067095882,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095882"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:59Z",
+      "completed_at": "2026-07-14T11:20:55Z",
+      "duration_s": 1136,
+      "failure_kind": "none",
+      "job_id": 87067095841,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095841"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:59Z",
+      "completed_at": "2026-07-14T11:25:10Z",
+      "duration_s": 1391,
+      "failure_kind": "none",
+      "job_id": 87067095771,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095771"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:09:25Z",
+      "completed_at": "2026-07-14T11:22:11Z",
+      "duration_s": 766,
+      "failure_kind": "none",
+      "job_id": 87067095847,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095847"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:13:16Z",
+      "duration_s": 679,
+      "failure_kind": "none",
+      "job_id": 87067095806,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095806"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:23:28Z",
+      "duration_s": 1290,
+      "failure_kind": "none",
+      "job_id": 87067095761,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067095761"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:14:02Z",
+      "completed_at": "2026-07-14T11:24:06Z",
+      "duration_s": 604,
+      "failure_kind": "none",
+      "job_id": 87067096077,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096077"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T11:20:56Z",
+      "completed_at": "2026-07-14T11:32:27Z",
+      "duration_s": 691,
+      "failure_kind": "test",
+      "job_id": 87067096045,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096045",
+      "failing_tests": [
+        {
+          "suite": "BO - Shipping - Carriers : Change carrier position > POST-TEST : Reset carrier position",
+          "title": "should reset second carrier position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 160,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:20:20Z",
+      "duration_s": 1102,
+      "failure_kind": "none",
+      "job_id": 87067096029,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096029"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T11:13:47Z",
+      "completed_at": "2026-07-14T11:29:44Z",
+      "duration_s": 957,
+      "failure_kind": "infra",
+      "job_id": 87067096169,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096169"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:24:14Z",
+      "duration_s": 1336,
+      "failure_kind": "none",
+      "job_id": 87067096020,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096020"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:11:51Z",
+      "completed_at": "2026-07-14T11:42:08Z",
+      "duration_s": 1817,
+      "failure_kind": "none",
+      "job_id": 87067096007,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096007"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:22:26Z",
+      "completed_at": "2026-07-14T11:39:52Z",
+      "duration_s": 1046,
+      "failure_kind": "none",
+      "job_id": 87067096099,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096099"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T11:29:01Z",
+      "completed_at": "2026-07-14T12:12:25Z",
+      "duration_s": 2604,
+      "failure_kind": "test",
+      "job_id": 87067096220,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096220",
+      "failing_tests": [
+        {
+          "suite": "FO - Order confirmation : Display of product customization > Create new order in FO",
+          "title": "should select the first carrier and go to payment step",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/FO/classic/12_orderConfirmation/02_displayOfProductCustomization.ts",
+          "line": 123
+        }
+      ],
+      "test_counts": {
+        "passing": 1250,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T11:23:29Z",
+      "completed_at": "2026-07-14T11:31:34Z",
+      "duration_s": 485,
+      "failure_kind": "test",
+      "job_id": 87067096103,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096103",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:24:07Z",
+      "completed_at": "2026-07-14T11:33:55Z",
+      "duration_s": 588,
+      "failure_kind": "none",
+      "job_id": 87067096270,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096270"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:10:26Z",
+      "completed_at": "2026-07-14T11:38:11Z",
+      "duration_s": 1665,
+      "failure_kind": "none",
+      "job_id": 87067096073,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096073"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:13:45Z",
+      "duration_s": 707,
+      "failure_kind": "none",
+      "job_id": 87067096079,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096079"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:57Z",
+      "completed_at": "2026-07-14T11:17:08Z",
+      "duration_s": 911,
+      "failure_kind": "none",
+      "job_id": 87067096093,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096093"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:29:23Z",
+      "completed_at": "2026-07-14T11:39:03Z",
+      "duration_s": 580,
+      "failure_kind": "none",
+      "job_id": 87067096200,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096200"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:10:10Z",
+      "completed_at": "2026-07-14T11:35:12Z",
+      "duration_s": 1502,
+      "failure_kind": "none",
+      "job_id": 87067096147,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096147"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:25:13Z",
+      "completed_at": "2026-07-14T11:38:24Z",
+      "duration_s": 791,
+      "failure_kind": "none",
+      "job_id": 87067096157,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096157"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:01:58Z",
+      "completed_at": "2026-07-14T11:11:04Z",
+      "duration_s": 546,
+      "failure_kind": "none",
+      "job_id": 87067096059,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096059"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T11:11:06Z",
+      "completed_at": "2026-07-14T11:21:03Z",
+      "duration_s": 597,
+      "failure_kind": "none",
+      "job_id": 87067096172,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87067096172"
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T12:12:37Z",
+      "completed_at": "2026-07-14T12:31:21Z",
+      "duration_s": 1124,
+      "failure_kind": "none",
+      "job_id": 87080750716,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87080750716"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T12:12:37Z",
+      "completed_at": "2026-07-14T12:24:01Z",
+      "duration_s": 684,
+      "failure_kind": "none",
+      "job_id": 87080750768,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87080750768"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T12:12:38Z",
+      "completed_at": "2026-07-14T12:30:27Z",
+      "duration_s": 1069,
+      "failure_kind": "none",
+      "job_id": 87080750770,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87080750770"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T12:12:38Z",
+      "completed_at": "2026-07-14T12:33:15Z",
+      "duration_s": 1237,
+      "failure_kind": "none",
+      "job_id": 87080750953,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87080750953"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-14T12:12:37Z",
+      "completed_at": "2026-07-14T13:04:51Z",
+      "duration_s": 3134,
+      "failure_kind": "none",
+      "job_id": 87080750775,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87080750775"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T12:12:37Z",
+      "completed_at": "2026-07-14T12:20:24Z",
+      "duration_s": 467,
+      "failure_kind": "test",
+      "job_id": 87080750717,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87080750717",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T13:05:07Z",
+      "completed_at": "2026-07-14T13:13:31Z",
+      "duration_s": 504,
+      "failure_kind": "test",
+      "job_id": 87092006842,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87092006842",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T13:13:46Z",
+      "completed_at": "2026-07-14T13:22:05Z",
+      "duration_s": 499,
+      "failure_kind": "test",
+      "job_id": 87093958064,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87093958064",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T13:22:22Z",
+      "completed_at": "2026-07-14T13:30:12Z",
+      "duration_s": 470,
+      "failure_kind": "test",
+      "job_id": 87095937894,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87095937894",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T13:30:27Z",
+      "completed_at": "2026-07-14T13:38:22Z",
+      "duration_s": 475,
+      "failure_kind": "test",
+      "job_id": 87097820514,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87097820514",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-14T13:45:13Z",
+      "completed_at": "2026-07-14T13:52:59Z",
+      "duration_s": 466,
+      "failure_kind": "test",
+      "job_id": 87101424296,
+      "job_url": "https://github.com/Quetzacoalt91/ga.tests.ui.pr/actions/runs/29327446533/job/87101424296",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Check links in footer page > Check links in footer page > Check 'Your Account' footer links after login with new customer without address",
+          "title": "should login to FO",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 99,
+        "failing": 1,
+        "pending": 0
+      }
+    }
+  ]
+}

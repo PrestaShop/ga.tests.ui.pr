@@ -1,0 +1,1040 @@
+{
+  "repo": "nicosomb/ga.tests.ui.pr",
+  "owner": "nicosomb",
+  "run_id": 30105924634,
+  "run_number": 231,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-07-24T15:35:13Z",
+  "updated_at": "2026-07-24T19:03:12Z",
+  "html_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42120,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:48:38Z",
+      "completed_at": "2026-07-24T16:08:33Z",
+      "duration_s": 1195,
+      "failure_kind": "none",
+      "job_id": 89523255737,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255737"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:44:53Z",
+      "duration_s": 560,
+      "failure_kind": "none",
+      "job_id": 89523255739,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255739"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T16:04:53Z",
+      "duration_s": 1760,
+      "failure_kind": "test",
+      "job_id": 89523255752,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255752",
+      "failing_tests": [
+        {
+          "suite": "API : POST /modules/upload-archive > API : POST modules/upload-source",
+          "title": "should download the zip of the module 'Keycloak OAuth2 connector demo'",
+          "error": "Error: Internal Server Error",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 1049,
+        "failing": 1,
+        "pending": 8
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:50:29Z",
+      "completed_at": "2026-07-24T15:57:31Z",
+      "duration_s": 422,
+      "failure_kind": "test",
+      "job_id": 89523255809,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255809",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should disable debug mode",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 11,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:50:37Z",
+      "completed_at": "2026-07-24T16:05:58Z",
+      "duration_s": 921,
+      "failure_kind": "test",
+      "job_id": 89523255908,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255908",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°6",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 436,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:43:12Z",
+      "duration_s": 459,
+      "failure_kind": "none",
+      "job_id": 89523256026,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256026"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:34Z",
+      "completed_at": "2026-07-24T16:00:43Z",
+      "duration_s": 1509,
+      "failure_kind": "none",
+      "job_id": 89523255784,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255784"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:50:25Z",
+      "duration_s": 892,
+      "failure_kind": "test",
+      "job_id": 89523255750,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255750",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should change first attribute position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 304,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:43:51Z",
+      "completed_at": "2026-07-24T15:55:07Z",
+      "duration_s": 676,
+      "failure_kind": "none",
+      "job_id": 89523255762,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255762"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:42:51Z",
+      "completed_at": "2026-07-24T16:34:24Z",
+      "duration_s": 3093,
+      "failure_kind": "none",
+      "job_id": 89523255775,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255775"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T16:00:40Z",
+      "completed_at": "2026-07-24T16:02:29Z",
+      "duration_s": 109,
+      "failure_kind": "infra",
+      "job_id": 89523255916,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255916"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:44:56Z",
+      "completed_at": "2026-07-24T15:56:14Z",
+      "duration_s": 678,
+      "failure_kind": "none",
+      "job_id": 89523255799,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255799"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:48:35Z",
+      "duration_s": 782,
+      "failure_kind": "none",
+      "job_id": 89523255732,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255732"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:49:33Z",
+      "duration_s": 840,
+      "failure_kind": "none",
+      "job_id": 89523255740,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255740"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:42:43Z",
+      "completed_at": "2026-07-24T15:50:34Z",
+      "duration_s": 471,
+      "failure_kind": "none",
+      "job_id": 89523255746,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255746"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:55:53Z",
+      "duration_s": 1220,
+      "failure_kind": "none",
+      "job_id": 89523255810,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255810"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:57:34Z",
+      "completed_at": "2026-07-24T15:59:10Z",
+      "duration_s": 96,
+      "failure_kind": "infra",
+      "job_id": 89523255937,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255937"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:34Z",
+      "completed_at": "2026-07-24T15:50:32Z",
+      "duration_s": 898,
+      "failure_kind": "none",
+      "job_id": 89523255808,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255808"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:49:35Z",
+      "completed_at": "2026-07-24T16:01:22Z",
+      "duration_s": 707,
+      "failure_kind": "none",
+      "job_id": 89523255797,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255797"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:52:28Z",
+      "completed_at": "2026-07-24T16:02:20Z",
+      "duration_s": 592,
+      "failure_kind": "test",
+      "job_id": 89523255841,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255841",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should check the translation",
+          "error": "AssertionError: expected 'Popular Products' to include 'translate'",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 185
+        }
+      ],
+      "test_counts": {
+        "passing": 174,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:42:49Z",
+      "duration_s": 436,
+      "failure_kind": "none",
+      "job_id": 89523255733,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255733"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:56:17Z",
+      "completed_at": "2026-07-24T16:06:59Z",
+      "duration_s": 642,
+      "failure_kind": "none",
+      "job_id": 89523255852,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255852"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:42:41Z",
+      "duration_s": 428,
+      "failure_kind": "test",
+      "job_id": 89523255787,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255787",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 67,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:58:37Z",
+      "duration_s": 1384,
+      "failure_kind": "none",
+      "job_id": 89523255723,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255723"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:48:35Z",
+      "duration_s": 782,
+      "failure_kind": "none",
+      "job_id": 89523255716,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255716"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:53:00Z",
+      "completed_at": "2026-07-24T16:04:21Z",
+      "duration_s": 681,
+      "failure_kind": "none",
+      "job_id": 89523255824,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255824"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:50:34Z",
+      "completed_at": "2026-07-24T16:10:44Z",
+      "duration_s": 1210,
+      "failure_kind": "none",
+      "job_id": 89523255783,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255783"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:34Z",
+      "completed_at": "2026-07-24T15:46:08Z",
+      "duration_s": 634,
+      "failure_kind": "none",
+      "job_id": 89523255791,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255791"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:52:55Z",
+      "duration_s": 1042,
+      "failure_kind": "none",
+      "job_id": 89523255818,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255818"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:32Z",
+      "completed_at": "2026-07-24T15:52:25Z",
+      "duration_s": 1013,
+      "failure_kind": "none",
+      "job_id": 89523255781,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255781"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:00:46Z",
+      "completed_at": "2026-07-24T16:20:55Z",
+      "duration_s": 1209,
+      "failure_kind": "none",
+      "job_id": 89523256072,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256072"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:32Z",
+      "completed_at": "2026-07-24T15:57:19Z",
+      "duration_s": 1307,
+      "failure_kind": "none",
+      "job_id": 89523255768,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255768"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:46:11Z",
+      "completed_at": "2026-07-24T16:16:04Z",
+      "duration_s": 1793,
+      "failure_kind": "none",
+      "job_id": 89523255982,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255982"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:34Z",
+      "completed_at": "2026-07-24T15:51:29Z",
+      "duration_s": 955,
+      "failure_kind": "none",
+      "job_id": 89523255950,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255950"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T16:27:14Z",
+      "duration_s": 3101,
+      "failure_kind": "none",
+      "job_id": 89523255946,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255946"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:48:39Z",
+      "completed_at": "2026-07-24T16:07:19Z",
+      "duration_s": 1120,
+      "failure_kind": "none",
+      "job_id": 89523256021,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256021"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:43:14Z",
+      "completed_at": "2026-07-24T15:52:58Z",
+      "duration_s": 584,
+      "failure_kind": "none",
+      "job_id": 89523255985,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523255985"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:58:40Z",
+      "completed_at": "2026-07-24T16:00:37Z",
+      "duration_s": 117,
+      "failure_kind": "infra",
+      "job_id": 89523256006,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256006"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:52:58Z",
+      "completed_at": "2026-07-24T16:03:25Z",
+      "duration_s": 627,
+      "failure_kind": "none",
+      "job_id": 89523256087,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256087"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:55:55Z",
+      "completed_at": "2026-07-24T16:11:04Z",
+      "duration_s": 909,
+      "failure_kind": "none",
+      "job_id": 89523256095,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256095"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:59:13Z",
+      "completed_at": "2026-07-24T16:10:47Z",
+      "duration_s": 694,
+      "failure_kind": "none",
+      "job_id": 89523256182,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256182"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:57:21Z",
+      "completed_at": "2026-07-24T16:05:27Z",
+      "duration_s": 486,
+      "failure_kind": "test",
+      "job_id": 89523256080,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256080",
+      "failing_tests": [
+        {
+          "suite": "Mail alerts module - Uninstall and delete module > Install module Mail alerts",
+          "title": "should download the zip of the module 'Mail alerts'",
+          "error": "Error: Gateway Time-out",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 46,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T15:55:10Z",
+      "completed_at": "2026-07-24T16:03:08Z",
+      "duration_s": 478,
+      "failure_kind": "test",
+      "job_id": 89523256065,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256065",
+      "failing_tests": [
+        {
+          "suite": "Theme Customization module - Uninstall and delete module > Install module Theme Customization",
+          "title": "should download the zip of the module 'Theme Customization'",
+          "error": "Error: Gateway Time-out",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 42,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:35:33Z",
+      "completed_at": "2026-07-24T15:43:48Z",
+      "duration_s": 495,
+      "failure_kind": "none",
+      "job_id": 89523256000,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256000"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T15:51:32Z",
+      "completed_at": "2026-07-24T16:01:03Z",
+      "duration_s": 571,
+      "failure_kind": "none",
+      "job_id": 89523256101,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89523256101"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T16:34:41Z",
+      "completed_at": "2026-07-24T17:15:49Z",
+      "duration_s": 2468,
+      "failure_kind": "test",
+      "job_id": 89535438320,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438320",
+      "failing_tests": [
+        {
+          "suite": "API : PATCH /products/{productId}/shops > API : PATCH /products/{productId}/shops > BackOffice : Create new store and set URL",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 1345,
+        "failing": 1,
+        "pending": 8
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T16:34:42Z",
+      "completed_at": "2026-07-24T16:47:22Z",
+      "duration_s": 760,
+      "failure_kind": "test",
+      "job_id": 89535438318,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438318",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should disable debug mode",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 11,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:42Z",
+      "completed_at": "2026-07-24T16:54:49Z",
+      "duration_s": 1207,
+      "failure_kind": "none",
+      "job_id": 89535438505,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438505"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T16:34:42Z",
+      "completed_at": "2026-07-24T16:50:29Z",
+      "duration_s": 947,
+      "failure_kind": "test",
+      "job_id": 89535438329,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438329",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:41Z",
+      "completed_at": "2026-07-24T16:42:02Z",
+      "duration_s": 441,
+      "failure_kind": "none",
+      "job_id": 89535438545,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438545"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:40Z",
+      "completed_at": "2026-07-24T16:58:11Z",
+      "duration_s": 1411,
+      "failure_kind": "none",
+      "job_id": 89535438405,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438405"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:41Z",
+      "completed_at": "2026-07-24T16:47:37Z",
+      "duration_s": 776,
+      "failure_kind": "none",
+      "job_id": 89535438348,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438348"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:42Z",
+      "completed_at": "2026-07-24T16:53:21Z",
+      "duration_s": 1119,
+      "failure_kind": "none",
+      "job_id": 89535438664,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438664"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:41Z",
+      "completed_at": "2026-07-24T17:04:26Z",
+      "duration_s": 1785,
+      "failure_kind": "none",
+      "job_id": 89535438493,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438493"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:41Z",
+      "completed_at": "2026-07-24T17:01:43Z",
+      "duration_s": 1622,
+      "failure_kind": "none",
+      "job_id": 89535438455,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438455"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T16:34:41Z",
+      "completed_at": "2026-07-24T16:48:29Z",
+      "duration_s": 828,
+      "failure_kind": "none",
+      "job_id": 89535438423,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89535438423"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T17:16:03Z",
+      "completed_at": "2026-07-24T17:32:00Z",
+      "duration_s": 957,
+      "failure_kind": "infra",
+      "job_id": 89544575525,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89544575525"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T17:16:04Z",
+      "completed_at": "2026-07-24T17:33:52Z",
+      "duration_s": 1068,
+      "failure_kind": "none",
+      "job_id": 89544575487,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89544575487"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T17:16:03Z",
+      "completed_at": "2026-07-24T17:31:27Z",
+      "duration_s": 924,
+      "failure_kind": "test",
+      "job_id": 89544575502,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89544575502",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T17:34:08Z",
+      "completed_at": "2026-07-24T18:26:24Z",
+      "duration_s": 3136,
+      "failure_kind": "none",
+      "job_id": 89548453050,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89548453050"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T17:34:07Z",
+      "completed_at": "2026-07-24T17:49:26Z",
+      "duration_s": 919,
+      "failure_kind": "test",
+      "job_id": 89548453045,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89548453045",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-24T18:26:38Z",
+      "completed_at": "2026-07-24T18:41:48Z",
+      "duration_s": 910,
+      "failure_kind": "test",
+      "job_id": 89559762304,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89559762304",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 305,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-24T18:42:02Z",
+      "completed_at": "2026-07-24T19:03:11Z",
+      "duration_s": 1269,
+      "failure_kind": "none",
+      "job_id": 89563134507,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/30105924634/job/89563134507"
+    }
+  ]
+}

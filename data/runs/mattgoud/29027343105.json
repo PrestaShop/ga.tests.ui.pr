@@ -1,0 +1,1455 @@
+{
+  "repo": "mattgoud/ga.tests.ui.pr",
+  "owner": "mattgoud",
+  "run_id": 29027343105,
+  "run_number": 98,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-07-09T14:55:06Z",
+  "updated_at": "2026-07-09T19:30:15Z",
+  "html_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42011,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:54:26Z",
+      "completed_at": "2026-07-09T16:13:54Z",
+      "duration_s": 1168,
+      "failure_kind": "none",
+      "job_id": 86154745932,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745932"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:10:02Z",
+      "completed_at": "2026-07-09T16:19:42Z",
+      "duration_s": 580,
+      "failure_kind": "none",
+      "job_id": 86154745960,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745960"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:29:41Z",
+      "completed_at": "2026-07-09T17:13:01Z",
+      "duration_s": 2600,
+      "failure_kind": "none",
+      "job_id": 86154746047,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746047"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:19:21Z",
+      "completed_at": "2026-07-09T16:36:47Z",
+      "duration_s": 1046,
+      "failure_kind": "none",
+      "job_id": 86154746016,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746016"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:07:17Z",
+      "completed_at": "2026-07-09T16:25:52Z",
+      "duration_s": 1115,
+      "failure_kind": "none",
+      "job_id": 86154746051,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746051"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:13:12Z",
+      "completed_at": "2026-07-09T16:20:22Z",
+      "duration_s": 430,
+      "failure_kind": "none",
+      "job_id": 86154746004,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746004"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T16:23:36Z",
+      "completed_at": "2026-07-09T16:49:43Z",
+      "duration_s": 1567,
+      "failure_kind": "test",
+      "job_id": 86154746069,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746069",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : Multistore > Create new store and set URL",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Create new store and set URL",
+          "title": "should get the id of the new shop",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Create new store and set URL",
+          "title": "should go to add URL",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 111
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Create new store and set URL",
+          "title": "should set URL",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 121
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on multistore header and select the new shop",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 144
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on view my store",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 157
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should close the page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 171
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 178
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should choose 'Standard product' and go to new product page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 185
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should create standard product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 195
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should go back to catalog page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on multistore header and select the default shop",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 211
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should search for the created product and check that the product is not visible in the list",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 221
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should reset filter",
+          "error": "TypeError: Cannot read properties of undefined (reading 'mouse')",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on multistore header and select the created shop",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 237
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should go to the created product page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 247
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on 'Select stores' button and select the default store",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 256
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should update product name and click on apply changes to all stores",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 262
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should go to catalog page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 272
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should click on multistore header and select the default shop",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 281
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should check the updated product name",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 294
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Check multistore",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 301
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Delete shop",
+          "title": "should go back to 'Advanced Parameters > Multistore' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Delete shop",
+          "title": "should go to the created shop page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 327
+        },
+        {
+          "suite": "BO - Catalog - Products : Multistore > Delete shop",
+          "title": "should delete the shop",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/03_catalog/01_products/20_multistore.ts",
+          "line": 336
+        }
+      ],
+      "test_counts": {
+        "passing": 883,
+        "failing": 25,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T16:30:15Z",
+      "completed_at": "2026-07-09T16:52:06Z",
+      "duration_s": 1311,
+      "failure_kind": "test",
+      "job_id": 86154746161,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746161",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 627,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:19:46Z",
+      "completed_at": "2026-07-09T16:31:30Z",
+      "duration_s": 704,
+      "failure_kind": "none",
+      "job_id": 86154745967,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745967"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T16:06:21Z",
+      "completed_at": "2026-07-09T16:55:27Z",
+      "duration_s": 2946,
+      "failure_kind": "test",
+      "job_id": 86154745993,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745993",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog price Rules : Bulk actions > Bulk actions",
+          "title": "should try to bulk delete cart rules",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 1418,
+        "failing": 1,
+        "pending": 66
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:04:30Z",
+      "completed_at": "2026-07-09T16:11:13Z",
+      "duration_s": 403,
+      "failure_kind": "none",
+      "job_id": 86154746080,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746080"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:52:52Z",
+      "completed_at": "2026-07-09T16:05:04Z",
+      "duration_s": 732,
+      "failure_kind": "none",
+      "job_id": 86154745991,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745991"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:20:26Z",
+      "completed_at": "2026-07-09T16:33:32Z",
+      "duration_s": 786,
+      "failure_kind": "none",
+      "job_id": 86154745989,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745989"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:21:25Z",
+      "completed_at": "2026-07-09T16:36:32Z",
+      "duration_s": 907,
+      "failure_kind": "none",
+      "job_id": 86154745913,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745913"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:56:44Z",
+      "completed_at": "2026-07-09T16:04:27Z",
+      "duration_s": 463,
+      "failure_kind": "none",
+      "job_id": 86154745928,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745928"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:22:48Z",
+      "completed_at": "2026-07-09T16:43:32Z",
+      "duration_s": 1244,
+      "failure_kind": "none",
+      "job_id": 86154746044,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746044"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:07:30Z",
+      "completed_at": "2026-07-09T16:30:22Z",
+      "duration_s": 1372,
+      "failure_kind": "none",
+      "job_id": 86154746019,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746019"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:52:17Z",
+      "completed_at": "2026-07-09T16:07:14Z",
+      "duration_s": 897,
+      "failure_kind": "none",
+      "job_id": 86154745961,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745961"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:28:24Z",
+      "completed_at": "2026-07-09T16:38:55Z",
+      "duration_s": 631,
+      "failure_kind": "none",
+      "job_id": 86154745954,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745954"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:00:14Z",
+      "completed_at": "2026-07-09T16:13:09Z",
+      "duration_s": 775,
+      "failure_kind": "none",
+      "job_id": 86154745958,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745958"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:14:44Z",
+      "completed_at": "2026-07-09T16:22:13Z",
+      "duration_s": 449,
+      "failure_kind": "none",
+      "job_id": 86154746040,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746040"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T16:22:15Z",
+      "completed_at": "2026-07-09T16:34:03Z",
+      "duration_s": 708,
+      "failure_kind": "test",
+      "job_id": 86154745990,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745990",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - Module Manager : Upload module",
+          "title": "should download the zip of the module 'Keycloak OAuth2 connector demo'",
+          "error": "Error: Gateway Time-out",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Modules - Module Manager : Upload module",
+          "title": "should upload the module 'Keycloak OAuth2 connector demo'",
+          "error": "page.waitForSelector: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Modules - Module Manager : Upload module",
+          "title": "should search the module 'Keycloak OAuth2 connector demo'",
+          "error": "Module is not visible!",
+          "file": "campaigns/functional/BO/07_modules/01_moduleManager/01_modules/08_uploadModule.ts",
+          "line": 84
+        },
+        {
+          "suite": "BO - Modules - Module Manager : Upload module",
+          "title": "should uninstall the module 'Keycloak OAuth2 connector demo'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 66,
+        "failing": 4,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:57:05Z",
+      "completed_at": "2026-07-09T16:19:17Z",
+      "duration_s": 1332,
+      "failure_kind": "none",
+      "job_id": 86154745950,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745950"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:13:49Z",
+      "completed_at": "2026-07-09T16:36:24Z",
+      "duration_s": 1355,
+      "failure_kind": "none",
+      "job_id": 86154746010,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746010"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:05:46Z",
+      "completed_at": "2026-07-09T16:18:52Z",
+      "duration_s": 786,
+      "failure_kind": "none",
+      "job_id": 86154745933,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745933"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:18:55Z",
+      "completed_at": "2026-07-09T16:30:13Z",
+      "duration_s": 678,
+      "failure_kind": "none",
+      "job_id": 86154746031,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746031"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:13:58Z",
+      "completed_at": "2026-07-09T16:34:55Z",
+      "duration_s": 1257,
+      "failure_kind": "none",
+      "job_id": 86154745931,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745931"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:30:10Z",
+      "completed_at": "2026-07-09T16:40:25Z",
+      "duration_s": 615,
+      "failure_kind": "none",
+      "job_id": 86154745984,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745984"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:10:35Z",
+      "completed_at": "2026-07-09T16:28:51Z",
+      "duration_s": 1096,
+      "failure_kind": "none",
+      "job_id": 86154746032,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746032"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:52:34Z",
+      "completed_at": "2026-07-09T16:09:59Z",
+      "duration_s": 1045,
+      "failure_kind": "none",
+      "job_id": 86154745946,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745946"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:09:56Z",
+      "completed_at": "2026-07-09T16:30:07Z",
+      "duration_s": 1211,
+      "failure_kind": "none",
+      "job_id": 86154746011,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746011"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:07:35Z",
+      "completed_at": "2026-07-09T16:29:38Z",
+      "duration_s": 1323,
+      "failure_kind": "none",
+      "job_id": 86154746058,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746058"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:53:01Z",
+      "completed_at": "2026-07-09T16:21:22Z",
+      "duration_s": 1701,
+      "failure_kind": "none",
+      "job_id": 86154746005,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746005"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:11:16Z",
+      "completed_at": "2026-07-09T16:28:21Z",
+      "duration_s": 1025,
+      "failure_kind": "none",
+      "job_id": 86154746039,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746039"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:55:23Z",
+      "completed_at": "2026-07-09T16:48:28Z",
+      "duration_s": 3185,
+      "failure_kind": "none",
+      "job_id": 86154745997,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745997"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:54:16Z",
+      "completed_at": "2026-07-09T16:13:44Z",
+      "duration_s": 1168,
+      "failure_kind": "none",
+      "job_id": 86154745998,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154745998"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:05:07Z",
+      "completed_at": "2026-07-09T16:14:40Z",
+      "duration_s": 573,
+      "failure_kind": "none",
+      "job_id": 86154746012,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746012"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:25:55Z",
+      "completed_at": "2026-07-09T16:54:52Z",
+      "duration_s": 1737,
+      "failure_kind": "none",
+      "job_id": 86154746101,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746101"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:56:44Z",
+      "completed_at": "2026-07-09T16:07:32Z",
+      "duration_s": 648,
+      "failure_kind": "none",
+      "job_id": 86154746143,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746143"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:07:17Z",
+      "completed_at": "2026-07-09T16:22:45Z",
+      "duration_s": 928,
+      "failure_kind": "none",
+      "job_id": 86154746076,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746076"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:57:17Z",
+      "completed_at": "2026-07-09T16:07:14Z",
+      "duration_s": 597,
+      "failure_kind": "none",
+      "job_id": 86154746020,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746020"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T16:06:12Z",
+      "completed_at": "2026-07-09T16:44:01Z",
+      "duration_s": 2269,
+      "failure_kind": "test",
+      "job_id": 86154746070,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746070",
+      "failing_tests": [
+        {
+          "suite": "Mail alerts module - Uninstall and delete module > Install module Mail alerts",
+          "title": "should download the zip of the module 'Mail alerts'",
+          "error": "Error: Gateway Time-out",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Mail alerts module - Uninstall and delete module > Install module Mail alerts",
+          "title": "should upload the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Disable/Enable module > Disable/Enable module > Disable the module",
+          "title": "should disable the module",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Mail alerts module - Disable/Enable module > Disable/Enable module > Enable the module",
+          "title": "should enable the module",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Mail alerts module - Disable/Enable module > Disable/Enable module > Enable the module",
+          "title": "should go to the product page",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/modules/20_ps_emailalerts/01_installation/05_disableEnableModule.ts",
+          "line": 173
+        },
+        {
+          "suite": "Mail alerts module - BO Header Buttons > BO - Header Buttons",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - BO Header Buttons > BO - Header Buttons",
+          "title": "should click on the \"Back\" button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_boHeaderButtons.ts",
+          "line": 77
+        },
+        {
+          "suite": "Mail alerts module - BO Header Buttons > BO - Header Buttons",
+          "title": "should return to the configure page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - BO Header Buttons > BO - Header Buttons",
+          "title": "should click on the \"Translate\" button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_boHeaderButtons.ts",
+          "line": 98
+        },
+        {
+          "suite": "Mail alerts module - BO Header Buttons > BO - Header Buttons",
+          "title": "should close the \"Translate\" modal",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_boHeaderButtons.ts",
+          "line": 107
+        },
+        {
+          "suite": "Mail alerts module - BO Header Buttons > BO - Header Buttons",
+          "title": "should click on the \"Manage hooks\" button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_boHeaderButtons.ts",
+          "line": 119
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > BO - Check Configure page",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should define to \"No\" the \"Product Availability\"",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 142
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should define to \"Yes\" the \"Product Availability\"",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 187
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should reload the product page",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 206
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should fill the block \"Email Alerts\" with a valid email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 212
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should fill the block \"Email Alerts\" with an invalid email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 221
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should fill the block \"Email Alerts\" with numbers",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 228
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 1: You are not logged to your account on FO",
+          "title": "should fill the block \"Email Alerts\" with invalid characters",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 235
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 2: You are logged in to your account on FO",
+          "title": "should define to \"No\" the \"Product Availability\"",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 246
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 2: You are logged in to your account on FO",
+          "title": "should define to \"Yes\" the \"Product Availability\"",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 289
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 2: You are logged in to your account on FO",
+          "title": "should check the block \"Notify when it' available\"",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 308
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 2: You are logged in to your account on FO",
+          "title": "should click on  \"Notify me when available\" button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 314
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Case 2: You are logged in to your account on FO",
+          "title": "should reload the page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 323
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Check email for product availability",
+          "title": "should check received email",
+          "error": "AssertionError: expected +0 to equal 2",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 370
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Check email for product availability",
+          "title": "should click on 'Notify me when available' button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 432
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Check email for product availability",
+          "title": "should check received email",
+          "error": "AssertionError: expected 3 to equal 4",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 482
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Check email for product availability",
+          "title": "should click on 'Notify me when available' button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 529
+        },
+        {
+          "suite": "Mail alerts module - Customer notifications - Enable/Disable product availability > Check email for product availability",
+          "title": "should check received email",
+          "error": "AssertionError: expected 3 to equal 5",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/01_enableDisableProductAvailability.ts",
+          "line": 569
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: case 1 - Enable 'Order edit' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: case 1 - Enable 'Order edit' in the module 'Mail alerts'",
+          "title": "should enable edit order",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 141
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: Edit the created order and check emails",
+          "title": "should check that the confirmation mail is in mailbox",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 180
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: Edit the created order and check emails",
+          "title": "should check that the confirmation mail is in mailbox",
+          "error": "AssertionError: expected 3 to equal 4",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 195
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: Edit the created order and check emails",
+          "title": "should check that the confirmation mail is in mailbox",
+          "error": "AssertionError: expected 3 to equal 5",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 209
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: case 2 - Disable 'Order edit' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: case 2 - Disable 'Order edit' in the module 'Mail alerts'",
+          "title": "should disable order edit",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 248
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: Edit the created order and check that no emails received",
+          "title": "should check that the confirmation mail is not received",
+          "error": "AssertionError: expected 3 to equal 5",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 286
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: Edit the created order and check that no emails received",
+          "title": "should check that the confirmation mail is not received",
+          "error": "AssertionError: expected 3 to equal 5",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 301
+        },
+        {
+          "suite": "Mail alerts module - Enable/Disable return > BO: Edit the created order and check that no emails received",
+          "title": "should check that the confirmation mail is not received",
+          "error": "AssertionError: expected 3 to equal 5",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/01_customerNotifications/02_enableDisableOrderEdit.ts",
+          "line": 314
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable new order > BO: case 1 - Enable 'New order' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable new order > BO: case 1 - Enable 'New order' in the module 'Mail alerts'",
+          "title": "should enable new order and set email",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/01_enableDisableNewOrder.ts",
+          "line": 139
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable new order > FO: Create new order",
+          "title": "should close the shop page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/01_enableDisableNewOrder.ts",
+          "line": 212
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable new order > Check emails",
+          "title": "should check that the new order mail is in mailbox",
+          "error": "AssertionError: expected '[PrestaShop] New credit slip regarding your order' to equal '[PrestaShop] New order : #8 - WPSHRIZWP'",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/01_enableDisableNewOrder.ts",
+          "line": 270
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable new order > BO: case 2 - Disable 'New order' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable new order > BO: case 2 - Disable 'New order' in the module 'Mail alerts'",
+          "title": "should disable new order",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/01_enableDisableNewOrder.ts",
+          "line": 308
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable out of stock > BO: case 1 - Enable 'Out of stock' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable out of stock > BO: case 1 - Enable 'Out of stock' in the module 'Mail alerts'",
+          "title": "should enable out of stock and set email",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/02_enableDisableOutOfStock.ts",
+          "line": 144
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable out of stock > Update product quantity and check email",
+          "title": "should check received email",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/02_enableDisableOutOfStock.ts",
+          "line": 185
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable out of stock > BO: case 2 - Disable 'Out of stock' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable out of stock > BO: case 2 - Disable 'Out of stock' in the module 'Mail alerts'",
+          "title": "should disable out of stock",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/02_enableDisableOutOfStock.ts",
+          "line": 223
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable out of stock > Update product quantity and check email",
+          "title": "should check that no email received",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/02_enableDisableOutOfStock.ts",
+          "line": 264
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable returns > BO: case 1 - Enable 'Returns' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable returns > BO: case 1 - Enable 'Returns' in the module 'Mail alerts'",
+          "title": "should enable returns and set email",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/04_enableDisableReturn.ts",
+          "line": 151
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable returns > FO: Create merchandise returns",
+          "title": "should check that the confirmation mail is in mailbox",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/04_enableDisableReturn.ts",
+          "line": 275
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable returns > BO: case 2 - Disable 'Returns' in the module 'Mail alerts'",
+          "title": "should go to the configuration page of the module 'Mail alerts'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable returns > BO: case 2 - Disable 'Returns' in the module 'Mail alerts'",
+          "title": "should disable returns",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/04_enableDisableReturn.ts",
+          "line": 322
+        },
+        {
+          "suite": "Mail alerts module - Merchant notifications : Enable/Disable returns > FO: Create merchandise returns",
+          "title": "should check that the confirmation mail is in mailbox",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/modules/20_ps_emailalerts/02_configuration/02_merchantNotifications/04_enableDisableReturn.ts",
+          "line": 377
+        }
+      ],
+      "test_counts": {
+        "passing": 842,
+        "failing": 57,
+        "pending": 6
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:52:36Z",
+      "completed_at": "2026-07-09T16:06:17Z",
+      "duration_s": 821,
+      "failure_kind": "none",
+      "job_id": 86154746026,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746026"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T16:28:54Z",
+      "completed_at": "2026-07-09T16:36:45Z",
+      "duration_s": 471,
+      "failure_kind": "none",
+      "job_id": 86154746454,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746454"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T15:57:45Z",
+      "completed_at": "2026-07-09T16:07:27Z",
+      "duration_s": 582,
+      "failure_kind": "none",
+      "job_id": 86154746127,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86154746127"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T17:13:19Z",
+      "completed_at": "2026-07-09T17:37:40Z",
+      "duration_s": 1461,
+      "failure_kind": "none",
+      "job_id": 86181795903,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86181795903"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T17:13:19Z",
+      "completed_at": "2026-07-09T17:34:18Z",
+      "duration_s": 1259,
+      "failure_kind": "test",
+      "job_id": 86181795919,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86181795919",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 626,
+        "failing": 3,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T17:13:20Z",
+      "completed_at": "2026-07-09T18:04:59Z",
+      "duration_s": 3099,
+      "failure_kind": "none",
+      "job_id": 86181796335,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86181796335"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T17:13:20Z",
+      "completed_at": "2026-07-09T17:23:23Z",
+      "duration_s": 603,
+      "failure_kind": "none",
+      "job_id": 86181795877,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86181795877"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T17:13:19Z",
+      "completed_at": "2026-07-09T17:40:26Z",
+      "duration_s": 1627,
+      "failure_kind": "none",
+      "job_id": 86181795897,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86181795897"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T18:05:14Z",
+      "completed_at": "2026-07-09T18:26:33Z",
+      "duration_s": 1279,
+      "failure_kind": "test",
+      "job_id": 86192415686,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86192415686",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 628,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T18:26:47Z",
+      "completed_at": "2026-07-09T18:48:00Z",
+      "duration_s": 1273,
+      "failure_kind": "test",
+      "job_id": 86196762726,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86196762726",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 628,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T18:48:16Z",
+      "completed_at": "2026-07-09T19:09:48Z",
+      "duration_s": 1292,
+      "failure_kind": "test",
+      "job_id": 86201225192,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86201225192",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 628,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T19:10:03Z",
+      "completed_at": "2026-07-09T19:30:14Z",
+      "duration_s": 1211,
+      "failure_kind": "none",
+      "job_id": 86205795600,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/29027343105/job/86205795600"
+    }
+  ]
+}
