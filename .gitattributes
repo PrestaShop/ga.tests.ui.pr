@@ -1,0 +1,8 @@
+# A stray NUL byte in a source file makes git serve it as binary: no patch, nothing to
+# review, no way to comment on a line. It happened once here, to the file the whole dedupe
+# rests on. Forcing a textual diff means the next one is visible in the pull request that
+# introduces it rather than months later.
+*.js diff
+*.mjs diff
+*.ts diff
+*.vue diff

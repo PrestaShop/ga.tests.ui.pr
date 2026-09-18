@@ -1,0 +1,6 @@
+# Build output: `tsc` writes dist/ (what the workflows run) and `vite build` writes
+# dist-site/ (the page the aggregator publishes). Both are produced by `npm run build`.
+dist/
+dist-site/
+
+node_modules/

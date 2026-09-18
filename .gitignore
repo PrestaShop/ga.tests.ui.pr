@@ -1,0 +1,5 @@
+# Local output of tools/stats (pulled data, generated site, recorded API responses)
+.local/
+
+.idea/
+.DS_Store

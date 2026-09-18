@@ -1,0 +1,168 @@
+name: UI test statistics
+
+# Collects the results of every UI test campaign run through this repository and its forks,
+# and publishes flaky-test statistics to GitHub Pages.
+#
+# Nothing is added to the test workflows themselves: everything is read back from the
+# GitHub API after the fact, which is what makes contributor forks visible at all (a fork's
+# GITHUB_TOKEN is scoped to the fork and gets no secrets, so it could never push results
+# anywhere central).
+#
+# Code lives on the default branch, data and the dashboard live on the orphan `stats`
+# branch, so the forks of this repository carry none of it.
+#
+# Reading the backlog: the first invocations have ~1800 runs queued and process `max_runs`
+# of them each, so run this manually a few times (or just wait for the daily schedule to
+# catch up) until it reports nothing left queued.
+
+on:
+  schedule:
+    # Daily, offset from the hour to avoid the busiest scheduling window.
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+    inputs:
+      max_runs:
+        description: Runs to process in this invocation (listing is never capped)
+        required: false
+        default: '150'
+      repo:
+        description: Limit to a single repository, e.g. jolelievre/ga.tests.ui.pr (optional)
+        required: false
+        default: ''
+
+# Never let a manual backfill and the daily run write the data branch at the same time.
+concurrency:
+  group: ui-test-statistics
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    name: Collect campaign results and rebuild the dashboard
+    # Forks inherit this file; it must do nothing there.
+    if: github.repository == 'PrestaShop/ga.tests.ui.pr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout the puller
+        uses: actions/checkout@v4
+        with:
+          path: code
+
+      - name: Checkout the data branch, creating it on the first run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git init -b stats data
+          cd data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          # Ask whether the branch exists before trying to fetch it, so the two cases stay
+          # apart. Letting a failed `git fetch` mean "no branch yet" sends the collector at
+          # an empty data directory: it reprocesses the entire backlog, spends the hour's
+          # rate limit, and then cannot push because it is not a fast-forward. Nothing is
+          # lost, but the invocation is wasted and the log points at the wrong thing.
+          # `ls-remote --exit-code` answers 2 for absent and anything else for a real failure.
+          git ls-remote --exit-code --heads origin stats >/dev/null && exists=$? || exists=$?
+          if [ "$exists" = "2" ]; then
+            echo "No stats branch yet, starting an empty one"
+          elif [ "$exists" != "0" ]; then
+            echo "::error::Could not reach the data branch (git ls-remote exit $exists). Refusing to collect against an empty directory."
+            exit 1
+          else
+            # Depth 1: the whole point of this checkout is the current state of the data, and
+            # the branch gains a commit every day. Its history is never read here.
+            git fetch --depth 1 origin stats
+            git reset --hard FETCH_HEAD
+            echo "Data branch checked out at $(git rev-parse --short HEAD)"
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          # 24 rather than 20 for the npm that ships with it: npm 10.8 crashes resolving
+          # Vitest's optional peer dependencies. The compiled output itself runs on 20.
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: code/tools/stats/package-lock.json
+
+      - name: Install and build
+        working-directory: code/tools/stats
+        run: |
+          npm ci
+          npm run build
+
+      - name: Check the puller itself
+        working-directory: code/tools/stats
+        run: npm test
+
+      - name: Collect and aggregate
+        working-directory: code
+        env:
+          # Read-only access to public repositories is what this needs, and it is what lets
+          # the puller read logs that live on contributor forks. JARVIS_TOKEN is the
+          # organisation-wide secret other PrestaShop workflows already use; STATS_GH_TOKEN
+          # is an optional repository-level override, for the case where JARVIS_TOKEN turns
+          # out not to reach personal forks (see the note below).
+          GITHUB_TOKEN: ${{ secrets.STATS_GH_TOKEN || secrets.JARVIS_TOKEN || github.token }}
+          HAS_TOKEN: ${{ (secrets.STATS_GH_TOKEN != '' || secrets.JARVIS_TOKEN != '') }}
+          MAX_RUNS: ${{ inputs.max_runs || '150' }}
+          ONLY_REPO: ${{ inputs.repo }}
+        run: |
+          # `github.token` is scoped to this repository, so it cannot read a fork's job logs
+          # at all. Falling back to it keeps the job green while collecting only upstream
+          # data, which is the one outcome this tool exists to prevent, so say so loudly.
+          if [ "$HAS_TOKEN" != "true" ]; then
+            echo "::error::Neither STATS_GH_TOKEN nor JARVIS_TOKEN is set. The job token cannot read contributor forks, which is the whole point of this collection."
+            exit 1
+          fi
+          ARGS=(--data-dir ../data/data --out ../data/site --max-runs "$MAX_RUNS")
+          if [ -n "$ONLY_REPO" ]; then ARGS+=(--repo "$ONLY_REPO"); fi
+          node tools/stats/dist/run.js "${ARGS[@]}"
+
+      - name: Commit the new data
+        working-directory: data
+        run: |
+          # .nojekyll keeps GitHub Pages from filtering the generated files.
+          touch site/.nojekyll
+          # JSON is written to a temporary and renamed into place, so one of these can only
+          # be left behind by an invocation that was killed mid-write. Never commit them.
+          find . -name '*.json.tmp' -not -path './.git/*' -delete
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          RUNS=$(find data/runs -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+          git commit -m "Update UI test statistics (${RUNS} runs)"
+          git push origin stats
+
+      - name: Summary
+        if: always()
+        working-directory: data
+        run: |
+          {
+            echo "### UI test statistics"
+            echo
+            if [ -f site/data/summary.json ]; then
+              node -e '
+                const s = require("./site/data/summary.json");
+                const c = s.coverage, r = s.last90.runLevel;
+                console.log(`| | |`);
+                console.log(`|---|---|`);
+                console.log(`| Runs stored | ${c.runs} (${c.executions} campaign executions) |`);
+                console.log(`| Forks covered | ${c.owners} |`);
+                console.log(`| Aborted runs (no campaign ran) | ${c.aborted} |`);
+                console.log(`| Oldest run | ${c.earliest_run ?? "n/a"} |`);
+                console.log(`| Green on first attempt (90d) | ${r.greenFirstAttemptPct}% of ${r.runs} runs |`);
+                console.log(`| Green only after a retry (90d) | ${r.greenEventuallyPct}% |`);
+                console.log(`| Never green (90d) | ${r.neverGreenPct}% |`);
+                console.log(`| Runner minutes spent on retries (90d) | ${r.retryMinutes} |`);
+              '
+            else
+              echo "No summary was generated."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

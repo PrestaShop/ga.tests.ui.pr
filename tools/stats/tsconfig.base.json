@@ -1,0 +1,29 @@
+{
+  "//": [
+    "Shared compiler options. The three configs beside this one differ only in what they",
+    "cover and how they resolve modules: the collector is compiled for Node, the dashboard",
+    "is bundled by Vite, and metrics.ts and dataset.ts are checked by both because both",
+    "import them.",
+    "",
+    "noUncheckedIndexedAccess is on. It was off at first, on the argument that the dataset",
+    "decoder is an unbroken run of positional reads and would only gain assertions. The",
+    "argument did not survive review: with the flag off, every `x[i]!` in the tree asserts",
+    "nothing a compiler is checking, so 28 of them read as deliberate nullability decisions",
+    "that were not being made. Turning it on cost exactly one production fix, and that one",
+    "was a real bug — an unguarded read in the decoder that would have thrown Invalid Date",
+    "on a truncated row and killed the page with no message."
+  ],
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2023"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}

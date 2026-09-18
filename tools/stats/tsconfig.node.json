@@ -1,0 +1,24 @@
+{
+  "//": [
+    "The collector, the parsers and the CLI. `tsc` emits this to dist/, which is what both",
+    "workflows execute: the job makes thousands of API calls, so it should not pay a",
+    "transpile-on-import cost, and running compiled output means the workflow cannot be the",
+    "first place a type error shows up.",
+    "",
+    "nodenext means relative imports carry the `.js` extension of the emitted file, which is",
+    "what Node's ESM loader requires. Vite resolves those back to the `.ts` sources for the",
+    "two modules the dashboard shares."
+  ],
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": false,
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"]
+}

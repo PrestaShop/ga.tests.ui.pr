@@ -1,0 +1,20 @@
+{
+  "//": [
+    "The dashboard. Vite bundles it, so nothing is emitted here: this config exists for",
+    "`vue-tsc --noEmit` and for the editor.",
+    "",
+    "It reaches into src/ on purpose. metrics.ts and dataset.ts are the modules the page and",
+    "the generated summary share, which is what stops the two from ever disagreeing about a",
+    "number, and they are checked under both module settings because both compile them."
+  ],
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "jsx": "preserve",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "types": ["vite/client", "node"]
+  },
+  "include": ["ui/**/*.ts", "ui/**/*.vue", "src/metrics.ts", "src/dataset.ts", "src/types.ts"]
+}

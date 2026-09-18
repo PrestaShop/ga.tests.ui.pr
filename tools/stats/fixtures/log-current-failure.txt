@@ -1,0 +1,210 @@
+2026-09-10T11:55:25.6917265Z Download action repository 'catchpoint/workflow-telemetry-action@v2' (SHA:94c3c3d9567a0205de6da68a76c428ce4e769af1)
+2026-09-10T11:55:26.3586094Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-10T11:55:26.3983044Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-10T11:55:26.7189919Z Complete job name: test (functional:API)
+2026-09-10T11:55:26.7718598Z ##[group]Run echo "Inputs:"
+2026-09-10T11:55:26.7719133Z [36;1mecho "Inputs:"[0m
+2026-09-10T11:55:26.7719536Z [36;1mecho '{[0m
+2026-09-10T11:55:26.7719936Z [36;1m  "PR_NUMBER": "42816",[0m
+2026-09-10T11:55:26.7720345Z [36;1m  "DEV_MODE": "false",[0m
+2026-09-10T11:55:26.7720754Z [36;1m  "PHP_VERSION": "Auto",[0m
+2026-09-10T11:55:26.7721183Z [36;1m  "NODE_VERSION": "Auto",[0m
+2026-09-10T11:55:26.7721604Z [36;1m  "DB_SERVER": "mysql",[0m
+2026-09-10T11:55:26.7722009Z [36;1m  "RUNNER_VERSION": "Auto",[0m
+2026-09-10T11:55:26.7722424Z [36;1m  "FAST_FAIL": "true",[0m
+2026-09-10T11:55:26.7722810Z [36;1m  "TELEMETRY": "false"[0m
+2026-09-10T11:55:26.7723195Z [36;1m}'[0m
+2026-09-10T11:55:26.7723515Z [36;1mecho ""[0m
+2026-09-10T11:55:26.7723968Z [36;1mecho "Resolved from PR / detected PrestaShop version:"[0m
+2026-09-10T11:55:26.7724545Z [36;1mecho "  base_branch (PR target): develop"[0m
+2026-09-10T11:55:26.7725094Z [36;1mecho "  branch_key (version):    develop"[0m
+2026-09-10T11:55:26.7730475Z [36;1mecho "  campaigns:               audit, cldr, functional:API, functional:BO:login, functional:BO:dashboard, functional:BO:orders:01:0-1, functional:BO:orders:01-create-orders, functional:BO:orders:01-view-and-edit-order, functional:BO:orders:02, functional:BO:orders:03-05, functional:BO:catalog:01-02, functional:BO:catalog:03-04, functional:BO:catalog:05-06, functional:BO:catalog:07-08, functional:BO:customer:01, functional:BO:customer:02-03, functional:BO:customer-service, functional:BO:modules, functional:BO:design, functional:BO:shipping, functional:BO:payment, functional:BO:international:01, functional:BO:international:02, functional:BO:international:03-04, functional:BO:shop-parameters:01-02, functional:BO:shop-parameters:03-04, functional:BO:shop-parameters:05-07, functional:BO:advanced-parameters:01-06, functional:BO:advanced-parameters:07-10, functional:BO:advanced-parameters:11-12, functional:BO:header, functional:BO:community, functional:FO:classic:01-03, functional:FO:classic:04-07, functional:FO:classic:08-12, functional:FO:hummingbird:01-03, functional:FO:hummingbird:04-07, functional:FO:hummingbird:08-12, functional:WS, modules:01-09, modules:10-19, modules:20-29, modules:30-39, regression, sanity"[0m
+2026-09-10T11:55:26.7736206Z [36;1mecho "  rebase_or_merge:         merge"[0m
+2026-09-10T11:55:26.7736691Z [36;1mecho "  ps_version:              9.3.0"[0m
+2026-09-10T11:55:26.7737162Z [36;1mecho "  php_version:             8.5"[0m
+2026-09-10T11:55:26.7737638Z [36;1mecho "  node_version:            20.19.5"[0m
+2026-09-10T11:55:26.7738230Z [36;1mecho "  runner_version:          ubuntu-latest"[0m
+2026-09-10T11:55:26.7738739Z [36;1mecho "  enable_ssl:              true"[0m
+2026-09-10T11:55:26.7739208Z [36;1mecho "  install_browsers:        true"[0m
+2026-09-10T11:55:26.7739682Z [36;1mecho "  cp_api_config:           false"[0m
+2026-09-10T11:55:26.7740157Z [36;1mecho "  needs_api_client:        true"[0m
+2026-09-10T11:55:26.7775994Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-10T11:55:26.7776705Z env:
+2026-09-10T11:55:26.7777058Z   CLIENT_ID_API: ui-test-client
+2026-09-10T11:55:26.7777523Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T11:55:26.7778140Z ##[endgroup]
+2026-09-10T11:55:26.7883324Z Inputs:
+2026-09-10T11:55:26.7883721Z {
+2026-09-10T11:55:26.7884047Z   "PR_NUMBER": "42816",
+2026-09-10T11:55:26.7884444Z   "DEV_MODE": "false",
+2026-09-10T11:55:26.7884823Z   "PHP_VERSION": "Auto",
+2026-09-10T11:55:26.7885199Z   "NODE_VERSION": "Auto",
+2026-09-10T11:55:26.7885562Z   "DB_SERVER": "mysql",
+2026-09-10T11:55:26.7885923Z   "RUNNER_VERSION": "Auto",
+2026-09-10T11:55:26.7886291Z   "FAST_FAIL": "true",
+2026-09-10T11:55:26.7886642Z   "TELEMETRY": "false"
+2026-09-10T11:55:26.7886981Z }
+2026-09-10T11:55:26.7887149Z 
+2026-09-10T11:55:26.7887344Z Resolved from PR / detected PrestaShop version:
+2026-09-10T11:55:26.7888071Z   base_branch (PR target): develop
+2026-09-10T11:55:26.7888536Z   branch_key (version):    develop
+2026-09-10T11:55:26.7893915Z   campaigns:               audit, cldr, functional:API, functional:BO:login, functional:BO:dashboard, functional:BO:orders:01:0-1, functional:BO:orders:01-create-orders, functional:BO:orders:01-view-and-edit-order, functional:BO:orders:02, functional:BO:orders:03-05, functional:BO:catalog:01-02, functional:BO:catalog:03-04, functional:BO:catalog:05-06, functional:BO:catalog:07-08, functional:BO:customer:01, functional:BO:customer:02-03, functional:BO:customer-service, functional:BO:modules, functional:BO:design, functional:BO:shipping, functional:BO:payment, functional:BO:international:01, functional:BO:international:02, functional:BO:international:03-04, functional:BO:shop-parameters:01-02, functional:BO:shop-parameters:03-04, functional:BO:shop-parameters:05-07, functional:BO:advanced-parameters:01-06, functional:BO:advanced-parameters:07-10, functional:BO:advanced-parameters:11-12, functional:BO:header, functional:BO:community, functional:FO:classic:01-03, functional:FO:classic:04-07, functional:FO:classic:08-12, functional:FO:hummingbird:01-03, functional:FO:hummingbird:04-07, functional:FO:hummingbird:08-12, functional:WS, modules:01-09, modules:10-19, modules:20-29, modules:30-39, regression, sanity
+2026-09-10T11:55:26.7899678Z   rebase_or_merge:         merge
+2026-09-10T11:55:26.7900088Z   ps_version:              9.3.0
+2026-09-10T11:55:26.7900479Z   php_version:             8.5
+2026-09-10T11:55:26.7900865Z   node_version:            20.19.5
+2026-09-10T11:55:26.7901272Z   runner_version:          ubuntu-latest
+2026-09-10T11:55:26.7901698Z   enable_ssl:              true
+2026-09-10T11:55:26.7902088Z   install_browsers:        true
+2026-09-10T11:55:26.7902502Z   cp_api_config:           false
+2026-09-10T11:55:26.7902900Z   needs_api_client:        true
+2026-01-01T00:00:00.0000000Z [fixture] setup and docker output between the inputs block and the mocha report removed
+2026-09-10T12:03:10.3183011Z       1) should check endpoints
+2026-09-10T12:03:59.7388437Z 
+2026-09-10T12:03:59.8151752Z 
+2026-09-10T12:03:59.8152578Z   62 passing (3m)
+2026-09-10T12:03:59.8154460Z   1 failing
+2026-09-10T12:03:59.8168272Z 
+2026-09-10T12:03:59.8178428Z   1) API : Check endpoints
+2026-09-10T12:03:59.8178762Z        Check endpoints
+2026-09-10T12:03:59.8179089Z          should check endpoints:
+2026-09-10T12:03:59.8179310Z 
+2026-09-10T12:03:59.8225924Z       AssertionError: expected [ '/addresses/bulk-delete: DELETE', '/addresses/carts/{cartId}: PATCH', '/addresses/customers/{addressId}: GET', '/addresses/customers/{addressId}: PATCH', '/addresses/customers: POST', '/addresses/manufacturers/{addressId}: GET', '/addresses/manufacturers/{addressId}: PATCH', '/addresses/manufacturers: POST', '/addresses/orders/{orderId}: PATCH', '/addresses/{addressId}: DELETE', '/addresses: GET', '/api-clients/infos: GET', '/api-clients/{apiClientId}: DELETE', '/api-clients/{apiClientId}: GET', '/api-clients/{apiClientId}: PATCH', '/api-clients: GET', '/api-clients: POST', '/attachments/search: GET', '/attachments/{attachmentId}/files: GET', '/attachments/{attachmentId}/information: GET', '/attributes/attributes/bulk-delete: DELETE', '/attributes/attributes/{attributeId}: DELETE', '/attributes/attributes/{attributeId}: GET', '/attributes/attributes/{attributeId}: PATCH', '/attributes/attributes: POST', '/attributes/groups-with-attributes: GET', '/attributes/groups/bulk-delete: DELETE', '/attributes/groups/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes: GET', '/attributes/groups/{attributeGroupId}: DELETE', '/attributes/groups/{attributeGroupId}: GET', '/attributes/groups/{attributeGroupId}: PATCH', '/attributes/groups: GET', '/attributes/groups: POST', '/carriers/search-compatible-carriers: GET', '/carriers/{carrierId}/ranges: GET', '/carriers/{carrierId}/ranges: PATCH', '/carriers/{carrierId}/set-tax-rule-group: PATCH', '/carriers/{carrierId}: GET', '/carriers/{carrierId}: POST', '/carriers: GET', '/carriers: POST', '/cart-rules/search: GET', '/carts/{cartId}/emails: PUT', '/categories/bulk-delete/{deleteMode}: DELETE', '/categories/bulk-update-status: PUT', '/categories/{categoryId}/cover: DELETE', '/categories/{categoryId}/status: PATCH', '/categories/{categoryId}/thumbnail: DELETE', '/categories/{categoryId}/{mode}: DELETE', '/categories/{categoryId}: GET', '/categories/{categoryId}: PATCH', '/categories: GET', '/categories: POST', '/contacts/{contactId}: GET', '/contacts/{contactId}: PATCH', '/contacts: GET', '/contacts: POST', '/countries/{countryId}: DELETE', '/countries/{countryId}: GET', '/countries/{countryId}: PATCH', '/countries: GET', '/countries: POST', '/customers/bulk-delete: DELETE', '/customers/bulk-disable: PUT', '/customers/bulk-enable: PUT', '/customers/groups/{customerGroupId}: DELETE', '/customers/groups/{customerGroupId}: GET', '/customers/groups/{customerGroupId}: PUT', '/customers/groups: GET', '/customers/groups: POST', '/customers/required-fields: GET', '/customers/required-fields: PUT', '/customers/search: GET', '/customers/{customerId}/details: GET', '/customers/{customerId}: DELETE', '/customers/{customerId}: GET', '/customers/{customerId}: PATCH', '/customers: POST', '/discounts/bulk-delete: DELETE', '/discounts/bulk-update-status: PATCH', '/discounts/types: GET', '/discounts/{discountId}/duplicate: POST', '/discounts/{discountId}: DELETE', '/discounts/{discountId}: GET', '/discounts/{discountId}: PATCH', '/discounts: GET', '/discounts: POST', '/employees/send-password-reset-email: POST', '/extra-property-definitions/bulk-delete: DELETE', '/extra-property-definitions/{extraPropertyDefinitionId}: DELETE', '/extra-property-definitions/{extraPropertyDefinitionId}: GET', '/extra-property-definitions/{extraPropertyDefinitionId}: PATCH', '/extra-property-definitions: GET', '/extra-property-definitions: POST', '/features/bulk-delete: DELETE', '/features/values/bulk-delete: DELETE', '/features/values/{featureValueId}: DELETE', '/features/values/{featureValueId}: GET', '/features/values/{featureValueId}: PATCH', '/features/values: POST', '/features/{featureId}/values: GET', '/features/{featureId}: DELETE', '/features/{featureId}: GET', '/features/{featureId}: PATCH', '/features: GET', '/features: POST', '/hooks/{hookId}/status: GET', '/hooks/{hookId}/status: PUT', '/hooks/{hookId}: GET', '/hooks: GET', '/languages: GET', '/manufacturers/bulk-delete: PUT', '/manufacturers/{manufacturerId}: DELETE', '/manufacturers/{manufacturerId}: GET', '/manufacturers/{manufacturerId}: PATCH', '/manufacturers: GET', '/manufacturers: POST', '/modules/bulk-uninstall: PUT', '/modules/bulk-update-status: PUT', '/modules/upload-archive: POST', '/modules/upload-source: POST', '/modules/{technicalName}/install: PUT', '/modules/{technicalName}/reset: PATCH', '/modules/{technicalName}/status: PUT', '/modules/{technicalName}/uninstall: PUT', '/modules/{technicalName}/upgrade: PUT', '/modules/{technicalName}: GET', '/modules: GET', '/order-messages/bulk-delete: DELETE', '/order-messages/{orderMessageId}: DELETE', '/order-messages/{orderMessageId}: GET', '/order-messages/{orderMessageId}: PATCH', '/order-messages: GET', '/order-messages: POST', '/order-return-states/bulk-delete: DELETE', '/order-return-states/{orderReturnStateId}: DELETE', '/order-return-states/{orderReturnStateId}: GET', '/order-return-states/{orderReturnStateId}: PATCH', '/order-return-states: GET', '/order-return-states: POST', '/order-returns/{orderReturnId}: GET', '/order-returns/{orderReturnId}: PATCH', '/products/combinations/{combinationId}: GET', '/products/images/{imageId}: DELETE', '/products/images/{imageId}: GET', '/products/images/{imageId}: POST', '/products/search: GET', '/products/{productId}/assign-to-categories: POST', '/products/{productId}/carriers: GET', '/products/{productId}/carriers: PUT', '/products/{productId}/categories: DELETE', '/products/{productId}/categories: POST', '/products/{productId}/combination-ids: GET', '/products/{productId}/combinations: GET', '/products/{productId}/generate-combinations: POST', '/products/{productId}/images: GET', '/products/{productId}/images: POST', '/products/{productId}/shops: PATCH', '/products/{productId}: DELETE', '/products/{productId}: GET', '/products/{productId}: PATCH', '/products: GET', '/products: POST', '/profiles/{profileId}: DELETE', '/profiles/{profileId}: GET', '/profiles: POST', '/search-aliases/bulk-delete: DELETE', '/search-aliases/{searchTerm}: GET', '/search-aliases/{searchTerm}: PUT', '/search-aliases: GET', '/search-aliases: POST', '/search-engines/bulk-delete: DELETE', '/search-engines/{searchEngineId}: DELETE', '/search-engines/{searchEngineId}: GET', '/search-engines/{searchEngineId}: PATCH', '/search-engines: GET', '/search-engines: POST', '/showcase-cards/{showcaseCardName}/{employeeId}/close: PUT', '/showcase-cards/{showcaseCardName}/{employeeId}: GET', '/stores/bulk-delete: DELETE', '/stores/bulk-update-status: PUT', '/stores/{storeId}/toggle-status: PUT', '/stores/{storeId}: DELETE', '/stores/{storeId}: GET', '/suppliers/bulk-delete: DELETE', '/suppliers/bulk-disable: PUT', '/suppliers/bulk-enable: PUT', '/suppliers/{supplierId}/logo: DELETE', '/suppliers/{supplierId}/toggle-status: PUT', '/suppliers/{supplierId}: DELETE', '/suppliers/{supplierId}: GET', '/suppliers/{supplierId}: PATCH', '/suppliers: GET', '/suppliers: POST', '/tabs/{className}: PUT', '/tax-rules-groups/bulk-delete: DELETE', '/tax-rules-groups/bulk-update-status: PUT', '/tax-rules-groups/{taxRulesGroupId}/set-status: PATCH', '/tax-rules-groups/{taxRulesGroupId}: DELETE', '/tax-rules-groups/{taxRulesGroupId}: GET', '/tax-rules-groups/{taxRulesGroupId}: PATCH', '/tax-rules-groups: GET', '/tax-rules-groups: POST', '/tax-rules/{taxRuleId}: DELETE', '/tax-rules: GET', '/tax-rules: POST', '/taxes/bulk-delete: PUT', '/taxes/bulk-set-status: PUT', '/taxes/{taxId}: DELETE', '/taxes/{taxId}: GET', '/taxes/{taxId}: PATCH', '/taxes: GET', '/taxes: POST', '/titles/bulk-delete: DELETE', '/titles/{titleId}: DELETE', '/titles/{titleId}: GET', '/titles/{titleId}: PATCH', '/titles: GET', '/titles: POST', '/webservice-keys/{webserviceKeyId}: GET', '/webservice-keys/{webserviceKeyId}: PATCH', '/webservice-keys: GET', '/webservice-keys: POST', '/zones/bulk-delete: DELETE', '/zones/bulk-update-status: PUT', '/zones/{zoneId}/toggle-status: PUT', '/zones/{zoneId}: DELETE', '/zones/{zoneId}: GET', '/zones/{zoneId}: PUT', '/zones: GET', '/zones: POST' ] to deeply equal [ '/addresses/bulk-delete: DELETE', '/addresses/carts/{cartId}: PATCH', '/addresses/customers/{addressId}: GET', '/addresses/customers/{addressId}: PATCH', '/addresses/customers: POST', '/addresses/manufacturers/{addressId}: GET', '/addresses/manufacturers/{addressId}: PATCH', '/addresses/manufacturers: POST', '/addresses/orders/{orderId}: PATCH', '/addresses/{addressId}: DELETE', '/addresses: GET', '/api-clients/infos: GET', '/api-clients/{apiClientId}: DELETE', '/api-clients/{apiClientId}: GET', '/api-clients/{apiClientId}: PATCH', '/api-clients: GET', '/api-clients: POST', '/attachments/search: GET', '/attachments/{attachmentId}/files: GET', '/attachments/{attachmentId}/information: GET', '/attributes/attributes/bulk-delete: DELETE', '/attributes/attributes/{attributeId}: DELETE', '/attributes/attributes/{attributeId}: GET', '/attributes/attributes/{attributeId}: PATCH', '/attributes/attributes: POST', '/attributes/groups-with-attributes: GET', '/attributes/groups/bulk-delete: DELETE', '/attributes/groups/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes/positions: PATCH', '/attributes/groups/{attributeGroupId}/attributes: GET', '/attributes/groups/{attributeGroupId}: DELETE', '/attributes/groups/{attributeGroupId}: GET', '/attributes/groups/{attributeGroupId}: PATCH', '/attributes/groups: GET', '/attributes/groups: POST', '/carriers/search-compatible-carriers: GET', '/carriers/{carrierId}/ranges: GET', '/carriers/{carrierId}/ranges: PATCH', '/carriers/{carrierId}/set-tax-rule-group: PATCH', '/carriers/{carrierId}: GET', '/carriers/{carrierId}: POST', '/carriers: GET', '/carriers: POST', '/cart-rules/search: GET', '/carts/{cartId}/emails: PUT', '/categories/bulk-delete/{deleteMode}: DELETE', '/categories/bulk-update-status: PUT', '/categories/{categoryId}/cover: DELETE', '/categories/{categoryId}/status: PATCH', '/categories/{categoryId}/thumbnail: DELETE', '/categories/{categoryId}/{mode}: DELETE', '/categories/{categoryId}: GET', '/categories/{categoryId}: PATCH', '/categories: GET', '/categories: POST', '/contacts/{contactId}: GET', '/contacts/{contactId}: PATCH', '/contacts: GET', '/contacts: POST', '/countries/{countryId}: DELETE', '/countries/{countryId}: GET', '/countries/{countryId}: PATCH', '/countries: GET', '/countries: POST', '/customers/bulk-delete: DELETE', '/customers/bulk-disable: PUT', '/customers/bulk-enable: PUT', '/customers/groups/{customerGroupId}: DELETE', '/customers/groups/{customerGroupId}: GET', '/customers/groups/{customerGroupId}: PUT', '/customers/groups: GET', '/customers/groups: POST', '/customers/required-fields: GET', '/customers/required-fields: PUT', '/customers/search: GET', '/customers/{customerId}/details: GET', '/customers/{customerId}: DELETE', '/customers/{customerId}: GET', '/customers/{customerId}: PATCH', '/customers: POST', '/discounts/bulk-delete: DELETE', '/discounts/bulk-update-status: PATCH', '/discounts/types: GET', '/discounts/{discountId}/duplicate: POST', '/discounts/{discountId}: DELETE', '/discounts/{discountId}: GET', '/discounts/{discountId}: PATCH', '/discounts: GET', '/discounts: POST', '/employees/send-password-reset-email: POST', '/features/bulk-delete: DELETE', '/features/values/bulk-delete: DELETE', '/features/values/{featureValueId}: DELETE', '/features/values/{featureValueId}: GET', '/features/values/{featureValueId}: PATCH', '/features/values: POST', '/features/{featureId}/values: GET', '/features/{featureId}: DELETE', '/features/{featureId}: GET', '/features/{featureId}: PATCH', '/features: GET', '/features: POST', '/hooks/{hookId}/status: GET', '/hooks/{hookId}/status: PUT', '/hooks/{hookId}: GET', '/hooks: GET', '/languages: GET', '/manufacturers/bulk-delete: PUT', '/manufacturers/{manufacturerId}: DELETE', '/manufacturers/{manufacturerId}: GET', '/manufacturers/{manufacturerId}: PATCH', '/manufacturers: GET', '/manufacturers: POST', '/modules/bulk-uninstall: PUT', '/modules/bulk-update-status: PUT', '/modules/upload-archive: POST', '/modules/upload-source: POST', '/modules/{technicalName}/install: PUT', '/modules/{technicalName}/reset: PATCH', '/modules/{technicalName}/status: PUT', '/modules/{technicalName}/uninstall: PUT', '/modules/{technicalName}/upgrade: PUT', '/modules/{technicalName}: GET', '/modules: GET', '/order-messages/bulk-delete: DELETE', '/order-messages/{orderMessageId}: DELETE', '/order-messages/{orderMessageId}: GET', '/order-messages/{orderMessageId}: PATCH', '/order-messages: GET', '/order-messages: POST', '/order-return-states/bulk-delete: DELETE', '/order-return-states/{orderReturnStateId}: DELETE', '/order-return-states/{orderReturnStateId}: GET', '/order-return-states/{orderReturnStateId}: PATCH', '/order-return-states: GET', '/order-return-states: POST', '/order-returns/{orderReturnId}: GET', '/order-returns/{orderReturnId}: PATCH', '/products/combinations/{combinationId}: GET', '/products/images/{imageId}: DELETE', '/products/images/{imageId}: GET', '/products/images/{imageId}: POST', '/products/search: GET', '/products/{productId}/assign-to-categories: POST', '/products/{productId}/carriers: GET', '/products/{productId}/carriers: PUT', '/products/{productId}/categories: DELETE', '/products/{productId}/categories: POST', '/products/{productId}/combination-ids: GET', '/products/{productId}/combinations: GET', '/products/{productId}/generate-combinations: POST', '/products/{productId}/images: GET', '/products/{productId}/images: POST', '/products/{productId}/shops: PATCH', '/products/{productId}: DELETE', '/products/{productId}: GET', '/products/{productId}: PATCH', '/products: GET', '/products: POST', '/profiles/{profileId}: DELETE', '/profiles/{profileId}: GET', '/profiles: POST', '/search-aliases/bulk-delete: DELETE', '/search-aliases/{searchTerm}: GET', '/search-aliases/{searchTerm}: PUT', '/search-aliases: GET', '/search-aliases: POST', '/search-engines/bulk-delete: DELETE', '/search-engines/{searchEngineId}: DELETE', '/search-engines/{searchEngineId}: GET', '/search-engines/{searchEngineId}: PATCH', '/search-engines: GET', '/search-engines: POST', '/showcase-cards/{showcaseCardName}/{employeeId}/close: PUT', '/showcase-cards/{showcaseCardName}/{employeeId}: GET', '/stores/bulk-delete: DELETE', '/stores/bulk-update-status: PUT', '/stores/{storeId}/toggle-status: PUT', '/stores/{storeId}: DELETE', '/stores/{storeId}: GET', '/suppliers/bulk-delete: DELETE', '/suppliers/bulk-disable: PUT', '/suppliers/bulk-enable: PUT', '/suppliers/{supplierId}/logo: DELETE', '/suppliers/{supplierId}/toggle-status: PUT', '/suppliers/{supplierId}: DELETE', '/suppliers/{supplierId}: GET', '/suppliers/{supplierId}: PATCH', '/suppliers: GET', '/suppliers: POST', '/tabs/{className}: PUT', '/tax-rules-groups/bulk-delete: DELETE', '/tax-rules-groups/bulk-update-status: PUT', '/tax-rules-groups/{taxRulesGroupId}/set-status: PATCH', '/tax-rules-groups/{taxRulesGroupId}: DELETE', '/tax-rules-groups/{taxRulesGroupId}: GET', '/tax-rules-groups/{taxRulesGroupId}: PATCH', '/tax-rules-groups: GET', '/tax-rules-groups: POST', '/tax-rules/{taxRuleId}: DELETE', '/tax-rules: GET', '/tax-rules: POST', '/taxes/bulk-delete: PUT', '/taxes/bulk-set-status: PUT', '/taxes/{taxId}: DELETE', '/taxes/{taxId}: GET', '/taxes/{taxId}: PATCH', '/taxes: GET', '/taxes: POST', '/titles/bulk-delete: DELETE', '/titles/{titleId}: DELETE', '/titles/{titleId}: GET', '/titles/{titleId}: PATCH', '/titles: GET', '/titles: POST', '/webservice-keys/{webserviceKeyId}: GET', '/webservice-keys/{webserviceKeyId}: PATCH', '/webservice-keys: GET', '/webservice-keys: POST', '/zones/bulk-delete: DELETE', '/zones/bulk-update-status: PUT', '/zones/{zoneId}/toggle-status: PUT', '/zones/{zoneId}: DELETE', '/zones/{zoneId}: GET', '/zones/{zoneId}: PUT', '/zones: GET', '/zones: POST' ]
+2026-09-10T12:03:59.8263656Z       + expected - actual
+2026-09-10T12:03:59.8263788Z 
+2026-09-10T12:03:59.8263907Z          "/discounts/{discountId}: PATCH"
+2026-09-10T12:03:59.8264137Z          "/discounts: GET"
+2026-09-10T12:03:59.8264326Z          "/discounts: POST"
+2026-09-10T12:03:59.8264581Z          "/employees/send-password-reset-email: POST"
+2026-09-10T12:03:59.8264890Z       -  "/extra-property-definitions/bulk-delete: DELETE"
+2026-09-10T12:03:59.8265266Z       -  "/extra-property-definitions/{extraPropertyDefinitionId}: DELETE"
+2026-09-10T12:03:59.8265662Z       -  "/extra-property-definitions/{extraPropertyDefinitionId}: GET"
+2026-09-10T12:03:59.8266059Z       -  "/extra-property-definitions/{extraPropertyDefinitionId}: PATCH"
+2026-09-10T12:03:59.8266387Z       -  "/extra-property-definitions: GET"
+2026-09-10T12:03:59.8266654Z       -  "/extra-property-definitions: POST"
+2026-09-10T12:03:59.8266914Z          "/features/bulk-delete: DELETE"
+2026-09-10T12:03:59.8267166Z          "/features/values/bulk-delete: DELETE"
+2026-09-10T12:03:59.8267431Z          "/features/values/{featureValueId}: DELETE"
+2026-09-10T12:03:59.8267707Z          "/features/values/{featureValueId}: GET"
+2026-09-10T12:03:59.8268156Z --
+2026-09-10T12:03:59.8268339Z          "/webservice-keys: GET"
+2026-09-10T12:03:59.8268706Z          "/webservice-keys: POST"
+2026-09-10T12:03:59.8268933Z          "/zones/bulk-delete: DELETE"
+2026-09-10T12:03:59.8269175Z          "/zones/bulk-update-status: PUT"
+2026-09-10T12:03:59.8269386Z       -  "/zones/{zon
+2026-09-10T12:03:59.8269600Z       +  "/zones/{zoneId}/toggle-status: PUT"
+2026-09-10T12:03:59.8269835Z       +  "/zones/{zoneId}: DELETE"
+2026-09-10T12:03:59.8270047Z       +  "/zones/{zoneId}: GET"
+2026-09-10T12:03:59.8270249Z       +  "/zones/{zoneId}: PUT"
+2026-09-10T12:03:59.8270427Z       +  "/zones: GET"
+2026-09-10T12:03:59.8270602Z       +  "/zones: POST"
+2026-09-10T12:03:59.8270771Z       +]
+2026-09-10T12:03:59.8270914Z       
+2026-09-10T12:03:59.8271213Z       [mocha] output truncated to 8192 characters, see "maxDiffSize" reporter-option
+2026-09-10T12:03:59.8271460Z 
+2026-09-10T12:03:59.8271707Z       at Context.<anonymous> (campaigns/functional/API/02_checkEndpoints.ts:553:33)
+2026-09-10T12:03:59.8271957Z 
+2026-09-10T12:03:59.8271962Z 
+2026-09-10T12:03:59.8271966Z 
+2026-09-10T12:03:59.9679560Z [mochawesome] Report JSON saved to /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/tests/UI/mochawesome-report/mochawesome.json
+2026-09-10T12:03:59.9686259Z 
+2026-09-10T12:03:59.9708863Z [mochawesome] Report HTML saved to /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/tests/UI/mochawesome-report/mochawesome.html
+2026-09-10T12:03:59.9738087Z 
+2026-09-10T12:04:00.0620186Z ##[error]Process completed with exit code 1.
+2026-09-10T12:04:00.0626060Z ##[end-action id=runTests.__run_4;outcome=failure;conclusion=failure;duration_ms=170718]
+2026-09-10T12:04:00.0657112Z ##[group]Run echo "SCREENSHOT_CAMPAIGN=$( echo -e 'functional:API' | tr ':' '-' )" >> $GITHUB_ENV
+2026-09-10T12:04:00.0657618Z [36;1mecho "SCREENSHOT_CAMPAIGN=$( echo -e 'functional:API' | tr ':' '-' )" >> $GITHUB_ENV[0m
+2026-09-10T12:04:00.0812018Z shell: /usr/bin/bash -e {0}
+2026-09-10T12:04:00.0812228Z env:
+2026-09-10T12:04:00.0812399Z   CLIENT_ID_API: ui-test-client
+2026-09-10T12:04:00.0812640Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T12:04:00.0812884Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T12:04:00.0813070Z ##[endgroup]
+2026-09-10T12:04:00.0919905Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:00.0920885Z ##[group]Run actions/upload-artifact@v4
+2026-09-10T12:04:00.0921100Z with:
+2026-09-10T12:04:00.0921269Z   name: campaign-functional-API
+2026-09-10T12:04:00.0921486Z   path: ./tests/UI/screenshots/
+./var/logs
+
+2026-09-10T12:04:00.0921721Z   if-no-files-found: warn
+2026-09-10T12:04:00.0921911Z   compression-level: 6
+2026-09-10T12:04:00.0922086Z   overwrite: false
+2026-09-10T12:04:00.0922264Z   include-hidden-files: false
+2026-09-10T12:04:00.0922455Z env:
+2026-09-10T12:04:00.0922611Z   CLIENT_ID_API: ui-test-client
+2026-09-10T12:04:00.0922841Z   CLIENT_SECRET_API: 18c7b983c2eaa22a111609ce2b1c435e
+2026-09-10T12:04:00.0923106Z   DOCKER_PREFIX: gatestsuipr
+2026-09-10T12:04:00.0923321Z   SCREENSHOT_CAMPAIGN: functional-API
+2026-09-10T12:04:00.0923524Z ##[endgroup]
+2026-09-10T12:04:00.3214643Z (node:10537) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-10T12:04:00.3215674Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-10T12:04:00.3344068Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-09-10T12:04:00.3346596Z The least common ancestor is /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr. This will be the root directory of the artifact
+2026-09-10T12:04:00.3347760Z With the provided path, there will be 5 files uploaded
+2026-09-10T12:04:00.3349987Z Artifact name is valid!
+2026-09-10T12:04:00.3351690Z Root directory input is valid!
+2026-09-10T12:04:00.5835370Z Beginning upload of artifact content to blob storage
+2026-09-10T12:04:00.8299830Z (node:10537) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-10T12:04:01.2348206Z Uploaded bytes 8388608
+2026-09-10T12:04:01.5313003Z Uploaded bytes 16777216
+2026-09-10T12:04:01.6521681Z Uploaded bytes 21927442
+2026-09-10T12:04:01.6868838Z Finished uploading artifact content to blob storage!
+2026-09-10T12:04:01.6869942Z SHA256 digest of uploaded artifact zip is 632de0ef8c314bda0fc576024664f2b918b13722a1a03e626be3bff341cc27b2
+2026-09-10T12:04:01.6870969Z Finalizing artifact upload
+2026-09-10T12:04:01.9327156Z Artifact campaign-functional-API.zip successfully finalized. Artifact ID 10150931413
+2026-09-10T12:04:01.9328487Z Artifact campaign-functional-API has been successfully uploaded! Final size is 21927442 bytes. Artifact ID is 10150931413
+2026-09-10T12:04:01.9333694Z Artifact download URL: https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/34473576823/artifacts/10150931413
+2026-09-10T12:04:01.9536780Z Post job cleanup.
+2026-09-10T12:04:01.9539919Z ##[start-action display=Setup Node;id=__ffcc22ad-b87e-47d6-9e03-e065657d80d7.__actions_setup-node]
+2026-09-10T12:04:01.9542586Z ##[end-action id=__ffcc22ad-b87e-47d6-9e03-e065657d80d7.__actions_setup-node;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-10T12:04:01.9573390Z Post job cleanup.
+2026-09-10T12:04:01.9575761Z ##[start-action display=Checkout keycloak module;id=__956c10c3-f0ed-473c-b6b1-8afb401bd5a1.__actions_checkout]
+2026-09-10T12:04:01.9631964Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:01.9632901Z Post job cleanup.
+2026-09-10T12:04:02.0333695Z [command]/usr/bin/git version
+2026-09-10T12:04:02.0378000Z git version 2.55.0
+2026-09-10T12:04:02.0407007Z Temporarily overriding HOME='/home/runner/work/_temp/a5470c6b-6641-4617-916f-11a8c0c8fc6c' before making global git config changes
+2026-09-10T12:04:02.0408297Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.0411267Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/keycloak_connector_demo
+2026-09-10T12:04:02.0448114Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.0478807Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.0700320Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.0722825Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.0731270Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.0763811Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.0988661Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.1021194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.1311783Z ##[end-action id=__956c10c3-f0ed-473c-b6b1-8afb401bd5a1.__actions_checkout;outcome=success;conclusion=success;duration_ms=173]
+2026-09-10T12:04:02.1364665Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:02.1365634Z Post job cleanup.
+2026-09-10T12:04:02.2071976Z [command]/usr/bin/git version
+2026-09-10T12:04:02.2108774Z git version 2.55.0
+2026-09-10T12:04:02.2143132Z Temporarily overriding HOME='/home/runner/work/_temp/0ede90b5-9b30-497a-9542-dda9a1d9b311' before making global git config changes
+2026-09-10T12:04:02.2144079Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.2148819Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr/custom_actions
+2026-09-10T12:04:02.2186997Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.2218557Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.2430866Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.2453938Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.2463312Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.2498077Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.2713314Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.2746086Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.3100124Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-10T12:04:02.3101075Z Post job cleanup.
+2026-09-10T12:04:02.3829080Z [command]/usr/bin/git version
+2026-09-10T12:04:02.3856822Z git version 2.55.0
+2026-09-10T12:04:02.3890761Z Temporarily overriding HOME='/home/runner/work/_temp/f2c27c7c-ceb3-4cdd-92f0-4c027cc38a0d' before making global git config changes
+2026-09-10T12:04:02.3891596Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-10T12:04:02.3896183Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ga.tests.ui.pr/ga.tests.ui.pr
+2026-09-10T12:04:02.3935621Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-10T12:04:02.3968583Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-10T12:04:02.4199518Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-10T12:04:02.4222600Z http.https://github.com/.extraheader
+2026-09-10T12:04:02.4232530Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-10T12:04:02.4269984Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-10T12:04:02.4505019Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-10T12:04:02.4542572Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-10T12:04:02.4911133Z Cleaning up orphan processes
+2026-09-10T12:04:02.5500140Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

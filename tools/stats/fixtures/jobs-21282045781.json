@@ -1,0 +1,448 @@
+{
+  "_note": "Captured from GET /repos/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/jobs?filter=all (2026-01-23). Real API shape, trimmed to the fields the parsers read. pr_security_test_one.yml names its matrix job `Security PR test`, so every row arrives as `Security PR test (<campaign>, <branch>)`; the whole run was cancelled, which is why no row carries steps.",
+  "run_id": 21282045781,
+  "repo": "PrestaShop/ga.tests.ui.pr",
+  "workflow": "pr_security_test_one.yml",
+  "jobs": [
+    {
+      "id": 61254121855,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:dashboard, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:03Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121855"
+    },
+    {
+      "id": 61254121859,
+      "run_attempt": 1,
+      "name": "Security PR test (audit, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:03Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121859"
+    },
+    {
+      "id": 61254121866,
+      "run_attempt": 1,
+      "name": "Security PR test (cldr, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:03Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121866"
+    },
+    {
+      "id": 61254121878,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:catalog:03-04, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121878"
+    },
+    {
+      "id": 61254121883,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:orders:02, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121883"
+    },
+    {
+      "id": 61254121888,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:login, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:14Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121888"
+    },
+    {
+      "id": 61254121894,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:orders:01:0-1, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:14Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121894"
+    },
+    {
+      "id": 61254121895,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:API, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:03Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121895"
+    },
+    {
+      "id": 61254121902,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:orders:03-05, 9.0.x)",
+      "status": "in_progress",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121902"
+    },
+    {
+      "id": 61254121905,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:orders:01-view-and-edit-order, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:14Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121905"
+    },
+    {
+      "id": 61254121906,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:orders:01-create-orders, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:14Z",
+      "completed_at": "2026-01-23T09:56:14Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121906"
+    },
+    {
+      "id": 61254121917,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:catalog:01-02, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:04Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121917"
+    },
+    {
+      "id": 61254121926,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:shop-parameters:05-07, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121926"
+    },
+    {
+      "id": 61254121933,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:international:02, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121933"
+    },
+    {
+      "id": 61254121942,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:advanced-parameters:01-06, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121942"
+    },
+    {
+      "id": 61254121948,
+      "run_attempt": 1,
+      "name": "Security PR test (modules:01-09, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:04Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121948"
+    },
+    {
+      "id": 61254121950,
+      "run_attempt": 1,
+      "name": "Security PR test (modules:30-39, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121950"
+    },
+    {
+      "id": 61254121951,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:customer:01, 9.0.x)",
+      "status": "in_progress",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121951"
+    },
+    {
+      "id": 61254121952,
+      "run_attempt": 1,
+      "name": "Security PR test (modules:20-29, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121952"
+    },
+    {
+      "id": 61254121955,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:payment, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121955"
+    },
+    {
+      "id": 61254121956,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:catalog:05-06, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121956"
+    },
+    {
+      "id": 61254121964,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:header, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121964"
+    },
+    {
+      "id": 61254121965,
+      "run_attempt": 1,
+      "name": "Security PR test (modules:10-19, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121965"
+    },
+    {
+      "id": 61254121966,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:international:03-04, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121966"
+    },
+    {
+      "id": 61254121968,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:customer:02-03, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121968"
+    },
+    {
+      "id": 61254121969,
+      "run_attempt": 1,
+      "name": "Security PR test (sanity, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121969"
+    },
+    {
+      "id": 61254121970,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:advanced-parameters:11-12, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121970"
+    },
+    {
+      "id": 61254121972,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:shop-parameters:03-04, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121972"
+    },
+    {
+      "id": 61254121974,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:customer-service, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121974"
+    },
+    {
+      "id": 61254121979,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:advanced-parameters:07-10, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121979"
+    },
+    {
+      "id": 61254121984,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:catalog:07-08, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121984"
+    },
+    {
+      "id": 61254121986,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:FO:classic:01-03, 9.0.x)",
+      "status": "in_progress",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121986"
+    },
+    {
+      "id": 61254121991,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:FO:classic:04-07, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121991"
+    },
+    {
+      "id": 61254121997,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:modules, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121997"
+    },
+    {
+      "id": 61254121999,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:FO:hummingbird:04-07, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254121999"
+    },
+    {
+      "id": 61254122005,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:FO:hummingbird:08-12, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122005"
+    },
+    {
+      "id": 61254122007,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:design, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122007"
+    },
+    {
+      "id": 61254122008,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:shop-parameters:01-02, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122008"
+    },
+    {
+      "id": 61254122010,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:FO:hummingbird:01-03, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122010"
+    },
+    {
+      "id": 61254122012,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:WS, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:04Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122012"
+    },
+    {
+      "id": 61254122013,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:shipping, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122013"
+    },
+    {
+      "id": 61254122019,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:FO:classic:08-12, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:04Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122019"
+    },
+    {
+      "id": 61254122038,
+      "run_attempt": 1,
+      "name": "Security PR test (regression, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:04Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122038"
+    },
+    {
+      "id": 61254122067,
+      "run_attempt": 1,
+      "name": "Security PR test (functional:BO:international:01, 9.0.x)",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-01-23T09:56:15Z",
+      "completed_at": "2026-01-23T09:56:15Z",
+      "html_url": "https://github.com/PrestaShop/ga.tests.ui.pr/actions/runs/21282045781/job/61254122067"
+    }
+  ]
+}

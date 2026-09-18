@@ -1,0 +1,178 @@
+{
+  "_note": "Run 32371081746 (pr_test.yml, prebuilt shop). Only used for job-name parsing, so it keeps one row per name shape rather than all 50 of the run's jobs: the nested `<caller> / <inner>` campaigns, `Sanity campaign / Test` whose inner name carries no campaign, and the build-shop job. Real API rows, untouched.",
+  "run_id": 32371081746,
+  "repo": "alicjacichocka-bitbag/ga.tests.ui.pr",
+  "jobs": [
+    {
+      "completed_at": "2026-08-20T13:19:08Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96431583094",
+      "id": 96431583094,
+      "name": "Sanity campaign / Test",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:52:07Z",
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1
+        },
+        {
+          "conclusion": "success",
+          "name": "Print Inputs values",
+          "number": 2
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 3
+        },
+        {
+          "conclusion": "success",
+          "name": "Checkout PrestaShop",
+          "number": 4
+        },
+        {
+          "conclusion": "success",
+          "name": "Pull database image in background",
+          "number": 5
+        },
+        {
+          "conclusion": "success",
+          "name": "Build PrestaShop image in background",
+          "number": 6
+        },
+        {
+          "conclusion": "success",
+          "name": "Generate a certificate",
+          "number": 7
+        },
+        {
+          "conclusion": "success",
+          "name": "Get Composer Cache Directory",
+          "number": 8
+        },
+        {
+          "conclusion": "success",
+          "name": "Restore composer cache dir",
+          "number": 9
+        },
+        {
+          "conclusion": "success",
+          "name": "Install Composer dependencies",
+          "number": 10
+        },
+        {
+          "conclusion": "success",
+          "name": "Save composer cache dir",
+          "number": 11
+        },
+        {
+          "conclusion": "success",
+          "name": "Build and run shop with docker",
+          "number": 12
+        },
+        {
+          "conclusion": "success",
+          "name": "Setup Node 20.19.5",
+          "number": 13
+        },
+        {
+          "conclusion": "success",
+          "name": "Build assets in parallel and in background",
+          "number": 14
+        },
+        {
+          "conclusion": "success",
+          "name": "Check that all builds are finished",
+          "number": 15
+        },
+        {
+          "conclusion": "success",
+          "name": "Install browsers",
+          "number": 16
+        },
+        {
+          "conclusion": "cancelled",
+          "name": "Run sanity campaign",
+          "number": 17
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Post Setup Node 20.19.5",
+          "number": 32
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Checkout PrestaShop",
+          "number": 33
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 34
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 35
+        }
+      ]
+    },
+    {
+      "completed_at": "2026-08-20T12:56:20Z",
+      "conclusion": "success",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96431583276",
+      "id": 96431583276,
+      "name": "Prebuild shop and export artifacts / Build shop artifacts",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:52:07Z",
+      "status": "completed"
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779664",
+      "id": 96432779664,
+      "name": "Long functional:BO:catalog:01-02 / Test functional:BO:catalog:01-02",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432779715",
+      "id": 96432779715,
+      "name": "Long functional:BO:design / Test functional:BO:design",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:20Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:44Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781377",
+      "id": 96432781377,
+      "name": "Run short campaign functional:BO:customer:01 / Test functional:BO:customer:01",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    },
+    {
+      "completed_at": "2026-08-20T13:18:43Z",
+      "conclusion": "cancelled",
+      "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/32371081746/job/96432781618",
+      "id": 96432781618,
+      "name": "Run short campaign audit / Test audit",
+      "run_attempt": 1,
+      "started_at": "2026-08-20T12:56:21Z",
+      "status": "completed",
+      "steps": []
+    }
+  ]
+}
