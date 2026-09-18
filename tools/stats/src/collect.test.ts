@@ -406,3 +406,31 @@ test('an expired log is not re-asked for on every job of the run', async () => {
   });
 });
 
+test('a long queue reports progress instead of going quiet', async () => {
+  await withStore(async (_dir, store) => {
+    const rows = Array.from({ length: 30 }, (_, i) => runRow(i + 1));
+    const github = new FakeGitHub({
+      runs: { [REPO]: rows },
+      jobs: Object.fromEntries(rows.map((r) => [r.id, jobRows(r.id)])),
+    });
+    const lines: string[] = [];
+
+    await collectFrom(github, store, { log: (m) => lines.push(m) });
+
+    // A GitHub Actions job publishes no log until it finishes, so the live view is all there
+    // is while a backfill spends half an hour downloading job logs. One line and then silence
+    // is indistinguishable from a hang.
+    const progress = lines.filter((l) => /^\d+\/\d+ runs \(/.test(l));
+    assert.equal(progress.length, 3, 'one line per ten runs');
+    assert.match(progress[0]!, /^10\/30 runs \(33%\)/);
+    assert.match(progress[2]!, /^30\/30 runs \(100%\)/);
+    // The numbers that answer "is this stuck, and how much longer".
+    assert.match(progress[0]!, /elapsed/);
+    assert.match(progress[0]!, /left/);
+    assert.match(progress[0]!, /requests/);
+    assert.match(progress[0]!, /MB of logs/);
+    // The fake never sets a rate-limit header, so the quota is unknown and stays out.
+    assert.ok(!progress[0]!.includes('Infinity'), 'an unknown quota is omitted, not printed raw');
+  });
+});
+

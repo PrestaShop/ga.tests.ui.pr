@@ -39,6 +39,27 @@ const MAX_ATTEMPTS = 6;
 /** How often the index is written out mid-run, so a hard kill costs at most this many runs. */
 const FLUSH_EVERY_RUNS = 25;
 
+/**
+ * How often progress is reported.
+ *
+ * A backfill invocation spends most of an hour downloading job logs, roughly six per run at
+ * a quarter of a megabyte each, and a GitHub Actions job publishes no log at all until it
+ * finishes. Without this the live view shows one line and then nothing for half an hour,
+ * which is indistinguishable from a hang.
+ */
+const PROGRESS_EVERY_RUNS = 10;
+const PROGRESS_EVERY_MS = 30_000;
+
+/** `6m02s`, or `18s`. */
+function duration(ms: number): string {
+  const s = Math.round(ms / 1000);
+  return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m${String(s % 60).padStart(2, '0')}s`;
+}
+
+function megabytes(bytes: number): string {
+  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+}
+
 export interface CollectStats {
   repos: number;
   reposUnreadable: number;
@@ -49,6 +70,9 @@ export interface CollectStats {
   runsFailed: number;
   executions: number;
   rateLimited: boolean;
+  /** Wall clock of the whole invocation, and the log bytes that account for most of it. */
+  elapsedMs: number;
+  bytesRead: number;
   error?: string;
   failures: Array<{ repo: string; run_id?: number; message: string }>;
   unclassifiedJobNames: string[];
@@ -91,19 +115,29 @@ export async function collect({
     runsFailed: 0,
     executions: 0,
     rateLimited: false,
+    elapsedMs: 0,
+    bytesRead: 0,
     failures: [],
     /** Job names no rule matched; a workflow rename shows up here first. */
     unclassifiedJobNames: [],
   };
   const unclassified = new Set<string>();
 
+  const startedAt = Date.now();
   const targets = repos ?? [rootRepo, ...(await github.listForks(rootRepo))];
   log(`${targets.length} repositories to scan`);
 
   const queue: Array<{ repo: string; run: WorkflowRun }> = [];
 
   try {
+    // One line per repository, not a periodic summary: listing ~128 forks is its own few
+    // minutes, each fork is a separate paginated call, and when it stalls the useful question
+    // is which fork it stalled on. 128 lines costs nothing to read and answers that directly.
+    let scanned = 0;
     for (const repo of targets) {
+      scanned += 1;
+      const at = `[${scanned}/${targets.length}]`;
+
       let runs: WorkflowRun[] | null;
       try {
         runs = await github.listDispatchRuns(repo);
@@ -112,24 +146,33 @@ export async function collect({
         // One fork failing to list must not cost the scan every fork after it.
         stats.reposErrored += 1;
         stats.failures.push({ repo, message: message(err) });
-        log(`could not list the runs of ${repo}: ${message(err)}`);
+        log(`${at} ${repo}: could not be listed — ${message(err)}`);
         continue;
       }
       if (runs === null) {
         stats.reposUnreadable += 1;
+        log(`${at} ${repo}: unreadable (private, deleted, or Actions disabled)`);
         continue;
       }
       stats.repos += 1;
 
+      let listed = 0;
+      let queued = 0;
       for (const run of runs) {
         if (!isTestWorkflow(run)) continue;
         stats.runsListed += 1;
+        listed += 1;
         // A run still queued or in progress will be listed again next time, so it can never
         // be stranded by being skipped now.
         if (run.status !== 'completed') continue;
         if (store.isUpToDate(repo, run)) continue;
         queue.push({ repo, run });
+        queued += 1;
       }
+      log(
+        `${at} ${repo}: ${listed} test run${listed === 1 ? '' : 's'}, ${queued} to process`
+          + (queued > 0 ? ` (${queue.length} queued so far)` : ''),
+      );
     }
 
     stats.runsQueued = queue.length;
@@ -137,8 +180,13 @@ export async function collect({
     queue.sort((a, b) => Date.parse(b.run.created_at) - Date.parse(a.run.created_at));
     log(`${stats.runsListed} runs listed, ${stats.runsQueued} to process, cap ${maxRuns}`);
 
+    const batch = queue.slice(0, maxRuns);
+    const processingFrom = Date.now();
     let sinceFlush = 0;
-    for (const { repo, run } of queue.slice(0, maxRuns)) {
+    let lastProgressAt = Date.now();
+    let done = 0;
+
+    for (const { repo, run } of batch) {
       try {
         const runFile = await processRun({ github, store, repo, run, withLogs, withTests, log });
         await store.saveRun(repo, runFile);
@@ -166,6 +214,24 @@ export async function collect({
         await store.saveIndex();
         sinceFlush = 0;
       }
+
+      done += 1;
+      const now = Date.now();
+      if (done % PROGRESS_EVERY_RUNS === 0 || now - lastProgressAt >= PROGRESS_EVERY_MS) {
+        lastProgressAt = now;
+        const elapsed = now - processingFrom;
+        // Linear from what has actually been measured. Runs vary — a green one downloads no
+        // log at all — so this moves around, but it answers "minutes or hours".
+        const left = done > 0 ? (elapsed / done) * (batch.length - done) : 0;
+        log(
+          `${done}/${batch.length} runs (${Math.round((done / batch.length) * 100)}%) · `
+            + `${duration(elapsed)} elapsed · ~${duration(left)} left · `
+            + `${stats.executions} executions · ${github.requestCount} requests · `
+            + `${megabytes(github.bytesRead)} of logs`
+            // Infinity until a response carries the header, and never set at all on a replay.
+            + (Number.isFinite(github.remaining) ? ` · ${github.remaining} quota left` : ''),
+        );
+      }
     }
   } catch (err) {
     // Whatever went wrong, every run already written stays written and the index below
@@ -183,6 +249,8 @@ export async function collect({
   }
 
   stats.unclassifiedJobNames = [...unclassified].sort();
+  stats.elapsedMs = Date.now() - startedAt;
+  stats.bytesRead = github.bytesRead;
   return stats;
 }
 

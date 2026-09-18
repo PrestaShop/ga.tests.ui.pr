@@ -160,12 +160,22 @@ async function main(): Promise<void> {
       log,
     });
 
+    const mins = Math.round(stats.elapsedMs / 1000 / 60);
     log(
       `collected: ${stats.runsProcessed}/${stats.runsQueued} queued runs processed, ` +
         `${stats.executions} executions, ${stats.repos} repositories ` +
         `(${stats.reposUnreadable} unreadable, ${stats.reposErrored} errored), ` +
-        `${github.requestCount} API requests`,
+        `${github.requestCount} API requests, ` +
+        `${(stats.bytesRead / 1024 / 1024).toFixed(1)} MB of logs, in ${mins} min`,
     );
+    // Almost all of the wall clock is spent pulling job logs one at a time, so this is the
+    // number that says whether an invocation was slow or merely large.
+    if (stats.runsProcessed > 0) {
+      log(
+        `  ${(stats.bytesRead / 1024 / stats.runsProcessed).toFixed(0)} KB and `
+          + `${(github.requestCount / stats.runsProcessed).toFixed(1)} requests per run`,
+      );
+    }
     if (stats.rateLimited) log('stopped on the rate-limit floor; re-run to continue');
     if (stats.runsQueued > stats.runsProcessed) {
       log(`${stats.runsQueued - stats.runsProcessed} runs still queued for the next invocation`);
