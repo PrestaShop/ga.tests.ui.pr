@@ -186,6 +186,21 @@ async function main(): Promise<void> {
           + `were not counted: ${stats.unclassifiedJobNames.slice(0, 10).join(', ')}`,
       );
     }
+    // A token that can list a fork's runs but not read its logs produces exactly this
+    // shape: listing is public and succeeds, then every log read is forbidden. It is the
+    // likeliest misconfiguration here — an organisation-scoped token does not reach a
+    // contributor's personal fork — and on its own the symptom reads as an outage rather
+    // than as a permissions problem.
+    const forbidden = stats.failures.filter((f) => /GitHub 403/.test(f.message));
+    if (forbidden.length > 0) {
+      const owners = [...new Set(forbidden.map((f) => f.repo.split('/')[0]))];
+      warn(
+        `${forbidden.length} failures were 403 Forbidden, on: ${owners.slice(0, 5).join(', ')}. `
+          + 'A token that lists runs but cannot read job logs needs read access to public '
+          + 'repositories owned by anyone, not only by this organisation.',
+      );
+    }
+
     for (const f of stats.failures.slice(0, 20)) {
       log(`  failed: ${f.repo}${f.run_id ? `#${f.run_id}` : ''}: ${f.message}`);
     }

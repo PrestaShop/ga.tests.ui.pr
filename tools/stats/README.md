@@ -1,5 +1,7 @@
 # UI test campaign statistics
 
+**→ [prestashop.github.io/ga.tests.ui.pr](https://prestashop.github.io/ga.tests.ui.pr/)**
+
 Finds the flaky campaigns: which ones fail, how often a retry rescues them, and across how
 many unrelated pull requests. Covers every fork, not just runs started by the core team.
 
@@ -294,11 +296,30 @@ Run `node dist/run.js --help` for every option, and `npm test` for the suite.
 ## In CI
 
 `.github/workflows/stats.yml` runs daily, and on demand with a `max_runs` cap for draining
-the backlog. It is inert on forks. It reads with `secrets.STATS_GH_TOKEN` (a fine-grained
-token with read-only Actions access on public repositories) and pushes the data with the job
-token. Without that secret it falls back to the job token, which is scoped to this repository
-and cannot list a fork's runs at all; the job then annotates itself with a warning rather
-than quietly collecting upstream-only data.
+the backlog. It is inert on forks. It pushes the data with the job token and reads with, in
+order of preference:
+
+1. `secrets.STATS_GH_TOKEN` — an optional repository-level override.
+2. `secrets.JARVIS_TOKEN` — the organisation-wide secret other PrestaShop workflows use.
+
+If neither is set the job fails rather than falling back to the job token, which is scoped to
+this repository: it would collect upstream-only data, and a dataset that quietly omits every
+contributor fork is worse than no dataset.
+
+**What the token actually needs is read access to public repositories owned by anyone**, not
+only by the organisation. Contributor forks belong to individuals, so an organisation-scoped
+token does not reach them. Measured against a fork owned by somebody else:
+
+| | unauthenticated | a token with public read |
+|---|---|---|
+| List a fork's runs | 200 | 200 |
+| List its jobs | 200 | 200 |
+| **Read a job log** | **403** | **200** |
+| Rate limit | 60/hour | 5000/hour |
+
+Listing is public, so a token with too narrow a reach still lists everything and then fails
+on every log. The collector names that case explicitly: a run of 403s is reported as a token
+that can list runs but not read logs, rather than as an outage.
 
 Partial failures are annotated too: repositories that could not be listed, runs that failed
 to process, and job names that matched no known shape, which is how a workflow rename shows
@@ -312,3 +333,39 @@ and a type error should surface in the pull request rather than at 05:17 the nex
 and type-checks, lints, builds and tests.
 
 GitHub Pages should be pointed at the `stats` branch, `/site` folder.
+
+## Setting the repository up, once
+
+The order matters in one place: **GitHub Pages cannot be pointed at a branch that does not
+exist yet**, and the `stats` branch is created by the first successful collection.
+
+1. **Token.** `JARVIS_TOKEN` is an organisation secret and is already visible to this
+   repository, so there may be nothing to do. Confirm it can read a log on a fork owned by
+   somebody else — that is the permission this stands or falls on:
+
+   ```bash
+   curl -s -o /dev/null -w '%{http_code}\n' -L -H "Authorization: Bearer <TOKEN>" \
+     https://api.github.com/repos/Progi1984/ga.tests.ui.pr/actions/jobs/104074231916/logs
+   ```
+
+   `200` and it works. Anything else, add a repository secret `STATS_GH_TOKEN` holding a
+   classic token with `public_repo`, which takes precedence.
+
+2. **Run the workflow by hand.** Actions → "UI test statistics" → Run workflow. This creates
+   the `stats` branch. Check the Step Summary afterwards: **"Forks covered" must be more
+   than 1**, or the token is not reaching forks and the collection is upstream-only.
+
+3. **Pages.** Settings → Pages → Deploy from a branch → `stats` / `/site`. The workflow
+   writes `.nojekyll`, so nothing is filtered out.
+
+4. **Drain the backlog.** About 1800 runs at roughly 4.4 API requests each, so about 8000
+   requests against a 5000/hour limit. Run it manually with `max_runs` around 800, wait for
+   the quota, repeat — three or four times. It stops cleanly at the rate-limit floor and
+   resumes where it left off, and flushes its index every 25 runs, so even a timeout costs
+   at most 25 runs of rework. Leaving the daily schedule to it also works, over about two
+   weeks.
+
+Nothing else is needed: the repository's default workflow permission is already `write`,
+which is what the push to `stats` requires, and the workflow is inert on forks by an explicit
+repository check.
+

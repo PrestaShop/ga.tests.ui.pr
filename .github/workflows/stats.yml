@@ -102,18 +102,22 @@ jobs:
       - name: Collect and aggregate
         working-directory: code
         env:
-          # Read-only Actions access on public repositories is enough, and it is what lets
-          # the puller see runs that live on contributor forks.
-          GITHUB_TOKEN: ${{ secrets.STATS_GH_TOKEN || github.token }}
-          HAS_STATS_TOKEN: ${{ secrets.STATS_GH_TOKEN != '' }}
+          # Read-only access to public repositories is what this needs, and it is what lets
+          # the puller read logs that live on contributor forks. JARVIS_TOKEN is the
+          # organisation-wide secret other PrestaShop workflows already use; STATS_GH_TOKEN
+          # is an optional repository-level override, for the case where JARVIS_TOKEN turns
+          # out not to reach personal forks (see the note below).
+          GITHUB_TOKEN: ${{ secrets.STATS_GH_TOKEN || secrets.JARVIS_TOKEN || github.token }}
+          HAS_TOKEN: ${{ (secrets.STATS_GH_TOKEN != '' || secrets.JARVIS_TOKEN != '') }}
           MAX_RUNS: ${{ inputs.max_runs || '150' }}
           ONLY_REPO: ${{ inputs.repo }}
         run: |
-          # `github.token` is scoped to this repository, so it cannot list a fork's runs at
-          # all. Falling back to it keeps the job green while collecting only upstream data,
-          # which is the one outcome this tool exists to prevent, so say so loudly.
-          if [ "$HAS_STATS_TOKEN" != "true" ]; then
-            echo "::warning::STATS_GH_TOKEN is not set. Falling back to the job token, which cannot read contributor forks: only this repository's own runs will be collected."
+          # `github.token` is scoped to this repository, so it cannot read a fork's job logs
+          # at all. Falling back to it keeps the job green while collecting only upstream
+          # data, which is the one outcome this tool exists to prevent, so say so loudly.
+          if [ "$HAS_TOKEN" != "true" ]; then
+            echo "::error::Neither STATS_GH_TOKEN nor JARVIS_TOKEN is set. The job token cannot read contributor forks, which is the whole point of this collection."
+            exit 1
           fi
           ARGS=(--data-dir ../data/data --out ../data/site --max-runs "$MAX_RUNS")
           if [ -n "$ONLY_REPO" ]; then ARGS+=(--repo "$ONLY_REPO"); fi
