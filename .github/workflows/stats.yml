@@ -119,7 +119,10 @@ jobs:
             echo "::error::Neither STATS_GH_TOKEN nor JARVIS_TOKEN is set. The job token cannot read contributor forks, which is the whole point of this collection."
             exit 1
           fi
-          ARGS=(--data-dir ../data/data --out ../data/site --max-runs "$MAX_RUNS")
+          # docs/, not site/: deploying Pages from a branch only ever offers the repository
+          # root or /docs as the folder, and the root would put the published data/ on top of
+          # the collector's own data/ store.
+          ARGS=(--data-dir ../data/data --out ../data/docs --max-runs "$MAX_RUNS")
           if [ -n "$ONLY_REPO" ]; then ARGS+=(--repo "$ONLY_REPO"); fi
           node tools/stats/dist/run.js "${ARGS[@]}"
 
@@ -127,7 +130,10 @@ jobs:
         working-directory: data
         run: |
           # .nojekyll keeps GitHub Pages from filtering the generated files.
-          touch site/.nojekyll
+          touch docs/.nojekyll
+          # The published directory used to be site/, which Pages cannot be pointed at.
+          # Idempotent, and it keeps a stale second copy of the dataset off the branch.
+          rm -rf site
           # JSON is written to a temporary and renamed into place, so one of these can only
           # be left behind by an invocation that was killed mid-write. Never commit them.
           find . -name '*.json.tmp' -not -path './.git/*' -delete
@@ -147,9 +153,9 @@ jobs:
           {
             echo "### UI test statistics"
             echo
-            if [ -f site/data/summary.json ]; then
+            if [ -f docs/data/summary.json ]; then
               node -e '
-                const s = require("./site/data/summary.json");
+                const s = require("./docs/data/summary.json");
                 const c = s.coverage, r = s.last90.runLevel;
                 console.log(`| | |`);
                 console.log(`|---|---|`);
