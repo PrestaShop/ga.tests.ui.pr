@@ -1,0 +1,41 @@
+{
+  "repo": "nicosomb/ga.tests.ui.pr",
+  "owner": "nicosomb",
+  "run_id": 26562936917,
+  "run_number": 4,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-05-28T08:11:17Z",
+  "updated_at": "2026-05-28T08:33:08Z",
+  "html_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/26562936917",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-05-28T08:15:48Z",
+      "completed_at": "2026-05-28T08:33:07Z",
+      "duration_s": 1039,
+      "failure_kind": "test",
+      "job_id": 78250881246,
+      "job_url": "https://github.com/nicosomb/ga.tests.ui.pr/actions/runs/26562936917/job/78250881246"
+    }
+  ]
+}

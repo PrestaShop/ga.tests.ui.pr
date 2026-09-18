@@ -1,0 +1,880 @@
+{
+  "repo": "tblivet/ga.tests.ui.pr",
+  "owner": "tblivet",
+  "run_id": 35329719013,
+  "run_number": 18,
+  "run_attempt": 5,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-09-18T09:28:32Z",
+  "updated_at": "2026-09-18T11:53:05Z",
+  "html_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42838,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.3.0",
+  "raw_job_rows": 230,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:48:06Z",
+      "duration_s": 1153,
+      "failure_kind": "none",
+      "job_id": 105551085717,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085717"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:37:17Z",
+      "duration_s": 504,
+      "failure_kind": "none",
+      "job_id": 105551085618,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085618"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T10:22:27Z",
+      "duration_s": 3214,
+      "failure_kind": "none",
+      "job_id": 105551085689,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085689"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:54Z",
+      "completed_at": "2026-09-18T09:43:31Z",
+      "duration_s": 877,
+      "failure_kind": "none",
+      "job_id": 105551085880,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085880"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T09:40:29Z",
+      "completed_at": "2026-09-18T09:55:25Z",
+      "duration_s": 896,
+      "failure_kind": "test",
+      "job_id": 105551085852,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085852",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°14",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 452,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:36:23Z",
+      "duration_s": 450,
+      "failure_kind": "none",
+      "job_id": 105551085820,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085820"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:52:20Z",
+      "duration_s": 1407,
+      "failure_kind": "none",
+      "job_id": 105551085738,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085738"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T09:51:37Z",
+      "completed_at": "2026-09-18T10:06:49Z",
+      "duration_s": 912,
+      "failure_kind": "test",
+      "job_id": 105551085997,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085997",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 305,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:51:55Z",
+      "completed_at": "2026-09-18T10:03:13Z",
+      "duration_s": 678,
+      "failure_kind": "none",
+      "job_id": 105551085956,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085956"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:49:14Z",
+      "completed_at": "2026-09-18T10:41:18Z",
+      "duration_s": 3124,
+      "failure_kind": "none",
+      "job_id": 105551086065,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086065"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:31:30Z",
+      "completed_at": "2026-09-18T09:38:00Z",
+      "duration_s": 390,
+      "failure_kind": "none",
+      "job_id": 105551086056,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086056"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:40:39Z",
+      "duration_s": 706,
+      "failure_kind": "none",
+      "job_id": 105551085827,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085827"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:55:27Z",
+      "completed_at": "2026-09-18T10:06:46Z",
+      "duration_s": 679,
+      "failure_kind": "none",
+      "job_id": 105551086064,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086064"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:48:08Z",
+      "completed_at": "2026-09-18T10:01:30Z",
+      "duration_s": 802,
+      "failure_kind": "none",
+      "job_id": 105551086000,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086000"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:38:02Z",
+      "completed_at": "2026-09-18T09:45:58Z",
+      "duration_s": 476,
+      "failure_kind": "none",
+      "job_id": 105551085734,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085734"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:40:40Z",
+      "completed_at": "2026-09-18T10:01:09Z",
+      "duration_s": 1229,
+      "failure_kind": "none",
+      "job_id": 105551085792,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085792"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:46:00Z",
+      "completed_at": "2026-09-18T10:09:25Z",
+      "duration_s": 1405,
+      "failure_kind": "none",
+      "job_id": 105551085807,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085807"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:44:06Z",
+      "completed_at": "2026-09-18T09:58:34Z",
+      "duration_s": 868,
+      "failure_kind": "none",
+      "job_id": 105551085979,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085979"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:54:27Z",
+      "completed_at": "2026-09-18T10:06:22Z",
+      "duration_s": 715,
+      "failure_kind": "none",
+      "job_id": 105551086053,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086053"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:46:21Z",
+      "completed_at": "2026-09-18T09:55:33Z",
+      "duration_s": 552,
+      "failure_kind": "none",
+      "job_id": 105551085905,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085905"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:47:40Z",
+      "completed_at": "2026-09-18T09:54:25Z",
+      "duration_s": 405,
+      "failure_kind": "none",
+      "job_id": 105551085774,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085774"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:42:21Z",
+      "completed_at": "2026-09-18T09:52:57Z",
+      "duration_s": 636,
+      "failure_kind": "none",
+      "job_id": 105551085931,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085931"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T09:39:13Z",
+      "completed_at": "2026-09-18T09:45:38Z",
+      "duration_s": 385,
+      "failure_kind": "test",
+      "job_id": 105551085798,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085798",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 67,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:51:53Z",
+      "duration_s": 1380,
+      "failure_kind": "none",
+      "job_id": 105551085617,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085617"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:54Z",
+      "completed_at": "2026-09-18T09:42:19Z",
+      "duration_s": 805,
+      "failure_kind": "none",
+      "job_id": 105551085649,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085649"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:39:11Z",
+      "duration_s": 618,
+      "failure_kind": "none",
+      "job_id": 105551085646,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085646"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:49:49Z",
+      "duration_s": 1256,
+      "failure_kind": "none",
+      "job_id": 105551085635,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085635"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:38:38Z",
+      "completed_at": "2026-09-18T09:48:07Z",
+      "duration_s": 569,
+      "failure_kind": "none",
+      "job_id": 105551085892,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085892"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:40:27Z",
+      "duration_s": 694,
+      "failure_kind": "test",
+      "job_id": 105551085857,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085857",
+      "failing_tests": [
+        {
+          "suite": "BO - Shipping - Carriers : Change carrier position > POST-TEST : Reset carrier position",
+          "title": "should reset second carrier position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 160,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:37:19Z",
+      "completed_at": "2026-09-18T09:53:34Z",
+      "duration_s": 975,
+      "failure_kind": "none",
+      "job_id": 105551085899,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085899"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:53:36Z",
+      "completed_at": "2026-09-18T10:14:06Z",
+      "duration_s": 1230,
+      "failure_kind": "none",
+      "job_id": 105551086011,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086011"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:48:08Z",
+      "completed_at": "2026-09-18T10:09:00Z",
+      "duration_s": 1252,
+      "failure_kind": "none",
+      "job_id": 105551085913,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085913"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:39:28Z",
+      "completed_at": "2026-09-18T10:11:55Z",
+      "duration_s": 1947,
+      "failure_kind": "none",
+      "job_id": 105551086003,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086003"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:46:19Z",
+      "duration_s": 1046,
+      "failure_kind": "none",
+      "job_id": 105551086017,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086017"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T10:17:22Z",
+      "duration_s": 2909,
+      "failure_kind": "none",
+      "job_id": 105551085960,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085960"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:47:38Z",
+      "duration_s": 1125,
+      "failure_kind": "none",
+      "job_id": 105551085937,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085937"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:49:51Z",
+      "completed_at": "2026-09-18T09:59:01Z",
+      "duration_s": 550,
+      "failure_kind": "none",
+      "job_id": 105551086095,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086095"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:37:21Z",
+      "completed_at": "2026-09-18T10:06:43Z",
+      "duration_s": 1762,
+      "failure_kind": "none",
+      "job_id": 105551085950,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085950"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:52:22Z",
+      "completed_at": "2026-09-18T10:03:33Z",
+      "duration_s": 671,
+      "failure_kind": "none",
+      "job_id": 105551086242,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086242"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:53Z",
+      "completed_at": "2026-09-18T09:44:04Z",
+      "duration_s": 911,
+      "failure_kind": "none",
+      "job_id": 105551085966,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085966"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:53:04Z",
+      "completed_at": "2026-09-18T10:03:22Z",
+      "duration_s": 618,
+      "failure_kind": "none",
+      "job_id": 105551086013,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086013"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:45:40Z",
+      "completed_at": "2026-09-18T10:12:20Z",
+      "duration_s": 1600,
+      "failure_kind": "none",
+      "job_id": 105551085968,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085968"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:36:25Z",
+      "completed_at": "2026-09-18T09:49:12Z",
+      "duration_s": 767,
+      "failure_kind": "none",
+      "job_id": 105551085975,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085975"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:43:33Z",
+      "completed_at": "2026-09-18T09:51:34Z",
+      "duration_s": 481,
+      "failure_kind": "none",
+      "job_id": 105551086036,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551086036"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T09:28:54Z",
+      "completed_at": "2026-09-18T09:38:36Z",
+      "duration_s": 582,
+      "failure_kind": "none",
+      "job_id": 105551085882,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105551085882"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T10:41:30Z",
+      "completed_at": "2026-09-18T10:59:37Z",
+      "duration_s": 1087,
+      "failure_kind": "none",
+      "job_id": 105570688909,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105570688909"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T10:41:31Z",
+      "completed_at": "2026-09-18T10:56:06Z",
+      "duration_s": 875,
+      "failure_kind": "test",
+      "job_id": 105570688925,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105570688925",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T10:41:31Z",
+      "completed_at": "2026-09-18T10:58:12Z",
+      "duration_s": 1001,
+      "failure_kind": "test",
+      "job_id": 105570688867,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105570688867",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T10:41:31Z",
+      "completed_at": "2026-09-18T10:58:13Z",
+      "duration_s": 1002,
+      "failure_kind": "none",
+      "job_id": 105570688853,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105570688853"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T10:59:52Z",
+      "completed_at": "2026-09-18T11:14:53Z",
+      "duration_s": 901,
+      "failure_kind": "test",
+      "job_id": 105575406663,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105575406663",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T10:59:52Z",
+      "completed_at": "2026-09-18T11:16:40Z",
+      "duration_s": 1008,
+      "failure_kind": "test",
+      "job_id": 105575406629,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105575406629",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T11:16:53Z",
+      "completed_at": "2026-09-18T11:31:43Z",
+      "duration_s": 890,
+      "failure_kind": "test",
+      "job_id": 105579879725,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105579879725",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T11:17:05Z",
+      "completed_at": "2026-09-18T11:30:37Z",
+      "duration_s": 812,
+      "failure_kind": "test",
+      "job_id": 105579879654,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105579879654",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T11:31:57Z",
+      "completed_at": "2026-09-18T11:53:05Z",
+      "duration_s": 1268,
+      "failure_kind": "none",
+      "job_id": 105583763599,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105583763599"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T11:31:57Z",
+      "completed_at": "2026-09-18T11:50:48Z",
+      "duration_s": 1131,
+      "failure_kind": "none",
+      "job_id": 105583763597,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/35329719013/job/105583763597"
+    }
+  ]
+}

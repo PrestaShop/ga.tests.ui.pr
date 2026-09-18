@@ -1,0 +1,41 @@
+{
+  "repo": "Progi1984/ga.tests.ui.pr",
+  "owner": "Progi1984",
+  "run_id": 26562861296,
+  "run_number": 81,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-05-28T08:09:35Z",
+  "updated_at": "2026-05-28T08:17:29Z",
+  "html_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/26562861296",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-05-28T08:14:08Z",
+      "completed_at": "2026-05-28T08:17:28Z",
+      "duration_s": 200,
+      "failure_kind": "none",
+      "job_id": 78250616348,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/26562861296/job/78250616348"
+    }
+  ]
+}
