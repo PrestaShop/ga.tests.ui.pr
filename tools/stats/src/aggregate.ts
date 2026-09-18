@@ -32,10 +32,11 @@ export interface AggregateOptions {
 }
 
 export async function aggregate({ dataDir, outDir, csvPath, log = () => {} }: AggregateOptions) {
+  const startedAt = Date.now();
   const store = new Store(dataDir);
   const runs: RunFile[] = [];
   for await (const run of store.allRuns()) runs.push(run);
-  log(`${runs.length} runs loaded from ${dataDir}`);
+  log(`${runs.length} runs loaded from ${dataDir} (${Date.now() - startedAt} ms)`);
 
   const dataOut = join(outDir, 'data');
   await mkdir(dataOut, { recursive: true });
@@ -84,7 +85,8 @@ export async function aggregate({ dataDir, outDir, csvPath, log = () => {} }: Ag
 
   log(
     `wrote ${outDir}: ${dataset.runs.length} runs, ${dataset.execs.length} executions, ` +
-      `${summary.last90.runLevel.runs} runs in the last 90 days`,
+      `${summary.last90.runLevel.runs} runs in the last 90 days ` +
+      `(aggregated in ${Date.now() - startedAt} ms)`,
   );
   return summary;
 }

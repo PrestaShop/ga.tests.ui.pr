@@ -66,6 +66,8 @@ export class GitHub {
   private readonly fetch: typeof globalThis.fetch;
   remaining = Infinity;
   requestCount = 0;
+  /** Log bytes pulled. The scarce resource is the rate limit, but the *time* is this. */
+  bytesRead = 0;
 
   constructor({
     token = process.env.GITHUB_TOKEN,
@@ -245,7 +247,9 @@ export class GitHub {
     if (res.status === 416) res = await this.request(path, { allow: [404, 410] });
 
     if (res.status === 404 || res.status === 410) return { status: res.status, text: null };
-    return { status: res.status, text: await res.text() };
+    const text = await res.text();
+    this.bytesRead += text.length;
+    return { status: res.status, text };
   }
 }
 
