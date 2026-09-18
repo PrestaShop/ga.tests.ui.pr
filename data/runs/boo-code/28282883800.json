@@ -1,0 +1,2447 @@
+{
+  "repo": "boo-code/ga.tests.ui.pr",
+  "owner": "boo-code",
+  "run_id": 28282883800,
+  "run_number": 1,
+  "run_attempt": 1,
+  "workflow": "pr_test.yml",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-06-27T07:44:04Z",
+  "updated_at": "2026-06-27T08:37:05Z",
+  "html_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 50,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089626,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089626"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089650,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089650"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089719,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089719"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089600,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089600"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089395,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089395"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089601,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089601"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089418,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089418"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089355,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089355"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089627,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089627"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089384,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089384"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:37:04Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089564,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089564"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089690,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089690"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089645,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089645"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089791,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089791"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089399,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089399"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:02Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089358,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089358"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089822,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089822"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:45Z",
+      "completed_at": "2026-06-27T08:37:04Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089602,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089602"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089681,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089681"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089599,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089599"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089655,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089655"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089707,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089707"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089350,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089350"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089698,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089698"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:36:03Z",
+      "duration_s": 2839,
+      "failure_kind": "test",
+      "job_id": 83802089595,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089595",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/01_generateInvoiceByDate.ts",
+          "line": 46
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Create an invoice by changing the first order status",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Create an invoice by changing the first order status",
+          "title": "should reset all filters and get number of orders",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Create an invoice by changing the first order status",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/01_generateInvoiceByDate.ts",
+          "line": 75
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Create an invoice by changing the first order status",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/01_generateInvoiceByDate.ts",
+          "line": 84
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Generate invoice by date",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Generate invoice by date",
+          "title": "should generate PDF file by date and check the file existence",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/01_generateInvoiceByDate.ts",
+          "line": 107
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Generate invoice by date",
+          "title": "should check the error message when there is no invoice in the entered date",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/01_generateInvoiceByDate.ts",
+          "line": 117
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/02_generateInvoiceByStatus.ts",
+          "line": 42
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Create 2 invoices by changing the order status",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Create 2 invoices by changing the order status",
+          "title": "should go to the order page n°1",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/02_generateInvoiceByStatus.ts",
+          "line": 67
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Create 2 invoices by changing the order status",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/02_generateInvoiceByStatus.ts",
+          "line": 76
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Create 2 invoices by changing the order status",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Create 2 invoices by changing the order status",
+          "title": "should go to the order page n°2",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/02_generateInvoiceByStatus.ts",
+          "line": 67
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Create 2 invoices by changing the order status",
+          "title": "should change the order status to 'Payment accepted' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/02_generateInvoiceByStatus.ts",
+          "line": 76
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Generate invoice by status",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Generate invoice by status",
+          "title": "should check the error message when we don't select a status",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/02_generateInvoiceByStatus.ts",
+          "line": 100
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Generate invoice by status",
+          "title": "should check the error message when there is no invoice in the status selected",
+          "error": "Error: Canceled was not found on list",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Generate invoice by status",
+          "title": "should choose the statuses, generate the invoice and check the file existence",
+          "error": "Error: Payment accepted was not found on list",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by status > Generate invoice by status",
+          "title": "should choose one status, generate the invoice and check the file existence",
+          "error": "Error: Payment accepted was not found on list",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 84
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should Disable invoices",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 105
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 127
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Disable invoices then check that there is no invoice document created",
+          "title": "should check that there is no invoice document created",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Enable invoices then check that there is an invoice document created",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Enable invoices then check that there is an invoice document created",
+          "title": "should Enable invoices",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 105
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Enable invoices then check that there is an invoice document created",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Enable invoices then check that there is an invoice document created",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 127
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Enable invoices then check that there is an invoice document created",
+          "title": "should change the order status to 'Payment accepted' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable invoices > Enable invoices then check that there is an invoice document created",
+          "title": "should check that there is an invoice document created",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/01_enableDisableInvoices.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Enable tax breakdown",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Enable tax breakdown",
+          "title": "should enable tax breakdown",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 110
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should go to 'International > Taxes' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should go to 'Tax Rules' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 134
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should go to 'Add new tax rules group' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should create new tax rule group",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 152
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should create new tax rule n°1",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 159
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should go to 'Add new tax rule' page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 166
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create 2 new tax rules",
+          "title": "should create new tax rule n°2",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new product with the new tax rule",
+          "title": "should go to 'Products > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new product with the new tax rule",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 197
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new product with the new tax rule",
+          "title": "should choose 'Standard product'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 204
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new product with the new tax rule",
+          "title": "should go to new product page",
+          "error": "Error: expect(received).not.toBeNull()",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 213
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new product with the new tax rule",
+          "title": "should create standard product",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 224
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should preview product",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 234
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should add product to cart",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should proceed to checkout and sign in by default customer",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 255
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should go to delivery step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 266
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should go to payment step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 274
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should choose payment method and confirm the order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Create new order in FO with the created product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 295
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Generate the invoice and check the tax breakdown",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Generate the invoice and check the tax breakdown",
+          "title": "should go to the first order page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 317
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Generate the invoice and check the tax breakdown",
+          "title": "should change the order status to 'Payment accepted' and check it",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 326
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Generate the invoice and check the tax breakdown",
+          "title": "should download the invoice",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 334
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Enable tax breakdown then check it in the invoice > Generate the invoice and check the tax breakdown",
+          "title": "should check the tax breakdown",
+          "error": "Error: Invalid parameter object: need either .data, .range or .url",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 346
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Disable tax breakdown then check the invoice file > Disable tax breakdown",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Disable tax breakdown then check the invoice file > Disable tax breakdown",
+          "title": "should disable tax breakdown",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 374
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Disable tax breakdown then check the invoice file > Generate the invoice and check that there is no tax breakdown",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Disable tax breakdown then check the invoice file > Generate the invoice and check that there is no tax breakdown",
+          "title": "should go to the first order page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 398
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Disable tax breakdown then check the invoice file > Generate the invoice and check that there is no tax breakdown",
+          "title": "should download the invoice",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 408
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Disable tax breakdown then check the invoice file > Generate the invoice and check that there is no tax breakdown",
+          "title": "should check that there is no tax breakdown",
+          "error": "Error: Invalid parameter object: need either .data, .range or .url",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 419
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Delete tax rules with Bulk Actions",
+          "title": "should go to 'International > Taxes' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Delete tax rules with Bulk Actions",
+          "title": "should go to 'Tax Rules' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 449
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Delete tax rules with Bulk Actions",
+          "title": "should filter list by name",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 458
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Delete tax rules with Bulk Actions",
+          "title": "should delete tax rules with Bulk Actions and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'once')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/02_enableDisableTaxBreakdown.ts",
+          "line": 480
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > Delete tax rules with Bulk Actions",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should go to 'Catalog > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should reset filter and get number of products",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should filter list by 'Name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/BO/catalog/products/index.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should select the products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should click on bulk actions button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should bulk delete products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should close progress modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable tax breakdown > POST-TEST: Bulk delete created products",
+          "title": "should reset filter and get number of products",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 59
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Enable product image",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Enable product image",
+          "title": "should Enable product image",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 85
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to FO page",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 97
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to login page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should sign in with default customer",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 117
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should add product to cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 127
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to delivery step",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to payment step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 152
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should choose payment method and confirm the order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should sign out from FO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 182
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should go to the created order page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 204
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 213
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should download the invoice",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 221
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Enable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should check the product images in the PDF File",
+          "error": "Error: Invalid parameter object: need either .data, .range or .url",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 231
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Disable product image",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Disable product image",
+          "title": "should Disable product image",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 85
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to FO page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForEvent')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 97
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to login page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 108
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should sign in with default customer",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 117
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should add product to cart",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 127
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to delivery step",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go to payment step",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForLoadState')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 152
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should choose payment method and confirm the order",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should sign out from FO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Create new order in FO",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 180
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should go to the created order page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 204
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 213
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should download the invoice",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 221
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable product image in invoices > Disable product image in invoice then check the invoice file created > Generate the invoice and check product image",
+          "title": "should check the product images in the PDF File",
+          "error": "Error: Invalid parameter object: need either .data, .range or .url",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/03_enableDisableProductImage.ts",
+          "line": 231
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 51
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Update the invoice prefix",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Update the invoice prefix",
+          "title": "should update the invoice prefix to #amoveo",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 72
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Update the order status and check the invoice file name",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Update the order status and check the invoice file name",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 97
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Update the order status and check the invoice file name",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 106
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Update the order status and check the invoice file name",
+          "title": "should check that the invoice file name contain the prefix '#amoveo'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 114
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Back to the default invoice prefix value",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Back to the default invoice prefix value",
+          "title": "should change the invoice prefix to '#IN'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Check the default prefix in the invoice file Name",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Check the default prefix in the invoice file Name",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update invoice prefix and check the generated invoice file name > Check the default prefix in the invoice file Name",
+          "title": "should check that the invoice file name contain the default prefix #IN",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/04_invoicePrefix.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 56
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name",
+          "title": "should enable add current year to invoice number",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 77
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the end and check it",
+          "title": "should choose the position 'After the sequential number'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the end and check it",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the end and check it",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 110
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the end and check it",
+          "title": "should change the order status to 'Shipped' and check it",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 119
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the end and check it",
+          "title": "should check that the invoice file name contain current year at the end",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 126
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the beginning and check it",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the beginning and check it",
+          "title": "should choose 'Before the sequential number'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 149
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the beginning and check it",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the beginning and check it",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 171
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Enable add current year to invoice number then check the invoice file name > Choose the position of the year at the beginning and check it",
+          "title": "should check that the invoice file name contain current year at the beginning",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 180
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Disable add current year to invoice number then check the invoice file name",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Disable add current year to invoice number then check the invoice file name",
+          "title": "should disable add current year to invoice number",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 203
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Disable add current year to invoice number then check the invoice file name > Check the invoice file Name",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Disable add current year to invoice number then check the invoice file name > Check the invoice file Name",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 226
+        },
+        {
+          "suite": "BO - Orders - Invoices : Enable/Disable current year > Disable add current year to invoice number then check the invoice file name > Check the invoice file Name",
+          "title": "should check that the invoice file name does not contain the current year",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/05_enableDisableCurrentYear.ts",
+          "line": 235
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text'",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 79
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Update the Invoice number, Legal free text and Footer text",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Update the Invoice number, Legal free text and Footer text",
+          "title": "should change the invoice number, the invoice legal free text and the invoice footer text",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 100
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 124
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should change the order status to 'Shipped'",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 133
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should download the invoice",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should check that the invoice file name contain the 'Invoice number'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 154
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should check that the invoice contain the 'Legal free text'",
+          "error": "Error: Invalid parameter object: need either .data, .range or .url",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 162
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Create an invoice and check the updated data",
+          "title": "should check that the invoice contain the 'Footer text'",
+          "error": "Error: Invalid parameter object: need either .data, .range or .url",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Back to the default data value",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Invoices : Update 'Invoice number, Legal free text and Footer text' > Back to the default data value",
+          "title": "should change the Invoice number, legal free text and the footer text to default data",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/03_invoiceOptions/06_otherOptions.ts",
+          "line": 192
+        }
+      ],
+      "test_counts": {
+        "passing": 14,
+        "failing": 155,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:02Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089404,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089404"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089620,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089620"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089784,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089784"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089411,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089411"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089417,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089417"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089593,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089593"
+    },
+    {
+      "campaign": "functional:FO:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089827,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089827"
+    },
+    {
+      "campaign": "functional:FO:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089668,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089668"
+    },
+    {
+      "campaign": "functional:FO:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089825,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089825"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089385,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089385"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089728,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089728"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:02Z",
+      "duration_s": 2899,
+      "failure_kind": "none",
+      "job_id": 83802089343,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089343"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:43Z",
+      "completed_at": "2026-06-27T08:37:03Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089334,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089334"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T08:26:07Z",
+      "completed_at": "2026-06-27T08:37:04Z",
+      "duration_s": 657,
+      "failure_kind": "none",
+      "job_id": 83802089614,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089614"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:44Z",
+      "completed_at": "2026-06-27T08:37:04Z",
+      "duration_s": 2900,
+      "failure_kind": "none",
+      "job_id": 83802089377,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089377"
+    },
+    {
+      "campaign": "functional:productV2",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089754,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089754"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2886,
+      "failure_kind": "none",
+      "job_id": 83802089713,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089713"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:48Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089594,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089594"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T08:17:45Z",
+      "completed_at": "2026-06-27T08:37:02Z",
+      "duration_s": 1157,
+      "failure_kind": "none",
+      "job_id": 83802089597,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089597"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:42Z",
+      "completed_at": "2026-06-27T08:36:49Z",
+      "duration_s": 2887,
+      "failure_kind": "none",
+      "job_id": 83802089743,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089743"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:49Z",
+      "duration_s": 2888,
+      "failure_kind": "none",
+      "job_id": 83802089675,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089675"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:49Z",
+      "duration_s": 2888,
+      "failure_kind": "none",
+      "job_id": 83802089603,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089603"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-27T07:44:10Z",
+      "completed_at": "2026-06-27T08:17:43Z",
+      "duration_s": 2013,
+      "failure_kind": "test",
+      "job_id": 83801820772,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83801820772",
+      "failing_tests": [
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install theme' be finished",
+          "error": "Fail to finish the step Install theme",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install fixtures' be finished",
+          "error": "Fail to finish the step Install fixtures",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Post installation scripts' be finished",
+          "error": "Fail to finish the step Post installation scripts",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation be successful",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 219
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should go to FO and check that Prestashop logo exists",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 228
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should reset all filters and get number of orders",
+          "error": "AssertionError: expected +0 to be above +0",
+          "file": "campaigns/sanity/02_ordersBO/01_filterOrders.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'id_order' and check the result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'reference' and check the result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'osname' and check the result",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/02_ordersBO/02_editOrder.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should modify the product quantity and check the validation",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should modify the order status and check the validation",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/02_ordersBO/02_editOrder.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should get number of products",
+          "error": "AssertionError: expected +0 to be above +0",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 68
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'id_product' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'product_name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'reference' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'category' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'price' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'quantity' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'active' and check result",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 114
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should preview product",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 147
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 164
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 189
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 200
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should create product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 126
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should create combinations and check generate combinations button",
+          "error": "AssertionError: expected 'Generate combinations' to equal 'Generate 4 combinations'",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should click on generate combinations button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check that combinations generation modal is closed",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should save the product",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should preview product",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 198
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 207
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should add combinations and check generate combinations button",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 214
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should click on generate combinations button",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 224
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should check that combinations generation modal is closed",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 232
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should save the product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 238
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 246
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 257
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 276
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 287
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should create virtual product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 115
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should preview product",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 133
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 148
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 157
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 165
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 178
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 190
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 201
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Create product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should click on 'Go to catalog' button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 111
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should filter list by 'Reference' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 120
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should click on delete product button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should delete product",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 139
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create first product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should choose 'Standard product'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 129
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should create product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should click on 'Go to catalog' button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 149
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should filter list by 'Name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 158
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should select the 2 products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should click on bulk actions button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should bulk delete products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 184
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should close progress modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 191
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should check and get the products number",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/01_filterProducts.ts",
+          "line": 49
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should filter products by the category 'Accessories' and check result",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should filter products by the subcategory 'Stationery' and check result",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Check the Product page > Catalog FO: Check products from catalog",
+          "title": "should go to the first product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/02_checkProduct.ts",
+          "line": 48
+        },
+        {
+          "suite": "FO - Catalog : Check the Product page > Catalog FO: Check products from catalog",
+          "title": "should check the product page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/02_checkProduct.ts",
+          "line": 57
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should go to the first product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 54
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should add product to cart and check that the number of products was updated in cart header",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should go to the second product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 81
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should add product to cart and check that the number of products was updated in cart header",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should check the first product details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 100
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should check the second product details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 111
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should get the ATI price",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should get the product number and check that is equal to 2",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should edit the quantity of the first product ordered",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 140
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should edit the quantity of the second product ordered",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 154
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should sign In in FO with default account",
+          "error": "Customer is not connected in FO",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 64
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should quick view the first product",
+          "error": "locator.hover: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should add first product to cart and Proceed to checkout",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 92
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should check the cart details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should proceed to checkout and check Step Address",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 113
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should validate Step Address and go to Delivery Step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should validate Step Delivery and go to Payment Step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 135
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should Pay by back wire and confirm order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 68,
+        "failing": 98,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "sanity:productV2",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-06-27T07:48:41Z",
+      "completed_at": "2026-06-27T08:36:49Z",
+      "duration_s": 2888,
+      "failure_kind": "none",
+      "job_id": 83802089657,
+      "job_url": "https://github.com/boo-code/ga.tests.ui.pr/actions/runs/28282883800/job/83802089657"
+    }
+  ]
+}

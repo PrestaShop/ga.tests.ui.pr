@@ -1,0 +1,1544 @@
+{
+  "repo": "mattgoud/ga.tests.ui.pr",
+  "owner": "mattgoud",
+  "run_id": 28381600153,
+  "run_number": 85,
+  "run_attempt": 7,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-06-29T15:01:05Z",
+  "updated_at": "2026-06-29T20:30:46Z",
+  "html_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 41778,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 322,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:10:00Z",
+      "completed_at": "2026-06-29T15:28:16Z",
+      "duration_s": 1096,
+      "failure_kind": "test",
+      "job_id": 84085427847,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427847",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:08:34Z",
+      "completed_at": "2026-06-29T15:18:25Z",
+      "duration_s": 591,
+      "failure_kind": "none",
+      "job_id": 84085427871,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427871"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:08:02Z",
+      "completed_at": "2026-06-29T15:48:57Z",
+      "duration_s": 2455,
+      "failure_kind": "none",
+      "job_id": 84085427850,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427850"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:31:53Z",
+      "completed_at": "2026-06-29T15:49:00Z",
+      "duration_s": 1027,
+      "failure_kind": "none",
+      "job_id": 84085428002,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428002"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:09:07Z",
+      "completed_at": "2026-06-29T15:24:07Z",
+      "duration_s": 900,
+      "failure_kind": "test",
+      "job_id": 84085427998,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427998",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Go to 'Multistore' page and create the first shop",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 424,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:19:43Z",
+      "completed_at": "2026-06-29T15:26:52Z",
+      "duration_s": 429,
+      "failure_kind": "none",
+      "job_id": 84085428120,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428120"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:28:44Z",
+      "completed_at": "2026-06-29T15:52:54Z",
+      "duration_s": 1450,
+      "failure_kind": "none",
+      "job_id": 84085427950,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427950"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:21:32Z",
+      "completed_at": "2026-06-29T15:36:10Z",
+      "duration_s": 878,
+      "failure_kind": "test",
+      "job_id": 84085427894,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427894",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:02:17Z",
+      "completed_at": "2026-06-29T15:13:00Z",
+      "duration_s": 643,
+      "failure_kind": "none",
+      "job_id": 84085427856,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427856"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:27:51Z",
+      "completed_at": "2026-06-29T16:19:42Z",
+      "duration_s": 3111,
+      "failure_kind": "none",
+      "job_id": 84085428150,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428150"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:21:14Z",
+      "completed_at": "2026-06-29T15:27:48Z",
+      "duration_s": 394,
+      "failure_kind": "none",
+      "job_id": 84085428067,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428067"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:10:41Z",
+      "completed_at": "2026-06-29T15:22:19Z",
+      "duration_s": 698,
+      "failure_kind": "none",
+      "job_id": 84085427938,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427938"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:19:44Z",
+      "completed_at": "2026-06-29T15:32:03Z",
+      "duration_s": 739,
+      "failure_kind": "none",
+      "job_id": 84085427881,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427881"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:05:26Z",
+      "completed_at": "2026-06-29T15:19:37Z",
+      "duration_s": 851,
+      "failure_kind": "none",
+      "job_id": 84085427875,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427875"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:02:58Z",
+      "completed_at": "2026-06-29T15:10:38Z",
+      "duration_s": 460,
+      "failure_kind": "none",
+      "job_id": 84085427859,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427859"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:04:06Z",
+      "completed_at": "2026-06-29T15:23:27Z",
+      "duration_s": 1161,
+      "failure_kind": "none",
+      "job_id": 84085427855,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427855"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:32:15Z",
+      "completed_at": "2026-06-29T15:54:58Z",
+      "duration_s": 1363,
+      "failure_kind": "none",
+      "job_id": 84085428012,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428012"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:28:19Z",
+      "completed_at": "2026-06-29T15:43:17Z",
+      "duration_s": 898,
+      "failure_kind": "none",
+      "job_id": 84085427896,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427896"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:28:20Z",
+      "completed_at": "2026-06-29T15:39:51Z",
+      "duration_s": 691,
+      "failure_kind": "none",
+      "job_id": 84085427882,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427882"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:01:25Z",
+      "completed_at": "2026-06-29T15:13:26Z",
+      "duration_s": 721,
+      "failure_kind": "none",
+      "job_id": 84085427865,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427865"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:07:40Z",
+      "completed_at": "2026-06-29T15:14:25Z",
+      "duration_s": 405,
+      "failure_kind": "none",
+      "job_id": 84085427812,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427812"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:13:02Z",
+      "completed_at": "2026-06-29T15:23:18Z",
+      "duration_s": 616,
+      "failure_kind": "none",
+      "job_id": 84085427879,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427879"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:01:59Z",
+      "completed_at": "2026-06-29T15:20:06Z",
+      "duration_s": 1087,
+      "failure_kind": "none",
+      "job_id": 84085427828,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427828"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:06:10Z",
+      "completed_at": "2026-06-29T15:28:17Z",
+      "duration_s": 1327,
+      "failure_kind": "none",
+      "job_id": 84085427874,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427874"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:23:32Z",
+      "completed_at": "2026-06-29T15:37:03Z",
+      "duration_s": 811,
+      "failure_kind": "none",
+      "job_id": 84085427842,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427842"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:12:54Z",
+      "completed_at": "2026-06-29T15:23:51Z",
+      "duration_s": 657,
+      "failure_kind": "none",
+      "job_id": 84085427854,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427854"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:13:02Z",
+      "completed_at": "2026-06-29T15:33:20Z",
+      "duration_s": 1218,
+      "failure_kind": "none",
+      "job_id": 84085427887,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427887"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:32:05Z",
+      "completed_at": "2026-06-29T15:42:23Z",
+      "duration_s": 618,
+      "failure_kind": "none",
+      "job_id": 84085427912,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427912"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:32:04Z",
+      "completed_at": "2026-06-29T15:49:55Z",
+      "duration_s": 1071,
+      "failure_kind": "none",
+      "job_id": 84085428066,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428066"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:09:06Z",
+      "completed_at": "2026-06-29T15:26:08Z",
+      "duration_s": 1022,
+      "failure_kind": "none",
+      "job_id": 84085427891,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427891"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:08:25Z",
+      "completed_at": "2026-06-29T15:28:42Z",
+      "duration_s": 1217,
+      "failure_kind": "none",
+      "job_id": 84085427957,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427957"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:26:11Z",
+      "completed_at": "2026-06-29T15:47:55Z",
+      "duration_s": 1304,
+      "failure_kind": "none",
+      "job_id": 84085428049,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428049"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:23:22Z",
+      "completed_at": "2026-06-29T15:52:29Z",
+      "duration_s": 1747,
+      "failure_kind": "none",
+      "job_id": 84085428021,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428021"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:24:18Z",
+      "completed_at": "2026-06-29T15:40:58Z",
+      "duration_s": 1000,
+      "failure_kind": "none",
+      "job_id": 84085428057,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428057"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:14:28Z",
+      "completed_at": "2026-06-29T16:05:55Z",
+      "duration_s": 3087,
+      "failure_kind": "none",
+      "job_id": 84085428169,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428169"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:26:55Z",
+      "completed_at": "2026-06-29T15:43:24Z",
+      "duration_s": 989,
+      "failure_kind": "test",
+      "job_id": 84085428160,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428160",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:11:35Z",
+      "completed_at": "2026-06-29T15:21:29Z",
+      "duration_s": 594,
+      "failure_kind": "none",
+      "job_id": 84085428045,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428045"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:23:49Z",
+      "completed_at": "2026-06-29T15:35:31Z",
+      "duration_s": 702,
+      "failure_kind": "test",
+      "job_id": 84085428167,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428167",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:07:55Z",
+      "completed_at": "2026-06-29T15:19:39Z",
+      "duration_s": 704,
+      "failure_kind": "none",
+      "job_id": 84085427997,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085427997"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:21:44Z",
+      "completed_at": "2026-06-29T15:32:53Z",
+      "duration_s": 669,
+      "failure_kind": "test",
+      "job_id": 84085428109,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428109",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:20:32Z",
+      "completed_at": "2026-06-29T15:32:13Z",
+      "duration_s": 701,
+      "failure_kind": "none",
+      "job_id": 84085428003,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428003"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:25:39Z",
+      "completed_at": "2026-06-29T15:52:21Z",
+      "duration_s": 1602,
+      "failure_kind": "none",
+      "job_id": 84085428027,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428027"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T15:21:01Z",
+      "completed_at": "2026-06-29T15:31:50Z",
+      "duration_s": 649,
+      "failure_kind": "test",
+      "job_id": 84085428024,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428024",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:14:58Z",
+      "completed_at": "2026-06-29T15:23:12Z",
+      "duration_s": 494,
+      "failure_kind": "none",
+      "job_id": 84085428087,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428087"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T15:22:22Z",
+      "completed_at": "2026-06-29T15:32:00Z",
+      "duration_s": 578,
+      "failure_kind": "none",
+      "job_id": 84085428400,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84085428400"
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T16:53:17Z",
+      "completed_at": "2026-06-29T17:12:35Z",
+      "duration_s": 1158,
+      "failure_kind": "test",
+      "job_id": 84103316077,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316077",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T16:53:02Z",
+      "completed_at": "2026-06-29T17:11:05Z",
+      "duration_s": 1083,
+      "failure_kind": "none",
+      "job_id": 84103316054,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316054"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T16:58:11Z",
+      "completed_at": "2026-06-29T17:18:42Z",
+      "duration_s": 1231,
+      "failure_kind": "none",
+      "job_id": 84103316073,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316073"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T16:57:08Z",
+      "completed_at": "2026-06-29T17:13:01Z",
+      "duration_s": 953,
+      "failure_kind": "test",
+      "job_id": 84103316062,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316062",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T16:59:28Z",
+      "completed_at": "2026-06-29T17:11:20Z",
+      "duration_s": 712,
+      "failure_kind": "test",
+      "job_id": 84103316076,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316076",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T16:59:23Z",
+      "completed_at": "2026-06-29T17:09:50Z",
+      "duration_s": 627,
+      "failure_kind": "test",
+      "job_id": 84103316135,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316135",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T16:55:16Z",
+      "completed_at": "2026-06-29T17:06:02Z",
+      "duration_s": 646,
+      "failure_kind": "test",
+      "job_id": 84103316106,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84103316106",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:18:58Z",
+      "completed_at": "2026-06-29T17:37:29Z",
+      "duration_s": 1111,
+      "failure_kind": "test",
+      "job_id": 84114699025,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84114699025",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:18:59Z",
+      "completed_at": "2026-06-29T17:36:09Z",
+      "duration_s": 1030,
+      "failure_kind": "test",
+      "job_id": 84114699039,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84114699039",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:18:57Z",
+      "completed_at": "2026-06-29T17:31:02Z",
+      "duration_s": 725,
+      "failure_kind": "test",
+      "job_id": 84114699017,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84114699017",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:18:59Z",
+      "completed_at": "2026-06-29T17:29:54Z",
+      "duration_s": 655,
+      "failure_kind": "test",
+      "job_id": 84114699046,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84114699046",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:18:58Z",
+      "completed_at": "2026-06-29T17:30:45Z",
+      "duration_s": 707,
+      "failure_kind": "test",
+      "job_id": 84114699021,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84114699021",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:37:42Z",
+      "completed_at": "2026-06-29T17:56:59Z",
+      "duration_s": 1157,
+      "failure_kind": "test",
+      "job_id": 84118267127,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84118267127",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:37:43Z",
+      "completed_at": "2026-06-29T17:54:49Z",
+      "duration_s": 1026,
+      "failure_kind": "test",
+      "job_id": 84118267180,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84118267180",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:37:42Z",
+      "completed_at": "2026-06-29T17:49:59Z",
+      "duration_s": 737,
+      "failure_kind": "test",
+      "job_id": 84118267120,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84118267120",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:37:42Z",
+      "completed_at": "2026-06-29T17:47:54Z",
+      "duration_s": 612,
+      "failure_kind": "test",
+      "job_id": 84118267140,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84118267140",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:37:42Z",
+      "completed_at": "2026-06-29T17:48:34Z",
+      "duration_s": 652,
+      "failure_kind": "test",
+      "job_id": 84118267162,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84118267162",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:57:12Z",
+      "completed_at": "2026-06-29T18:16:26Z",
+      "duration_s": 1154,
+      "failure_kind": "test",
+      "job_id": 84121874345,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84121874345",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:57:12Z",
+      "completed_at": "2026-06-29T18:13:14Z",
+      "duration_s": 962,
+      "failure_kind": "test",
+      "job_id": 84121874323,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84121874323",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:57:12Z",
+      "completed_at": "2026-06-29T18:09:10Z",
+      "duration_s": 718,
+      "failure_kind": "test",
+      "job_id": 84121874309,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84121874309",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:57:12Z",
+      "completed_at": "2026-06-29T18:07:50Z",
+      "duration_s": 638,
+      "failure_kind": "test",
+      "job_id": 84121874316,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84121874316",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T17:57:12Z",
+      "completed_at": "2026-06-29T18:08:47Z",
+      "duration_s": 695,
+      "failure_kind": "test",
+      "job_id": 84121874340,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84121874340",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T18:16:41Z",
+      "completed_at": "2026-06-29T18:36:21Z",
+      "duration_s": 1180,
+      "failure_kind": "test",
+      "job_id": 84125621068,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84125621068",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T18:16:41Z",
+      "completed_at": "2026-06-29T18:33:22Z",
+      "duration_s": 1001,
+      "failure_kind": "test",
+      "job_id": 84125621070,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84125621070",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T18:16:42Z",
+      "completed_at": "2026-06-29T18:28:50Z",
+      "duration_s": 728,
+      "failure_kind": "test",
+      "job_id": 84125621041,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84125621041",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T18:16:41Z",
+      "completed_at": "2026-06-29T18:27:09Z",
+      "duration_s": 628,
+      "failure_kind": "test",
+      "job_id": 84125621046,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84125621046",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T18:16:41Z",
+      "completed_at": "2026-06-29T18:27:47Z",
+      "duration_s": 666,
+      "failure_kind": "test",
+      "job_id": 84125621044,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84125621044",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T20:10:52Z",
+      "completed_at": "2026-06-29T20:30:46Z",
+      "duration_s": 1194,
+      "failure_kind": "test",
+      "job_id": 84147135225,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84147135225",
+      "failing_tests": [
+        {
+          "suite": "Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/hummingbird/02_connected.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 288,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T20:10:51Z",
+      "completed_at": "2026-06-29T20:27:49Z",
+      "duration_s": 1018,
+      "failure_kind": "test",
+      "job_id": 84147135269,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84147135269",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Create account on FO and download GDPR - Personal data PDF",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 149
+        }
+      ],
+      "test_counts": {
+        "passing": 629,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T20:10:52Z",
+      "completed_at": "2026-06-29T20:20:42Z",
+      "duration_s": 590,
+      "failure_kind": "test",
+      "job_id": 84147135233,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84147135233",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Quick view : Change image > Change image",
+          "title": "should display the second image",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/01_quickView/07_changeImage.ts",
+          "line": 92
+        }
+      ],
+      "test_counts": {
+        "passing": 261,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T20:10:54Z",
+      "completed_at": "2026-06-29T20:21:42Z",
+      "duration_s": 648,
+      "failure_kind": "test",
+      "job_id": 84147135212,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84147135212",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Share a list > Share a list",
+          "title": "should go to \"My Wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/02_blockwishlist/03_frontOffice/01_lists/03_shareList.ts",
+          "line": 82
+        }
+      ],
+      "test_counts": {
+        "passing": 94,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T20:10:52Z",
+      "completed_at": "2026-06-29T20:22:26Z",
+      "duration_s": 694,
+      "failure_kind": "test",
+      "job_id": 84147135208,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28381600153/job/84147135208",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR: Customer activity tracking > Customer activity tracking",
+          "title": "should go to 'GDPR - Personal data' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/modules/37_psgdpr/02_configuration/04_customerActivityTracking.ts",
+          "line": 137
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 1
+      }
+    }
+  ]
+}

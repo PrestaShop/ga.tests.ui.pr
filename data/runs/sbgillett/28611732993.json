@@ -1,0 +1,1278 @@
+{
+  "repo": "sbgillett/ga.tests.ui.pr",
+  "owner": "sbgillett",
+  "run_id": 28611732993,
+  "run_number": 1,
+  "run_attempt": 1,
+  "workflow": "pr_test.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-07-02T18:11:16Z",
+  "updated_at": "2026-07-02T18:35:42Z",
+  "html_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 50,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:28:20Z",
+      "completed_at": "2026-07-02T18:30:38Z",
+      "duration_s": 138,
+      "failure_kind": "test",
+      "job_id": 84846513745,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513745",
+      "failing_tests": [
+        {
+          "suite": "BO - Dashboard",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/01_dashboard.ts",
+          "line": 40
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:29:15Z",
+      "completed_at": "2026-07-02T18:31:21Z",
+      "duration_s": 126,
+      "failure_kind": "test",
+      "job_id": 84846513575,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513575",
+      "failing_tests": [
+        {
+          "suite": "CLDR : Delete a currency",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/cldr/03_deleteCurrency.ts",
+          "line": 52
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:26:39Z",
+      "completed_at": "2026-07-02T18:29:10Z",
+      "duration_s": 151,
+      "failure_kind": "test",
+      "job_id": 84846513607,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513607",
+      "failing_tests": [
+        {
+          "suite": "API : Internal Auth Server - Authorization Endpoint > API Client : Fetch the client secret",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/API/01_clientCredentialGrantFlow/01_internalAuthServer/01_authorizationEndpoint.ts",
+          "line": 53
+        }
+      ],
+      "test_counts": {
+        "passing": 2,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:24:33Z",
+      "completed_at": "2026-07-02T18:26:30Z",
+      "duration_s": 117,
+      "failure_kind": "test",
+      "job_id": 84846513533,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513533",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 36
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:20:53Z",
+      "completed_at": "2026-07-02T18:23:04Z",
+      "duration_s": 131,
+      "failure_kind": "test",
+      "job_id": 84846512603,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512603",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Database : Generate db backup and download it",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/07_database/dbBackup/01_createAndDeleteDbBackup.ts",
+          "line": 47
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:27:48Z",
+      "completed_at": "2026-07-02T18:30:20Z",
+      "duration_s": 152,
+      "failure_kind": "test",
+      "job_id": 84846513766,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513766",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameter - API Client : CRUD > BO - Advanced Parameter - API Client : CRUD",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/12_adminAPI/01_CRUD.ts",
+          "line": 51
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:19:12Z",
+      "completed_at": "2026-07-02T18:21:16Z",
+      "duration_s": 124,
+      "failure_kind": "test",
+      "job_id": 84846512658,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512658",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table : Go to BO",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/01_filterProducts.ts",
+          "line": 43
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:16:00Z",
+      "completed_at": "2026-07-02T18:18:18Z",
+      "duration_s": 138,
+      "failure_kind": "test",
+      "job_id": 84846512340,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512340",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Monitoring : Create empty category and delete it from monitoring page",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/03_catalog/03_monitoring/01_deleteEmptyCategory.ts",
+          "line": 55
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:30:22Z",
+      "completed_at": "2026-07-02T18:32:42Z",
+      "duration_s": 140,
+      "failure_kind": "test",
+      "job_id": 84846513851,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513851",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Brands & suppliers : CRUD Brand and Address",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/03_catalog/05_brandsAndSuppliers/brands/01_CRUDBrandAndAddress.ts",
+          "line": 69
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:16:01Z",
+      "completed_at": "2026-07-02T18:18:13Z",
+      "duration_s": 132,
+      "failure_kind": "test",
+      "job_id": 84846512232,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512232",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Cart rules : CRUD cart rule with/without code",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/01_CRUDCartRule/01_information/01_withAndWithoutCode.ts",
+          "line": 65
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:22:29Z",
+      "completed_at": "2026-07-02T18:24:53Z",
+      "duration_s": 144,
+      "failure_kind": "test",
+      "job_id": 84846513318,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513318",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service : View message > BO : View message",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/05_customerService/01_customerService/01_viewMessage.ts",
+          "line": 84
+        }
+      ],
+      "test_counts": {
+        "passing": 3,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:25:35Z",
+      "completed_at": "2026-07-02T18:27:45Z",
+      "duration_s": 130,
+      "failure_kind": "test",
+      "job_id": 84846513481,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513481",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : Filter and quick edit",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/01_filterAndQuickEditCustomers.ts",
+          "line": 48
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:31:31Z",
+      "completed_at": "2026-07-02T18:33:43Z",
+      "duration_s": 132,
+      "failure_kind": "test",
+      "job_id": 84846513935,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513935",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Addresses : Filter Addresses table",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/04_customers/02_addresses/01_filterAddresses.ts",
+          "line": 41
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:24:38Z",
+      "completed_at": "2026-07-02T18:26:38Z",
+      "duration_s": 120,
+      "failure_kind": "test",
+      "job_id": 84846513653,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513653",
+      "failing_tests": [
+        {
+          "suite": "BO - Dashboard : Enable/Disable demo mode & check stats",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/01_dashboard/01_enableDisableDemoMode.ts",
+          "line": 36
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:16:00Z",
+      "completed_at": "2026-07-02T18:17:54Z",
+      "duration_s": 114,
+      "failure_kind": "test",
+      "job_id": 84846512217,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512217",
+      "failing_tests": [
+        {
+          "suite": "BO - Design - Theme & Logo : Add new theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/08_design/01_themeAndLogo/01_themeAndLogo/01_addNewTheme.ts",
+          "line": 47
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:20:14Z",
+      "completed_at": "2026-07-02T18:22:26Z",
+      "duration_s": 132,
+      "failure_kind": "test",
+      "job_id": 84846512494,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512494",
+      "failing_tests": [
+        {
+          "suite": "BO - Header : Left menu",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/15_header/01_leftMenu.ts",
+          "line": 36
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:25:06Z",
+      "completed_at": "2026-07-02T18:27:29Z",
+      "duration_s": 143,
+      "failure_kind": "test",
+      "job_id": 84846513574,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513574",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Localization : Import a localization pack",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/11_international/01_localization/01_localization/01_importLocalizationPack.ts",
+          "line": 59
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:32:44Z",
+      "completed_at": "2026-07-02T18:34:45Z",
+      "duration_s": 121,
+      "failure_kind": "test",
+      "job_id": 84846513782,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513782",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Zones : Filter and quick edit",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/11_international/02_locations/01_zones/01_filterAndQuickEditZones.ts",
+          "line": 42
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:31:33Z",
+      "completed_at": "2026-07-02T18:33:47Z",
+      "duration_s": 134,
+      "failure_kind": "test",
+      "job_id": 84846513965,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513965",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Taxes : Filter And Quick Edit",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/11_international/03_taxes/01_taxes/01_filterAndQuickEditTaxes.ts",
+          "line": 42
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:24:55Z",
+      "completed_at": "2026-07-02T18:27:00Z",
+      "duration_s": 125,
+      "failure_kind": "test",
+      "job_id": 84846513638,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513638",
+      "failing_tests": [
+        {
+          "suite": "BO - Login : Password reminder > PRE-TEST: Setup SMTP config",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:29:13Z",
+      "completed_at": "2026-07-02T18:31:31Z",
+      "duration_s": 138,
+      "failure_kind": "test",
+      "job_id": 84846513703,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513703",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - Module Manager : Filter modules by status",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/07_modules/01_moduleManager/01_modules/01_filterModulesByStatus.ts",
+          "line": 38
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:30:40Z",
+      "completed_at": "2026-07-02T18:32:45Z",
+      "duration_s": 125,
+      "failure_kind": "test",
+      "job_id": 84846513864,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513864",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > PRE-TEST: Create customer",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:16:41Z",
+      "completed_at": "2026-07-02T18:19:10Z",
+      "duration_s": 149,
+      "failure_kind": "test",
+      "job_id": 84846512507,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512507",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check and edit customer block > Get customer ID and second address ID",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/01_customerBlock.ts",
+          "line": 107
+        }
+      ],
+      "test_counts": {
+        "passing": 27,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:29:33Z",
+      "completed_at": "2026-07-02T18:31:28Z",
+      "duration_s": 115,
+      "failure_kind": "test",
+      "job_id": 84846513880,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513880",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Help card in order page",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/01_helpCard.ts",
+          "line": 38
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:31:35Z",
+      "completed_at": "2026-07-02T18:33:45Z",
+      "duration_s": 130,
+      "failure_kind": "test",
+      "job_id": 84846513961,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513961",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/02_invoices/01_generateInvoiceByDate.ts",
+          "line": 46
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:17:57Z",
+      "completed_at": "2026-07-02T18:20:17Z",
+      "duration_s": 140,
+      "failure_kind": "test",
+      "job_id": 84846512491,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512491",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Credit slips : Create, filter and check credit slips file > Create 2 credit slips for the same order",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/02_orders/03_creditSlips/01_createFilterCreditSlips.ts",
+          "line": 77
+        }
+      ],
+      "test_counts": {
+        "passing": 7,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:31:23Z",
+      "completed_at": "2026-07-02T18:33:40Z",
+      "duration_s": 137,
+      "failure_kind": "test",
+      "job_id": 84846513970,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513970",
+      "failing_tests": [
+        {
+          "suite": "BO - Payments - Payment methods: Configure module link > Configure module link",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/10_payment/01_paymentMethods/01_configureModuleLink.ts",
+          "line": 45
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:33:41Z",
+      "completed_at": "2026-07-02T18:35:41Z",
+      "duration_s": 120,
+      "failure_kind": "test",
+      "job_id": 84846513981,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513981",
+      "failing_tests": [
+        {
+          "suite": "BO - Shipping - Carriers : CRUD carrier in BO",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/09_shipping/01_carriers/01_CRUDCarrier.ts",
+          "line": 187
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:18:14Z",
+      "completed_at": "2026-07-02T18:20:26Z",
+      "duration_s": 132,
+      "failure_kind": "test",
+      "job_id": 84846512275,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512275",
+      "failing_tests": [
+        {
+          "suite": "BO - Shop Parameters - General : Enable/Disable Allow iframes on HTML field",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/13_shopParameters/01_general/general/03_allowIframes.ts",
+          "line": 49
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:18:14Z",
+      "completed_at": "2026-07-02T18:20:13Z",
+      "duration_s": 119,
+      "failure_kind": "test",
+      "job_id": 84846512561,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512561",
+      "failing_tests": [
+        {
+          "suite": "BO - Shop Parameters - Product Settings : Enable/Disable catalog mode",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/13_shopParameters/03_productSettings/01_productsGeneral/01_catalogMode.ts",
+          "line": 47
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:27:02Z",
+      "completed_at": "2026-07-02T18:29:13Z",
+      "duration_s": 131,
+      "failure_kind": "test",
+      "job_id": 84846513532,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513532",
+      "failing_tests": [
+        {
+          "suite": "BO - Shop Parameters - Contact : Filter Contacts table",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/13_shopParameters/05_contact/01_contacts/01_filterContacts.ts",
+          "line": 39
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:32:48Z",
+      "completed_at": "2026-07-02T18:34:48Z",
+      "duration_s": 120,
+      "failure_kind": "test",
+      "job_id": 84846513978,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513978"
+    },
+    {
+      "campaign": "functional:FO:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:27:31Z",
+      "completed_at": "2026-07-02T18:29:31Z",
+      "duration_s": 120,
+      "failure_kind": "test",
+      "job_id": 84846513742,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513742"
+    },
+    {
+      "campaign": "functional:FO:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:26:32Z",
+      "completed_at": "2026-07-02T18:28:18Z",
+      "duration_s": 106,
+      "failure_kind": "test",
+      "job_id": 84846513558,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513558"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:20:29Z",
+      "completed_at": "2026-07-02T18:22:40Z",
+      "duration_s": 131,
+      "failure_kind": "test",
+      "job_id": 84846512322,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512322",
+      "failing_tests": [
+        {
+          "suite": "FO - Login : Password reminder > PRE-TEST: Setup SMTP config",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:23:06Z",
+      "completed_at": "2026-07-02T18:25:04Z",
+      "duration_s": 118,
+      "failure_kind": "test",
+      "job_id": 84846513434,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513434",
+      "failing_tests": [
+        {
+          "suite": "FO - Newsletter : Subscribe to Newsletter > Enable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:18:20Z",
+      "completed_at": "2026-07-02T18:20:51Z",
+      "duration_s": 151,
+      "failure_kind": "test",
+      "job_id": 84846512311,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512311",
+      "failing_tests": [
+        {
+          "suite": "FO - Menu and Navigation - Navigate in Categories : Check categories and subcategories links in header > Enable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:16:00Z",
+      "completed_at": "2026-07-02T18:18:11Z",
+      "duration_s": 131,
+      "failure_kind": "test",
+      "job_id": 84846512244,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512244",
+      "failing_tests": [
+        {
+          "suite": "FO - Login : Password reminder > PRE-TEST: Setup SMTP config",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:24:46Z",
+      "completed_at": "2026-07-02T18:27:09Z",
+      "duration_s": 143,
+      "failure_kind": "test",
+      "job_id": 84846513524,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513524",
+      "failing_tests": [
+        {
+          "suite": "FO - Newsletter : Subscribe to Newsletter > Go to BO to check if correctly unsubscribed",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/FO/hummingbird/04_newsletter/01_subscribeNewsletter.ts",
+          "line": 142
+        }
+      ],
+      "test_counts": {
+        "passing": 8,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:20:19Z",
+      "completed_at": "2026-07-02T18:22:40Z",
+      "duration_s": 141,
+      "failure_kind": "test",
+      "job_id": 84846512529,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846512529",
+      "failing_tests": [
+        {
+          "suite": "FO - Menu and navigation : Sort products > PRE-TEST : Get the number of active products",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/FO/hummingbird/08_menuAndNavigation/02_sortAndFilter/01_sortProducts.ts",
+          "line": 54
+        }
+      ],
+      "test_counts": {
+        "passing": 31,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:productV2",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:22:41Z",
+      "completed_at": "2026-07-02T18:24:36Z",
+      "duration_s": 115,
+      "failure_kind": "test",
+      "job_id": 84846513307,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513307"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:23:19Z",
+      "completed_at": "2026-07-02T18:25:33Z",
+      "duration_s": 134,
+      "failure_kind": "test",
+      "job_id": 84846513517,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513517",
+      "failing_tests": [
+        {
+          "suite": "WS - Countries : CRUD > Enable the Webservice",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:29:17Z",
+      "completed_at": "2026-07-02T18:31:33Z",
+      "duration_s": 136,
+      "failure_kind": "test",
+      "job_id": 84846513764,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513764",
+      "failing_tests": [
+        {
+          "suite": "Wishlist module - Reset module > Enable module Wishlist",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:22:28Z",
+      "completed_at": "2026-07-02T18:24:31Z",
+      "duration_s": 123,
+      "failure_kind": "test",
+      "job_id": 84846513419,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513419",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Uninstall module Cash on delivery (COD)",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:27:11Z",
+      "completed_at": "2026-07-02T18:29:15Z",
+      "duration_s": 124,
+      "failure_kind": "test",
+      "job_id": 84846513586,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513586",
+      "failing_tests": [
+        {
+          "suite": "Mail alerts module - Uninstall and install module > PRE-TEST: Create product 'Product Out of stock not allowed'",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:32:44Z",
+      "completed_at": "2026-07-02T18:34:44Z",
+      "duration_s": 120,
+      "failure_kind": "test",
+      "job_id": 84846513989,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513989",
+      "failing_tests": [
+        {
+          "suite": "ps_supplierlist - Configure Settings > Enable module Supplier List",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:21:18Z",
+      "completed_at": "2026-07-02T18:23:17Z",
+      "duration_s": 119,
+      "failure_kind": "test",
+      "job_id": 84846513271,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513271",
+      "failing_tests": [
+        {
+          "suite": "Regression - Checkout: Create 100% discount with free shipping discount code",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/regression/checkout/100PercentDiscount_FO.ts",
+          "line": 69
+        }
+      ],
+      "test_counts": {
+        "passing": 0,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:11:24Z",
+      "completed_at": "2026-07-02T18:16:39Z",
+      "duration_s": 315,
+      "failure_kind": "test",
+      "job_id": 84845628509,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84845628509",
+      "failing_tests": [
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install theme' be finished",
+          "error": "Fail to finish the step Install theme",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        }
+      ],
+      "test_counts": {
+        "passing": 15,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "sanity:productV2",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-02T18:22:42Z",
+      "completed_at": "2026-07-02T18:24:44Z",
+      "duration_s": 122,
+      "failure_kind": "test",
+      "job_id": 84846513483,
+      "job_url": "https://github.com/sbgillett/ga.tests.ui.pr/actions/runs/28611732993/job/84846513483"
+    }
+  ]
+}

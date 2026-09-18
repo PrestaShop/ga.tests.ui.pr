@@ -1,0 +1,1015 @@
+{
+  "repo": "SiraDIOP/ga.tests.ui.pr",
+  "owner": "SiraDIOP",
+  "run_id": 27938904514,
+  "run_number": 134,
+  "run_attempt": 15,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-06-22T08:13:58Z",
+  "updated_at": "2026-06-23T07:40:30Z",
+  "html_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 41703,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 690,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:25:37Z",
+      "completed_at": "2026-06-22T08:44:37Z",
+      "duration_s": 1140,
+      "failure_kind": "none",
+      "job_id": 82667239231,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239231"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:23:50Z",
+      "duration_s": 573,
+      "failure_kind": "none",
+      "job_id": 82667239225,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239225"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:23:28Z",
+      "duration_s": 551,
+      "failure_kind": "test",
+      "job_id": 82667239243,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239243",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:23:53Z",
+      "completed_at": "2026-06-22T08:40:26Z",
+      "duration_s": 993,
+      "failure_kind": "none",
+      "job_id": 82667239414,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239414"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:36:14Z",
+      "completed_at": "2026-06-22T08:53:47Z",
+      "duration_s": 1053,
+      "failure_kind": "none",
+      "job_id": 82667239496,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239496"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:22:00Z",
+      "duration_s": 462,
+      "failure_kind": "none",
+      "job_id": 82667239399,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239399"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:38:33Z",
+      "duration_s": 1456,
+      "failure_kind": "none",
+      "job_id": 82667239270,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239270"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T08:32:35Z",
+      "completed_at": "2026-06-22T08:47:50Z",
+      "duration_s": 915,
+      "failure_kind": "test",
+      "job_id": 82667239245,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239245",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:25:34Z",
+      "duration_s": 677,
+      "failure_kind": "none",
+      "job_id": 82667239261,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239261"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:16Z",
+      "completed_at": "2026-06-22T09:06:06Z",
+      "duration_s": 3110,
+      "failure_kind": "none",
+      "job_id": 82667239234,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239234"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:32:03Z",
+      "completed_at": "2026-06-22T08:38:44Z",
+      "duration_s": 401,
+      "failure_kind": "none",
+      "job_id": 82667239417,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239417"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:32:31Z",
+      "completed_at": "2026-06-22T08:44:40Z",
+      "duration_s": 729,
+      "failure_kind": "none",
+      "job_id": 82667239413,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239413"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:37:09Z",
+      "completed_at": "2026-06-22T08:49:02Z",
+      "duration_s": 713,
+      "failure_kind": "none",
+      "job_id": 82667239382,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239382"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:28:52Z",
+      "duration_s": 875,
+      "failure_kind": "none",
+      "job_id": 82667239279,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239279"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:38:35Z",
+      "completed_at": "2026-06-22T08:46:16Z",
+      "duration_s": 461,
+      "failure_kind": "none",
+      "job_id": 82667239407,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239407"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:24:32Z",
+      "completed_at": "2026-06-22T08:44:55Z",
+      "duration_s": 1223,
+      "failure_kind": "none",
+      "job_id": 82667239291,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239291"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:25:02Z",
+      "completed_at": "2026-06-22T08:47:43Z",
+      "duration_s": 1361,
+      "failure_kind": "none",
+      "job_id": 82667239348,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239348"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:23:31Z",
+      "completed_at": "2026-06-22T08:38:46Z",
+      "duration_s": 915,
+      "failure_kind": "none",
+      "job_id": 82667239299,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239299"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:26:05Z",
+      "duration_s": 707,
+      "failure_kind": "none",
+      "job_id": 82667239308,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239308"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:26:16Z",
+      "duration_s": 718,
+      "failure_kind": "none",
+      "job_id": 82667239298,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239298"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:20:48Z",
+      "duration_s": 391,
+      "failure_kind": "none",
+      "job_id": 82667239286,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239286"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:24:30Z",
+      "duration_s": 613,
+      "failure_kind": "none",
+      "job_id": 82667239278,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239278"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:32:32Z",
+      "duration_s": 1094,
+      "failure_kind": "none",
+      "job_id": 82667239232,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239232"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:19Z",
+      "completed_at": "2026-06-22T08:37:06Z",
+      "duration_s": 1367,
+      "failure_kind": "none",
+      "job_id": 82667239256,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239256"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:26:23Z",
+      "duration_s": 726,
+      "failure_kind": "none",
+      "job_id": 82667239221,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239221"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:24:59Z",
+      "duration_s": 641,
+      "failure_kind": "none",
+      "job_id": 82667239280,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239280"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:24:24Z",
+      "completed_at": "2026-06-22T08:45:10Z",
+      "duration_s": 1246,
+      "failure_kind": "none",
+      "job_id": 82667239258,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239258"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:32:23Z",
+      "completed_at": "2026-06-22T08:43:02Z",
+      "duration_s": 639,
+      "failure_kind": "none",
+      "job_id": 82667239269,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239269"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:32:26Z",
+      "duration_s": 1089,
+      "failure_kind": "none",
+      "job_id": 82667239274,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239274"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:26:26Z",
+      "completed_at": "2026-06-22T08:44:05Z",
+      "duration_s": 1059,
+      "failure_kind": "none",
+      "job_id": 82667239329,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239329"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:33:15Z",
+      "completed_at": "2026-06-22T08:53:06Z",
+      "duration_s": 1191,
+      "failure_kind": "none",
+      "job_id": 82667239260,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239260"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:38:47Z",
+      "completed_at": "2026-06-22T09:00:37Z",
+      "duration_s": 1310,
+      "failure_kind": "none",
+      "job_id": 82667239402,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239402"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:38:33Z",
+      "completed_at": "2026-06-22T09:05:48Z",
+      "duration_s": 1635,
+      "failure_kind": "none",
+      "job_id": 82667239459,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239459"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:31:23Z",
+      "duration_s": 1025,
+      "failure_kind": "none",
+      "job_id": 82667239395,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239395"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:26:08Z",
+      "completed_at": "2026-06-22T09:17:33Z",
+      "duration_s": 3085,
+      "failure_kind": "none",
+      "job_id": 82667239388,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239388"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:33:12Z",
+      "duration_s": 1135,
+      "failure_kind": "none",
+      "job_id": 82667239393,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239393"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:22:03Z",
+      "completed_at": "2026-06-22T08:31:59Z",
+      "duration_s": 596,
+      "failure_kind": "none",
+      "job_id": 82667239392,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239392"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:31:26Z",
+      "completed_at": "2026-06-22T09:00:39Z",
+      "duration_s": 1753,
+      "failure_kind": "none",
+      "job_id": 82667239355,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239355"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:20:51Z",
+      "completed_at": "2026-06-22T08:32:20Z",
+      "duration_s": 689,
+      "failure_kind": "none",
+      "job_id": 82667239432,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239432"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:28:56Z",
+      "completed_at": "2026-06-22T08:43:52Z",
+      "duration_s": 896,
+      "failure_kind": "none",
+      "job_id": 82667239321,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239321"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:18Z",
+      "completed_at": "2026-06-22T08:24:20Z",
+      "duration_s": 602,
+      "failure_kind": "none",
+      "job_id": 82667239328,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239328"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:14:17Z",
+      "completed_at": "2026-06-22T08:38:30Z",
+      "duration_s": 1453,
+      "failure_kind": "none",
+      "job_id": 82667239398,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239398"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:40:29Z",
+      "completed_at": "2026-06-22T08:53:32Z",
+      "duration_s": 783,
+      "failure_kind": "none",
+      "job_id": 82667239426,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239426"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:38:49Z",
+      "completed_at": "2026-06-22T08:46:18Z",
+      "duration_s": 449,
+      "failure_kind": "none",
+      "job_id": 82667239378,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239378"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T08:26:20Z",
+      "completed_at": "2026-06-22T08:36:11Z",
+      "duration_s": 591,
+      "failure_kind": "none",
+      "job_id": 82667239364,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82667239364"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T09:17:53Z",
+      "completed_at": "2026-06-22T09:25:58Z",
+      "duration_s": 485,
+      "failure_kind": "test",
+      "job_id": 82678637733,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82678637733",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-22T09:17:53Z",
+      "completed_at": "2026-06-22T09:39:01Z",
+      "duration_s": 1268,
+      "failure_kind": "none",
+      "job_id": 82678637716,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82678637716"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T09:39:22Z",
+      "completed_at": "2026-06-22T09:47:54Z",
+      "duration_s": 512,
+      "failure_kind": "test",
+      "job_id": 82682682054,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82682682054",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T09:48:11Z",
+      "completed_at": "2026-06-22T09:57:15Z",
+      "duration_s": 544,
+      "failure_kind": "test",
+      "job_id": 82684259950,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82684259950",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T09:57:34Z",
+      "completed_at": "2026-06-22T10:05:26Z",
+      "duration_s": 472,
+      "failure_kind": "test",
+      "job_id": 82685975712,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82685975712",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T10:05:45Z",
+      "completed_at": "2026-06-22T10:14:13Z",
+      "duration_s": 508,
+      "failure_kind": "test",
+      "job_id": 82687494927,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82687494927",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T10:15:05Z",
+      "completed_at": "2026-06-22T10:24:12Z",
+      "duration_s": 547,
+      "failure_kind": "test",
+      "job_id": 82689262732,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82689262732",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 8,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T10:28:04Z",
+      "completed_at": "2026-06-22T10:36:33Z",
+      "duration_s": 509,
+      "failure_kind": "test",
+      "job_id": 82691612777,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82691612777",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 9,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T11:45:49Z",
+      "completed_at": "2026-06-22T11:54:45Z",
+      "duration_s": 536,
+      "failure_kind": "test",
+      "job_id": 82705127434,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82705127434",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 10,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T12:12:31Z",
+      "completed_at": "2026-06-22T12:21:26Z",
+      "duration_s": 535,
+      "failure_kind": "test",
+      "job_id": 82709984330,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82709984330",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 11,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T12:37:20Z",
+      "completed_at": "2026-06-22T12:46:05Z",
+      "duration_s": 525,
+      "failure_kind": "test",
+      "job_id": 82714776316,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82714776316",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 12,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T12:58:57Z",
+      "completed_at": "2026-06-22T13:08:04Z",
+      "duration_s": 547,
+      "failure_kind": "test",
+      "job_id": 82719069500,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82719069500",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 13,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T13:13:24Z",
+      "completed_at": "2026-06-22T13:22:10Z",
+      "duration_s": 526,
+      "failure_kind": "test",
+      "job_id": 82722100411,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82722100411",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 14,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-22T14:08:35Z",
+      "completed_at": "2026-06-22T14:09:58Z",
+      "duration_s": 83,
+      "failure_kind": "infra",
+      "job_id": 82734454898,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82734454898"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 15,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-23T07:31:54Z",
+      "completed_at": "2026-06-23T07:40:29Z",
+      "duration_s": 515,
+      "failure_kind": "test",
+      "job_id": 82900473317,
+      "job_url": "https://github.com/SiraDIOP/ga.tests.ui.pr/actions/runs/27938904514/job/82900473317",
+      "failing_tests": [
+        {
+          "suite": "API : Check endpoints > Check endpoints",
+          "title": "should check endpoints",
+          "error": "AssertionError: expected -1 to be above 63",
+          "file": "campaigns/functional/API/02_checkEndpoints.ts",
+          "line": 450
+        }
+      ],
+      "test_counts": {
+        "passing": 59,
+        "failing": 1,
+        "pending": 0
+      }
+    }
+  ]
+}

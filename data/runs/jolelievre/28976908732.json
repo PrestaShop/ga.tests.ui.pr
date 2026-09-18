@@ -1,0 +1,1190 @@
+{
+  "repo": "jolelievre/ga.tests.ui.pr",
+  "owner": "jolelievre",
+  "run_id": 28976908732,
+  "run_number": 457,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-07-08T21:26:52Z",
+  "updated_at": "2026-07-09T01:19:19Z",
+  "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42003,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:46:10Z",
+      "duration_s": 1139,
+      "failure_kind": "none",
+      "job_id": 85986269954,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269954"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:36:47Z",
+      "duration_s": 576,
+      "failure_kind": "none",
+      "job_id": 85986269932,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269932"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T21:38:03Z",
+      "completed_at": "2026-07-08T22:10:24Z",
+      "duration_s": 1941,
+      "failure_kind": "test",
+      "job_id": 85986269955,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269955",
+      "failing_tests": [
+        {
+          "suite": "API : GET /products/images/{imageId} > BackOffice : Check the Product Images",
+          "title": "should fetch images informations",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/API/02_endpoints/product/02_getProductImageId.ts",
+          "line": 147
+        }
+      ],
+      "test_counts": {
+        "passing": 817,
+        "failing": 1,
+        "pending": 8
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:46:13Z",
+      "completed_at": "2026-07-08T22:02:36Z",
+      "duration_s": 983,
+      "failure_kind": "none",
+      "job_id": 85986270137,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270137"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:36:34Z",
+      "completed_at": "2026-07-08T21:54:54Z",
+      "duration_s": 1100,
+      "failure_kind": "none",
+      "job_id": 85986270148,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270148"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:37:18Z",
+      "completed_at": "2026-07-08T21:45:12Z",
+      "duration_s": 474,
+      "failure_kind": "none",
+      "job_id": 85986270152,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270152"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T21:47:37Z",
+      "completed_at": "2026-07-08T22:04:03Z",
+      "duration_s": 986,
+      "failure_kind": "test",
+      "job_id": 85986269996,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269996",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : Stocks tab > Check all options in Stock tab",
+          "title": "should check the recent stock movement",
+          "error": "AssertionError: expected '2026-07-09 00:03:56' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/15_stocksTab.ts",
+          "line": 131
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:41:32Z",
+      "duration_s": 862,
+      "failure_kind": "test",
+      "job_id": 85986269959,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269959",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 305,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:40:01Z",
+      "completed_at": "2026-07-08T21:51:18Z",
+      "duration_s": 677,
+      "failure_kind": "none",
+      "job_id": 85986269976,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269976"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T22:01:58Z",
+      "duration_s": 2088,
+      "failure_kind": "test",
+      "job_id": 85986269957,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269957",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should check the start and the end date",
+          "error": "AssertionError: expected '2026-07-09 00:00:00' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 130
+        }
+      ],
+      "test_counts": {
+        "passing": 1103,
+        "failing": 1,
+        "pending": 57
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:33:37Z",
+      "duration_s": 387,
+      "failure_kind": "none",
+      "job_id": 85986270127,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270127"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:35:09Z",
+      "completed_at": "2026-07-08T21:47:33Z",
+      "duration_s": 744,
+      "failure_kind": "none",
+      "job_id": 85986270035,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270035"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:43:41Z",
+      "completed_at": "2026-07-08T21:55:18Z",
+      "duration_s": 697,
+      "failure_kind": "none",
+      "job_id": 85986270008,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270008"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:41:39Z",
+      "duration_s": 869,
+      "failure_kind": "none",
+      "job_id": 85986269946,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269946"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:34:50Z",
+      "duration_s": 459,
+      "failure_kind": "none",
+      "job_id": 85986269961,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269961"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:41:43Z",
+      "completed_at": "2026-07-08T22:02:16Z",
+      "duration_s": 1233,
+      "failure_kind": "none",
+      "job_id": 85986270094,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270094"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:46:24Z",
+      "completed_at": "2026-07-08T22:09:18Z",
+      "duration_s": 1374,
+      "failure_kind": "none",
+      "job_id": 85986270157,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270157"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:44:27Z",
+      "completed_at": "2026-07-08T21:59:11Z",
+      "duration_s": 884,
+      "failure_kind": "none",
+      "job_id": 85986270064,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270064"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:49:10Z",
+      "completed_at": "2026-07-08T22:01:52Z",
+      "duration_s": 762,
+      "failure_kind": "none",
+      "job_id": 85986270122,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270122"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:48:58Z",
+      "completed_at": "2026-07-08T22:01:20Z",
+      "duration_s": 742,
+      "failure_kind": "none",
+      "job_id": 85986270128,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270128"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:33:34Z",
+      "duration_s": 384,
+      "failure_kind": "none",
+      "job_id": 85986269921,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269921"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:37:14Z",
+      "duration_s": 604,
+      "failure_kind": "none",
+      "job_id": 85986269970,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269970"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:35:06Z",
+      "duration_s": 475,
+      "failure_kind": "test",
+      "job_id": 85986269988,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269988",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Create a Shopping cart from the FO by the default customer",
+          "title": "should select My carrier",
+          "error": "Payment Step is not displayed",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 263
+        }
+      ],
+      "test_counts": {
+        "passing": 90,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:49:24Z",
+      "duration_s": 1334,
+      "failure_kind": "none",
+      "job_id": 85986269936,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269936"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:39:57Z",
+      "duration_s": 767,
+      "failure_kind": "none",
+      "job_id": 85986269958,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269958"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:37:59Z",
+      "duration_s": 649,
+      "failure_kind": "none",
+      "job_id": 85986269962,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269962"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:12Z",
+      "completed_at": "2026-07-08T21:48:55Z",
+      "duration_s": 1303,
+      "failure_kind": "none",
+      "job_id": 85986269933,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986269933"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:33:40Z",
+      "completed_at": "2026-07-08T21:44:23Z",
+      "duration_s": 643,
+      "failure_kind": "none",
+      "job_id": 85986270082,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270082"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:34:52Z",
+      "completed_at": "2026-07-08T21:52:24Z",
+      "duration_s": 1052,
+      "failure_kind": "none",
+      "job_id": 85986270092,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270092"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:41:35Z",
+      "completed_at": "2026-07-08T21:57:50Z",
+      "duration_s": 975,
+      "failure_kind": "none",
+      "job_id": 85986270155,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270155"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:45:07Z",
+      "duration_s": 1077,
+      "failure_kind": "none",
+      "job_id": 85986270091,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270091"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:45:10Z",
+      "completed_at": "2026-07-08T22:06:56Z",
+      "duration_s": 1306,
+      "failure_kind": "none",
+      "job_id": 85986270146,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270146"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T21:48:05Z",
+      "completed_at": "2026-07-08T22:03:28Z",
+      "duration_s": 923,
+      "failure_kind": "test",
+      "job_id": 85986270144,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270144",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '07/09/2026' to equal '07/08/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:10Z",
+      "completed_at": "2026-07-08T21:43:38Z",
+      "duration_s": 988,
+      "failure_kind": "none",
+      "job_id": 85986270097,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270097"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:45:16Z",
+      "completed_at": "2026-07-08T22:38:30Z",
+      "duration_s": 3194,
+      "failure_kind": "none",
+      "job_id": 85986270130,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270130"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:46:21Z",
+      "duration_s": 1150,
+      "failure_kind": "none",
+      "job_id": 85986270116,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270116"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:38:02Z",
+      "completed_at": "2026-07-08T21:48:02Z",
+      "duration_s": 600,
+      "failure_kind": "none",
+      "job_id": 85986270171,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270171"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:49:54Z",
+      "completed_at": "2026-07-08T22:18:57Z",
+      "duration_s": 1743,
+      "failure_kind": "none",
+      "job_id": 85986270277,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270277"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:37:59Z",
+      "duration_s": 648,
+      "failure_kind": "none",
+      "job_id": 85986270172,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270172"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:33:37Z",
+      "completed_at": "2026-07-08T21:49:07Z",
+      "duration_s": 930,
+      "failure_kind": "none",
+      "job_id": 85986270169,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270169"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:51:21Z",
+      "completed_at": "2026-07-08T22:01:09Z",
+      "duration_s": 588,
+      "failure_kind": "none",
+      "job_id": 85986270557,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270557"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:55:06Z",
+      "duration_s": 1675,
+      "failure_kind": "none",
+      "job_id": 85986270153,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270153"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:36:50Z",
+      "completed_at": "2026-07-08T21:49:50Z",
+      "duration_s": 780,
+      "failure_kind": "none",
+      "job_id": 85986270140,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270140"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:49:27Z",
+      "completed_at": "2026-07-08T21:57:07Z",
+      "duration_s": 460,
+      "failure_kind": "none",
+      "job_id": 85986270218,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270218"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T21:27:11Z",
+      "completed_at": "2026-07-08T21:36:31Z",
+      "duration_s": 560,
+      "failure_kind": "none",
+      "job_id": 85986270165,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85986270165"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T22:38:45Z",
+      "completed_at": "2026-07-08T22:58:03Z",
+      "duration_s": 1158,
+      "failure_kind": "test",
+      "job_id": 85998377226,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85998377226",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-07-09 00:57:57' to include '2026-07-08'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 521,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T22:38:45Z",
+      "completed_at": "2026-07-08T22:46:26Z",
+      "duration_s": 461,
+      "failure_kind": "test",
+      "job_id": 85998377238,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85998377238",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit combinations",
+          "title": "should check the recent stock movement in the modal",
+          "error": "AssertionError: expected '2026-07-09 00:46:20' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/03_CRUDProductWithCombinations.ts",
+          "line": 284
+        }
+      ],
+      "test_counts": {
+        "passing": 63,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-08T22:38:45Z",
+      "completed_at": "2026-07-08T22:59:42Z",
+      "duration_s": 1257,
+      "failure_kind": "none",
+      "job_id": 85998377230,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85998377230"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T22:38:45Z",
+      "completed_at": "2026-07-08T23:06:25Z",
+      "duration_s": 1660,
+      "failure_kind": "test",
+      "job_id": 85998377219,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85998377219",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 715,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T22:38:45Z",
+      "completed_at": "2026-07-08T22:46:44Z",
+      "duration_s": 479,
+      "failure_kind": "test",
+      "job_id": 85998377251,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85998377251",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-07-09 00:46:21' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        }
+      ],
+      "test_counts": {
+        "passing": 101,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T22:38:45Z",
+      "completed_at": "2026-07-08T22:50:57Z",
+      "duration_s": 732,
+      "failure_kind": "test",
+      "job_id": 85998377250,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/85998377250",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '07/09/2026' to equal '07/08/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:06:41Z",
+      "completed_at": "2026-07-08T23:26:16Z",
+      "duration_s": 1175,
+      "failure_kind": "test",
+      "job_id": 86002353983,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86002353983",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-07-09 01:26:09' to include '2026-07-08'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 521,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:06:39Z",
+      "completed_at": "2026-07-08T23:14:32Z",
+      "duration_s": 473,
+      "failure_kind": "test",
+      "job_id": 86002354016,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86002354016",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit combinations",
+          "title": "should check the recent stock movement in the modal",
+          "error": "AssertionError: expected '2026-07-09 01:14:28' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/03_CRUDProductWithCombinations.ts",
+          "line": 284
+        }
+      ],
+      "test_counts": {
+        "passing": 63,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:06:40Z",
+      "completed_at": "2026-07-08T23:34:38Z",
+      "duration_s": 1678,
+      "failure_kind": "test",
+      "job_id": 86002354057,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86002354057",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 715,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:06:39Z",
+      "completed_at": "2026-07-08T23:14:33Z",
+      "duration_s": 474,
+      "failure_kind": "test",
+      "job_id": 86002354017,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86002354017",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-07-09 01:14:10' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        }
+      ],
+      "test_counts": {
+        "passing": 101,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:06:40Z",
+      "completed_at": "2026-07-08T23:22:56Z",
+      "duration_s": 976,
+      "failure_kind": "test",
+      "job_id": 86002354020,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86002354020",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '07/09/2026' to equal '07/08/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:35:00Z",
+      "completed_at": "2026-07-08T23:54:21Z",
+      "duration_s": 1161,
+      "failure_kind": "test",
+      "job_id": 86006125928,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86006125928",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-07-09 01:54:14' to include '2026-07-08'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 198
+        }
+      ],
+      "test_counts": {
+        "passing": 521,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:35:01Z",
+      "completed_at": "2026-07-08T23:42:55Z",
+      "duration_s": 474,
+      "failure_kind": "test",
+      "job_id": 86006125965,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86006125965",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit combinations",
+          "title": "should check the recent stock movement in the modal",
+          "error": "AssertionError: expected '2026-07-09 01:42:52' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/03_CRUDProductWithCombinations.ts",
+          "line": 284
+        }
+      ],
+      "test_counts": {
+        "passing": 63,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:35:01Z",
+      "completed_at": "2026-07-09T00:02:21Z",
+      "duration_s": 1640,
+      "failure_kind": "test",
+      "job_id": 86006125930,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86006125930",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 715,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:35:01Z",
+      "completed_at": "2026-07-08T23:43:03Z",
+      "duration_s": 482,
+      "failure_kind": "test",
+      "job_id": 86006125936,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86006125936",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-07-09 01:42:38' to include '2026-07-08'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        }
+      ],
+      "test_counts": {
+        "passing": 101,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-08T23:35:00Z",
+      "completed_at": "2026-07-08T23:50:23Z",
+      "duration_s": 923,
+      "failure_kind": "test",
+      "job_id": 86006125951,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86006125951",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '07/09/2026' to equal '07/08/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T00:02:37Z",
+      "completed_at": "2026-07-09T00:44:46Z",
+      "duration_s": 2529,
+      "failure_kind": "none",
+      "job_id": 86009614715,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86009614715"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-07-09T00:02:36Z",
+      "completed_at": "2026-07-09T00:18:35Z",
+      "duration_s": 959,
+      "failure_kind": "infra",
+      "job_id": 86009614720,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86009614720"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T00:02:36Z",
+      "completed_at": "2026-07-09T00:54:33Z",
+      "duration_s": 3117,
+      "failure_kind": "none",
+      "job_id": 86009614700,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86009614700"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T00:02:36Z",
+      "completed_at": "2026-07-09T00:21:24Z",
+      "duration_s": 1128,
+      "failure_kind": "none",
+      "job_id": 86009614698,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86009614698"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T00:02:37Z",
+      "completed_at": "2026-07-09T00:32:19Z",
+      "duration_s": 1782,
+      "failure_kind": "none",
+      "job_id": 86009614694,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86009614694"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-07-09T00:54:50Z",
+      "completed_at": "2026-07-09T01:19:18Z",
+      "duration_s": 1468,
+      "failure_kind": "none",
+      "job_id": 86016164223,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/28976908732/job/86016164223"
+    }
+  ]
+}

@@ -1,0 +1,1487 @@
+{
+  "repo": "mattgoud/ga.tests.ui.pr",
+  "owner": "mattgoud",
+  "run_id": 28403289723,
+  "run_number": 88,
+  "run_attempt": 8,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-06-29T21:17:29Z",
+  "updated_at": "2026-06-30T07:28:38Z",
+  "html_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 41778,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 368,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:23:19Z",
+      "completed_at": "2026-06-29T21:41:58Z",
+      "duration_s": 1119,
+      "failure_kind": "none",
+      "job_id": 84159720194,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720194"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:24:51Z",
+      "completed_at": "2026-06-29T21:34:05Z",
+      "duration_s": 554,
+      "failure_kind": "none",
+      "job_id": 84159720185,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720185"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:47:55Z",
+      "completed_at": "2026-06-29T22:06:25Z",
+      "duration_s": 1110,
+      "failure_kind": "test",
+      "job_id": 84159720169,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720169",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-06-30 00:06:19' to include '2026-06-29'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 196
+        }
+      ],
+      "test_counts": {
+        "passing": 500,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:32:50Z",
+      "completed_at": "2026-06-29T21:49:23Z",
+      "duration_s": 993,
+      "failure_kind": "none",
+      "job_id": 84159720320,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720320"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:45:00Z",
+      "completed_at": "2026-06-29T21:59:24Z",
+      "duration_s": 864,
+      "failure_kind": "test",
+      "job_id": 84159720374,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720374",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Create shop",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 407,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:31:08Z",
+      "completed_at": "2026-06-29T21:38:38Z",
+      "duration_s": 450,
+      "failure_kind": "none",
+      "job_id": 84159720344,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720344"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:23:08Z",
+      "completed_at": "2026-06-29T21:47:57Z",
+      "duration_s": 1489,
+      "failure_kind": "none",
+      "job_id": 84159720271,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720271"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:48:32Z",
+      "completed_at": "2026-06-29T22:03:24Z",
+      "duration_s": 892,
+      "failure_kind": "test",
+      "job_id": 84159720234,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720234",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 305,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:21:52Z",
+      "completed_at": "2026-06-29T21:32:57Z",
+      "duration_s": 665,
+      "failure_kind": "none",
+      "job_id": 84159720285,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720285"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:21:41Z",
+      "completed_at": "2026-06-29T22:13:34Z",
+      "duration_s": 3113,
+      "failure_kind": "none",
+      "job_id": 84159720269,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720269"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:33:03Z",
+      "completed_at": "2026-06-29T21:39:32Z",
+      "duration_s": 389,
+      "failure_kind": "none",
+      "job_id": 84159720391,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720391"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:33:01Z",
+      "completed_at": "2026-06-29T21:49:02Z",
+      "duration_s": 961,
+      "failure_kind": "infra",
+      "job_id": 84159720304,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720304"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:17:57Z",
+      "completed_at": "2026-06-29T21:30:08Z",
+      "duration_s": 731,
+      "failure_kind": "none",
+      "job_id": 84159720277,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720277"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:49:05Z",
+      "completed_at": "2026-06-29T22:03:02Z",
+      "duration_s": 837,
+      "failure_kind": "none",
+      "job_id": 84159720302,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720302"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:29:15Z",
+      "completed_at": "2026-06-29T21:36:58Z",
+      "duration_s": 463,
+      "failure_kind": "none",
+      "job_id": 84159720198,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720198"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:34:08Z",
+      "completed_at": "2026-06-29T21:54:02Z",
+      "duration_s": 1194,
+      "failure_kind": "none",
+      "job_id": 84159720303,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720303"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:25:13Z",
+      "completed_at": "2026-06-29T21:47:52Z",
+      "duration_s": 1359,
+      "failure_kind": "none",
+      "job_id": 84159720345,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720345"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:47:19Z",
+      "completed_at": "2026-06-29T22:02:46Z",
+      "duration_s": 927,
+      "failure_kind": "none",
+      "job_id": 84159720316,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720316"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:39:11Z",
+      "completed_at": "2026-06-29T21:50:38Z",
+      "duration_s": 687,
+      "failure_kind": "none",
+      "job_id": 84159720317,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720317"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:38:41Z",
+      "completed_at": "2026-06-29T21:50:32Z",
+      "duration_s": 711,
+      "failure_kind": "none",
+      "job_id": 84159720319,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720319"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:21:16Z",
+      "completed_at": "2026-06-29T21:27:59Z",
+      "duration_s": 403,
+      "failure_kind": "none",
+      "job_id": 84159720208,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720208"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:23:20Z",
+      "completed_at": "2026-06-29T21:34:18Z",
+      "duration_s": 658,
+      "failure_kind": "none",
+      "job_id": 84159720305,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720305"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:19:57Z",
+      "completed_at": "2026-06-29T21:37:46Z",
+      "duration_s": 1069,
+      "failure_kind": "none",
+      "job_id": 84159720239,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720239"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:48:40Z",
+      "completed_at": "2026-06-29T22:00:13Z",
+      "duration_s": 693,
+      "failure_kind": "test",
+      "job_id": 84159720250,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720250",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '06/30/2026 00:00:09' to include '06/29/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:17:49Z",
+      "completed_at": "2026-06-29T21:30:30Z",
+      "duration_s": 761,
+      "failure_kind": "none",
+      "job_id": 84159720195,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720195"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:20:23Z",
+      "completed_at": "2026-06-29T21:31:04Z",
+      "duration_s": 641,
+      "failure_kind": "none",
+      "job_id": 84159720241,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720241"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:17:49Z",
+      "completed_at": "2026-06-29T21:38:26Z",
+      "duration_s": 1237,
+      "failure_kind": "none",
+      "job_id": 84159720197,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720197"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:50:02Z",
+      "completed_at": "2026-06-29T22:00:40Z",
+      "duration_s": 638,
+      "failure_kind": "none",
+      "job_id": 84159720336,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720336"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:30:10Z",
+      "completed_at": "2026-06-29T21:47:18Z",
+      "duration_s": 1028,
+      "failure_kind": "none",
+      "job_id": 84159720291,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720291"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:30:33Z",
+      "completed_at": "2026-06-29T21:47:16Z",
+      "duration_s": 1003,
+      "failure_kind": "none",
+      "job_id": 84159720352,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720352"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:38:30Z",
+      "completed_at": "2026-06-29T21:58:15Z",
+      "duration_s": 1185,
+      "failure_kind": "none",
+      "job_id": 84159720346,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720346"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:28:02Z",
+      "completed_at": "2026-06-29T21:49:59Z",
+      "duration_s": 1317,
+      "failure_kind": "none",
+      "job_id": 84159720372,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720372"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:37:02Z",
+      "completed_at": "2026-06-29T22:01:08Z",
+      "duration_s": 1446,
+      "failure_kind": "test",
+      "job_id": 84159720382,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720382",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Check order return PDF > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 417
+        }
+      ],
+      "test_counts": {
+        "passing": 730,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:47:21Z",
+      "completed_at": "2026-06-29T22:03:44Z",
+      "duration_s": 983,
+      "failure_kind": "none",
+      "job_id": 84159720370,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720370"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:27:37Z",
+      "completed_at": "2026-06-29T22:19:55Z",
+      "duration_s": 3138,
+      "failure_kind": "none",
+      "job_id": 84159720354,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720354"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:28:56Z",
+      "completed_at": "2026-06-29T21:48:30Z",
+      "duration_s": 1174,
+      "failure_kind": "none",
+      "job_id": 84159720366,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720366"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:49:26Z",
+      "completed_at": "2026-06-29T21:59:05Z",
+      "duration_s": 579,
+      "failure_kind": "none",
+      "job_id": 84159720388,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720388"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T21:39:35Z",
+      "completed_at": "2026-06-29T21:52:27Z",
+      "duration_s": 772,
+      "failure_kind": "test",
+      "job_id": 84159720379,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720379",
+      "failing_tests": [
+        {
+          "suite": "FO - Product page - Product page : Share links > Check share links",
+          "title": "should click on the Twitter link and check it",
+          "error": "AssertionError: expected 'https://twitter.com/intent/tweet?text=Mug+The+adventure+begins https://localhost:8002/7-mug-the-adventure-begins.html' to include 'x.com'",
+          "file": "campaigns/functional/FO/hummingbird/09_productPage/02_productPage/04_shareLinks.ts",
+          "line": 73
+        }
+      ],
+      "test_counts": {
+        "passing": 320,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:37:48Z",
+      "completed_at": "2026-06-29T21:48:38Z",
+      "duration_s": 650,
+      "failure_kind": "none",
+      "job_id": 84159720331,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720331"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:36:51Z",
+      "completed_at": "2026-06-29T21:51:37Z",
+      "duration_s": 886,
+      "failure_kind": "none",
+      "job_id": 84159720340,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720340"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:34:22Z",
+      "completed_at": "2026-06-29T21:44:58Z",
+      "duration_s": 636,
+      "failure_kind": "none",
+      "job_id": 84159720381,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720381"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:42:01Z",
+      "completed_at": "2026-06-29T22:08:27Z",
+      "duration_s": 1586,
+      "failure_kind": "none",
+      "job_id": 84159720361,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720361"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:26:07Z",
+      "completed_at": "2026-06-29T21:39:08Z",
+      "duration_s": 781,
+      "failure_kind": "none",
+      "job_id": 84159720353,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720353"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:48:00Z",
+      "completed_at": "2026-06-29T21:56:26Z",
+      "duration_s": 506,
+      "failure_kind": "none",
+      "job_id": 84159720338,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720338"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T21:27:23Z",
+      "completed_at": "2026-06-29T21:36:49Z",
+      "duration_s": 566,
+      "failure_kind": "none",
+      "job_id": 84159720393,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84159720393"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:20:08Z",
+      "completed_at": "2026-06-29T22:38:55Z",
+      "duration_s": 1127,
+      "failure_kind": "test",
+      "job_id": 84169972473,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972473",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-06-30 00:38:52' to include '2026-06-29'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 196
+        }
+      ],
+      "test_counts": {
+        "passing": 500,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:20:08Z",
+      "completed_at": "2026-06-29T22:28:38Z",
+      "duration_s": 510,
+      "failure_kind": "test",
+      "job_id": 84169972444,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972444",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T22:20:08Z",
+      "completed_at": "2026-06-29T22:40:04Z",
+      "duration_s": 1196,
+      "failure_kind": "none",
+      "job_id": 84169972447,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972447"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:20:08Z",
+      "completed_at": "2026-06-29T22:31:23Z",
+      "duration_s": 675,
+      "failure_kind": "test",
+      "job_id": 84169972437,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972437",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:20:08Z",
+      "completed_at": "2026-06-29T22:31:46Z",
+      "duration_s": 698,
+      "failure_kind": "test",
+      "job_id": 84169972460,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972460",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '06/30/2026 00:31:43' to include '06/29/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:20:09Z",
+      "completed_at": "2026-06-29T22:36:22Z",
+      "duration_s": 973,
+      "failure_kind": "test",
+      "job_id": 84169972450,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972450",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '06/30/2026' to equal '06/29/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-29T22:20:09Z",
+      "completed_at": "2026-06-29T22:48:35Z",
+      "duration_s": 1706,
+      "failure_kind": "none",
+      "job_id": 84169972581,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84169972581"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:48:49Z",
+      "completed_at": "2026-06-29T23:07:31Z",
+      "duration_s": 1122,
+      "failure_kind": "test",
+      "job_id": 84174088642,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84174088642",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-06-30 01:07:27' to include '2026-06-29'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 196
+        }
+      ],
+      "test_counts": {
+        "passing": 500,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:48:51Z",
+      "completed_at": "2026-06-29T22:57:31Z",
+      "duration_s": 520,
+      "failure_kind": "test",
+      "job_id": 84174088635,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84174088635",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:48:49Z",
+      "completed_at": "2026-06-29T23:00:03Z",
+      "duration_s": 674,
+      "failure_kind": "test",
+      "job_id": 84174088636,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84174088636",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:48:50Z",
+      "completed_at": "2026-06-29T23:00:50Z",
+      "duration_s": 720,
+      "failure_kind": "test",
+      "job_id": 84174088630,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84174088630",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '06/30/2026 01:00:44' to include '06/29/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T22:48:50Z",
+      "completed_at": "2026-06-29T23:05:06Z",
+      "duration_s": 976,
+      "failure_kind": "test",
+      "job_id": 84174088643,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84174088643",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '06/30/2026' to equal '06/29/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:07:44Z",
+      "completed_at": "2026-06-29T23:25:20Z",
+      "duration_s": 1056,
+      "failure_kind": "test",
+      "job_id": 84176601556,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84176601556",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-06-30 01:25:14' to include '2026-06-29'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 196
+        }
+      ],
+      "test_counts": {
+        "passing": 500,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:07:44Z",
+      "completed_at": "2026-06-29T23:16:46Z",
+      "duration_s": 542,
+      "failure_kind": "test",
+      "job_id": 84176601586,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84176601586",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:07:44Z",
+      "completed_at": "2026-06-29T23:19:47Z",
+      "duration_s": 723,
+      "failure_kind": "test",
+      "job_id": 84176601543,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84176601543",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:07:44Z",
+      "completed_at": "2026-06-29T23:19:04Z",
+      "duration_s": 680,
+      "failure_kind": "test",
+      "job_id": 84176601564,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84176601564",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '06/30/2026 01:18:59' to include '06/29/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:07:44Z",
+      "completed_at": "2026-06-29T23:24:04Z",
+      "duration_s": 980,
+      "failure_kind": "test",
+      "job_id": 84176601569,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84176601569",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '06/30/2026' to equal '06/29/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:25:33Z",
+      "completed_at": "2026-06-29T23:44:32Z",
+      "duration_s": 1139,
+      "failure_kind": "test",
+      "job_id": 84178847846,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84178847846",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-06-30 01:44:27' to include '2026-06-29'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 196
+        }
+      ],
+      "test_counts": {
+        "passing": 500,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:25:33Z",
+      "completed_at": "2026-06-29T23:34:07Z",
+      "duration_s": 514,
+      "failure_kind": "test",
+      "job_id": 84178847853,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84178847853",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:25:33Z",
+      "completed_at": "2026-06-29T23:36:45Z",
+      "duration_s": 672,
+      "failure_kind": "test",
+      "job_id": 84178847836,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84178847836",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:25:35Z",
+      "completed_at": "2026-06-29T23:37:31Z",
+      "duration_s": 716,
+      "failure_kind": "test",
+      "job_id": 84178847857,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84178847857",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '06/30/2026 01:37:25' to include '06/29/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:25:33Z",
+      "completed_at": "2026-06-29T23:40:56Z",
+      "duration_s": 923,
+      "failure_kind": "test",
+      "job_id": 84178847858,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84178847858",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '06/30/2026' to equal '06/29/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:44:46Z",
+      "completed_at": "2026-06-30T00:03:21Z",
+      "duration_s": 1115,
+      "failure_kind": "test",
+      "job_id": 84181160589,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84181160589",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-06-30 02:03:15' to include '2026-06-29'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 196
+        }
+      ],
+      "test_counts": {
+        "passing": 500,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:44:46Z",
+      "completed_at": "2026-06-29T23:53:28Z",
+      "duration_s": 522,
+      "failure_kind": "test",
+      "job_id": 84181160618,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84181160618",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:44:45Z",
+      "completed_at": "2026-06-29T23:56:09Z",
+      "duration_s": 684,
+      "failure_kind": "test",
+      "job_id": 84181160684,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84181160684",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:44:46Z",
+      "completed_at": "2026-06-29T23:56:34Z",
+      "duration_s": 708,
+      "failure_kind": "test",
+      "job_id": 84181160668,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84181160668",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '06/30/2026 01:56:29' to include '06/29/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-29T23:44:46Z",
+      "completed_at": "2026-06-30T00:00:57Z",
+      "duration_s": 971,
+      "failure_kind": "test",
+      "job_id": 84181160622,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84181160622",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '06/30/2026' to equal '06/29/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-30T06:10:20Z",
+      "completed_at": "2026-06-30T06:51:21Z",
+      "duration_s": 2461,
+      "failure_kind": "none",
+      "job_id": 84223360370,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84223360370"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-06-30T06:10:19Z",
+      "completed_at": "2026-06-30T06:21:10Z",
+      "duration_s": 651,
+      "failure_kind": "test",
+      "job_id": 84223360365,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84223360365",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop groups in BO > Create shop for the updated shop group",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-30T06:10:20Z",
+      "completed_at": "2026-06-30T06:22:39Z",
+      "duration_s": 739,
+      "failure_kind": "none",
+      "job_id": 84223360387,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84223360387"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-30T06:10:19Z",
+      "completed_at": "2026-06-30T06:32:51Z",
+      "duration_s": 1352,
+      "failure_kind": "none",
+      "job_id": 84223360380,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84223360380"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-30T06:10:18Z",
+      "completed_at": "2026-06-30T06:39:54Z",
+      "duration_s": 1776,
+      "failure_kind": "none",
+      "job_id": 84223360372,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84223360372"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 8,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-06-30T07:10:34Z",
+      "completed_at": "2026-06-30T07:28:37Z",
+      "duration_s": 1083,
+      "failure_kind": "none",
+      "job_id": 84231945184,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/28403289723/job/84231945184"
+    }
+  ]
+}
