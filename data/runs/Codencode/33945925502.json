@@ -1,0 +1,961 @@
+{
+  "repo": "Codencode/ga.tests.ui.pr",
+  "owner": "Codencode",
+  "run_id": 33945925502,
+  "run_number": 170,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-09-05T04:57:22Z",
+  "updated_at": "2026-09-05T08:47:13Z",
+  "html_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42571,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:37Z",
+      "completed_at": "2026-09-05T05:16:41Z",
+      "duration_s": 1144,
+      "failure_kind": "none",
+      "job_id": 101251899984,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251899984"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:20:51Z",
+      "completed_at": "2026-09-05T05:30:32Z",
+      "duration_s": 581,
+      "failure_kind": "none",
+      "job_id": 101251900073,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900073"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:12:22Z",
+      "completed_at": "2026-09-05T06:05:29Z",
+      "duration_s": 3187,
+      "failure_kind": "none",
+      "job_id": 101251900050,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900050"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:37Z",
+      "completed_at": "2026-09-05T05:14:23Z",
+      "duration_s": 1006,
+      "failure_kind": "none",
+      "job_id": 101251900012,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900012"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T05:18:51Z",
+      "completed_at": "2026-09-05T05:33:48Z",
+      "duration_s": 897,
+      "failure_kind": "test",
+      "job_id": 101251900068,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900068",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°8",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 440,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:08:54Z",
+      "completed_at": "2026-09-05T05:16:10Z",
+      "duration_s": 436,
+      "failure_kind": "none",
+      "job_id": 101251900065,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900065"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:20:10Z",
+      "duration_s": 1352,
+      "failure_kind": "none",
+      "job_id": 101251900008,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900008"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T05:12:11Z",
+      "completed_at": "2026-09-05T05:33:15Z",
+      "duration_s": 1264,
+      "failure_kind": "test",
+      "job_id": 101251900052,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900052",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 628,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:08:51Z",
+      "duration_s": 672,
+      "failure_kind": "none",
+      "job_id": 101251900010,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900010"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:26:20Z",
+      "duration_s": 1722,
+      "failure_kind": "test",
+      "job_id": 101251900009,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900009",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog price Rules : Bulk actions > Bulk actions",
+          "title": "should try to bulk delete cart rules",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 873,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:17:05Z",
+      "completed_at": "2026-09-05T05:23:36Z",
+      "duration_s": 391,
+      "failure_kind": "none",
+      "job_id": 101251900054,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900054"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:16:13Z",
+      "completed_at": "2026-09-05T05:28:17Z",
+      "duration_s": 724,
+      "failure_kind": "none",
+      "job_id": 101251900053,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900053"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:09:14Z",
+      "duration_s": 696,
+      "failure_kind": "none",
+      "job_id": 101251900003,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900003"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:12:08Z",
+      "duration_s": 870,
+      "failure_kind": "none",
+      "job_id": 101251900013,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900013"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:06:32Z",
+      "duration_s": 533,
+      "failure_kind": "none",
+      "job_id": 101251900017,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900017"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:16:44Z",
+      "completed_at": "2026-09-05T05:36:53Z",
+      "duration_s": 1209,
+      "failure_kind": "none",
+      "job_id": 101251900057,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900057"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:21:23Z",
+      "completed_at": "2026-09-05T05:43:28Z",
+      "duration_s": 1325,
+      "failure_kind": "none",
+      "job_id": 101251900122,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900122"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:37Z",
+      "completed_at": "2026-09-05T05:12:19Z",
+      "duration_s": 882,
+      "failure_kind": "none",
+      "job_id": 101251899991,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251899991"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:09:18Z",
+      "completed_at": "2026-09-05T05:20:49Z",
+      "duration_s": 691,
+      "failure_kind": "none",
+      "job_id": 101251900056,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900056"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:08:37Z",
+      "duration_s": 658,
+      "failure_kind": "test",
+      "job_id": 101251900028,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900028",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should view my shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 195,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:04:27Z",
+      "duration_s": 409,
+      "failure_kind": "none",
+      "job_id": 101251899985,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251899985"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:07:36Z",
+      "duration_s": 597,
+      "failure_kind": "none",
+      "job_id": 101251900019,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900019"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:04:29Z",
+      "completed_at": "2026-09-05T05:22:43Z",
+      "duration_s": 1094,
+      "failure_kind": "none",
+      "job_id": 101251900033,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900033"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:37Z",
+      "completed_at": "2026-09-05T05:18:48Z",
+      "duration_s": 1271,
+      "failure_kind": "none",
+      "job_id": 101251899996,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251899996"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:11:13Z",
+      "duration_s": 815,
+      "failure_kind": "none",
+      "job_id": 101251900014,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900014"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:08:40Z",
+      "completed_at": "2026-09-05T05:20:01Z",
+      "duration_s": 681,
+      "failure_kind": "none",
+      "job_id": 101251900043,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900043"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:11:15Z",
+      "completed_at": "2026-09-05T05:30:10Z",
+      "duration_s": 1135,
+      "failure_kind": "none",
+      "job_id": 101251900051,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900051"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:08:03Z",
+      "duration_s": 625,
+      "failure_kind": "none",
+      "job_id": 101251900007,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900007"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:15:32Z",
+      "duration_s": 1074,
+      "failure_kind": "none",
+      "job_id": 101251900030,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900030"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:14:47Z",
+      "duration_s": 1028,
+      "failure_kind": "none",
+      "job_id": 101251900035,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900035"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:15:35Z",
+      "completed_at": "2026-09-05T05:36:21Z",
+      "duration_s": 1246,
+      "failure_kind": "none",
+      "job_id": 101251900045,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900045"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:20:04Z",
+      "completed_at": "2026-09-05T05:42:32Z",
+      "duration_s": 1348,
+      "failure_kind": "none",
+      "job_id": 101251900087,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900087"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:14:50Z",
+      "completed_at": "2026-09-05T05:44:24Z",
+      "duration_s": 1774,
+      "failure_kind": "none",
+      "job_id": 101251900077,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900077"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:12:02Z",
+      "duration_s": 863,
+      "failure_kind": "none",
+      "job_id": 101251900082,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900082"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:06:36Z",
+      "completed_at": "2026-09-05T05:58:53Z",
+      "duration_s": 3137,
+      "failure_kind": "none",
+      "job_id": 101251900074,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900074"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:06:35Z",
+      "completed_at": "2026-09-05T05:25:11Z",
+      "duration_s": 1116,
+      "failure_kind": "none",
+      "job_id": 101251900075,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900075"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:07:39Z",
+      "completed_at": "2026-09-05T05:17:02Z",
+      "duration_s": 563,
+      "failure_kind": "none",
+      "job_id": 101251900071,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900071"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:18:59Z",
+      "completed_at": "2026-09-05T05:47:42Z",
+      "duration_s": 1723,
+      "failure_kind": "none",
+      "job_id": 101251900142,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900142"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:08:05Z",
+      "completed_at": "2026-09-05T05:18:56Z",
+      "duration_s": 651,
+      "failure_kind": "none",
+      "job_id": 101251900085,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900085"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:07:47Z",
+      "completed_at": "2026-09-05T05:22:19Z",
+      "duration_s": 872,
+      "failure_kind": "none",
+      "job_id": 101251900078,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900078"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:39Z",
+      "completed_at": "2026-09-05T05:07:44Z",
+      "duration_s": 605,
+      "failure_kind": "none",
+      "job_id": 101251900099,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900099"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:14:26Z",
+      "completed_at": "2026-09-05T05:42:07Z",
+      "duration_s": 1661,
+      "failure_kind": "none",
+      "job_id": 101251900133,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900133"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T05:20:14Z",
+      "completed_at": "2026-09-05T05:32:38Z",
+      "duration_s": 744,
+      "failure_kind": "test",
+      "job_id": 101251900138,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900138",
+      "failing_tests": [
+        {
+          "suite": "BO - Modules - GDPR : Multistore > Multistore",
+          "title": "should create the shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 200,
+        "failing": 1,
+        "pending": 2
+      }
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T04:57:38Z",
+      "completed_at": "2026-09-05T05:06:32Z",
+      "duration_s": 534,
+      "failure_kind": "none",
+      "job_id": 101251900098,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900098"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T05:12:04Z",
+      "completed_at": "2026-09-05T05:21:20Z",
+      "duration_s": 556,
+      "failure_kind": "none",
+      "job_id": 101251900127,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101251900127"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T06:05:44Z",
+      "completed_at": "2026-09-05T06:20:55Z",
+      "duration_s": 911,
+      "failure_kind": "test",
+      "job_id": 101259812808,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101259812808",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°17",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 458,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T06:05:43Z",
+      "completed_at": "2026-09-05T06:19:59Z",
+      "duration_s": 856,
+      "failure_kind": "test",
+      "job_id": 101259812763,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101259812763",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 305,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T06:05:43Z",
+      "completed_at": "2026-09-05T06:35:03Z",
+      "duration_s": 1760,
+      "failure_kind": "test",
+      "job_id": 101259812858,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101259812858",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog price Rules : Bulk actions > Bulk actions",
+          "title": "should try to bulk delete cart rules",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 873,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T06:05:43Z",
+      "completed_at": "2026-09-05T06:17:46Z",
+      "duration_s": 723,
+      "failure_kind": "none",
+      "job_id": 101259812769,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101259812769"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T06:05:43Z",
+      "completed_at": "2026-09-05T06:18:24Z",
+      "duration_s": 761,
+      "failure_kind": "none",
+      "job_id": 101259812823,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101259812823"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T06:59:16Z",
+      "completed_at": "2026-09-05T07:14:25Z",
+      "duration_s": 909,
+      "failure_kind": "test",
+      "job_id": 101263604564,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101263604564",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°6",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 436,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T06:59:15Z",
+      "completed_at": "2026-09-05T07:20:12Z",
+      "duration_s": 1257,
+      "failure_kind": "test",
+      "job_id": 101263604610,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101263604610",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 628,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T06:59:14Z",
+      "completed_at": "2026-09-05T07:52:06Z",
+      "duration_s": 3172,
+      "failure_kind": "none",
+      "job_id": 101263604551,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101263604551"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T07:52:19Z",
+      "completed_at": "2026-09-05T08:06:11Z",
+      "duration_s": 832,
+      "failure_kind": "test",
+      "job_id": 101273125482,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101273125482",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Update shop",
+          "title": "should edit shop and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 410,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T07:52:19Z",
+      "completed_at": "2026-09-05T08:08:16Z",
+      "duration_s": 957,
+      "failure_kind": "test",
+      "job_id": 101273125490,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101273125490",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T08:08:30Z",
+      "completed_at": "2026-09-05T08:26:04Z",
+      "duration_s": 1054,
+      "failure_kind": "none",
+      "job_id": 101275080718,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101275080718"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-05T08:08:29Z",
+      "completed_at": "2026-09-05T08:22:55Z",
+      "duration_s": 866,
+      "failure_kind": "test",
+      "job_id": 101275080700,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101275080700",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-05T08:26:17Z",
+      "completed_at": "2026-09-05T08:47:12Z",
+      "duration_s": 1255,
+      "failure_kind": "none",
+      "job_id": 101277313980,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/33945925502/job/101277313980"
+    }
+  ]
+}

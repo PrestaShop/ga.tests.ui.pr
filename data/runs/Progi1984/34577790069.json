@@ -1,0 +1,880 @@
+{
+  "repo": "Progi1984/ga.tests.ui.pr",
+  "owner": "Progi1984",
+  "run_id": 34577790069,
+  "run_number": 774,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-09-11T08:09:20Z",
+  "updated_at": "2026-09-11T11:01:36Z",
+  "html_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42722,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.3.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:30:58Z",
+      "duration_s": 1279,
+      "failure_kind": "none",
+      "job_id": 103194189788,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189788"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:19:05Z",
+      "duration_s": 567,
+      "failure_kind": "none",
+      "job_id": 103194189767,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189767"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:17:04Z",
+      "completed_at": "2026-09-11T09:05:08Z",
+      "duration_s": 2884,
+      "failure_kind": "none",
+      "job_id": 103194189834,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189834"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:26:12Z",
+      "duration_s": 994,
+      "failure_kind": "none",
+      "job_id": 103194190005,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190005"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:25:04Z",
+      "duration_s": 925,
+      "failure_kind": "test",
+      "job_id": 103194190128,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190128",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Go to 'Multistore' page and create the first shop",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 424,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:17:35Z",
+      "duration_s": 477,
+      "failure_kind": "none",
+      "job_id": 103194190048,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190048"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:21:17Z",
+      "completed_at": "2026-09-11T08:44:43Z",
+      "duration_s": 1406,
+      "failure_kind": "none",
+      "job_id": 103194189861,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189861"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:30:27Z",
+      "duration_s": 1248,
+      "failure_kind": "none",
+      "job_id": 103194189892,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189892"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:21:15Z",
+      "duration_s": 696,
+      "failure_kind": "none",
+      "job_id": 103194189837,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189837"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T08:32:04Z",
+      "completed_at": "2026-09-11T09:00:31Z",
+      "duration_s": 1707,
+      "failure_kind": "test",
+      "job_id": 103194190066,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190066",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog price Rules : Bulk actions > Bulk actions",
+          "title": "should try to bulk delete cart rules",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 873,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:32:58Z",
+      "completed_at": "2026-09-11T08:39:48Z",
+      "duration_s": 410,
+      "failure_kind": "none",
+      "job_id": 103194190264,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190264"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:22:56Z",
+      "duration_s": 798,
+      "failure_kind": "none",
+      "job_id": 103194189856,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189856"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:21:16Z",
+      "duration_s": 698,
+      "failure_kind": "none",
+      "job_id": 103194189852,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189852"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:24:07Z",
+      "duration_s": 869,
+      "failure_kind": "none",
+      "job_id": 103194189863,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189863"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:17:02Z",
+      "duration_s": 444,
+      "failure_kind": "none",
+      "job_id": 103194190001,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190001"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:30:19Z",
+      "completed_at": "2026-09-11T08:51:19Z",
+      "duration_s": 1260,
+      "failure_kind": "none",
+      "job_id": 103194190131,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190131"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:34:35Z",
+      "completed_at": "2026-09-11T08:57:23Z",
+      "duration_s": 1368,
+      "failure_kind": "none",
+      "job_id": 103194190295,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190295"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:30:28Z",
+      "completed_at": "2026-09-11T08:43:53Z",
+      "duration_s": 805,
+      "failure_kind": "none",
+      "job_id": 103194190226,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190226"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:21:18Z",
+      "completed_at": "2026-09-11T08:32:56Z",
+      "duration_s": 698,
+      "failure_kind": "none",
+      "job_id": 103194190130,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190130"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T08:35:14Z",
+      "completed_at": "2026-09-11T08:44:35Z",
+      "duration_s": 561,
+      "failure_kind": "test",
+      "job_id": 103194190186,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190186",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should check the translation",
+          "error": "AssertionError: expected 'Popular Products' to include 'translate'",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 185
+        }
+      ],
+      "test_counts": {
+        "passing": 174,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:24:09Z",
+      "completed_at": "2026-09-11T08:30:55Z",
+      "duration_s": 406,
+      "failure_kind": "none",
+      "job_id": 103194189884,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189884"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:32:43Z",
+      "completed_at": "2026-09-11T08:43:25Z",
+      "duration_s": 642,
+      "failure_kind": "none",
+      "job_id": 103194189965,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189965"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:24:19Z",
+      "duration_s": 881,
+      "failure_kind": "test",
+      "job_id": 103194189825,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189825",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:32:40Z",
+      "duration_s": 1382,
+      "failure_kind": "none",
+      "job_id": 103194189858,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189858"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:22:58Z",
+      "completed_at": "2026-09-11T08:35:43Z",
+      "duration_s": 765,
+      "failure_kind": "none",
+      "job_id": 103194189955,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189955"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:25:41Z",
+      "duration_s": 962,
+      "failure_kind": "none",
+      "job_id": 103194189841,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189841"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:25:06Z",
+      "completed_at": "2026-09-11T08:45:47Z",
+      "duration_s": 1241,
+      "failure_kind": "none",
+      "job_id": 103194189873,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194189873"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:20:10Z",
+      "completed_at": "2026-09-11T08:30:18Z",
+      "duration_s": 608,
+      "failure_kind": "none",
+      "job_id": 103194190023,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190023"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:25:43Z",
+      "completed_at": "2026-09-11T08:43:37Z",
+      "duration_s": 1074,
+      "failure_kind": "none",
+      "job_id": 103194190158,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190158"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:18:59Z",
+      "completed_at": "2026-09-11T08:36:30Z",
+      "duration_s": 1051,
+      "failure_kind": "none",
+      "job_id": 103194190168,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190168"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:19:07Z",
+      "completed_at": "2026-09-11T08:39:24Z",
+      "duration_s": 1217,
+      "failure_kind": "none",
+      "job_id": 103194190146,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190146"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:32:02Z",
+      "duration_s": 1344,
+      "failure_kind": "none",
+      "job_id": 103194190085,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190085"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:17:56Z",
+      "completed_at": "2026-09-11T08:49:00Z",
+      "duration_s": 1864,
+      "failure_kind": "none",
+      "job_id": 103194190141,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190141"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:31:02Z",
+      "completed_at": "2026-09-11T08:48:01Z",
+      "duration_s": 1019,
+      "failure_kind": "none",
+      "job_id": 103194190279,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190279"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T09:02:18Z",
+      "duration_s": 3160,
+      "failure_kind": "none",
+      "job_id": 103194190110,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190110"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:27:56Z",
+      "duration_s": 1097,
+      "failure_kind": "none",
+      "job_id": 103194190212,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190212"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:24:57Z",
+      "completed_at": "2026-09-11T08:34:33Z",
+      "duration_s": 576,
+      "failure_kind": "none",
+      "job_id": 103194190235,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190235"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:35:12Z",
+      "duration_s": 1533,
+      "failure_kind": "none",
+      "job_id": 103194190161,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190161"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:38Z",
+      "completed_at": "2026-09-11T08:20:08Z",
+      "duration_s": 630,
+      "failure_kind": "none",
+      "job_id": 103194190020,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190020"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:26:13Z",
+      "completed_at": "2026-09-11T08:41:24Z",
+      "duration_s": 911,
+      "failure_kind": "none",
+      "job_id": 103194190224,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190224"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:27:58Z",
+      "completed_at": "2026-09-11T08:37:38Z",
+      "duration_s": 580,
+      "failure_kind": "none",
+      "job_id": 103194190214,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190214"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:36:32Z",
+      "completed_at": "2026-09-11T09:01:23Z",
+      "duration_s": 1491,
+      "failure_kind": "none",
+      "job_id": 103194190444,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190444"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:35:45Z",
+      "completed_at": "2026-09-11T08:48:37Z",
+      "duration_s": 772,
+      "failure_kind": "none",
+      "job_id": 103194190344,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190344"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:30:57Z",
+      "completed_at": "2026-09-11T08:38:31Z",
+      "duration_s": 454,
+      "failure_kind": "none",
+      "job_id": 103194190284,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190284"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T08:09:39Z",
+      "completed_at": "2026-09-11T08:18:57Z",
+      "duration_s": 558,
+      "failure_kind": "none",
+      "job_id": 103194190331,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103194190331"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T09:05:22Z",
+      "completed_at": "2026-09-11T09:22:52Z",
+      "duration_s": 1050,
+      "failure_kind": "none",
+      "job_id": 103208795160,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103208795160"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T09:05:22Z",
+      "completed_at": "2026-09-11T09:57:42Z",
+      "duration_s": 3140,
+      "failure_kind": "none",
+      "job_id": 103208795190,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103208795190"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T09:05:22Z",
+      "completed_at": "2026-09-11T09:16:24Z",
+      "duration_s": 662,
+      "failure_kind": "test",
+      "job_id": 103208795153,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103208795153",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should view my shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 195,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T09:05:22Z",
+      "completed_at": "2026-09-11T09:21:24Z",
+      "duration_s": 962,
+      "failure_kind": "test",
+      "job_id": 103208795182,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103208795182",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T09:57:56Z",
+      "completed_at": "2026-09-11T10:07:12Z",
+      "duration_s": 556,
+      "failure_kind": "test",
+      "job_id": 103222889298,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103222889298",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should check the translation",
+          "error": "AssertionError: expected 'Popular Products' to include 'translate'",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 185
+        }
+      ],
+      "test_counts": {
+        "passing": 174,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T09:57:56Z",
+      "completed_at": "2026-09-11T10:14:04Z",
+      "duration_s": 968,
+      "failure_kind": "test",
+      "job_id": 103222889179,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103222889179",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T10:14:17Z",
+      "completed_at": "2026-09-11T10:25:48Z",
+      "duration_s": 691,
+      "failure_kind": "none",
+      "job_id": 103227219535,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103227219535"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T10:14:17Z",
+      "completed_at": "2026-09-11T10:21:29Z",
+      "duration_s": 432,
+      "failure_kind": "test",
+      "job_id": 103227219459,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103227219459",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 67,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-11T10:26:00Z",
+      "completed_at": "2026-09-11T10:42:36Z",
+      "duration_s": 996,
+      "failure_kind": "test",
+      "job_id": 103230281834,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103230281834",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-11T10:42:48Z",
+      "completed_at": "2026-09-11T11:01:36Z",
+      "duration_s": 1128,
+      "failure_kind": "none",
+      "job_id": 103234583022,
+      "job_url": "https://github.com/Progi1984/ga.tests.ui.pr/actions/runs/34577790069/job/103234583022"
+    }
+  ]
+}

@@ -1,0 +1,2724 @@
+{
+  "repo": "SGP97/ga.tests.ui.pr",
+  "owner": "SGP97",
+  "run_id": 34332232283,
+  "run_number": 1,
+  "run_attempt": 3,
+  "workflow": "pr_test.yml",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-09-09T09:00:14Z",
+  "updated_at": "2026-09-09T11:23:17Z",
+  "html_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 104,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679427,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679427"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679586,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679586"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404680528,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680528"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679358,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679358"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:05:36Z",
+      "completed_at": "2026-09-09T10:26:18Z",
+      "duration_s": 4842,
+      "failure_kind": "none",
+      "job_id": 102404677649,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677649"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679941,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679941"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404678536,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404678536"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:05:47Z",
+      "completed_at": "2026-09-09T10:26:21Z",
+      "duration_s": 4834,
+      "failure_kind": "none",
+      "job_id": 102404677470,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677470"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679384,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679384"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:18:44Z",
+      "completed_at": "2026-09-09T10:26:18Z",
+      "duration_s": 4054,
+      "failure_kind": "none",
+      "job_id": 102404677319,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677319"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404680128,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680128"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679348,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679348"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404680217,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680217"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404679659,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679659"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:07:05Z",
+      "completed_at": "2026-09-09T10:26:22Z",
+      "duration_s": 1157,
+      "failure_kind": "none",
+      "job_id": 102404677591,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677591"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:37:55Z",
+      "completed_at": "2026-09-09T10:26:21Z",
+      "duration_s": 2906,
+      "failure_kind": "none",
+      "job_id": 102404677604,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677604"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679978,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679978"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404680280,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680280"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679529,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679529"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404680370,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680370"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679227,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679227"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404680318,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680318"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404678576,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404678576"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679485,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679485"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679527,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679527"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:07:05Z",
+      "completed_at": "2026-09-09T10:26:22Z",
+      "duration_s": 1157,
+      "failure_kind": "none",
+      "job_id": 102404678437,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404678437"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679621,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679621"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404680087,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680087"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:07:23Z",
+      "completed_at": "2026-09-09T10:26:34Z",
+      "duration_s": 4751,
+      "failure_kind": "none",
+      "job_id": 102404677879,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677879"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:03Z",
+      "duration_s": 4877,
+      "failure_kind": "none",
+      "job_id": 102404678684,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404678684"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404680638,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680638"
+    },
+    {
+      "campaign": "functional:FO:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679458,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679458"
+    },
+    {
+      "campaign": "functional:FO:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:04Z",
+      "duration_s": 4878,
+      "failure_kind": "none",
+      "job_id": 102404679432,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679432"
+    },
+    {
+      "campaign": "functional:FO:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404680470,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680470"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:07:36Z",
+      "completed_at": "2026-09-09T10:26:26Z",
+      "duration_s": 4730,
+      "failure_kind": "none",
+      "job_id": 102404677877,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677877"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404680090,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680090"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:07:30Z",
+      "completed_at": "2026-09-09T10:26:26Z",
+      "duration_s": 4736,
+      "failure_kind": "none",
+      "job_id": 102404677572,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677572"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:18:54Z",
+      "completed_at": "2026-09-09T10:26:25Z",
+      "duration_s": 4051,
+      "failure_kind": "none",
+      "job_id": 102404677423,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677423"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404679844,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679844"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:05:03Z",
+      "completed_at": "2026-09-09T10:26:26Z",
+      "duration_s": 4883,
+      "failure_kind": "none",
+      "job_id": 102404677367,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404677367"
+    },
+    {
+      "campaign": "functional:productV2",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404679581,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679581"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404679630,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679630"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404680008,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680008"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404680515,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680515"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404679607,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679607"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404679590,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404679590"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404680229,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680229"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T09:00:22Z",
+      "completed_at": "2026-09-09T09:33:43Z",
+      "duration_s": 2001,
+      "failure_kind": "test",
+      "job_id": 102403289624,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102403289624",
+      "failing_tests": [
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install theme' be finished",
+          "error": "Fail to finish the step Install theme",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install fixtures' be finished",
+          "error": "Fail to finish the step Install fixtures",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Post installation scripts' be finished",
+          "error": "Fail to finish the step Post installation scripts",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation be successful",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 219
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should go to FO and check that Prestashop logo exists",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 228
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should reset all filters and get number of orders",
+          "error": "AssertionError: expected +0 to be above +0",
+          "file": "campaigns/sanity/02_ordersBO/01_filterOrders.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'id_order' and check the result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'reference' and check the result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'osname' and check the result",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/02_ordersBO/02_editOrder.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should modify the product quantity and check the validation",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should modify the order status and check the validation",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/02_ordersBO/02_editOrder.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should get number of products",
+          "error": "AssertionError: expected +0 to be above +0",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 68
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'id_product' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'product_name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'reference' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'category' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'price' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'quantity' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'active' and check result",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 114
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should preview product",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 147
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 164
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 189
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 200
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should create product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 126
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should create combinations and check generate combinations button",
+          "error": "AssertionError: expected 'Generate combinations' to equal 'Generate 4 combinations'",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should click on generate combinations button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check that combinations generation modal is closed",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should save the product",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should preview product",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 198
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 207
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should add combinations and check generate combinations button",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 214
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should click on generate combinations button",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 224
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should check that combinations generation modal is closed",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 232
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should save the product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 238
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 246
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 257
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 276
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 287
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should create virtual product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 115
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should preview product",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 133
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 148
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 157
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 165
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 178
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 190
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 201
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Create product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should click on 'Go to catalog' button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 111
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should filter list by 'Reference' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 120
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should click on delete product button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should delete product",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 139
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create first product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should choose 'Standard product'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 129
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should create product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should click on 'Go to catalog' button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 149
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should filter list by 'Name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 158
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should select the 2 products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should click on bulk actions button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should bulk delete products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 184
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should close progress modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 191
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should check and get the products number",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/01_filterProducts.ts",
+          "line": 49
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should filter products by the category 'Accessories' and check result",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should filter products by the subcategory 'Stationery' and check result",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Check the Product page > Catalog FO: Check products from catalog",
+          "title": "should go to the first product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/02_checkProduct.ts",
+          "line": 48
+        },
+        {
+          "suite": "FO - Catalog : Check the Product page > Catalog FO: Check products from catalog",
+          "title": "should check the product page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/02_checkProduct.ts",
+          "line": 57
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should go to the first product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 54
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should add product to cart and check that the number of products was updated in cart header",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should go to the second product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 81
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should add product to cart and check that the number of products was updated in cart header",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should check the first product details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 100
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should check the second product details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 111
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should get the ATI price",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should get the product number and check that is equal to 2",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should edit the quantity of the first product ordered",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 140
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should edit the quantity of the second product ordered",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 154
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should sign In in FO with default account",
+          "error": "Customer is not connected in FO",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 64
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should quick view the first product",
+          "error": "locator.hover: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should add first product to cart and Proceed to checkout",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 92
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should check the cart details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should proceed to checkout and check Step Address",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 113
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should validate Step Address and go to Delivery Step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should validate Step Delivery and go to Payment Step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 135
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should Pay by back wire and confirm order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 68,
+        "failing": 98,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "sanity:productV2",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T09:04:46Z",
+      "completed_at": "2026-09-09T10:26:05Z",
+      "duration_s": 4879,
+      "failure_kind": "none",
+      "job_id": 102404680172,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102404680172"
+    },
+    {
+      "campaign": "${{ matrix.TEST_COMMAND }}",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-09T10:27:00Z",
+      "completed_at": "2026-09-09T10:27:00Z",
+      "duration_s": 0,
+      "failure_kind": "none",
+      "job_id": 102429151401,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102429151401"
+    },
+    {
+      "campaign": "${{ matrix.TEST_COMMAND }}",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-09-09T10:27:01Z",
+      "completed_at": "2026-09-09T10:27:00Z",
+      "duration_s": null,
+      "failure_kind": "none",
+      "job_id": 102429152070,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102429152070"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:26:51Z",
+      "completed_at": "2026-09-09T10:27:00Z",
+      "duration_s": 9,
+      "failure_kind": "none",
+      "job_id": 102429106832,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102429106832"
+    },
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430670141,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670141"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669728,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669728"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669564,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669564"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430670069,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670069"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:42:46Z",
+      "completed_at": "2026-09-09T11:22:52Z",
+      "duration_s": 2406,
+      "failure_kind": "none",
+      "job_id": 102430666850,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666850"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669358,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669358"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:45:06Z",
+      "completed_at": "2026-09-09T11:22:52Z",
+      "duration_s": 2266,
+      "failure_kind": "none",
+      "job_id": 102430667158,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430667158"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:43:11Z",
+      "completed_at": "2026-09-09T11:22:53Z",
+      "duration_s": 2382,
+      "failure_kind": "none",
+      "job_id": 102430666749,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666749"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669392,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669392"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:45Z",
+      "completed_at": "2026-09-09T11:22:51Z",
+      "duration_s": 3006,
+      "failure_kind": "none",
+      "job_id": 102430666692,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666692"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669422,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669422"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430670312,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670312"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669973,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669973"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430670271,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670271"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:46Z",
+      "completed_at": "2026-09-09T11:22:52Z",
+      "duration_s": 3006,
+      "failure_kind": "none",
+      "job_id": 102430666801,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666801"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:44:36Z",
+      "completed_at": "2026-09-09T11:23:07Z",
+      "duration_s": 2311,
+      "failure_kind": "none",
+      "job_id": 102430666950,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666950"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430669588,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669588"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430670032,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670032"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669549,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669549"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:37Z",
+      "duration_s": 3022,
+      "failure_kind": "none",
+      "job_id": 102430670067,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670067"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430670061,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670061"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669296,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669296"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:43:46Z",
+      "completed_at": "2026-09-09T11:22:52Z",
+      "duration_s": 2346,
+      "failure_kind": "none",
+      "job_id": 102430666736,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666736"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669484,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669484"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669463,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669463"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:44:34Z",
+      "completed_at": "2026-09-09T11:22:52Z",
+      "duration_s": 2298,
+      "failure_kind": "none",
+      "job_id": 102430666944,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666944"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669753,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669753"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669389,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669389"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T11:00:32Z",
+      "completed_at": "2026-09-09T11:22:53Z",
+      "duration_s": 1341,
+      "failure_kind": "none",
+      "job_id": 102430667065,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430667065"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:49:51Z",
+      "completed_at": "2026-09-09T11:22:52Z",
+      "duration_s": 1981,
+      "failure_kind": "none",
+      "job_id": 102430666849,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666849"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430670019,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670019"
+    },
+    {
+      "campaign": "functional:FO:01-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669920,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669920"
+    },
+    {
+      "campaign": "functional:FO:04-07",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669913,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669913"
+    },
+    {
+      "campaign": "functional:FO:08-12",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430670257,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670257"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:49:51Z",
+      "completed_at": "2026-09-09T11:22:53Z",
+      "duration_s": 1982,
+      "failure_kind": "none",
+      "job_id": 102430667095,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430667095"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669949,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669949"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:52:30Z",
+      "completed_at": "2026-09-09T11:23:16Z",
+      "duration_s": 1846,
+      "failure_kind": "none",
+      "job_id": 102430667106,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430667106"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T11:00:32Z",
+      "completed_at": "2026-09-09T11:22:56Z",
+      "duration_s": 1344,
+      "failure_kind": "none",
+      "job_id": 102430666959,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430666959"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T11:10:03Z",
+      "completed_at": "2026-09-09T11:22:53Z",
+      "duration_s": 770,
+      "failure_kind": "none",
+      "job_id": 102430669247,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669247"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T11:06:14Z",
+      "completed_at": "2026-09-09T11:22:53Z",
+      "duration_s": 999,
+      "failure_kind": "none",
+      "job_id": 102430667242,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430667242"
+    },
+    {
+      "campaign": "functional:productV2",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430670235,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670235"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430670180,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430670180"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:38Z",
+      "duration_s": 3023,
+      "failure_kind": "none",
+      "job_id": 102430669755,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669755"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:39Z",
+      "duration_s": 3024,
+      "failure_kind": "none",
+      "job_id": 102430669302,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669302"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:39Z",
+      "duration_s": 3024,
+      "failure_kind": "none",
+      "job_id": 102430669710,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669710"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:39Z",
+      "duration_s": 3024,
+      "failure_kind": "none",
+      "job_id": 102430669559,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669559"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:39Z",
+      "duration_s": 3024,
+      "failure_kind": "none",
+      "job_id": 102430669999,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669999"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T10:33:00Z",
+      "completed_at": "2026-09-09T11:06:10Z",
+      "duration_s": 1990,
+      "failure_kind": "test",
+      "job_id": 102429241839,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102429241839",
+      "failing_tests": [
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install theme' be finished",
+          "error": "Fail to finish the step Install theme",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Install fixtures' be finished",
+          "error": "Fail to finish the step Install fixtures",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation step 'Post installation scripts' be finished",
+          "error": "Fail to finish the step Post installation scripts",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 211
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should installation be successful",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 219
+        },
+        {
+          "suite": "Install Prestashop",
+          "title": "should go to FO and check that Prestashop logo exists",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/01_installShop/01_installShop.ts",
+          "line": 228
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should reset all filters and get number of orders",
+          "error": "AssertionError: expected +0 to be above +0",
+          "file": "campaigns/sanity/02_ordersBO/01_filterOrders.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'id_order' and check the result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'reference' and check the result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Filter the Orders table by ID, REFERENCE, STATUS",
+          "title": "should filter the Orders table by 'osname' and check the result",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should go to the first order page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/02_ordersBO/02_editOrder.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should modify the product quantity and check the validation",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - Orders : Edit Order BO",
+          "title": "should modify the order status and check the validation",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/02_ordersBO/02_editOrder.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should get number of products",
+          "error": "AssertionError: expected +0 to be above +0",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 68
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'id_product' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'product_name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'reference' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'category' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'price' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'quantity' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Filter in Products Page > Filter products table by : ID, Name, Reference, Category, Price, Quantity and Status",
+          "title": "should filter list by 'active' and check result",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/01_filterProducts.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 114
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should preview product",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 147
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 164
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 189
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD standard product > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/02_CRUDStandardProduct.ts",
+          "line": 200
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should create product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 126
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should create combinations and check generate combinations button",
+          "error": "AssertionError: expected 'Generate combinations' to equal 'Generate 4 combinations'",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should click on generate combinations button",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check that combinations generation modal is closed",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should save the product",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should preview product",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 198
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 207
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should add combinations and check generate combinations button",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 214
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should click on generate combinations button",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 224
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should check that combinations generation modal is closed",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 232
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should save the product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 238
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 246
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 257
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 276
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/03_CRUDProductWithCombinations.ts",
+          "line": 287
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should create virtual product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should check that the save button is changed to 'Save and publish'",
+          "error": "AssertionError: expected 'Save' to equal 'Save and publish'",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 115
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should preview product",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should check all product information",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 133
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Create product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 148
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should edit the created product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 157
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should preview product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 165
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should check all product information",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 178
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Edit product",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 190
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD virtual product > Delete product",
+          "title": "should delete product",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/sanity/03_productsBO/04_CRUDVirtualProduct.ts",
+          "line": 201
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Create product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should click on 'Go to catalog' button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 111
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should filter list by 'Reference' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 120
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should click on delete product button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should delete product",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/05_deleteProduct.ts",
+          "line": 139
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete product > Delete product",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create first product",
+          "title": "should create standard product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should choose 'Standard product'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 129
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Create second product",
+          "title": "should create product",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should click on 'Go to catalog' button",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 149
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should filter list by 'Name' and check result",
+          "error": "locator.fill: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 158
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should select the 2 products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should click on bulk actions button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should bulk delete products",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 184
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should close progress modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/sanity/03_productsBO/06_deleteProductsWithBulkActions.ts",
+          "line": 191
+        },
+        {
+          "suite": "BO - Catalog - Products : Delete products with bulk actions > Bulk delete created products",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should check and get the products number",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/01_filterProducts.ts",
+          "line": 49
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should filter products by the category 'Accessories' and check result",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Filter Products by categories in Home page > Catalog FO: Filter products from catalog",
+          "title": "should filter products by the subcategory 'Stationery' and check result",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Catalog : Check the Product page > Catalog FO: Check products from catalog",
+          "title": "should go to the first product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/02_checkProduct.ts",
+          "line": 48
+        },
+        {
+          "suite": "FO - Catalog : Check the Product page > Catalog FO: Check products from catalog",
+          "title": "should check the product page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/04_catalogFO/02_checkProduct.ts",
+          "line": 57
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should go to the first product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 54
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should add product to cart and check that the number of products was updated in cart header",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should go to the second product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 81
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should add product to cart and check that the number of products was updated in cart header",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should check the first product details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 100
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should check the second product details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 111
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should get the ATI price",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should get the product number and check that is equal to 2",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should edit the quantity of the first product ordered",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 140
+        },
+        {
+          "suite": "FO - Cart : Check Cart in FO > Cart FO: edit check cart",
+          "title": "should edit the quantity of the second product ordered",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/05_cartFO/01_editCheckCart.ts",
+          "line": 154
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should sign In in FO with default account",
+          "error": "Customer is not connected in FO",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 64
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should quick view the first product",
+          "error": "locator.hover: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should add first product to cart and Proceed to checkout",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 92
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should check the cart details",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should proceed to checkout and check Step Address",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 113
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should validate Step Address and go to Delivery Step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should validate Step Delivery and go to Payment Step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/sanity/06_checkoutFO/01_orderProduct.ts",
+          "line": 135
+        },
+        {
+          "suite": "BO - Checkout : Order a product and check order confirmation",
+          "title": "should Pay by back wire and confirm order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 68,
+        "failing": 98,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "sanity:productV2",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-09T10:32:15Z",
+      "completed_at": "2026-09-09T11:22:39Z",
+      "duration_s": 3024,
+      "failure_kind": "none",
+      "job_id": 102430669895,
+      "job_url": "https://github.com/SGP97/ga.tests.ui.pr/actions/runs/34332232283/job/102430669895"
+    }
+  ]
+}

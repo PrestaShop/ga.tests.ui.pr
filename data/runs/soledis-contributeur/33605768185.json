@@ -1,0 +1,1003 @@
+{
+  "repo": "soledis-contributeur/ga.tests.ui.pr",
+  "owner": "soledis-contributeur",
+  "run_id": 33605768185,
+  "run_number": 17,
+  "run_attempt": 3,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-09-02T07:52:30Z",
+  "updated_at": "2026-09-02T09:57:42Z",
+  "html_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42505,
+  "db": "mysql",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.3.0",
+  "raw_job_rows": 138,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:09:52Z",
+      "completed_at": "2026-09-02T08:29:09Z",
+      "duration_s": 1157,
+      "failure_kind": "none",
+      "job_id": 100169328520,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328520"
+    },
+    {
+      "campaign": "cldr",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:08:38Z",
+      "completed_at": "2026-09-02T08:18:18Z",
+      "duration_s": 580,
+      "failure_kind": "none",
+      "job_id": 100169328498,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328498"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:44:52Z",
+      "duration_s": 3123,
+      "failure_kind": "none",
+      "job_id": 100169328413,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328413"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:10:07Z",
+      "duration_s": 1038,
+      "failure_kind": "none",
+      "job_id": 100169328662,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328662"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:16:04Z",
+      "duration_s": 1395,
+      "failure_kind": "test",
+      "job_id": 100169328539,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328539",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°2",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete2'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete3'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 644,
+        "failing": 18,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:17:01Z",
+      "completed_at": "2026-09-02T08:24:36Z",
+      "duration_s": 455,
+      "failure_kind": "none",
+      "job_id": 100169328813,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328813"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:16:58Z",
+      "duration_s": 1449,
+      "failure_kind": "none",
+      "job_id": 100169328462,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328462"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-02T08:03:26Z",
+      "completed_at": "2026-09-02T08:25:14Z",
+      "duration_s": 1308,
+      "failure_kind": "test",
+      "job_id": 100169328371,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328371",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 627,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:01:36Z",
+      "completed_at": "2026-09-02T08:12:00Z",
+      "duration_s": 624,
+      "failure_kind": "none",
+      "job_id": 100169328508,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328508"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:44:43Z",
+      "duration_s": 3114,
+      "failure_kind": "none",
+      "job_id": 100169328447,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328447"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:06:46Z",
+      "completed_at": "2026-09-02T08:13:43Z",
+      "duration_s": 417,
+      "failure_kind": "none",
+      "job_id": 100169328623,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328623"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:04:24Z",
+      "duration_s": 695,
+      "failure_kind": "none",
+      "job_id": 100169328495,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328495"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:05:22Z",
+      "duration_s": 753,
+      "failure_kind": "none",
+      "job_id": 100169328486,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328486"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:07:23Z",
+      "duration_s": 874,
+      "failure_kind": "none",
+      "job_id": 100169328463,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328463"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:00:46Z",
+      "duration_s": 477,
+      "failure_kind": "none",
+      "job_id": 100169328381,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328381"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:14:19Z",
+      "duration_s": 1290,
+      "failure_kind": "none",
+      "job_id": 100169328459,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328459"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:10:16Z",
+      "completed_at": "2026-09-02T08:33:09Z",
+      "duration_s": 1373,
+      "failure_kind": "none",
+      "job_id": 100169328708,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328708"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:50Z",
+      "completed_at": "2026-09-02T08:08:34Z",
+      "duration_s": 944,
+      "failure_kind": "none",
+      "job_id": 100169328565,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328565"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:03:36Z",
+      "completed_at": "2026-09-02T08:15:07Z",
+      "duration_s": 691,
+      "failure_kind": "none",
+      "job_id": 100169328613,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328613"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:11:33Z",
+      "completed_at": "2026-09-02T08:24:02Z",
+      "duration_s": 749,
+      "failure_kind": "none",
+      "job_id": 100169328620,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328620"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:12:03Z",
+      "completed_at": "2026-09-02T08:19:00Z",
+      "duration_s": 417,
+      "failure_kind": "none",
+      "job_id": 100169328560,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328560"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:00:45Z",
+      "completed_at": "2026-09-02T08:11:29Z",
+      "duration_s": 644,
+      "failure_kind": "none",
+      "job_id": 100169328547,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328547"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-02T08:00:49Z",
+      "completed_at": "2026-09-02T08:19:27Z",
+      "duration_s": 1118,
+      "failure_kind": "test",
+      "job_id": 100169328478,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328478",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:15:22Z",
+      "duration_s": 1353,
+      "failure_kind": "none",
+      "job_id": 100169328399,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328399"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:06:43Z",
+      "duration_s": 834,
+      "failure_kind": "none",
+      "job_id": 100169328356,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328356"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:03:33Z",
+      "duration_s": 644,
+      "failure_kind": "none",
+      "job_id": 100169328421,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328421"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:04:27Z",
+      "completed_at": "2026-09-02T08:25:04Z",
+      "duration_s": 1237,
+      "failure_kind": "none",
+      "job_id": 100169328518,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328518"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:03:23Z",
+      "duration_s": 634,
+      "failure_kind": "none",
+      "job_id": 100169328489,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328489"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:18:48Z",
+      "completed_at": "2026-09-02T08:36:45Z",
+      "duration_s": 1077,
+      "failure_kind": "none",
+      "job_id": 100169328483,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328483"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:09:49Z",
+      "duration_s": 1020,
+      "failure_kind": "none",
+      "job_id": 100169328556,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328556"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:51Z",
+      "completed_at": "2026-09-02T08:13:43Z",
+      "duration_s": 1252,
+      "failure_kind": "none",
+      "job_id": 100169328605,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328605"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:14:22Z",
+      "completed_at": "2026-09-02T08:36:16Z",
+      "duration_s": 1314,
+      "failure_kind": "none",
+      "job_id": 100169328724,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328724"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:16:07Z",
+      "completed_at": "2026-09-02T08:45:44Z",
+      "duration_s": 1777,
+      "failure_kind": "none",
+      "job_id": 100169328850,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328850"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:01:48Z",
+      "completed_at": "2026-09-02T08:18:45Z",
+      "duration_s": 1017,
+      "failure_kind": "none",
+      "job_id": 100169328682,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328682"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:18:49Z",
+      "completed_at": "2026-09-02T09:13:39Z",
+      "duration_s": 3290,
+      "failure_kind": "none",
+      "job_id": 100169329082,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169329082"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:13:46Z",
+      "completed_at": "2026-09-02T08:31:54Z",
+      "duration_s": 1088,
+      "failure_kind": "none",
+      "job_id": 100169328909,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328909"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:15:10Z",
+      "completed_at": "2026-09-02T08:24:44Z",
+      "duration_s": 574,
+      "failure_kind": "none",
+      "job_id": 100169328825,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328825"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:13:46Z",
+      "completed_at": "2026-09-02T08:41:57Z",
+      "duration_s": 1691,
+      "failure_kind": "none",
+      "job_id": 100169328863,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328863"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:18:21Z",
+      "completed_at": "2026-09-02T08:30:56Z",
+      "duration_s": 755,
+      "failure_kind": "none",
+      "job_id": 100169328921,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328921"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:15:25Z",
+      "completed_at": "2026-09-02T08:29:29Z",
+      "duration_s": 844,
+      "failure_kind": "none",
+      "job_id": 100169328878,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328878"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:00:42Z",
+      "duration_s": 473,
+      "failure_kind": "none",
+      "job_id": 100169328762,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328762"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:07:28Z",
+      "completed_at": "2026-09-02T08:35:24Z",
+      "duration_s": 1676,
+      "failure_kind": "none",
+      "job_id": 100169328821,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328821"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T08:05:25Z",
+      "completed_at": "2026-09-02T08:18:45Z",
+      "duration_s": 800,
+      "failure_kind": "none",
+      "job_id": 100169328743,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328743"
+    },
+    {
+      "campaign": "regression",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:50Z",
+      "completed_at": "2026-09-02T08:01:33Z",
+      "duration_s": 523,
+      "failure_kind": "none",
+      "job_id": 100169328815,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328815"
+    },
+    {
+      "campaign": "sanity",
+      "branch": "develop",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T07:52:49Z",
+      "completed_at": "2026-09-02T08:01:46Z",
+      "duration_s": 537,
+      "failure_kind": "none",
+      "job_id": 100169328666,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100169328666"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-02T09:14:00Z",
+      "completed_at": "2026-09-02T09:37:13Z",
+      "duration_s": 1393,
+      "failure_kind": "test",
+      "job_id": 100192208005,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100192208005",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Create shop",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Create shop",
+          "title": "should get the id of the new shop",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Update shop",
+          "title": "should go to edit the created shop page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 101
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Update shop",
+          "title": "should edit shop and check result",
+          "error": "AssertionError: expected '× Successful creation' to include 'Successful update'",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 112
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Delete shop",
+          "title": "should go to the created shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 138
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Delete shop",
+          "title": "should delete the shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 147
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Edit URL options",
+          "title": "should disable the shop URL for the created url",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Edit URL options",
+          "title": "should enable the main URL for the first url",
+          "error": "AssertionError: expected '× The status has been successfully updated.' to include 'Successful update'",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/07_editUrlOptions.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > POST-TEST: Delete created shop URL",
+          "title": "should delete the created shop url",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/07_editUrlOptions.ts",
+          "line": 168
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 647,
+        "failing": 15,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-02T09:13:58Z",
+      "completed_at": "2026-09-02T09:35:09Z",
+      "duration_s": 1271,
+      "failure_kind": "test",
+      "job_id": 100192207909,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100192207909",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change features values position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 627,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-02T09:13:58Z",
+      "completed_at": "2026-09-02T09:33:07Z",
+      "duration_s": 1149,
+      "failure_kind": "test",
+      "job_id": 100192207897,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100192207897",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T09:37:29Z",
+      "completed_at": "2026-09-02T09:53:06Z",
+      "duration_s": 937,
+      "failure_kind": "none",
+      "job_id": 100199067464,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100199067464"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T09:37:29Z",
+      "completed_at": "2026-09-02T09:57:41Z",
+      "duration_s": 1212,
+      "failure_kind": "none",
+      "job_id": 100199067386,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100199067386"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": "develop",
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-02T09:37:29Z",
+      "completed_at": "2026-09-02T09:54:56Z",
+      "duration_s": 1047,
+      "failure_kind": "none",
+      "job_id": 100199067270,
+      "job_url": "https://github.com/soledis-contributeur/ga.tests.ui.pr/actions/runs/33605768185/job/100199067270"
+    }
+  ]
+}

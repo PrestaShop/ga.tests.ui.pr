@@ -1,0 +1,983 @@
+{
+  "repo": "mattgoud/ga.tests.ui.pr",
+  "owner": "mattgoud",
+  "run_id": 33375882160,
+  "run_number": 113,
+  "run_attempt": 3,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-08-31T09:04:37Z",
+  "updated_at": "2026-08-31T11:03:15Z",
+  "html_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42411,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 138,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:16:15Z",
+      "completed_at": "2026-08-31T09:35:23Z",
+      "duration_s": 1148,
+      "failure_kind": "none",
+      "job_id": 99437200592,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200592"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:04:55Z",
+      "completed_at": "2026-08-31T09:14:33Z",
+      "duration_s": 578,
+      "failure_kind": "none",
+      "job_id": 99437200548,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200548"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:05:49Z",
+      "completed_at": "2026-08-31T09:57:53Z",
+      "duration_s": 3124,
+      "failure_kind": "none",
+      "job_id": 99437200624,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200624"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:14:35Z",
+      "completed_at": "2026-08-31T09:31:19Z",
+      "duration_s": 1004,
+      "failure_kind": "none",
+      "job_id": 99437200803,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200803"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-31T09:36:43Z",
+      "completed_at": "2026-08-31T09:59:43Z",
+      "duration_s": 1380,
+      "failure_kind": "test",
+      "job_id": 99437200770,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200770",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete10'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete11'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 644,
+        "failing": 18,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:30:27Z",
+      "completed_at": "2026-08-31T09:37:20Z",
+      "duration_s": 413,
+      "failure_kind": "none",
+      "job_id": 99437200848,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200848"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:07:57Z",
+      "completed_at": "2026-08-31T09:32:23Z",
+      "duration_s": 1466,
+      "failure_kind": "none",
+      "job_id": 99437200642,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200642"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:15:31Z",
+      "completed_at": "2026-08-31T09:36:39Z",
+      "duration_s": 1268,
+      "failure_kind": "none",
+      "job_id": 99437200638,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200638"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:04:55Z",
+      "completed_at": "2026-08-31T09:15:33Z",
+      "duration_s": 638,
+      "failure_kind": "none",
+      "job_id": 99437200524,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200524"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:34:41Z",
+      "completed_at": "2026-08-31T10:25:57Z",
+      "duration_s": 3076,
+      "failure_kind": "none",
+      "job_id": 99437200687,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200687"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:15:47Z",
+      "completed_at": "2026-08-31T09:21:46Z",
+      "duration_s": 359,
+      "failure_kind": "none",
+      "job_id": 99437200854,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200854"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:21:08Z",
+      "completed_at": "2026-08-31T09:33:33Z",
+      "duration_s": 745,
+      "failure_kind": "none",
+      "job_id": 99437200631,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200631"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-31T09:04:54Z",
+      "completed_at": "2026-08-31T09:20:04Z",
+      "duration_s": 910,
+      "failure_kind": "test",
+      "job_id": 99437200696,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200696",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : Pagination and sort customers table > PRE-TEST: Import file 'customers.csv'",
+          "title": "should check that the import is completed",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customers - Customers : Pagination and sort customers table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/04_customers/01_customers/04_paginationAndSortCustomers.ts",
+          "line": 96
+        },
+        {
+          "suite": "BO - Customers - Customers : Pagination and sort customers table > Pagination next and previous",
+          "title": "should click on next",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/04_customers/01_customers/04_paginationAndSortCustomers.ts",
+          "line": 103
+        },
+        {
+          "suite": "BO - Customers - Customers : Pagination and sort customers table > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/04_customers/01_customers/04_paginationAndSortCustomers.ts",
+          "line": 110
+        },
+        {
+          "suite": "BO - Customers - Customers : Pagination and sort customers table > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/04_customers/01_customers/04_paginationAndSortCustomers.ts",
+          "line": 117
+        }
+      ],
+      "test_counts": {
+        "passing": 250,
+        "failing": 5,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:37:23Z",
+      "completed_at": "2026-08-31T09:51:10Z",
+      "duration_s": 827,
+      "failure_kind": "none",
+      "job_id": 99437200734,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200734"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:07:37Z",
+      "completed_at": "2026-08-31T09:15:45Z",
+      "duration_s": 488,
+      "failure_kind": "none",
+      "job_id": 99437200711,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200711"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:35:26Z",
+      "completed_at": "2026-08-31T09:54:56Z",
+      "duration_s": 1170,
+      "failure_kind": "none",
+      "job_id": 99437200790,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200790"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:16:09Z",
+      "completed_at": "2026-08-31T09:38:46Z",
+      "duration_s": 1357,
+      "failure_kind": "none",
+      "job_id": 99437200847,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200847"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:33:35Z",
+      "completed_at": "2026-08-31T09:48:55Z",
+      "duration_s": 920,
+      "failure_kind": "none",
+      "job_id": 99437200783,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200783"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:38:48Z",
+      "completed_at": "2026-08-31T09:50:24Z",
+      "duration_s": 696,
+      "failure_kind": "none",
+      "job_id": 99437200731,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200731"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:13:43Z",
+      "completed_at": "2026-08-31T09:25:37Z",
+      "duration_s": 714,
+      "failure_kind": "none",
+      "job_id": 99437200837,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200837"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:24:04Z",
+      "completed_at": "2026-08-31T09:30:24Z",
+      "duration_s": 380,
+      "failure_kind": "none",
+      "job_id": 99437200646,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200646"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:05:05Z",
+      "completed_at": "2026-08-31T09:16:07Z",
+      "duration_s": 662,
+      "failure_kind": "none",
+      "job_id": 99437200683,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200683"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-31T09:10:33Z",
+      "completed_at": "2026-08-31T09:29:56Z",
+      "duration_s": 1163,
+      "failure_kind": "test",
+      "job_id": 99437200635,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200635",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 532,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:36:35Z",
+      "completed_at": "2026-08-31T09:59:49Z",
+      "duration_s": 1394,
+      "failure_kind": "none",
+      "job_id": 99437200864,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200864"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:21:49Z",
+      "completed_at": "2026-08-31T09:34:58Z",
+      "duration_s": 789,
+      "failure_kind": "none",
+      "job_id": 99437200695,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200695"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:20:08Z",
+      "completed_at": "2026-08-31T09:31:19Z",
+      "duration_s": 671,
+      "failure_kind": "none",
+      "job_id": 99437200641,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200641"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:19:46Z",
+      "completed_at": "2026-08-31T09:40:29Z",
+      "duration_s": 1243,
+      "failure_kind": "none",
+      "job_id": 99437200659,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200659"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:23:50Z",
+      "completed_at": "2026-08-31T09:34:39Z",
+      "duration_s": 649,
+      "failure_kind": "none",
+      "job_id": 99437200767,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200767"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:25:40Z",
+      "completed_at": "2026-08-31T09:43:46Z",
+      "duration_s": 1086,
+      "failure_kind": "none",
+      "job_id": 99437200766,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200766"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:36:00Z",
+      "completed_at": "2026-08-31T09:53:05Z",
+      "duration_s": 1025,
+      "failure_kind": "none",
+      "job_id": 99437200849,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200849"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:30:00Z",
+      "completed_at": "2026-08-31T09:50:43Z",
+      "duration_s": 1243,
+      "failure_kind": "none",
+      "job_id": 99437200846,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200846"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:35:01Z",
+      "completed_at": "2026-08-31T09:56:57Z",
+      "duration_s": 1316,
+      "failure_kind": "none",
+      "job_id": 99437200850,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200850"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:10:38Z",
+      "completed_at": "2026-08-31T09:40:23Z",
+      "duration_s": 1785,
+      "failure_kind": "none",
+      "job_id": 99437200761,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200761"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:13:46Z",
+      "completed_at": "2026-08-31T09:30:32Z",
+      "duration_s": 1006,
+      "failure_kind": "none",
+      "job_id": 99437200791,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200791"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:31:21Z",
+      "completed_at": "2026-08-31T10:23:48Z",
+      "duration_s": 3147,
+      "failure_kind": "none",
+      "job_id": 99437200851,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200851"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:31:22Z",
+      "completed_at": "2026-08-31T09:49:37Z",
+      "duration_s": 1095,
+      "failure_kind": "none",
+      "job_id": 99437200842,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200842"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-31T09:30:35Z",
+      "completed_at": "2026-08-31T09:43:49Z",
+      "duration_s": 794,
+      "failure_kind": "test",
+      "job_id": 99437200868,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200868",
+      "failing_tests": [
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view product with combinations",
+          "title": "should change the product quantity and click on add to cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view product with combinations",
+          "title": "should click on continue shopping and check that the modal is not visible",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 147
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view simple product",
+          "title": "should go to the All products page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 156
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view simple product",
+          "title": "should quick view the product 'Mug The best is yet to come'",
+          "error": "locator.hover: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 165
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view simple product",
+          "title": "should check product information",
+          "error": "AssertionError: expected 'The best is yet to come\\' Framed poster' to equal 'Mug The best is yet to come'",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 176
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view simple product",
+          "title": "should change the product quantity and click on add to cart",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view simple product",
+          "title": "should click on continue shopping and check that the modal is not visible",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 198
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view customized product",
+          "title": "should go to the second page and quick view the product 'Customizable mug'",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 207
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view customized product",
+          "title": "should check product information",
+          "error": "AssertionError: expected 'The best is yet to come\\' Framed poster' to equal 'Customizable mug'",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 219
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view product out of stock not allowed",
+          "title": "should quick view the product 'Out of stock not allowed'",
+          "error": "locator.hover: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 247
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view product out of stock not allowed",
+          "title": "should check that 'Add to cart' button is disabled",
+          "error": "Add to cart button is not disabled",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 257
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view product out of stock not allowed",
+          "title": "should check the product availability",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 263
+        },
+        {
+          "suite": "FO - Home Page : Product quick view > Quick view product out of stock not allowed",
+          "title": "should close the quick view modal",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/06_homePage/04_productQuickView.ts",
+          "line": 270
+        }
+      ],
+      "test_counts": {
+        "passing": 195,
+        "failing": 13,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:11:33Z",
+      "completed_at": "2026-08-31T09:40:53Z",
+      "duration_s": 1760,
+      "failure_kind": "none",
+      "job_id": 99437200835,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200835"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:10:30Z",
+      "completed_at": "2026-08-31T09:21:05Z",
+      "duration_s": 635,
+      "failure_kind": "none",
+      "job_id": 99437200841,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200841"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:08:53Z",
+      "completed_at": "2026-08-31T09:24:01Z",
+      "duration_s": 908,
+      "failure_kind": "none",
+      "job_id": 99437200836,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200836"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:09:54Z",
+      "completed_at": "2026-08-31T09:19:43Z",
+      "duration_s": 589,
+      "failure_kind": "none",
+      "job_id": 99437200838,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200838"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:09:20Z",
+      "completed_at": "2026-08-31T09:36:32Z",
+      "duration_s": 1632,
+      "failure_kind": "none",
+      "job_id": 99437200840,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200840"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:32:26Z",
+      "completed_at": "2026-08-31T09:45:07Z",
+      "duration_s": 761,
+      "failure_kind": "none",
+      "job_id": 99437200996,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200996"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:15:36Z",
+      "completed_at": "2026-08-31T09:23:47Z",
+      "duration_s": 491,
+      "failure_kind": "none",
+      "job_id": 99437200947,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200947"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T09:31:39Z",
+      "completed_at": "2026-08-31T09:40:51Z",
+      "duration_s": 552,
+      "failure_kind": "none",
+      "job_id": 99437200897,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99437200897"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T10:26:12Z",
+      "completed_at": "2026-08-31T10:44:41Z",
+      "duration_s": 1109,
+      "failure_kind": "none",
+      "job_id": 99457449138,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99457449138"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T10:26:12Z",
+      "completed_at": "2026-08-31T10:38:52Z",
+      "duration_s": 760,
+      "failure_kind": "none",
+      "job_id": 99457449152,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99457449152"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-08-31T10:26:12Z",
+      "completed_at": "2026-08-31T10:44:40Z",
+      "duration_s": 1108,
+      "failure_kind": "test",
+      "job_id": 99457449073,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99457449073",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T10:26:12Z",
+      "completed_at": "2026-08-31T10:35:29Z",
+      "duration_s": 557,
+      "failure_kind": "none",
+      "job_id": 99457449076,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99457449076"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-31T10:44:55Z",
+      "completed_at": "2026-08-31T11:03:14Z",
+      "duration_s": 1099,
+      "failure_kind": "none",
+      "job_id": 99461785642,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/33375882160/job/99461785642"
+    }
+  ]
+}

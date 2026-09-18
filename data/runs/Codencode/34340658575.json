@@ -1,0 +1,1244 @@
+{
+  "repo": "Codencode/ga.tests.ui.pr",
+  "owner": "Codencode",
+  "run_id": 34340658575,
+  "run_number": 175,
+  "run_attempt": 15,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-09-09T10:31:19Z",
+  "updated_at": "2026-09-10T07:15:24Z",
+  "html_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42728,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 690,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:06:36Z",
+      "completed_at": "2026-09-09T11:25:02Z",
+      "duration_s": 1106,
+      "failure_kind": "none",
+      "job_id": 102432134342,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134342"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:08:24Z",
+      "completed_at": "2026-09-09T11:16:22Z",
+      "duration_s": 478,
+      "failure_kind": "none",
+      "job_id": 102432134314,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134314"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T10:57:57Z",
+      "completed_at": "2026-09-09T11:33:31Z",
+      "duration_s": 2134,
+      "failure_kind": "test",
+      "job_id": 102432134320,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134320",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:14:04Z",
+      "completed_at": "2026-09-09T11:30:08Z",
+      "duration_s": 964,
+      "failure_kind": "none",
+      "job_id": 102432134573,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134573"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:29:35Z",
+      "completed_at": "2026-09-09T11:47:47Z",
+      "duration_s": 1092,
+      "failure_kind": "none",
+      "job_id": 102432134731,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134731"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:16:25Z",
+      "completed_at": "2026-09-09T11:23:38Z",
+      "duration_s": 433,
+      "failure_kind": "none",
+      "job_id": 102432134566,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134566"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:21:07Z",
+      "completed_at": "2026-09-09T11:45:02Z",
+      "duration_s": 1435,
+      "failure_kind": "none",
+      "job_id": 102432134359,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134359"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T10:58:28Z",
+      "completed_at": "2026-09-09T11:14:01Z",
+      "duration_s": 933,
+      "failure_kind": "test",
+      "job_id": 102432134283,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134283",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:22:01Z",
+      "completed_at": "2026-09-09T11:33:18Z",
+      "duration_s": 677,
+      "failure_kind": "none",
+      "job_id": 102432134383,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134383"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:02:17Z",
+      "completed_at": "2026-09-09T11:54:07Z",
+      "duration_s": 3110,
+      "failure_kind": "none",
+      "job_id": 102432134367,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134367"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:33:20Z",
+      "completed_at": "2026-09-09T11:40:23Z",
+      "duration_s": 423,
+      "failure_kind": "none",
+      "job_id": 102432134662,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134662"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:04:17Z",
+      "completed_at": "2026-09-09T11:16:12Z",
+      "duration_s": 715,
+      "failure_kind": "none",
+      "job_id": 102432134419,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134419"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:08:25Z",
+      "completed_at": "2026-09-09T11:21:04Z",
+      "duration_s": 759,
+      "failure_kind": "none",
+      "job_id": 102432134426,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134426"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:30:11Z",
+      "completed_at": "2026-09-09T11:44:35Z",
+      "duration_s": 864,
+      "failure_kind": "none",
+      "job_id": 102432134671,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134671"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:25:06Z",
+      "completed_at": "2026-09-09T11:33:18Z",
+      "duration_s": 492,
+      "failure_kind": "none",
+      "job_id": 102432134439,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134439"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T10:59:06Z",
+      "completed_at": "2026-09-09T11:19:59Z",
+      "duration_s": 1253,
+      "failure_kind": "none",
+      "job_id": 102432134411,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134411"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:33:33Z",
+      "completed_at": "2026-09-09T11:56:08Z",
+      "duration_s": 1355,
+      "failure_kind": "none",
+      "job_id": 102432134711,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134711"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:23:21Z",
+      "completed_at": "2026-09-09T11:37:11Z",
+      "duration_s": 830,
+      "failure_kind": "none",
+      "job_id": 102432134548,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134548"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:04:31Z",
+      "completed_at": "2026-09-09T11:15:57Z",
+      "duration_s": 686,
+      "failure_kind": "none",
+      "job_id": 102432134473,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134473"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:24:09Z",
+      "completed_at": "2026-09-09T11:36:45Z",
+      "duration_s": 756,
+      "failure_kind": "none",
+      "job_id": 102432134522,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134522"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:10:13Z",
+      "completed_at": "2026-09-09T11:16:53Z",
+      "duration_s": 400,
+      "failure_kind": "none",
+      "job_id": 102432134385,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134385"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:33:20Z",
+      "completed_at": "2026-09-09T11:42:21Z",
+      "duration_s": 541,
+      "failure_kind": "none",
+      "job_id": 102432134678,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134678"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T11:16:56Z",
+      "completed_at": "2026-09-09T11:32:42Z",
+      "duration_s": 946,
+      "failure_kind": "test",
+      "job_id": 102432134296,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134296",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:28:28Z",
+      "completed_at": "2026-09-09T11:51:01Z",
+      "duration_s": 1353,
+      "failure_kind": "none",
+      "job_id": 102432134528,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134528"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T10:55:14Z",
+      "completed_at": "2026-09-09T11:08:23Z",
+      "duration_s": 789,
+      "failure_kind": "none",
+      "job_id": 102432134282,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134282"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:10:02Z",
+      "completed_at": "2026-09-09T11:20:57Z",
+      "duration_s": 655,
+      "failure_kind": "none",
+      "job_id": 102432134395,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134395"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:09:19Z",
+      "completed_at": "2026-09-09T11:30:06Z",
+      "duration_s": 1247,
+      "failure_kind": "none",
+      "job_id": 102432134408,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134408"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:19:04Z",
+      "completed_at": "2026-09-09T11:30:19Z",
+      "duration_s": 675,
+      "failure_kind": "none",
+      "job_id": 102432134558,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134558"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T11:02:15Z",
+      "completed_at": "2026-09-09T11:13:52Z",
+      "duration_s": 697,
+      "failure_kind": "test",
+      "job_id": 102432134444,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134444",
+      "failing_tests": [
+        {
+          "suite": "BO - Shipping - Carriers : Change carrier position > Change carrier position",
+          "title": "should change first carrier position to 2",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 157,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:11:12Z",
+      "completed_at": "2026-09-09T11:28:26Z",
+      "duration_s": 1034,
+      "failure_kind": "none",
+      "job_id": 102432134594,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134594"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:30:09Z",
+      "completed_at": "2026-09-09T11:49:36Z",
+      "duration_s": 1167,
+      "failure_kind": "none",
+      "job_id": 102432134670,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134670"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:22:42Z",
+      "completed_at": "2026-09-09T11:44:53Z",
+      "duration_s": 1331,
+      "failure_kind": "none",
+      "job_id": 102432134591,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134591"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:16:14Z",
+      "completed_at": "2026-09-09T11:39:05Z",
+      "duration_s": 1371,
+      "failure_kind": "none",
+      "job_id": 102432134644,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134644"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:30:22Z",
+      "completed_at": "2026-09-09T11:47:02Z",
+      "duration_s": 1000,
+      "failure_kind": "none",
+      "job_id": 102432134606,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134606"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:22:54Z",
+      "completed_at": "2026-09-09T12:15:17Z",
+      "duration_s": 3143,
+      "failure_kind": "none",
+      "job_id": 102432134632,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134632"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:32:52Z",
+      "completed_at": "2026-09-09T11:52:20Z",
+      "duration_s": 1168,
+      "failure_kind": "none",
+      "job_id": 102432134681,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134681"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:32:49Z",
+      "completed_at": "2026-09-09T11:42:29Z",
+      "duration_s": 580,
+      "failure_kind": "none",
+      "job_id": 102432134651,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134651"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:12:05Z",
+      "completed_at": "2026-09-09T11:40:25Z",
+      "duration_s": 1700,
+      "failure_kind": "none",
+      "job_id": 102432134530,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134530"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:13:55Z",
+      "completed_at": "2026-09-09T11:24:06Z",
+      "duration_s": 611,
+      "failure_kind": "none",
+      "job_id": 102432134614,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134614"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:23:41Z",
+      "completed_at": "2026-09-09T11:37:51Z",
+      "duration_s": 850,
+      "failure_kind": "none",
+      "job_id": 102432134693,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134693"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T11:16:00Z",
+      "completed_at": "2026-09-09T11:23:18Z",
+      "duration_s": 438,
+      "failure_kind": "test",
+      "job_id": 102432134564,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134564",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:21:00Z",
+      "completed_at": "2026-09-09T11:47:53Z",
+      "duration_s": 1613,
+      "failure_kind": "none",
+      "job_id": 102432134667,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134667"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:06:05Z",
+      "completed_at": "2026-09-09T11:19:00Z",
+      "duration_s": 775,
+      "failure_kind": "none",
+      "job_id": 102432134567,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134567"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:36:48Z",
+      "completed_at": "2026-09-09T11:44:56Z",
+      "duration_s": 488,
+      "failure_kind": "none",
+      "job_id": 102432134759,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134759"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T11:20:02Z",
+      "completed_at": "2026-09-09T11:29:32Z",
+      "duration_s": 570,
+      "failure_kind": "none",
+      "job_id": 102432134605,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102432134605"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T12:15:33Z",
+      "completed_at": "2026-09-09T13:02:11Z",
+      "duration_s": 2798,
+      "failure_kind": "none",
+      "job_id": 102460576177,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102460576177"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T12:15:33Z",
+      "completed_at": "2026-09-09T12:25:20Z",
+      "duration_s": 587,
+      "failure_kind": "test",
+      "job_id": 102460576401,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102460576401",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Monitoring : Sort and pagination list of products with combinations but without available quantities > PRE-TEST: Import file 'combinations.csv'",
+          "title": "should go to next import file step",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 129,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T12:15:33Z",
+      "completed_at": "2026-09-09T12:22:59Z",
+      "duration_s": 446,
+      "failure_kind": "test",
+      "job_id": 102460576139,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102460576139",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 67,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T12:15:33Z",
+      "completed_at": "2026-09-09T12:33:15Z",
+      "duration_s": 1062,
+      "failure_kind": "none",
+      "job_id": 102460576146,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102460576146"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T12:15:34Z",
+      "completed_at": "2026-09-09T12:26:22Z",
+      "duration_s": 648,
+      "failure_kind": "none",
+      "job_id": 102460576486,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102460576486"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:02:28Z",
+      "completed_at": "2026-09-09T13:18:08Z",
+      "duration_s": 940,
+      "failure_kind": "test",
+      "job_id": 102475919355,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102475919355",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:02:29Z",
+      "completed_at": "2026-09-09T13:18:34Z",
+      "duration_s": 965,
+      "failure_kind": "test",
+      "job_id": 102475919149,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102475919149",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:18:50Z",
+      "completed_at": "2026-09-09T13:34:35Z",
+      "duration_s": 945,
+      "failure_kind": "test",
+      "job_id": 102481658391,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102481658391",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:18:51Z",
+      "completed_at": "2026-09-09T13:34:50Z",
+      "duration_s": 959,
+      "failure_kind": "infra",
+      "job_id": 102481658478,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102481658478"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:35:05Z",
+      "completed_at": "2026-09-09T13:50:28Z",
+      "duration_s": 923,
+      "failure_kind": "test",
+      "job_id": 102487467028,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102487467028",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:35:05Z",
+      "completed_at": "2026-09-09T13:51:02Z",
+      "duration_s": 957,
+      "failure_kind": "test",
+      "job_id": 102487467223,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102487467223",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:51:32Z",
+      "completed_at": "2026-09-09T14:07:12Z",
+      "duration_s": 940,
+      "failure_kind": "test",
+      "job_id": 102493518016,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102493518016",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T13:51:32Z",
+      "completed_at": "2026-09-09T14:07:51Z",
+      "duration_s": 979,
+      "failure_kind": "test",
+      "job_id": 102493518070,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102493518070",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T14:10:40Z",
+      "completed_at": "2026-09-09T14:25:00Z",
+      "duration_s": 860,
+      "failure_kind": "test",
+      "job_id": 102500654649,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102500654649",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 310,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T14:10:40Z",
+      "completed_at": "2026-09-09T14:27:18Z",
+      "duration_s": 998,
+      "failure_kind": "test",
+      "job_id": 102500654379,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102500654379",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 8,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-09T14:49:41Z",
+      "completed_at": "2026-09-09T15:11:24Z",
+      "duration_s": 1303,
+      "failure_kind": "none",
+      "job_id": 102515354492,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102515354492"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 8,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T14:49:40Z",
+      "completed_at": "2026-09-09T15:23:33Z",
+      "duration_s": 2033,
+      "failure_kind": "test",
+      "job_id": 102515354387,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102515354387",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 9,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T15:23:55Z",
+      "completed_at": "2026-09-09T15:30:55Z",
+      "duration_s": 420,
+      "failure_kind": "test",
+      "job_id": 102528366990,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102528366990",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 67,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 10,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T15:33:21Z",
+      "completed_at": "2026-09-09T15:48:27Z",
+      "duration_s": 906,
+      "failure_kind": "test",
+      "job_id": 102531869887,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102531869887",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 11,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T16:20:22Z",
+      "completed_at": "2026-09-09T16:36:28Z",
+      "duration_s": 966,
+      "failure_kind": "test",
+      "job_id": 102549108937,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102549108937",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 12,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T16:40:35Z",
+      "completed_at": "2026-09-09T16:56:46Z",
+      "duration_s": 971,
+      "failure_kind": "test",
+      "job_id": 102556228882,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102556228882",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 13,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-09T19:19:56Z",
+      "completed_at": "2026-09-09T19:36:03Z",
+      "duration_s": 967,
+      "failure_kind": "test",
+      "job_id": 102610416707,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102610416707",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 14,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-10T03:20:58Z",
+      "completed_at": "2026-09-10T03:37:10Z",
+      "duration_s": 972,
+      "failure_kind": "test",
+      "job_id": 102732187664,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102732187664",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 15,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-10T06:59:17Z",
+      "completed_at": "2026-09-10T07:15:23Z",
+      "duration_s": 966,
+      "failure_kind": "infra",
+      "job_id": 102775180803,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/34340658575/job/102775180803"
+    }
+  ]
+}

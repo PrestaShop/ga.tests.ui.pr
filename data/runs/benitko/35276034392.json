@@ -1,0 +1,2298 @@
+{
+  "repo": "benitko/ga.tests.ui.pr",
+  "owner": "benitko",
+  "run_id": 35276034392,
+  "run_number": 2,
+  "run_attempt": 5,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-09-17T21:19:43Z",
+  "updated_at": "2026-09-18T01:38:58Z",
+  "html_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42870,
+  "db": "mariadb",
+  "branch_key": "develop",
+  "branch_key_source": "resolved-log",
+  "base_branch": "develop",
+  "ps_version": "9.3.0",
+  "raw_job_rows": 230,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:50:05Z",
+      "completed_at": "2026-09-17T22:09:03Z",
+      "duration_s": 1138,
+      "failure_kind": "none",
+      "job_id": 105388649145,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649145"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:55:15Z",
+      "completed_at": "2026-09-17T22:04:26Z",
+      "duration_s": 551,
+      "failure_kind": "none",
+      "job_id": 105388649089,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649089"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T21:54:23Z",
+      "completed_at": "2026-09-17T22:47:11Z",
+      "duration_s": 3168,
+      "failure_kind": "test",
+      "job_id": 105388649082,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649082",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-09-18 00:22:57' to include '2026-09-17'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 200
+        }
+      ],
+      "test_counts": {
+        "passing": 1602,
+        "failing": 1,
+        "pending": 16
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:09:05Z",
+      "completed_at": "2026-09-17T22:25:58Z",
+      "duration_s": 1013,
+      "failure_kind": "none",
+      "job_id": 105388649180,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649180"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:04:28Z",
+      "completed_at": "2026-09-17T22:26:46Z",
+      "duration_s": 1338,
+      "failure_kind": "test",
+      "job_id": 105388649286,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649286",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Create shop",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Create shop",
+          "title": "should get the id of the new shop",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Update shop",
+          "title": "should go to edit the created shop page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 101
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Update shop",
+          "title": "should edit shop and check result",
+          "error": "AssertionError: expected '× Successful creation' to include 'Successful update'",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 112
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Delete shop",
+          "title": "should go to the created shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 138
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Delete shop",
+          "title": "should delete the shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/03_CRUDShops.ts",
+          "line": 147
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Create, Read, Update and Delete shop in BO > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Edit URL options",
+          "title": "should disable the shop URL for the created url",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Edit URL options",
+          "title": "should enable the main URL for the first url",
+          "error": "AssertionError: expected '× The status has been successfully updated.' to include 'Successful update'",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/07_editUrlOptions.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > POST-TEST: Delete created shop URL",
+          "title": "should delete the created shop url",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/07_editUrlOptions.ts",
+          "line": 168
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 646,
+        "failing": 16,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:20:04Z",
+      "completed_at": "2026-09-17T22:27:23Z",
+      "duration_s": 439,
+      "failure_kind": "none",
+      "job_id": 105388649301,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649301"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T21:46:59Z",
+      "completed_at": "2026-09-17T22:11:20Z",
+      "duration_s": 1461,
+      "failure_kind": "test",
+      "job_id": 105388649066,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649066",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : Stocks tab > Check all options in Stock tab",
+          "title": "should check the recent stock movement",
+          "error": "AssertionError: expected '2026-09-18 00:03:01' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/15_stocksTab.ts",
+          "line": 131
+        },
+        {
+          "suite": "BO - Catalog - Products : Stocks tab > Check all options in Stock tab",
+          "title": "should check the deny orders option",
+          "error": "AssertionError: expected '2026-09-18 00:03:12' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/15_stocksTab.ts",
+          "line": 254
+        }
+      ],
+      "test_counts": {
+        "passing": 906,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:03:24Z",
+      "completed_at": "2026-09-17T22:25:58Z",
+      "duration_s": 1354,
+      "failure_kind": "test",
+      "job_id": 105388649137,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649137",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 627,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:54:14Z",
+      "completed_at": "2026-09-17T22:05:30Z",
+      "duration_s": 676,
+      "failure_kind": "none",
+      "job_id": 105388649067,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649067"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:25:10Z",
+      "completed_at": "2026-09-17T23:17:43Z",
+      "duration_s": 3153,
+      "failure_kind": "test",
+      "job_id": 105388649218,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649218",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the total (tax incl.)",
+          "error": "AssertionError: expected '€34.80' to equal '€29.80'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 240
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the quantity of cart rules",
+          "error": "AssertionError: expected '100' to equal '99'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 258
+        },
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should check the start and the end date",
+          "error": "AssertionError: expected '2026-09-18 00:00:00' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 130
+        }
+      ],
+      "test_counts": {
+        "passing": 1415,
+        "failing": 4,
+        "pending": 66
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:02:57Z",
+      "completed_at": "2026-09-17T22:09:18Z",
+      "duration_s": 381,
+      "failure_kind": "none",
+      "job_id": 105388649278,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649278"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:14:00Z",
+      "completed_at": "2026-09-17T22:25:41Z",
+      "duration_s": 701,
+      "failure_kind": "test",
+      "job_id": 105388649288,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649288",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        },
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the return number",
+          "error": "Order return ID and the date are not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 344
+        }
+      ],
+      "test_counts": {
+        "passing": 327,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T21:57:12Z",
+      "completed_at": "2026-09-17T22:08:17Z",
+      "duration_s": 665,
+      "failure_kind": "test",
+      "job_id": 105388649100,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649100",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Betsy Rosenbaum Email Betsy_Rosenbaum@prestashop.com Social Title Mr. Age 38 years old (birth date: 07/01/1988) Registration Date 09/18/2026 00:05:47 Last Visit 09/18/2026 00:05:51 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 09/18/2026 00:05:47 Status check Active Customer type Registered customer' to include '0…",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 328
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check orders",
+          "error": "AssertionError: expected 'Valid orders: 0 for a total amount of €0.00 Invalid orders: 1 ID Date Payment Status Products Total (Tax incl.) Actions 6 09/18/2026 00:05:59 Bank transfer Awaiting bank wire payment 1 €22.94 zoom_in' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 359
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check carts",
+          "error": "AssertionError: expected 'ID Date Carrier Total (Tax incl.) Actions 6 09/18/2026 00:05:53 Click and collect €22.94 zoom_in' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 369
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check messages",
+          "error": "AssertionError: expected 'Status Message Sent on Open test message... 09/18/2026 00:06:00' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 395
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check last connections",
+          "error": "AssertionError: expected 'ID Date Pages viewed Total time Origin IP Address 6 09/18/2026 0 localhost 172.18.0.1' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 404
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > Edit customer then view it and check information",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Harriet Dach Email Harriet.Dach@prestashop.com Social Title Mr. Age 50 years old (birth date: 05/03/1976) Registration Date 09/18/2026 00:05:47 Last Visit 09/18/2026 00:05:51 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 09/18/2026 00:06:11 Status check Active Customer type Registered customer' to include '09/17/2…",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 455
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > Edit order then view customer and check information",
+          "title": "should check order status",
+          "error": "AssertionError: expected 'Valid orders: 1 for a total amount of €22.94 Invalid orders: 0 ID Date Payment Status Products Total (Tax incl.) Actions 6 09/18/2026 00:05:59 Bank transfer Shipped 1 €22.94 zoom_in' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 524
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > Edit order then view customer and check information",
+          "title": "should check purchased products",
+          "error": "AssertionError: expected 'Date Name Quantity Order ID 09/18/2026 00:05:59 Hummingbird printed t-shirt (Size: S - Color: White) 1 6' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 541
+        }
+      ],
+      "test_counts": {
+        "passing": 247,
+        "failing": 8,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:10:31Z",
+      "completed_at": "2026-09-17T22:25:07Z",
+      "duration_s": 876,
+      "failure_kind": "none",
+      "job_id": 105388649244,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649244"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:51:39Z",
+      "completed_at": "2026-09-17T21:59:19Z",
+      "duration_s": 460,
+      "failure_kind": "none",
+      "job_id": 105388649060,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649060"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:47:42Z",
+      "completed_at": "2026-09-17T22:08:33Z",
+      "duration_s": 1251,
+      "failure_kind": "none",
+      "job_id": 105388649126,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649126"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:26:02Z",
+      "completed_at": "2026-09-17T22:48:53Z",
+      "duration_s": 1371,
+      "failure_kind": "none",
+      "job_id": 105388649388,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649388"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:05:34Z",
+      "completed_at": "2026-09-17T22:19:49Z",
+      "duration_s": 855,
+      "failure_kind": "none",
+      "job_id": 105388649155,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649155"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:25:05Z",
+      "completed_at": "2026-09-17T22:35:42Z",
+      "duration_s": 637,
+      "failure_kind": "none",
+      "job_id": 105388649226,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649226"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:26:00Z",
+      "completed_at": "2026-09-17T22:36:58Z",
+      "duration_s": 658,
+      "failure_kind": "none",
+      "job_id": 105388649238,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649238"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:22:13Z",
+      "completed_at": "2026-09-17T22:29:02Z",
+      "duration_s": 409,
+      "failure_kind": "none",
+      "job_id": 105388649312,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649312"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:53:08Z",
+      "completed_at": "2026-09-17T22:03:21Z",
+      "duration_s": 613,
+      "failure_kind": "none",
+      "job_id": 105388649117,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649117"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T21:55:01Z",
+      "completed_at": "2026-09-17T22:13:57Z",
+      "duration_s": 1136,
+      "failure_kind": "test",
+      "job_id": 105388649086,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649086",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-09-18 00:02:56' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        },
+        {
+          "suite": "BO - Orders - Create order : Select previous orders > Check orders table",
+          "title": "should check the order 'date'",
+          "error": "AssertionError: The 'date' value is not correct!: expected '2026-09-18 00:03:45' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/05_selectPreviousOrders.ts",
+          "line": 231
+        },
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 531,
+        "failing": 3,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:12:39Z",
+      "completed_at": "2026-09-17T22:33:25Z",
+      "duration_s": 1246,
+      "failure_kind": "test",
+      "job_id": 105388649064,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649064",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '09/18/2026 00:22:57' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table and order note after some modifications by new employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '09/18/2026 00:23:07' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 349
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check order carriers tab > Check carriers tab",
+          "title": "should check the carrier details",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/05_carriersTab.ts",
+          "line": 145
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check order carriers tab > Check carriers tab",
+          "title": "should check the updated carrier details",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/05_carriersTab.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check merchandise returns tab > Check the existence of the merchandise returns on 'Merchandise returns' tab",
+          "title": "should check the merchandise returns details",
+          "error": "AssertionError: expected '09/18/2026 00:25:22' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/06_merchandiseReturnsTab.ts",
+          "line": 315
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Send message and check messages block on BO",
+          "title": "should check the message sender and the date",
+          "error": "AssertionError: expected 'Hi, Unfortunately, an item on your order is currently out of stock. This may cause a slight delay in delivery. Please accept our apologies and rest assured that we are working hard to rectify this. Best regards, Me 09/18/2026 00:26:18' to include 'Me 09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 158
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Check message in FO",
+          "title": "should check the message text",
+          "error": "AssertionError: expected 'Marc Beier 09/18/2026 00:26:18 Hi, Unfortunately, an item on your order is currently out of stock. This may cause a slight delay in delivery. Please accept our apologies and rest assured that we are working hard to rectify this. Best regards,' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 228
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Uncheck display to customer and send message",
+          "title": "should check the sender message and the date",
+          "error": "AssertionError: Sender or date is incorrect!: expected 'test message visibility Me 09/18/2026 00:26:23' to include 'Me 09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 287
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Send message from FO and check it on BO",
+          "title": "should check the message, the sender message and the date",
+          "error": "AssertionError: Sender or date is not correct!: expected 'Test customer message John DOE 09/18/2026 00:26:27' to include 'John DOE 09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 384
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check payment Block > Click on payment accepted and check result",
+          "title": "should check the payment details and get the invoice number",
+          "error": "AssertionError: expected '09/18/2026 00:27:27' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/08_paymentBlock.ts",
+          "line": 429
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check payment Block > Click on payment accepted and check result",
+          "title": "should add payment when amount is equal to the rest to the new invoice",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check payment Block > Click on payment accepted and check result",
+          "title": "should check that payments number is equal to 2",
+          "error": "Payments number is not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/08_paymentBlock.ts",
+          "line": 494
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Virtual product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 463
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Customized product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 700
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Product with sp price TOTEST' and 'Customized product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 898
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Product with ecotax TOTEST' and 'Customized product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 1141
+        }
+      ],
+      "test_counts": {
+        "passing": 850,
+        "failing": 16,
+        "pending": 4
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:59:18Z",
+      "completed_at": "2026-09-17T22:11:40Z",
+      "duration_s": 742,
+      "failure_kind": "none",
+      "job_id": 105388649140,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649140"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:49:02Z",
+      "completed_at": "2026-09-17T22:00:07Z",
+      "duration_s": 665,
+      "failure_kind": "none",
+      "job_id": 105388649087,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649087"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:00:53Z",
+      "completed_at": "2026-09-17T22:21:32Z",
+      "duration_s": 1239,
+      "failure_kind": "test",
+      "job_id": 105388649152,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649152",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Shopping carts: Filter shopping cart table > Filter the Shopping carts table",
+          "title": "should filter by date 'From' and 'To' in the future",
+          "error": "AssertionError: expected 23 to equal +0",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/01_filterShoppingCarts.ts",
+          "line": 235
+        },
+        {
+          "suite": "BO - Orders - Shopping carts : View carts > View carts",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 20 Name: Mrs. Ashtyn Padberg Email: Ashtyn.Padberg@prestashop.com Account creation date: 09/18/2026 Number of orders: 0 Amount spent: €0.00 remove_red_eye View customer mail Write an email' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/03_viewCarts.ts",
+          "line": 151
+        },
+        {
+          "suite": "BO - Orders - Shopping carts : View carts > View carts",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 20 Name: Mrs. Ashtyn Padberg Email: Ashtyn.Padberg@prestashop.com Account creation date: 09/18/2026 Number of orders: 1 Amount spent: €22.94 remove_red_eye View customer mail Write an email' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/03_viewCarts.ts",
+          "line": 264
+        }
+      ],
+      "test_counts": {
+        "passing": 525,
+        "failing": 3,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:17:38Z",
+      "completed_at": "2026-09-17T22:28:10Z",
+      "duration_s": 632,
+      "failure_kind": "none",
+      "job_id": 105388649225,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649225"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:00:10Z",
+      "completed_at": "2026-09-17T22:17:35Z",
+      "duration_s": 1045,
+      "failure_kind": "none",
+      "job_id": 105388649202,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649202"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:56:52Z",
+      "completed_at": "2026-09-17T22:14:11Z",
+      "duration_s": 1039,
+      "failure_kind": "none",
+      "job_id": 105388649164,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649164"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:11:22Z",
+      "completed_at": "2026-09-17T22:31:21Z",
+      "duration_s": 1199,
+      "failure_kind": "none",
+      "job_id": 105388649267,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649267"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T21:59:21Z",
+      "completed_at": "2026-09-17T22:21:25Z",
+      "duration_s": 1324,
+      "failure_kind": "none",
+      "job_id": 105388649231,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649231"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:21:27Z",
+      "completed_at": "2026-09-17T22:47:59Z",
+      "duration_s": 1592,
+      "failure_kind": "test",
+      "job_id": 105388649405,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649405",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 212
+        },
+        {
+          "suite": "FO - Account : Check order return PDF > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 417
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 259
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 797,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:08:35Z",
+      "completed_at": "2026-09-17T22:25:17Z",
+      "duration_s": 1002,
+      "failure_kind": "none",
+      "job_id": 105388649274,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649274"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:11:43Z",
+      "completed_at": "2026-09-17T23:04:31Z",
+      "duration_s": 3168,
+      "failure_kind": "none",
+      "job_id": 105388649352,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649352"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:10:24Z",
+      "completed_at": "2026-09-17T22:26:59Z",
+      "duration_s": 995,
+      "failure_kind": "test",
+      "job_id": 105388649305,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649305",
+      "failing_tests": [
+        {
+          "suite": "FO - User account - Order history : Consult details and Reorder > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_consultDetailsAndReorder.ts",
+          "line": 156
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 207
+        },
+        {
+          "suite": "FO - User account - Merchandise Returns : Check PDF order return > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 412
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 253
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 635,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:25:19Z",
+      "completed_at": "2026-09-17T22:34:41Z",
+      "duration_s": 562,
+      "failure_kind": "none",
+      "job_id": 105388649432,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649432"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:00:29Z",
+      "completed_at": "2026-09-17T22:25:02Z",
+      "duration_s": 1473,
+      "failure_kind": "none",
+      "job_id": 105388649347,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649347"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:25:20Z",
+      "completed_at": "2026-09-17T22:36:17Z",
+      "duration_s": 657,
+      "failure_kind": "none",
+      "job_id": 105388649397,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649397"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T22:09:21Z",
+      "completed_at": "2026-09-17T22:25:17Z",
+      "duration_s": 956,
+      "failure_kind": "infra",
+      "job_id": 105388649327,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649327"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:21:35Z",
+      "completed_at": "2026-09-17T22:32:35Z",
+      "duration_s": 660,
+      "failure_kind": "none",
+      "job_id": 105388649346,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649346"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:19:52Z",
+      "completed_at": "2026-09-17T22:45:11Z",
+      "duration_s": 1519,
+      "failure_kind": "none",
+      "job_id": 105388649435,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649435"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:08:20Z",
+      "completed_at": "2026-09-17T22:20:01Z",
+      "duration_s": 701,
+      "failure_kind": "none",
+      "job_id": 105388649383,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649383"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:14:14Z",
+      "completed_at": "2026-09-17T22:22:10Z",
+      "duration_s": 476,
+      "failure_kind": "none",
+      "job_id": 105388649506,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649506"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T22:25:43Z",
+      "completed_at": "2026-09-17T22:34:02Z",
+      "duration_s": 499,
+      "failure_kind": "none",
+      "job_id": 105388649505,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105388649505"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-18T00:01:04Z",
+      "duration_s": 2588,
+      "failure_kind": "test",
+      "job_id": 105418938240,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938240",
+      "failing_tests": [
+        {
+          "suite": "API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > BackOffice : Create categories & Link Products",
+          "title": "should search for the new category and check result",
+          "error": "AssertionError: expected 2 to equal 1",
+          "file": "campaigns/functional/API/02_endpoints/category/07_deleteCategoryIdDeleteMode.ts",
+          "line": 159
+        },
+        {
+          "suite": "API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > BackOffice : Create categories & Link Products",
+          "title": "should set category",
+          "error": "AssertionError: expected 'Home > teal Automotive (#11) x' to equal 'teal Automotive x'",
+          "file": "campaigns/functional/API/02_endpoints/category/07_deleteCategoryIdDeleteMode.ts",
+          "line": 208
+        },
+        {
+          "suite": "API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > API : Delete the Category (mode=\"remove_associated\")",
+          "title": "should request the endpoint /categories/{categoryId}/{deleteMode}",
+          "error": "AssertionError: expected 500 to equal 204",
+          "file": "campaigns/functional/API/02_endpoints/category/07_deleteCategoryIdDeleteMode.ts",
+          "line": 411
+        },
+        {
+          "suite": "API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > BackOffice : Check the Category is deleted with mode \"remove_associated\" & Check product",
+          "title": "should filter list of categories",
+          "error": "TypeError: Cannot read properties of undefined (reading 'toString')",
+          "file": "campaigns/functional/API/02_endpoints/category/07_deleteCategoryIdDeleteMode.ts",
+          "line": 420
+        },
+        {
+          "suite": "API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > API : DELETE /admin-api/categories/{categoryId}/{deleteMode} > BackOffice : Check the Category is deleted with mode \"remove_associated\" & Check product",
+          "title": "should filter list by name",
+          "error": "AssertionError: expected 1 to equal +0",
+          "file": "campaigns/functional/API/02_endpoints/category/07_deleteCategoryIdDeleteMode.ts",
+          "line": 449
+        },
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-09-18 01:41:25' to include '2026-09-17'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 200
+        }
+      ],
+      "test_counts": {
+        "passing": 1597,
+        "failing": 6,
+        "pending": 16
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:34:12Z",
+      "duration_s": 976,
+      "failure_kind": "test",
+      "job_id": 105418938286,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938286",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 325
+        }
+      ],
+      "test_counts": {
+        "passing": 661,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:42:41Z",
+      "duration_s": 1485,
+      "failure_kind": "test",
+      "job_id": 105418938261,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938261",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit combinations",
+          "title": "should check the recent stock movement in the modal",
+          "error": "AssertionError: expected '2026-09-18 01:25:19' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/03_CRUDProductWithCombinations.ts",
+          "line": 284
+        },
+        {
+          "suite": "BO - Catalog - Products : CRUD pack of products > Edit/Delete product in pack",
+          "title": "should check the recent stock movement",
+          "error": "AssertionError: expected '2026-09-18 01:26:45' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/04_CRUDPackOfProducts.ts",
+          "line": 337
+        },
+        {
+          "suite": "BO - Catalog - Products : Stocks tab > Check all options in Stock tab",
+          "title": "should check the recent stock movement",
+          "error": "AssertionError: expected '2026-09-18 01:34:01' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/15_stocksTab.ts",
+          "line": 131
+        },
+        {
+          "suite": "BO - Catalog - Products : Stocks tab > Check all options in Stock tab",
+          "title": "should check the deny orders option",
+          "error": "AssertionError: expected '2026-09-18 01:34:12' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/15_stocksTab.ts",
+          "line": 254
+        }
+      ],
+      "test_counts": {
+        "passing": 904,
+        "failing": 4,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:38:09Z",
+      "duration_s": 1213,
+      "failure_kind": "none",
+      "job_id": 105418938209,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938209"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-18T00:07:43Z",
+      "duration_s": 2987,
+      "failure_kind": "test",
+      "job_id": 105418938203,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938203",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Discounts : Filter, quick edit and bulk actions cart rules > Bulk actions cart rules",
+          "title": "should disable cart rules with bulk actions",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/02_filterQuickEditAndBulkActionsCartRules.ts",
+          "line": 253
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the total (tax incl.)",
+          "error": "AssertionError: expected '€34.80' to equal '€29.80'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 240
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the quantity of cart rules",
+          "error": "AssertionError: expected '100' to equal '99'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 258
+        },
+        {
+          "suite": "BO - Catalog price Rules : Bulk actions > Bulk actions",
+          "title": "should try to bulk delete cart rules",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should check the start and the end date",
+          "error": "AssertionError: expected '2026-09-18 00:00:00' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 130
+        }
+      ],
+      "test_counts": {
+        "passing": 1413,
+        "failing": 6,
+        "pending": 66
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:29:35Z",
+      "duration_s": 699,
+      "failure_kind": "test",
+      "job_id": 105418938191,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938191",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        },
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the return number",
+          "error": "Order return ID and the date are not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 344
+        }
+      ],
+      "test_counts": {
+        "passing": 327,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:18:32Z",
+      "completed_at": "2026-09-17T23:30:19Z",
+      "duration_s": 707,
+      "failure_kind": "test",
+      "job_id": 105418938321,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938321",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Armani Goldner Email Armani_Goldner@prestashop.com Social Title Mr. Age 70 years old (birth date: 07/03/1956) Registration Date 09/18/2026 01:27:41 Last Visit 09/18/2026 01:27:44 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 09/18/2026 01:27:41 Status check Active Customer type Registered customer' to include '09/…",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 328
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check orders",
+          "error": "AssertionError: expected 'Valid orders: 0 for a total amount of €0.00 Invalid orders: 1 ID Date Payment Status Products Total (Tax incl.) Actions 6 09/18/2026 01:27:53 Bank transfer Awaiting bank wire payment 1 €22.94 zoom_in' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 359
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check carts",
+          "error": "AssertionError: expected 'ID Date Carrier Total (Tax incl.) Actions 6 09/18/2026 01:27:47 Click and collect €22.94 zoom_in' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 369
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check messages",
+          "error": "AssertionError: expected 'Status Message Sent on Open test message... 09/18/2026 01:27:53' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 395
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check last connections",
+          "error": "AssertionError: expected 'ID Date Pages viewed Total time Origin IP Address 6 09/18/2026 0 localhost 172.18.0.1' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 404
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > Edit customer then view it and check information",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Anna Jast Email Anna.Jast1@prestashop.com Social Title Mrs. Age 34 years old (birth date: 02/02/1992) Registration Date 09/18/2026 01:27:41 Last Visit 09/18/2026 01:27:44 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 09/18/2026 01:28:06 Status check Active Customer type Registered customer' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 455
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > Edit order then view customer and check information",
+          "title": "should check order status",
+          "error": "AssertionError: expected 'Valid orders: 1 for a total amount of €22.94 Invalid orders: 0 ID Date Payment Status Products Total (Tax incl.) Actions 6 09/18/2026 01:27:53 Bank transfer Shipped 1 €22.94 zoom_in' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 524
+        },
+        {
+          "suite": "BO - Customers - Customers : View information about customer > Edit order then view customer and check information",
+          "title": "should check purchased products",
+          "error": "AssertionError: expected 'Date Name Quantity Order ID 09/18/2026 01:27:53 Hummingbird printed t-shirt (Size: S - Color: White) 1 6' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 541
+        }
+      ],
+      "test_counts": {
+        "passing": 247,
+        "failing": 8,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:35:38Z",
+      "duration_s": 1062,
+      "failure_kind": "test",
+      "job_id": 105418938327,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938327",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-09-18 01:25:16' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        },
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Cart details",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 2 Name: Mr. John DOE Email: pub@prestashop.com Account creation date: 09/18/2026 Number of orders: 1 Amount spent: €139.20 remove_red_eye View customer mail Write an email' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 423
+        },
+        {
+          "suite": "BO - Orders - Create order : Select previous orders > Check orders table",
+          "title": "should check the order 'date'",
+          "error": "AssertionError: The 'date' value is not correct!: expected '2026-09-18 01:26:02' to include '2026-09-17'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/05_selectPreviousOrders.ts",
+          "line": 231
+        },
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 529,
+        "failing": 5,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:57Z",
+      "completed_at": "2026-09-17T23:38:32Z",
+      "duration_s": 1235,
+      "failure_kind": "test",
+      "job_id": 105418938304,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938304",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '09/18/2026 01:28:16' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table and order note after some modifications by new employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '09/18/2026 01:28:25' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 349
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check order carriers tab > Check carriers tab",
+          "title": "should check the carrier details",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/05_carriersTab.ts",
+          "line": 145
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check order carriers tab > Check carriers tab",
+          "title": "should check the updated carrier details",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/05_carriersTab.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check merchandise returns tab > Check the existence of the merchandise returns on 'Merchandise returns' tab",
+          "title": "should check the merchandise returns details",
+          "error": "AssertionError: expected '09/18/2026 01:30:39' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/06_merchandiseReturnsTab.ts",
+          "line": 315
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Send message and check messages block on BO",
+          "title": "should check the message sender and the date",
+          "error": "AssertionError: expected 'Hi, Unfortunately, an item on your order is currently out of stock. This may cause a slight delay in delivery. Please accept our apologies and rest assured that we are working hard to rectify this. Best regards, Me 09/18/2026 01:31:34' to include 'Me 09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 158
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Check message in FO",
+          "title": "should check the message text",
+          "error": "AssertionError: expected 'Marc Beier 09/18/2026 01:31:34 Hi, Unfortunately, an item on your order is currently out of stock. This may cause a slight delay in delivery. Please accept our apologies and rest assured that we are working hard to rectify this. Best regards,' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 228
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Uncheck display to customer and send message",
+          "title": "should check the sender message and the date",
+          "error": "AssertionError: Sender or date is incorrect!: expected 'test message visibility Me 09/18/2026 01:31:39' to include 'Me 09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 287
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check messages block > Send message from FO and check it on BO",
+          "title": "should check the message, the sender message and the date",
+          "error": "AssertionError: Sender or date is not correct!: expected 'Test customer message John DOE 09/18/2026 01:31:43' to include 'John DOE 09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/07_messagesBlock.ts",
+          "line": 384
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check payment Block > Click on payment accepted and check result",
+          "title": "should check the payment details and get the invoice number",
+          "error": "AssertionError: expected '09/18/2026 01:32:39' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/08_paymentBlock.ts",
+          "line": 429
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check payment Block > Click on payment accepted and check result",
+          "title": "should add payment when amount is equal to the rest to the new invoice",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check payment Block > Click on payment accepted and check result",
+          "title": "should check that payments number is equal to 2",
+          "error": "Payments number is not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/08_paymentBlock.ts",
+          "line": 494
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Virtual product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 463
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Customized product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 700
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Product with sp price TOTEST' and 'Customized product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 898
+        },
+        {
+          "suite": "BO - Orders - View and edit order: Check invoice > Check invoice contain 'Product with ecotax TOTEST' and 'Customized product TOTEST' > Check the invoice > Check Header",
+          "title": "should check that the 'Invoice number, Invoice date, Order reference and Order date' are correct",
+          "error": "Invoice information are not correct!",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/11_checkInvoice.ts",
+          "line": 1141
+        }
+      ],
+      "test_counts": {
+        "passing": 850,
+        "failing": 16,
+        "pending": 4
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:57Z",
+      "completed_at": "2026-09-17T23:37:41Z",
+      "duration_s": 1184,
+      "failure_kind": "test",
+      "job_id": 105418938322,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938322",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Shopping carts: Filter shopping cart table > Filter the Shopping carts table",
+          "title": "should filter by date 'From' and 'To' in the future",
+          "error": "AssertionError: expected 23 to equal +0",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/01_filterShoppingCarts.ts",
+          "line": 235
+        },
+        {
+          "suite": "BO - Orders - Shopping carts : View carts > View carts",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 20 Name: Mr. Bertha Ortiz Email: Bertha_Ortiz@prestashop.com Account creation date: 09/18/2026 Number of orders: 0 Amount spent: €0.00 remove_red_eye View customer mail Write an email' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/03_viewCarts.ts",
+          "line": 151
+        },
+        {
+          "suite": "BO - Orders - Shopping carts : View carts > View carts",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 20 Name: Mr. Bertha Ortiz Email: Bertha_Ortiz@prestashop.com Account creation date: 09/18/2026 Number of orders: 1 Amount spent: €22.94 remove_red_eye View customer mail Write an email' to include '09/17/2026'",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/03_viewCarts.ts",
+          "line": 264
+        }
+      ],
+      "test_counts": {
+        "passing": 525,
+        "failing": 3,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:57Z",
+      "completed_at": "2026-09-17T23:43:12Z",
+      "duration_s": 1515,
+      "failure_kind": "test",
+      "job_id": 105418938328,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938328",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 212
+        },
+        {
+          "suite": "FO - Account : Check order return PDF > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 417
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 259
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 797,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:34:59Z",
+      "duration_s": 1023,
+      "failure_kind": "test",
+      "job_id": 105418938274,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938274",
+      "failing_tests": [
+        {
+          "suite": "FO - User account - Order history : Consult details and Reorder > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_consultDetailsAndReorder.ts",
+          "line": 156
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '09/18/2026' to equal '09/17/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 207
+        },
+        {
+          "suite": "FO - User account - Merchandise Returns : Check PDF order return > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 412
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 253
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 635,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-17T23:17:56Z",
+      "completed_at": "2026-09-17T23:32:31Z",
+      "duration_s": 875,
+      "failure_kind": "none",
+      "job_id": 105418938228,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105418938228"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:56:59Z",
+      "duration_s": 2942,
+      "failure_kind": "none",
+      "job_id": 105430181829,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181829"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:30:17Z",
+      "duration_s": 1340,
+      "failure_kind": "test",
+      "job_id": 105430181740,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181740",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°16",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete16'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete17'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 644,
+        "failing": 18,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:31:36Z",
+      "duration_s": 1419,
+      "failure_kind": "none",
+      "job_id": 105430181826,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181826"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:59:35Z",
+      "duration_s": 3098,
+      "failure_kind": "none",
+      "job_id": 105430181788,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181788"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:19:32Z",
+      "duration_s": 695,
+      "failure_kind": "none",
+      "job_id": 105430181760,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181760"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:20:04Z",
+      "duration_s": 727,
+      "failure_kind": "none",
+      "job_id": 105430181737,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181737"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T00:07:58Z",
+      "completed_at": "2026-09-18T00:24:57Z",
+      "duration_s": 1019,
+      "failure_kind": "test",
+      "job_id": 105430181741,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181741",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:30:31Z",
+      "duration_s": 1354,
+      "failure_kind": "none",
+      "job_id": 105430181698,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181698"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:28:04Z",
+      "duration_s": 1207,
+      "failure_kind": "none",
+      "job_id": 105430181723,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181723"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:57Z",
+      "completed_at": "2026-09-18T00:35:55Z",
+      "duration_s": 1678,
+      "failure_kind": "none",
+      "job_id": 105430181785,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181785"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:07:58Z",
+      "completed_at": "2026-09-18T00:26:45Z",
+      "duration_s": 1127,
+      "failure_kind": "none",
+      "job_id": 105430181784,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105430181784"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-18T00:59:48Z",
+      "completed_at": "2026-09-18T01:20:58Z",
+      "duration_s": 1270,
+      "failure_kind": "test",
+      "job_id": 105441148699,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105441148699",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°18",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete18'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete19'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 644,
+        "failing": 18,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T00:59:48Z",
+      "completed_at": "2026-09-18T01:17:46Z",
+      "duration_s": 1078,
+      "failure_kind": "none",
+      "job_id": 105441148705,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105441148705"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-18T01:21:11Z",
+      "completed_at": "2026-09-18T01:38:58Z",
+      "duration_s": 1067,
+      "failure_kind": "none",
+      "job_id": 105445510678,
+      "job_url": "https://github.com/benitko/ga.tests.ui.pr/actions/runs/35276034392/job/105445510678"
+    }
+  ]
+}

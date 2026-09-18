@@ -1,0 +1,989 @@
+{
+  "repo": "tblivet/ga.tests.ui.pr",
+  "owner": "tblivet",
+  "run_id": 34226581040,
+  "run_number": 13,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-09-08T12:31:41Z",
+  "updated_at": "2026-09-08T16:58:53Z",
+  "html_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42768,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 275,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:00:40Z",
+      "completed_at": "2026-09-08T13:19:40Z",
+      "duration_s": 1140,
+      "failure_kind": "none",
+      "job_id": 102062160318,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160318"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:41:10Z",
+      "duration_s": 549,
+      "failure_kind": "none",
+      "job_id": 102062160121,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160121"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T12:51:18Z",
+      "completed_at": "2026-09-08T13:31:58Z",
+      "duration_s": 2440,
+      "failure_kind": "test",
+      "job_id": 102062160206,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160206",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:48:49Z",
+      "duration_s": 1008,
+      "failure_kind": "none",
+      "job_id": 102062160311,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160311"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:47:39Z",
+      "duration_s": 938,
+      "failure_kind": "test",
+      "job_id": 102062160437,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160437",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°10",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 444,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:39:03Z",
+      "duration_s": 422,
+      "failure_kind": "none",
+      "job_id": 102062160316,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160316"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:57:03Z",
+      "duration_s": 1502,
+      "failure_kind": "test",
+      "job_id": 102062160427,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160427",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products list : Bulk actions, Enable/Disable, 3-dot button > Create product > Duplicate the selection",
+          "title": "should duplicate the selection",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 759,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:57:59Z",
+      "completed_at": "2026-09-08T13:19:07Z",
+      "duration_s": 1268,
+      "failure_kind": "none",
+      "job_id": 102062160569,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160569"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:47:02Z",
+      "completed_at": "2026-09-08T12:57:57Z",
+      "duration_s": 655,
+      "failure_kind": "none",
+      "job_id": 102062160372,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160372"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:48:54Z",
+      "completed_at": "2026-09-08T13:40:36Z",
+      "duration_s": 3102,
+      "failure_kind": "none",
+      "job_id": 102062160553,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160553"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:57:05Z",
+      "completed_at": "2026-09-08T13:03:53Z",
+      "duration_s": 408,
+      "failure_kind": "none",
+      "job_id": 102062160567,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160567"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:51:10Z",
+      "completed_at": "2026-09-08T13:03:10Z",
+      "duration_s": 720,
+      "failure_kind": "none",
+      "job_id": 102062160389,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160389"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:44:48Z",
+      "duration_s": 767,
+      "failure_kind": "none",
+      "job_id": 102062160431,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160431"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:46:49Z",
+      "duration_s": 888,
+      "failure_kind": "none",
+      "job_id": 102062160255,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160255"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:38:46Z",
+      "completed_at": "2026-09-08T12:45:30Z",
+      "duration_s": 404,
+      "failure_kind": "none",
+      "job_id": 102062160152,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160152"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:45:32Z",
+      "completed_at": "2026-09-08T13:05:48Z",
+      "duration_s": 1216,
+      "failure_kind": "none",
+      "job_id": 102062160334,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160334"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:50:50Z",
+      "completed_at": "2026-09-08T13:12:42Z",
+      "duration_s": 1312,
+      "failure_kind": "none",
+      "job_id": 102062160563,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160563"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:50:12Z",
+      "completed_at": "2026-09-08T13:03:57Z",
+      "duration_s": 825,
+      "failure_kind": "none",
+      "job_id": 102062160647,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160647"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:39:05Z",
+      "completed_at": "2026-09-08T12:50:10Z",
+      "duration_s": 665,
+      "failure_kind": "none",
+      "job_id": 102062160470,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160470"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:41:25Z",
+      "duration_s": 564,
+      "failure_kind": "test",
+      "job_id": 102062160432,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160432",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should check the translation",
+          "error": "AssertionError: expected 'Popular Products' to include 'translate'",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 185
+        }
+      ],
+      "test_counts": {
+        "passing": 174,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:38:44Z",
+      "duration_s": 403,
+      "failure_kind": "none",
+      "job_id": 102062160105,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160105"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:33:06Z",
+      "completed_at": "2026-09-08T12:43:22Z",
+      "duration_s": 616,
+      "failure_kind": "none",
+      "job_id": 102062160395,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160395"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:48:53Z",
+      "duration_s": 1012,
+      "failure_kind": "none",
+      "job_id": 102062160172,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160172"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:47:41Z",
+      "completed_at": "2026-09-08T13:10:37Z",
+      "duration_s": 1376,
+      "failure_kind": "none",
+      "job_id": 102062160582,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160582"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:47:00Z",
+      "duration_s": 899,
+      "failure_kind": "none",
+      "job_id": 102062160174,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160174"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:42:47Z",
+      "duration_s": 646,
+      "failure_kind": "none",
+      "job_id": 102062160141,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160141"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:51:18Z",
+      "duration_s": 1157,
+      "failure_kind": "none",
+      "job_id": 102062160331,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160331"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:41:51Z",
+      "completed_at": "2026-09-08T12:52:10Z",
+      "duration_s": 619,
+      "failure_kind": "none",
+      "job_id": 102062160471,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160471"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:46:51Z",
+      "completed_at": "2026-09-08T13:04:20Z",
+      "duration_s": 1049,
+      "failure_kind": "none",
+      "job_id": 102062160388,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160388"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T12:49:06Z",
+      "duration_s": 1025,
+      "failure_kind": "none",
+      "job_id": 102062160490,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160490"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:43:24Z",
+      "completed_at": "2026-09-08T13:02:02Z",
+      "duration_s": 1118,
+      "failure_kind": "none",
+      "job_id": 102062160405,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160405"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:44:51Z",
+      "completed_at": "2026-09-08T13:07:04Z",
+      "duration_s": 1333,
+      "failure_kind": "none",
+      "job_id": 102062160512,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160512"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:42:50Z",
+      "completed_at": "2026-09-08T13:12:52Z",
+      "duration_s": 1802,
+      "failure_kind": "none",
+      "job_id": 102062160585,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160585"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:48:51Z",
+      "completed_at": "2026-09-08T13:03:08Z",
+      "duration_s": 857,
+      "failure_kind": "none",
+      "job_id": 102062160648,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160648"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T13:25:16Z",
+      "duration_s": 3195,
+      "failure_kind": "none",
+      "job_id": 102062160433,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160433"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:41:27Z",
+      "completed_at": "2026-09-08T12:59:54Z",
+      "duration_s": 1107,
+      "failure_kind": "none",
+      "job_id": 102062160521,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160521"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:52:12Z",
+      "completed_at": "2026-09-08T13:02:27Z",
+      "duration_s": 615,
+      "failure_kind": "none",
+      "job_id": 102062160649,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160649"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:32:01Z",
+      "completed_at": "2026-09-08T13:00:37Z",
+      "duration_s": 1716,
+      "failure_kind": "none",
+      "job_id": 102062160533,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160533"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:57:52Z",
+      "completed_at": "2026-09-08T13:08:57Z",
+      "duration_s": 665,
+      "failure_kind": "none",
+      "job_id": 102062160715,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160715"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:51:20Z",
+      "completed_at": "2026-09-08T13:06:20Z",
+      "duration_s": 900,
+      "failure_kind": "none",
+      "job_id": 102062160745,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160745"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T12:32:21Z",
+      "completed_at": "2026-09-08T12:41:49Z",
+      "duration_s": 568,
+      "failure_kind": "test",
+      "job_id": 102062160510,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160510",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:59:56Z",
+      "completed_at": "2026-09-08T13:27:23Z",
+      "duration_s": 1647,
+      "failure_kind": "none",
+      "job_id": 102062160713,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160713"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:02:04Z",
+      "completed_at": "2026-09-08T13:14:42Z",
+      "duration_s": 758,
+      "failure_kind": "none",
+      "job_id": 102062160798,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160798"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:49:08Z",
+      "completed_at": "2026-09-08T12:57:50Z",
+      "duration_s": 522,
+      "failure_kind": "none",
+      "job_id": 102062160455,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160455"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T12:41:12Z",
+      "completed_at": "2026-09-08T12:50:47Z",
+      "duration_s": 575,
+      "failure_kind": "none",
+      "job_id": 102062160703,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102062160703"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T13:41:02Z",
+      "completed_at": "2026-09-08T14:17:17Z",
+      "duration_s": 2175,
+      "failure_kind": "test",
+      "job_id": 102085155661,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102085155661",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:41:02Z",
+      "completed_at": "2026-09-08T13:59:25Z",
+      "duration_s": 1103,
+      "failure_kind": "none",
+      "job_id": 102085155675,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102085155675"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:41:02Z",
+      "completed_at": "2026-09-08T14:06:23Z",
+      "duration_s": 1521,
+      "failure_kind": "none",
+      "job_id": 102085155647,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102085155647"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-08T13:41:02Z",
+      "completed_at": "2026-09-08T13:51:13Z",
+      "duration_s": 611,
+      "failure_kind": "none",
+      "job_id": 102085155640,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102085155640"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T13:41:02Z",
+      "completed_at": "2026-09-08T13:47:46Z",
+      "duration_s": 404,
+      "failure_kind": "test",
+      "job_id": 102085155751,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102085155751",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T14:17:38Z",
+      "completed_at": "2026-09-08T14:56:58Z",
+      "duration_s": 2360,
+      "failure_kind": "test",
+      "job_id": 102098302050,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102098302050",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T14:17:39Z",
+      "completed_at": "2026-09-08T14:25:14Z",
+      "duration_s": 455,
+      "failure_kind": "test",
+      "job_id": 102098302130,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102098302130",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T14:57:17Z",
+      "completed_at": "2026-09-08T15:37:48Z",
+      "duration_s": 2431,
+      "failure_kind": "test",
+      "job_id": 102112882854,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102112882854",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T14:57:16Z",
+      "completed_at": "2026-09-08T15:04:37Z",
+      "duration_s": 441,
+      "failure_kind": "test",
+      "job_id": 102112882909,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102112882909",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T15:38:13Z",
+      "completed_at": "2026-09-08T16:18:41Z",
+      "duration_s": 2428,
+      "failure_kind": "test",
+      "job_id": 102128076128,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102128076128",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T15:38:06Z",
+      "completed_at": "2026-09-08T15:46:40Z",
+      "duration_s": 514,
+      "failure_kind": "test",
+      "job_id": 102128015016,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102128015016",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T16:18:56Z",
+      "completed_at": "2026-09-08T16:58:52Z",
+      "duration_s": 2396,
+      "failure_kind": "test",
+      "job_id": 102142676504,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102142676504",
+      "failing_tests": [
+        {
+          "suite": "API : PUT /modules/bulk-uninstall > BackOffice : Check the module are uninstalled and deleted",
+          "title": "should filter list by name : Cash on delivery (COD)",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/functional/API/02_endpoints/module/10_putModulesBulkUninstall.ts",
+          "line": 173
+        }
+      ],
+      "test_counts": {
+        "passing": 1244,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-08T16:18:56Z",
+      "completed_at": "2026-09-08T16:26:26Z",
+      "duration_s": 450,
+      "failure_kind": "test",
+      "job_id": 102142676578,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/34226581040/job/102142676578",
+      "failing_tests": [
+        {
+          "suite": "Cash on delivery (COD) module: Upgrade module > Upgrade with shop on maintenance",
+          "title": "should reload the page",
+          "error": "AssertionError: expected 'v2.0.1' to include '3.0.0'",
+          "file": "campaigns/modules/10_ps_cashondelivery/01_installation/01_upgradeModule.ts",
+          "line": 162
+        }
+      ],
+      "test_counts": {
+        "passing": 19,
+        "failing": 1,
+        "pending": 0
+      }
+    }
+  ]
+}
