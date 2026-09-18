@@ -12,7 +12,8 @@ push results to a central store. GitHub's own Actions metrics and third-party fl
 services have the same blind spot, since they only see repositories inside the organisation.
 
 Code lives on the default branch. Data and the dashboard live on the orphan `stats` branch,
-so the forks of this repository carry none of it.
+so the forks of this repository carry none of it: `data/` is the collector's store, one JSON
+file per run, and `docs/` is the published page that GitHub Pages serves.
 
 ## What it looks like
 
@@ -332,7 +333,7 @@ and a type error should surface in the pull request rather than at 05:17 the nex
 `.github/workflows/stats-tests.yml` runs on any pull request that touches `tools/stats/**`
 and type-checks, lints, builds and tests.
 
-GitHub Pages should be pointed at the `stats` branch, `/site` folder.
+GitHub Pages should be pointed at the `stats` branch, `/docs` folder.
 
 ## Setting the repository up, once
 
@@ -355,8 +356,12 @@ exist yet**, and the `stats` branch is created by the first successful collectio
    the `stats` branch. Check the Step Summary afterwards: **"Forks covered" must be more
    than 1**, or the token is not reaching forks and the collection is upstream-only.
 
-3. **Pages.** Settings → Pages → Deploy from a branch → `stats` / `/site`. The workflow
+3. **Pages.** Settings → Pages → Deploy from a branch → `stats` / `/docs`. The workflow
    writes `.nojekyll`, so nothing is filtered out.
+
+   The folder is `docs/` because those are the only two choices GitHub offers when deploying
+   from a branch — the repository root or `/docs`, nothing else — and the root would publish
+   the site's `data/` directly on top of the collector's own `data/` store.
 
 4. **Drain the backlog.** About 1800 runs at roughly 4.4 API requests each, so about 8000
    requests against a 5000/hour limit. Run it manually with `max_runs` around 800, wait for
