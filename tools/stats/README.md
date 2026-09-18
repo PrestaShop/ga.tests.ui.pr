@@ -1,6 +1,6 @@
 # UI test campaign statistics
 
-**→ [prestashop.github.io/ga.tests.ui.pr](https://prestashop.github.io/ga.tests.ui.pr/)**
+**→ [build.prestashop-project.org/ga.tests.ui.pr](https://build.prestashop-project.org/ga.tests.ui.pr/)**
 
 Finds the flaky campaigns: which ones fail, how often a retry rescues them, and across how
 many unrelated pull requests. Covers every fork, not just runs started by the core team.
@@ -362,6 +362,10 @@ exist yet**, and the `stats` branch is created by the first successful collectio
    The folder is `docs/` because those are the only two choices GitHub offers when deploying
    from a branch — the repository root or `/docs`, nothing else — and the root would publish
    the site's `data/` directly on top of the collector's own `data/` store.
+
+   The site then answers on the organisation's verified domain,
+   <https://build.prestashop-project.org/ga.tests.ui.pr/>. The `prestashop.github.io` form
+   redirects there, so either works, but that is the one to link to.
 
 4. **Drain the backlog.** About 1800 runs at roughly 4.4 API requests each, so about 8000
    requests against a 5000/hour limit. Run it manually with `max_runs` around 800, wait for
