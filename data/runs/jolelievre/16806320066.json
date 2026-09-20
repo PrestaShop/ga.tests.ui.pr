@@ -1,0 +1,38 @@
+{
+  "repo": "jolelievre/ga.tests.ui.pr",
+  "owner": "jolelievre",
+  "run_id": 16806320066,
+  "run_number": 281,
+  "run_attempt": 1,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2025-08-07T13:45:57Z",
+  "updated_at": "2026-09-11T13:52:55Z",
+  "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/16806320066",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "9.0.x",
+  "branch_key_source": "job-name",
+  "base_branch": "9.0.x",
+  "ps_version": null,
+  "raw_job_rows": 1,
+  "executions": [
+    {
+      "campaign": "functional:API",
+      "branch": "9.0.x",
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2025-08-07T13:46:00Z",
+      "completed_at": "2025-08-07T13:50:53Z",
+      "duration_s": 293,
+      "failure_kind": "unknown",
+      "job_id": 47599558181,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/16806320066/job/47599558181"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "repo": "jolelievre/ga.tests.ui.pr",
+  "owner": "jolelievre",
+  "run_id": 16878375291,
+  "run_number": 209,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2025-08-11T11:12:55Z",
+  "updated_at": "2026-09-15T11:29:47Z",
+  "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/16878375291",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2025-08-11T11:25:33Z",
+      "completed_at": "2025-08-11T11:26:45Z",
+      "duration_s": 72,
+      "failure_kind": "unknown",
+      "job_id": 47808848344,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/16878375291/job/47808848344"
+    }
+  ]
+}
