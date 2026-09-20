@@ -1,0 +1,41 @@
+{
+  "repo": "boherm/ga.tests.ui.pr",
+  "owner": "boherm",
+  "run_id": 20168775576,
+  "run_number": 7,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2025-12-12T13:48:18Z",
+  "updated_at": "2025-12-12T14:05:13Z",
+  "html_url": "https://github.com/boherm/ga.tests.ui.pr/actions/runs/20168775576",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2025-12-12T13:52:25Z",
+      "completed_at": "2025-12-12T14:05:13Z",
+      "duration_s": 768,
+      "failure_kind": "none",
+      "job_id": 57899057866,
+      "job_url": "https://github.com/boherm/ga.tests.ui.pr/actions/runs/20168775576/job/57899057866"
+    }
+  ]
+}
