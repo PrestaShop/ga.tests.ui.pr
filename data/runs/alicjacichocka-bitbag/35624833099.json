@@ -1,0 +1,41 @@
+{
+  "repo": "alicjacichocka-bitbag/ga.tests.ui.pr",
+  "owner": "alicjacichocka-bitbag",
+  "run_id": 35624833099,
+  "run_number": 2,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-09-21T16:19:12Z",
+  "updated_at": "2026-09-21T19:05:41Z",
+  "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/35624833099",
+  "is_security": false,
+  "aborted": false,
+  "final": false,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-09-21T16:23:52Z",
+      "completed_at": "2026-09-21T19:05:39Z",
+      "duration_s": 9707,
+      "failure_kind": "none",
+      "job_id": 106418178502,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/35624833099/job/106418178502"
+    }
+  ]
+}
