@@ -1,0 +1,982 @@
+{
+  "repo": "mattgoud/ga.tests.ui.pr",
+  "owner": "mattgoud",
+  "run_id": 35752527867,
+  "run_number": 118,
+  "run_attempt": 4,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-09-22T16:12:11Z",
+  "updated_at": "2026-09-22T18:35:28Z",
+  "html_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 41895,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 184,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:28:16Z",
+      "completed_at": "2026-09-22T16:46:12Z",
+      "duration_s": 1076,
+      "failure_kind": "none",
+      "job_id": 106830174654,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174654"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:12:35Z",
+      "completed_at": "2026-09-22T16:19:49Z",
+      "duration_s": 434,
+      "failure_kind": "none",
+      "job_id": 106830174414,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174414"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:28:37Z",
+      "completed_at": "2026-09-22T17:18:57Z",
+      "duration_s": 3020,
+      "failure_kind": "none",
+      "job_id": 106830174421,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174421"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:20:41Z",
+      "completed_at": "2026-09-22T16:37:55Z",
+      "duration_s": 1034,
+      "failure_kind": "none",
+      "job_id": 106830174629,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174629"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:19:55Z",
+      "completed_at": "2026-09-22T16:36:55Z",
+      "duration_s": 1020,
+      "failure_kind": "none",
+      "job_id": 106830174521,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174521"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:13:17Z",
+      "completed_at": "2026-09-22T16:20:36Z",
+      "duration_s": 439,
+      "failure_kind": "none",
+      "job_id": 106830174667,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174667"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:36:59Z",
+      "completed_at": "2026-09-22T17:01:30Z",
+      "duration_s": 1471,
+      "failure_kind": "none",
+      "job_id": 106830174641,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174641"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-22T16:32:15Z",
+      "completed_at": "2026-09-22T16:53:26Z",
+      "duration_s": 1271,
+      "failure_kind": "test",
+      "job_id": 106830174684,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174684",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 628,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:12:35Z",
+      "completed_at": "2026-09-22T16:23:48Z",
+      "duration_s": 673,
+      "failure_kind": "none",
+      "job_id": 106830174433,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174433"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:40:06Z",
+      "completed_at": "2026-09-22T17:32:47Z",
+      "duration_s": 3161,
+      "failure_kind": "none",
+      "job_id": 106830174862,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174862"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:39:16Z",
+      "completed_at": "2026-09-22T16:46:39Z",
+      "duration_s": 443,
+      "failure_kind": "none",
+      "job_id": 106830174722,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174722"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:18:35Z",
+      "completed_at": "2026-09-22T16:28:30Z",
+      "duration_s": 595,
+      "failure_kind": "none",
+      "job_id": 106830174567,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174567"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:15:43Z",
+      "completed_at": "2026-09-22T16:28:12Z",
+      "duration_s": 749,
+      "failure_kind": "none",
+      "job_id": 106830174526,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174526"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:27:54Z",
+      "completed_at": "2026-09-22T16:43:18Z",
+      "duration_s": 924,
+      "failure_kind": "none",
+      "job_id": 106830174418,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174418"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:41:54Z",
+      "completed_at": "2026-09-22T16:49:42Z",
+      "duration_s": 468,
+      "failure_kind": "none",
+      "job_id": 106830174534,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174534"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:19:50Z",
+      "completed_at": "2026-09-22T16:41:18Z",
+      "duration_s": 1288,
+      "failure_kind": "none",
+      "job_id": 106830174497,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174497"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:34:03Z",
+      "completed_at": "2026-09-22T16:56:56Z",
+      "duration_s": 1373,
+      "failure_kind": "none",
+      "job_id": 106830174510,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174510"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:17:57Z",
+      "completed_at": "2026-09-22T16:33:59Z",
+      "duration_s": 962,
+      "failure_kind": "none",
+      "job_id": 106830174562,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174562"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:28:09Z",
+      "completed_at": "2026-09-22T16:39:48Z",
+      "duration_s": 699,
+      "failure_kind": "none",
+      "job_id": 106830174443,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174443"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-22T16:14:23Z",
+      "completed_at": "2026-09-22T16:28:04Z",
+      "duration_s": 821,
+      "failure_kind": "test",
+      "job_id": 106830174461,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174461",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should go to FO page and change the language to French",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should check the translation",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 184
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should go back to BO",
+          "error": "AssertionError: expected '' to include 'Translations • '",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 200
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should go to 'International > Translations' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should choose the translation 'Front office with hummingbird theme' and the language 'English (English)'",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 220
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should search 'Popular Products' expression and modify the french translation",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 229
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should go to FO page and change the language to English",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 238
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should check 'Contact us' header link",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 3 - Front office translations with hummingbird theme",
+          "title": "should get the \"Send\" button label",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 257
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 269
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should go to 'International > Translations' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should choose the translation 'Installed modules' and the language 'English (English)'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 289
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should search 'Contact form' expression and modify the english translation",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 304
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should go to 'Modules > Module Manager' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should search the module Contact form",
+          "error": "TypeError: Cannot read properties of undefined (reading 'reload')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 327
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 4 - Installed modules translations",
+          "title": "should check the module name",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 334
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should go to 'International > Translations' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should choose the translation 'Email translations' and the language 'English (English)'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 356
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should search 'Welcome!' expression and modify the english translation",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 372
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should view my shop",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForEvent')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 381
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should go to create account page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 394
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should create new account",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 404
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should sign out from FO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 413
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 5 - Email translations",
+          "title": "should check if the mail is in mailbox and check the subject",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 423
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 435
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should go to 'International > Translations' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should choose the translation 'Other' and the language 'English (English)'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 457
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should search an expression and modify the english translation",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 466
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should go to 'Catalog > Discounts' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should go to new cart rule page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 485
+        },
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 6 - Other translations",
+          "title": "should go to ACTIONS tab and verify the translation of the title",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 494
+        }
+      ],
+      "test_counts": {
+        "passing": 199,
+        "failing": 31,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:12:35Z",
+      "completed_at": "2026-09-22T16:19:26Z",
+      "duration_s": 411,
+      "failure_kind": "none",
+      "job_id": 106830174382,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174382"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:17:19Z",
+      "completed_at": "2026-09-22T16:27:26Z",
+      "duration_s": 607,
+      "failure_kind": "none",
+      "job_id": 106830174605,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174605"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-22T16:16:35Z",
+      "completed_at": "2026-09-22T16:35:09Z",
+      "duration_s": 1114,
+      "failure_kind": "test",
+      "job_id": 106830174470,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174470",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:16:51Z",
+      "completed_at": "2026-09-22T16:39:11Z",
+      "duration_s": 1340,
+      "failure_kind": "none",
+      "job_id": 106830174417,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174417"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:41:21Z",
+      "completed_at": "2026-09-22T16:54:50Z",
+      "duration_s": 809,
+      "failure_kind": "none",
+      "job_id": 106830174782,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174782"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:14:27Z",
+      "completed_at": "2026-09-22T16:25:32Z",
+      "duration_s": 665,
+      "failure_kind": "none",
+      "job_id": 106830174437,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174437"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:12:35Z",
+      "completed_at": "2026-09-22T16:32:17Z",
+      "duration_s": 1182,
+      "failure_kind": "none",
+      "job_id": 106830174406,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174406"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:39:51Z",
+      "completed_at": "2026-09-22T16:50:14Z",
+      "duration_s": 623,
+      "failure_kind": "none",
+      "job_id": 106830174702,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174702"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-22T16:12:35Z",
+      "completed_at": "2026-09-22T16:27:48Z",
+      "duration_s": 913,
+      "failure_kind": "test",
+      "job_id": 106830174474,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174474",
+      "failing_tests": [
+        {
+          "suite": "BO - Shipping - Carriers : Change carrier position > POST-TEST : Reset carrier position",
+          "title": "should reset second carrier position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 386,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:23:52Z",
+      "completed_at": "2026-09-22T16:40:01Z",
+      "duration_s": 969,
+      "failure_kind": "none",
+      "job_id": 106830174496,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174496"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:37:22Z",
+      "completed_at": "2026-09-22T16:56:15Z",
+      "duration_s": 1133,
+      "failure_kind": "none",
+      "job_id": 106830174590,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174590"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:19:30Z",
+      "completed_at": "2026-09-22T16:39:51Z",
+      "duration_s": 1221,
+      "failure_kind": "none",
+      "job_id": 106830174586,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174586"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:32:55Z",
+      "completed_at": "2026-09-22T17:02:59Z",
+      "duration_s": 1804,
+      "failure_kind": "none",
+      "job_id": 106830174793,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174793"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:37:58Z",
+      "completed_at": "2026-09-22T16:54:39Z",
+      "duration_s": 1001,
+      "failure_kind": "none",
+      "job_id": 106830174874,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174874"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:43:37Z",
+      "completed_at": "2026-09-22T17:37:29Z",
+      "duration_s": 3232,
+      "failure_kind": "none",
+      "job_id": 106830174758,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174758"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:32:23Z",
+      "completed_at": "2026-09-22T16:51:48Z",
+      "duration_s": 1165,
+      "failure_kind": "none",
+      "job_id": 106830174731,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174731"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:22:28Z",
+      "completed_at": "2026-09-22T16:32:09Z",
+      "duration_s": 581,
+      "failure_kind": "none",
+      "job_id": 106830174707,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174707"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:35:14Z",
+      "completed_at": "2026-09-22T17:04:12Z",
+      "duration_s": 1738,
+      "failure_kind": "none",
+      "job_id": 106830174640,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174640"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:17:50Z",
+      "completed_at": "2026-09-22T16:28:33Z",
+      "duration_s": 643,
+      "failure_kind": "none",
+      "job_id": 106830174752,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174752"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:25:37Z",
+      "completed_at": "2026-09-22T16:37:19Z",
+      "duration_s": 702,
+      "failure_kind": "none",
+      "job_id": 106830174698,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174698"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:28:33Z",
+      "completed_at": "2026-09-22T16:37:07Z",
+      "duration_s": 514,
+      "failure_kind": "none",
+      "job_id": 106830174727,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174727"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:27:30Z",
+      "completed_at": "2026-09-22T16:54:40Z",
+      "duration_s": 1630,
+      "failure_kind": "none",
+      "job_id": 106830174712,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174712"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:39:55Z",
+      "completed_at": "2026-09-22T16:52:40Z",
+      "duration_s": 765,
+      "failure_kind": "none",
+      "job_id": 106830174775,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174775"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:37:11Z",
+      "completed_at": "2026-09-22T16:45:03Z",
+      "duration_s": 472,
+      "failure_kind": "none",
+      "job_id": 106830174856,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174856"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T16:43:21Z",
+      "completed_at": "2026-09-22T16:52:53Z",
+      "duration_s": 572,
+      "failure_kind": "none",
+      "job_id": 106830174823,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106830174823"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T17:39:01Z",
+      "completed_at": "2026-09-22T17:57:51Z",
+      "duration_s": 1130,
+      "failure_kind": "none",
+      "job_id": 106861871674,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106861871674"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T17:39:12Z",
+      "completed_at": "2026-09-22T17:48:19Z",
+      "duration_s": 547,
+      "failure_kind": "none",
+      "job_id": 106861871662,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106861871662"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-22T17:37:46Z",
+      "completed_at": "2026-09-22T17:56:32Z",
+      "duration_s": 1126,
+      "failure_kind": "test",
+      "job_id": 106861871621,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106861871621",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T17:38:24Z",
+      "completed_at": "2026-09-22T17:56:17Z",
+      "duration_s": 1073,
+      "failure_kind": "none",
+      "job_id": 106861871576,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106861871576"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-22T17:58:11Z",
+      "completed_at": "2026-09-22T18:16:22Z",
+      "duration_s": 1091,
+      "failure_kind": "test",
+      "job_id": 106869051113,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106869051113",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-22T18:17:15Z",
+      "completed_at": "2026-09-22T18:35:27Z",
+      "duration_s": 1092,
+      "failure_kind": "none",
+      "job_id": 106875865311,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/35752527867/job/106875865311"
+    }
+  ]
+}
