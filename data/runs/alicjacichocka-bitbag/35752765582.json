@@ -3,12 +3,12 @@
   "owner": "alicjacichocka-bitbag",
   "run_id": 35752765582,
   "run_number": 17,
-  "run_attempt": 6,
+  "run_attempt": 7,
   "workflow": "pr_test_one.yml",
   "status": "completed",
   "conclusion": "failure",
   "created_at": "2026-09-22T16:14:17Z",
-  "updated_at": "2026-09-22T19:51:45Z",
+  "updated_at": "2026-09-23T07:50:25Z",
   "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/35752765582",
   "is_security": false,
   "aborted": false,
@@ -19,7 +19,7 @@
   "branch_key_source": "resolved-log",
   "base_branch": "9.2.x",
   "ps_version": "9.2.0",
-  "raw_job_rows": 276,
+  "raw_job_rows": 322,
   "executions": [
     {
       "campaign": "audit",
@@ -929,6 +929,33 @@
       "failure_kind": "test",
       "job_id": 106905178055,
       "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/35752765582/job/106905178055",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-23T07:35:19Z",
+      "completed_at": "2026-09-23T07:50:25Z",
+      "duration_s": 906,
+      "failure_kind": "test",
+      "job_id": 107088118596,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/35752765582/job/107088118596",
       "failing_tests": [
         {
           "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
