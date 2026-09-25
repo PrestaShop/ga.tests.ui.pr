@@ -1,0 +1,1763 @@
+{
+  "repo": "jf-viguier/ga.tests.ui.pr",
+  "owner": "jf-viguier",
+  "run_id": 35978511397,
+  "run_number": 1,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-09-24T08:59:32Z",
+  "updated_at": "2026-09-24T11:00:20Z",
+  "html_url": "https://github.com/jf-viguier/ga.tests.ui.pr/actions/runs/35978511397",
+  "is_security": false,
+  "aborted": false,
+  "final": false,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-24T09:04:13Z",
+      "completed_at": "2026-09-24T11:00:19Z",
+      "duration_s": 6966,
+      "failure_kind": "test",
+      "job_id": 107566101389,
+      "job_url": "https://github.com/jf-viguier/ga.tests.ui.pr/actions/runs/35978511397/job/107566101389",
+      "failing_tests": [
+        {
+          "suite": "BO - Dashboard",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/01_dashboard.ts",
+          "line": 40
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/02_orders.ts",
+          "line": 47
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should go to 'Orders > Orders' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should go to 'Orders > Orders > New Order' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/02_orders.ts",
+          "line": 72
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should go to 'Orders > Invoices' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should go to 'Orders > Credit slips' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should go to 'Orders > Delivery slips' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders",
+          "title": "should go to 'Orders > Shopping carts' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 72
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Products > Product' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 93
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Products > Add new product' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Categories' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Categories > Category' page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 139
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Categories > Add new category' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Monitoring' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Attributes' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Attributes > Attribute' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 201
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Attributes > Add new value' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 213
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Attributes > Add new attribute' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Features' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Features > Feature' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 260
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Features > Add new value' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 272
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Attributes & Features > Features > Add new feature' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Brands' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Brands > Brand' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 319
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Brands > Address' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Brands > Add new brand' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Brands > Add new brand address' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Suppliers' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Suppliers > View Supplier' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 399
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Suppliers > Supplier' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Brands & Suppliers > Suppliers > Add new supplier' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Files' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Files > Add new file' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 463
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Discounts > Cart Rules' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Discounts > Cart Rules > Add new cart rule' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 491
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Discounts > Catalog Price Rules' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Discounts > Catalog Price Rules > Add new catalog price rule' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 520
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Stock > Stock' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog",
+          "title": "should go to 'Catalog > Stock > Movements' page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/03_catalog.ts",
+          "line": 548
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/04_customers.ts",
+          "line": 45
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Customers' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Customers > View Customer' page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/BO/04_customers.ts",
+          "line": 71
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Customers > Edit Customer' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/04_customers.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Customers > New Customer' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Addresses' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Addresses > Edit Address' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/04_customers.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Customers",
+          "title": "should go to 'Customers > Addresses > New Address' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customer Service",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/05_customerService.ts",
+          "line": 44
+        },
+        {
+          "suite": "BO - Customer Service",
+          "title": "should go to 'Customer Service > Customer Service' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customer Service",
+          "title": "should go to 'Customer Service > Order messages' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customer Service",
+          "title": "should go to 'Customer Service > Order messages > Order message' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/05_customerService.ts",
+          "line": 85
+        },
+        {
+          "suite": "BO - Customer Service",
+          "title": "should go to 'Customer Service > Order messages > Add new order message' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Customer Service",
+          "title": "should go to 'Customer Service > Merchandise Returns' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 43
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to 'Statistics' page",
+          "error": "page.waitForURL: Timeout 120000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 52
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Available quantities'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Best manufacturers'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Best categories'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Best customers'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Best suppliers'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Best vouchers'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Best-selling products'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Carrier distribution'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Catalog evaluation'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Catalog statistics'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Customer accounts'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Newsletter'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Pages not found'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Product details'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Registered customer information'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Sales and orders'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Shop search'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Statistics",
+          "title": "should go to the subtab 'Stats Dashboard'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/06_statistics.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Modules",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/07_modules.ts",
+          "line": 43
+        },
+        {
+          "suite": "BO - Modules",
+          "title": "should go to 'Modules > Module Manager' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Modules",
+          "title": "should go to 'Modules > Module Manager > Alerts' page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/07_modules.ts",
+          "line": 69
+        },
+        {
+          "suite": "BO - Modules",
+          "title": "should go to 'Modules > Module Manager > Updates' page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/07_modules.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 58
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Theme & Logo > Add new theme' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 84
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Theme & Logo > Choose layouts' page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 97
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Theme & Logo > Pages Configuration' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 109
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Theme & Logo > Advanced Customization' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 121
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Email Theme' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Email Theme > Preview' page",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Pages' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Pages > Add new page category' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 179
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Pages > Add new page' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 192
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Pages > Edit page' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 205
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Positions' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Positions > Hook a module' page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 234
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Image Settings' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Image Settings > Add new image type' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 263
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Image Settings > Edit image type' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 276
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Link List' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Link List > New block' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 305
+        },
+        {
+          "suite": "BO - Design",
+          "title": "should go to 'Design > Link List > Edit block' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/08_design.ts",
+          "line": 318
+        },
+        {
+          "suite": "BO - Shipping",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/09_shipping.ts",
+          "line": 43
+        },
+        {
+          "suite": "BO - Shipping",
+          "title": "should go to 'Shipping > Carriers' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shipping",
+          "title": "should go to 'Shipping > Carriers > New Carrier' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/09_shipping.ts",
+          "line": 69
+        },
+        {
+          "suite": "BO - Shipping",
+          "title": "should go to 'Shipping > Carriers > Edit Carrier' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/09_shipping.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Shipping",
+          "title": "should go to 'Shipping > Preferences' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Payment",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/10_payment.ts",
+          "line": 42
+        },
+        {
+          "suite": "BO - Payment",
+          "title": "should go to 'Payment > Payment Methods' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Payment",
+          "title": "should go to 'Payment > Preferences' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 57
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Localization' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Languages' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Languages > New Language' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 95
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Languages > Edit Language' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 107
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Currencies' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 120
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Currencies > New Currency' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Currencies > Edit Currency' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 144
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Localization > Geolocation' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 157
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > Zones' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > Zones > New Zone' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 183
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > Zones > Edit Zone' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > Countries' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 213
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > Countries > New Country' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 225
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > Countries > Edit Country' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 237
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > States' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 250
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > States > New State' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 262
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'Locations > States > Edit State' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 274
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > Taxes' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > Taxes > Add Tax' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 303
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > Taxes > Edit Tax' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > TaxRules' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 332
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > TaxRules > Add Tax Rule Group' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 344
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > TaxRules > Edit Tax Rule Group' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/11_international.ts",
+          "line": 356
+        },
+        {
+          "suite": "BO - International",
+          "title": "should go to 'International > Translations' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > General' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > General > Maintenance' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Order Settings' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Order Settings > Statuses' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 120
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Order Settings > Statuses > New Order status' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 132
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Order Settings > Statuses > Edit Order status' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 144
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Order Settings > Statuses > New Order return status' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 154
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Order Settings > Statuses > Edit Order return status' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 169
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Product Settings' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings > Groups' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 216
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings > Groups > New Group' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 228
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings > Groups > Edit Group' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 240
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings > Titles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 253
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings > Titles > New Title' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 265
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Customer Settings > Titles > Edit Title' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 277
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Contact' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Contacts > New Contact' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 304
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Contacts > Edit Contact' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Contacts > Stores' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 334
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Contacts > Stores > New Store' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 346
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop parameters > Contacts > Stores > Edit Store' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 358
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Traffic & SEO' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Traffic & SEO > New page' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 388
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Traffic & SEO > Edit page' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Traffic & SEO > Search Engines' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 419
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Traffic & SEO > Search Engines > New Search engine' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 431
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Traffic & SEO > Search Engines > Edit Search engine' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 443
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Search' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Search > Aliases' tab",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 472
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Search > Aliases > New alias' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 481
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Search > Aliases > Edit alias' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 493
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Search > Tags' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 506
+        },
+        {
+          "suite": "BO - Shop Parameters",
+          "title": "should go to 'Shop Parameters > Search > Tags > New Tag' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/12_shopParameters.ts",
+          "line": 518
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 60
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Shop parameters > General' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should enable multi store",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Information' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Performance' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Import' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Team > Employee > Add new employee' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 188
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Team > Roles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 200
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Team > Roles > Add new role page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 212
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Team > Roles > Edit role page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 224
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Team > Permissions' tab",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 237
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Database' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Database > New SQL query' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 264
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Database > DB Backup' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 276
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Logs' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Webservice' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Webservice > Add new webservice key' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 318
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Multistore' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Multistore > Edit shop group' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Multistore > Add new shop group' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Multistore > Add new shop' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Multistore > Edit shop' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > New & Experimental Features' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > API Client' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > API Client > Add New API Client' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 452
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Security' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Security > Employee Sessions' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 474
+        },
+        {
+          "suite": "BO - Advanced Parameters",
+          "title": "should go to 'Advanced Parameters > Security > Customer Sessions' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/BO/13_advancedParameters.ts",
+          "line": 483
+        },
+        {
+          "suite": "BO - Wall of Fame",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/audit/BO/14_wallOfFame.ts",
+          "line": 41
+        },
+        {
+          "suite": "BO - Wall of Fame",
+          "title": "should go to 'Wall of Fame' page",
+          "error": "page.waitForURL: Timeout 120000ms exceeded.",
+          "file": "campaigns/audit/BO/14_wallOfFame.ts",
+          "line": 50
+        },
+        {
+          "suite": "Check FO public pages > Enable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO public pages > Enable Classic theme",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO public pages > Enable Classic theme",
+          "title": "should enable the theme Classic",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/BO/design/themeAndLogo/index.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages",
+          "title": "should go to the home page",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 62
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages",
+          "title": "should go to a category page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 71
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages",
+          "title": "should go to a subcategory page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 83
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages",
+          "title": "should go to a product page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 95
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages",
+          "title": "should search a product",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 107
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages > Check 'Your Account' footer links",
+          "title": "should check 'Order tracking' footer links",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 170
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages > Check 'Your Account' footer links",
+          "title": "should check 'Sign in' footer links",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 170
+        },
+        {
+          "suite": "Check FO public pages > Check FO public pages > Check 'Your Account' footer links",
+          "title": "should check 'Create account' footer links",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/01_guest.ts",
+          "line": 170
+        },
+        {
+          "suite": "Check FO public pages > Disable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO public pages > Disable Classic theme",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO connected pages > Enable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO connected pages > Enable Classic theme",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO connected pages > Enable Classic theme",
+          "title": "should enable the theme Classic",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/BO/design/themeAndLogo/index.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the home page",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 55
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to login page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 64
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should sign in with default customer",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 76
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to account page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 88
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"Your personal information\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 100
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"Your addresses\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 112
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"New address\" page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 127
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"Order history\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 137
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"Order details\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 150
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"Credit slips\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 162
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"My wishlists\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 175
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"My wishlist\" page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 188
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should go to the \"GDPR - Personal data\" page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 200
+        },
+        {
+          "suite": "Check FO connected pages > Check FO connected pages",
+          "title": "should logout",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/02_connected.ts",
+          "line": 213
+        },
+        {
+          "suite": "Check FO connected pages > Disable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO connected pages > Disable Classic theme",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Enable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Enable Classic theme",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Enable Classic theme",
+          "title": "should enable the theme Classic",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/BO/design/themeAndLogo/index.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should go to the home page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/03_cart.ts",
+          "line": 61
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should go to login page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/03_cart.ts",
+          "line": 73
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should sign in with customer credentials",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/03_cart.ts",
+          "line": 85
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should go to the product page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/03_cart.ts",
+          "line": 97
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should add product to cart",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should go to delivery step",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/03_cart.ts",
+          "line": 122
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should go to payment step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/audit/FO/classic/03_cart.ts",
+          "line": 134
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Check FO pages in the checkout process",
+          "title": "should choose payment method and confirm the order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Disable Classic theme",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "Check FO pages in the checkout process > Disable Classic theme",
+          "title": "should go to 'Design > Theme & Logo' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 53,
+        "failing": 245,
+        "pending": 2
+      }
+    }
+  ]
+}
