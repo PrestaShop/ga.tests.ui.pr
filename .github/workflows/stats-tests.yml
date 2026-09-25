@@ -45,9 +45,9 @@ jobs:
         working-directory: tools/stats
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           # Matches the scheduled workflow. 24 rather than 20 for the npm that ships with it:
           # npm 10.8 crashes resolving Vitest's optional peer dependencies.

@@ -122,7 +122,7 @@ jobs:
           echo "rebase_or_merge=$REBASE_OR_MERGE" >> "$GITHUB_OUTPUT"
 
       - name: Checkout PR head (shallow, for version detection)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ inputs.GH_REPOSITORY }}
           token: ${{ secrets.GH_TOKEN || github.token }}

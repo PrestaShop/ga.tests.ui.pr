@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: Checkout the puller
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: code
 
@@ -81,7 +81,7 @@ jobs:
             echo "Data branch checked out at $(git rev-parse --short HEAD)"
           fi
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           # 24 rather than 20 for the npm that ships with it: npm 10.8 crashes resolving
           # Vitest's optional peer dependencies. The compiled output itself runs on 20.

@@ -4,7 +4,7 @@ description: Checkout keycloak module for installation and to launch keycloak do
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       name: Checkout keycloak module
       with:
         repository: PrestaShop/keycloak_connector_demo
