@@ -122,7 +122,7 @@ jobs:
           echo "DOCKER_PREFIX=${DOCKER_PREFIX}" >> $GITHUB_ENV
 
       # Checkout Private repository
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         name: Checkout PrestaShop PR security private repository
         with:
           fetch-depth: 0
@@ -152,7 +152,7 @@ jobs:
         if: failure() && hashFiles('./.github/actions/setup-env-export-logs') != ''
 
       # Checkout repository to use custom actions
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           path: custom_actions
       # Create API Client for API campaign

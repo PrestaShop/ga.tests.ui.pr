@@ -69,7 +69,7 @@ jobs:
         run: echo "${{ toJSON(inputs) }}"
 
       # Checkout repository to use custom actions
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           path: custom_actions
 
@@ -121,7 +121,7 @@ jobs:
 
       # Install node dependencies and build assets
       - name: Setup Node ${{ inputs.node_version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ inputs.node_version }}
       - name: Build assets in parallel and in background
