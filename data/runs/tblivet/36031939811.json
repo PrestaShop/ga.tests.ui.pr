@@ -3,12 +3,12 @@
   "owner": "tblivet",
   "run_id": 36031939811,
   "run_number": 20,
-  "run_attempt": 6,
+  "run_attempt": 7,
   "workflow": "pr_test_one.yml",
   "status": "completed",
   "conclusion": "failure",
   "created_at": "2026-09-24T17:06:03Z",
-  "updated_at": "2026-09-24T20:57:07Z",
+  "updated_at": "2026-09-25T07:29:43Z",
   "html_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/36031939811",
   "is_security": false,
   "aborted": false,
@@ -19,7 +19,7 @@
   "branch_key_source": "resolved-log",
   "base_branch": "9.2.x",
   "ps_version": "9.2.0",
-  "raw_job_rows": 276,
+  "raw_job_rows": 322,
   "executions": [
     {
       "campaign": "audit",
@@ -908,6 +908,33 @@
       "failure_kind": "test",
       "job_id": 107822587698,
       "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/36031939811/job/107822587698",
+      "failing_tests": [
+        {
+          "suite": "FO - Checkout - Addresses : CRUD address > Create invoice address in checkout page",
+          "title": "should click on 'Billing address differs from shipping address' link",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/FO/hummingbird/11_checkout/02_addresses/04_CRUDAddress.ts",
+          "line": 183
+        }
+      ],
+      "test_counts": {
+        "passing": 748,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-25T07:06:44Z",
+      "completed_at": "2026-09-25T07:29:42Z",
+      "duration_s": 1378,
+      "failure_kind": "test",
+      "job_id": 107978581164,
+      "job_url": "https://github.com/tblivet/ga.tests.ui.pr/actions/runs/36031939811/job/107978581164",
       "failing_tests": [
         {
           "suite": "FO - Checkout - Addresses : CRUD address > Create invoice address in checkout page",
