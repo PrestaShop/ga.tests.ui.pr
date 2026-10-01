@@ -1,0 +1,1473 @@
+{
+  "repo": "LotusWebAgency/ga.tests.ui.pr",
+  "owner": "LotusWebAgency",
+  "run_id": 36760518822,
+  "run_number": 5,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-09-30T18:42:38Z",
+  "updated_at": "2026-10-01T04:58:38Z",
+  "html_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42764,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:40:24Z",
+      "completed_at": "2026-09-30T21:59:12Z",
+      "duration_s": 1128,
+      "failure_kind": "none",
+      "job_id": 110041786224,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786224"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:12:25Z",
+      "completed_at": "2026-09-30T21:22:18Z",
+      "duration_s": 593,
+      "failure_kind": "none",
+      "job_id": 110041786050,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786050"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:29:42Z",
+      "completed_at": "2026-09-30T22:17:29Z",
+      "duration_s": 2867,
+      "failure_kind": "none",
+      "job_id": 110041785981,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041785981"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T21:53:47Z",
+      "completed_at": "2026-09-30T22:11:10Z",
+      "duration_s": 1043,
+      "failure_kind": "test",
+      "job_id": 110041786939,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786939",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T21:14:29Z",
+      "completed_at": "2026-09-30T21:37:47Z",
+      "duration_s": 1398,
+      "failure_kind": "test",
+      "job_id": 110041786508,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786508",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°4",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete4'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete6'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 644,
+        "failing": 18,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:24:18Z",
+      "completed_at": "2026-09-30T21:31:33Z",
+      "duration_s": 435,
+      "failure_kind": "none",
+      "job_id": 110041786514,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786514"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:16:29Z",
+      "completed_at": "2026-09-30T21:40:21Z",
+      "duration_s": 1432,
+      "failure_kind": "none",
+      "job_id": 110041786146,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786146"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T21:12:01Z",
+      "completed_at": "2026-09-30T21:39:22Z",
+      "duration_s": 1641,
+      "failure_kind": "test",
+      "job_id": 110041785966,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041785966",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should change first attribute position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should reset third value position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 627,
+        "failing": 2,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:15:24Z",
+      "completed_at": "2026-09-30T21:27:14Z",
+      "duration_s": 710,
+      "failure_kind": "none",
+      "job_id": 110041786059,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786059"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T21:27:36Z",
+      "completed_at": "2026-09-30T22:19:35Z",
+      "duration_s": 3119,
+      "failure_kind": "test",
+      "job_id": 110041786173,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786173",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should check the start and the end date",
+          "error": "AssertionError: expected '2026-10-01 00:00:00' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 130
+        }
+      ],
+      "test_counts": {
+        "passing": 1418,
+        "failing": 1,
+        "pending": 66
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:53:12Z",
+      "completed_at": "2026-09-30T21:59:22Z",
+      "duration_s": 370,
+      "failure_kind": "none",
+      "job_id": 110041786782,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786782"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:26:42Z",
+      "completed_at": "2026-09-30T21:42:39Z",
+      "duration_s": 957,
+      "failure_kind": "none",
+      "job_id": 110041786183,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786183"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:16:05Z",
+      "completed_at": "2026-09-30T21:28:07Z",
+      "duration_s": 722,
+      "failure_kind": "none",
+      "job_id": 110041786141,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786141"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:21:36Z",
+      "completed_at": "2026-09-30T21:36:10Z",
+      "duration_s": 874,
+      "failure_kind": "none",
+      "job_id": 110041786092,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786092"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:22:26Z",
+      "completed_at": "2026-09-30T21:29:40Z",
+      "duration_s": 434,
+      "failure_kind": "none",
+      "job_id": 110041786058,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786058"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:33:50Z",
+      "completed_at": "2026-09-30T21:54:10Z",
+      "duration_s": 1220,
+      "failure_kind": "none",
+      "job_id": 110041786190,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786190"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:45:35Z",
+      "completed_at": "2026-09-30T22:08:35Z",
+      "duration_s": 1380,
+      "failure_kind": "none",
+      "job_id": 110041786498,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786498"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:12:33Z",
+      "completed_at": "2026-09-30T21:27:34Z",
+      "duration_s": 901,
+      "failure_kind": "none",
+      "job_id": 110041786153,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786153"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:20:32Z",
+      "completed_at": "2026-09-30T21:31:29Z",
+      "duration_s": 657,
+      "failure_kind": "none",
+      "job_id": 110041786213,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786213"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:52:35Z",
+      "completed_at": "2026-09-30T22:05:01Z",
+      "duration_s": 746,
+      "failure_kind": "none",
+      "job_id": 110041786792,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786792"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:36:25Z",
+      "completed_at": "2026-09-30T21:42:54Z",
+      "duration_s": 389,
+      "failure_kind": "none",
+      "job_id": 110041786096,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786096"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:24:28Z",
+      "completed_at": "2026-09-30T21:34:15Z",
+      "duration_s": 587,
+      "failure_kind": "none",
+      "job_id": 110041786271,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786271"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T21:27:15Z",
+      "completed_at": "2026-09-30T21:45:33Z",
+      "duration_s": 1098,
+      "failure_kind": "test",
+      "job_id": 110041786155,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786155",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        }
+      ],
+      "test_counts": {
+        "passing": 533,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:31:31Z",
+      "completed_at": "2026-09-30T21:53:10Z",
+      "duration_s": 1299,
+      "failure_kind": "none",
+      "job_id": 110041786191,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786191"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:12:09Z",
+      "completed_at": "2026-09-30T21:25:08Z",
+      "duration_s": 779,
+      "failure_kind": "none",
+      "job_id": 110041785959,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041785959"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:25:10Z",
+      "completed_at": "2026-09-30T21:36:23Z",
+      "duration_s": 673,
+      "failure_kind": "none",
+      "job_id": 110041786129,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786129"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:31:35Z",
+      "completed_at": "2026-09-30T21:52:20Z",
+      "duration_s": 1245,
+      "failure_kind": "none",
+      "job_id": 110041786192,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786192"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:42:56Z",
+      "completed_at": "2026-09-30T21:53:45Z",
+      "duration_s": 649,
+      "failure_kind": "none",
+      "job_id": 110041786296,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786296"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:39:24Z",
+      "completed_at": "2026-09-30T21:56:04Z",
+      "duration_s": 1000,
+      "failure_kind": "none",
+      "job_id": 110041786345,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786345"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:36:12Z",
+      "completed_at": "2026-09-30T21:53:18Z",
+      "duration_s": 1026,
+      "failure_kind": "none",
+      "job_id": 110041786492,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786492"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:37:32Z",
+      "completed_at": "2026-09-30T21:57:30Z",
+      "duration_s": 1198,
+      "failure_kind": "none",
+      "job_id": 110041786576,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786576"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:39:21Z",
+      "completed_at": "2026-09-30T22:01:43Z",
+      "duration_s": 1342,
+      "failure_kind": "none",
+      "job_id": 110041786704,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786704"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T21:53:20Z",
+      "completed_at": "2026-09-30T22:15:30Z",
+      "duration_s": 1330,
+      "failure_kind": "test",
+      "job_id": 110041787210,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041787210",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '10/01/2026' to equal '09/30/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '10/01/2026' to equal '09/30/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 212
+        },
+        {
+          "suite": "FO - Account : Check order return PDF > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 417
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 259
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 797,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:22:34Z",
+      "completed_at": "2026-09-30T21:39:20Z",
+      "duration_s": 1006,
+      "failure_kind": "none",
+      "job_id": 110041786497,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786497"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:49:55Z",
+      "completed_at": "2026-09-30T22:35:50Z",
+      "duration_s": 2755,
+      "failure_kind": "none",
+      "job_id": 110041786783,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786783"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:34:16Z",
+      "completed_at": "2026-09-30T21:52:33Z",
+      "duration_s": 1097,
+      "failure_kind": "none",
+      "job_id": 110041786652,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786652"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:40:40Z",
+      "completed_at": "2026-09-30T21:50:55Z",
+      "duration_s": 615,
+      "failure_kind": "none",
+      "job_id": 110041786684,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786684"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:37:04Z",
+      "completed_at": "2026-09-30T22:02:33Z",
+      "duration_s": 1529,
+      "failure_kind": "none",
+      "job_id": 110041786541,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786541"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:26:41Z",
+      "completed_at": "2026-09-30T21:37:03Z",
+      "duration_s": 622,
+      "failure_kind": "none",
+      "job_id": 110041786480,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786480"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:44:21Z",
+      "completed_at": "2026-09-30T21:58:10Z",
+      "duration_s": 829,
+      "failure_kind": "none",
+      "job_id": 110041786771,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786771"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:42:40Z",
+      "completed_at": "2026-09-30T21:57:43Z",
+      "duration_s": 903,
+      "failure_kind": "none",
+      "job_id": 110041786573,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786573"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:37:49Z",
+      "completed_at": "2026-09-30T22:05:34Z",
+      "duration_s": 1665,
+      "failure_kind": "none",
+      "job_id": 110041786579,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786579"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:28:09Z",
+      "completed_at": "2026-09-30T21:40:38Z",
+      "duration_s": 749,
+      "failure_kind": "none",
+      "job_id": 110041786539,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786539"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:50:57Z",
+      "completed_at": "2026-09-30T21:57:32Z",
+      "duration_s": 395,
+      "failure_kind": "none",
+      "job_id": 110041786976,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786976"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T21:52:22Z",
+      "completed_at": "2026-09-30T22:01:49Z",
+      "duration_s": 567,
+      "failure_kind": "none",
+      "job_id": 110041786711,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110041786711"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T22:36:03Z",
+      "completed_at": "2026-09-30T22:52:35Z",
+      "duration_s": 992,
+      "failure_kind": "test",
+      "job_id": 110129034724,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110129034724",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T22:36:03Z",
+      "completed_at": "2026-09-30T22:54:24Z",
+      "duration_s": 1101,
+      "failure_kind": "test",
+      "job_id": 110129034744,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110129034744",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 336
+        }
+      ],
+      "test_counts": {
+        "passing": 661,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-30T22:36:03Z",
+      "completed_at": "2026-09-30T22:56:46Z",
+      "duration_s": 1243,
+      "failure_kind": "none",
+      "job_id": 110129034782,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110129034782"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T22:36:03Z",
+      "completed_at": "2026-09-30T23:28:22Z",
+      "duration_s": 3139,
+      "failure_kind": "test",
+      "job_id": 110129034754,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110129034754",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the total (tax incl.)",
+          "error": "AssertionError: expected '€34.80' to equal '€29.80'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 240
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the quantity of cart rules",
+          "error": "AssertionError: expected '100' to equal '99'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 258
+        },
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should check the start and the end date",
+          "error": "AssertionError: expected '2026-10-01 00:00:00' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 130
+        }
+      ],
+      "test_counts": {
+        "passing": 1415,
+        "failing": 4,
+        "pending": 66
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T22:36:03Z",
+      "completed_at": "2026-09-30T22:51:36Z",
+      "duration_s": 933,
+      "failure_kind": "test",
+      "job_id": 110129034672,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110129034672",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Create simple order in BO > Create order and check result",
+          "title": "should check order message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/03_createSimpleOrderInBO.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-10-01 00:42:00' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        },
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Cart details",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 2 Name: Mr. John DOE Email: pub@prestashop.com Account creation date: 10/01/2026 Number of orders: 1 Amount spent: €139.20 remove_red_eye View customer mail Write an email' to include '09/30/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 423
+        },
+        {
+          "suite": "BO - Orders - Create order : Select previous orders > Check orders table",
+          "title": "should check the order 'date'",
+          "error": "AssertionError: The 'date' value is not correct!: expected '2026-10-01 00:42:44' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/05_selectPreviousOrders.ts",
+          "line": 231
+        }
+      ],
+      "test_counts": {
+        "passing": 530,
+        "failing": 4,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T22:36:03Z",
+      "completed_at": "2026-09-30T23:01:00Z",
+      "duration_s": 1497,
+      "failure_kind": "test",
+      "job_id": 110129034780,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110129034780",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '10/01/2026' to equal '09/30/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '10/01/2026' to equal '09/30/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 212
+        },
+        {
+          "suite": "FO - Account : Check order return PDF > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 417
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 259
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 797,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T23:28:37Z",
+      "completed_at": "2026-09-30T23:42:18Z",
+      "duration_s": 821,
+      "failure_kind": "test",
+      "job_id": 110144487108,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110144487108",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T23:28:37Z",
+      "completed_at": "2026-09-30T23:46:06Z",
+      "duration_s": 1049,
+      "failure_kind": "test",
+      "job_id": 110144486979,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110144486979",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 336
+        }
+      ],
+      "test_counts": {
+        "passing": 661,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T23:28:37Z",
+      "completed_at": "2026-10-01T00:21:35Z",
+      "duration_s": 3178,
+      "failure_kind": "test",
+      "job_id": 110144487007,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110144487007",
+      "failing_tests": [
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check that discount is applied to the cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the total (tax incl.)",
+          "error": "AssertionError: expected '€34.80' to equal '€29.80'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 240
+        },
+        {
+          "suite": "BO - Cart Rules : Quantity consumption > BO - Cart Rules : Quantity consumption",
+          "title": "should check the quantity of cart rules",
+          "error": "AssertionError: expected '100' to equal '99'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/03_quantityConsumption.ts",
+          "line": 258
+        },
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should check the start and the end date",
+          "error": "AssertionError: expected '2026-10-01 00:00:00' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 130
+        },
+        {
+          "suite": "BO - Catalog - Discounts : Set period > Create discount and check it in FO",
+          "title": "should create a discount with the start date in letter",
+          "error": "AssertionError: expected '2026-10-01 00:04:32' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/03_discountV2/06_setPeriod.ts",
+          "line": 156
+        },
+        {
+          "suite": "BO - Stocks - Movements : Filter by category, movement type, employee and period > Check all filters > BO - Check Filter \"Period\"",
+          "title": "should set the filter \"Period\" to \"2026-10-01\"",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/03_catalog/08_stocks/01_movements/01_filterMovements.ts",
+          "line": 524
+        }
+      ],
+      "test_counts": {
+        "passing": 1413,
+        "failing": 6,
+        "pending": 66
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T23:28:37Z",
+      "completed_at": "2026-09-30T23:47:00Z",
+      "duration_s": 1103,
+      "failure_kind": "test",
+      "job_id": 110144487008,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110144487008",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-10-01 01:36:05' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        },
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Cart details",
+          "title": "should check the customer Information Block",
+          "error": "AssertionError: expected 'Customer ID: 2 Name: Mr. John DOE Email: pub@prestashop.com Account creation date: 10/01/2026 Number of orders: 1 Amount spent: €139.20 remove_red_eye View customer mail Write an email' to include '09/30/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 423
+        },
+        {
+          "suite": "BO - Orders - Create order : Select previous orders > Check orders table",
+          "title": "should check the order 'date'",
+          "error": "AssertionError: The 'date' value is not correct!: expected '2026-10-01 01:36:53' to include '2026-09-30'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/05_selectPreviousOrders.ts",
+          "line": 231
+        },
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 530,
+        "failing": 4,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-09-30T23:28:37Z",
+      "completed_at": "2026-09-30T23:55:40Z",
+      "duration_s": 1623,
+      "failure_kind": "test",
+      "job_id": 110144486995,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110144486995",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '10/01/2026' to equal '09/30/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        },
+        {
+          "suite": "FO - Account - Order details : Request merchandise return > Request merchandise return",
+          "title": "should check the merchandise returns table",
+          "error": "AssertionError: expected '10/01/2026' to equal '09/30/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_orderDetails/03_requestMerchandiseReturn.ts",
+          "line": 212
+        },
+        {
+          "suite": "FO - Account : Check order return PDF > Check the return details PDF > Check merchandise return PDF",
+          "title": "should check the PDF Header",
+          "error": "The order return file name is not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/03_merchandiseReturns/02_checkOrderReturnPDF.ts",
+          "line": 417
+        },
+        {
+          "suite": "FO - Account : Get GDPR data in PDF > Check GDPR PDF file after create customer and first login > Check GDPR data in PDF",
+          "title": "should check the date and the customer name",
+          "error": "The date and the customer name are not correct!",
+          "file": "campaigns/functional/FO/classic/03_userAccount/04_getGDPRDataInPDF.ts",
+          "line": 259
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check the date and the customer name\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 797,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T00:21:49Z",
+      "completed_at": "2026-10-01T00:39:35Z",
+      "duration_s": 1066,
+      "failure_kind": "test",
+      "job_id": 110158803049,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110158803049",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T00:21:49Z",
+      "completed_at": "2026-10-01T00:40:56Z",
+      "duration_s": 1147,
+      "failure_kind": "none",
+      "job_id": 110158803108,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110158803108"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T00:21:49Z",
+      "completed_at": "2026-10-01T01:15:28Z",
+      "duration_s": 3219,
+      "failure_kind": "none",
+      "job_id": 110158802926,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110158802926"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T00:21:49Z",
+      "completed_at": "2026-10-01T00:40:24Z",
+      "duration_s": 1115,
+      "failure_kind": "none",
+      "job_id": 110158803100,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110158803100"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T00:21:49Z",
+      "completed_at": "2026-10-01T00:49:10Z",
+      "duration_s": 1641,
+      "failure_kind": "test",
+      "job_id": 110158802990,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110158802990",
+      "failing_tests": [
+        {
+          "suite": "FO - Header and Footer : Change language > Enable 'French' language",
+          "title": "should reset all filters",
+          "error": "page.waitForSelector: Timeout 2000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "FO - Header and Footer : Change language > Change language and check it",
+          "title": "should go to FO home page",
+          "error": "page.goto: net::ERR_ABORTED at https://localhost:8002/",
+          "file": "campaigns/functional/FO/classic/02_headerAndFooter/04_changeLanguage.ts",
+          "line": 226
+        },
+        {
+          "suite": "FO - Header and Footer : Change language > Change language and check it",
+          "title": "should check that the languages list is visible",
+          "error": "Language list is not visible!",
+          "file": "campaigns/functional/FO/classic/02_headerAndFooter/04_changeLanguage.ts",
+          "line": 236
+        },
+        {
+          "suite": "FO - Header and Footer : Change language > Change language and check it",
+          "title": "should change the shop language to 'French'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/FO/classic/02_headerAndFooter/04_changeLanguage.ts",
+          "line": 242
+        },
+        {
+          "suite": "FO - Header and Footer : Change language > Change language and check it",
+          "title": "should change the shop language to 'English'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/FO/classic/02_headerAndFooter/04_changeLanguage.ts",
+          "line": 251
+        }
+      ],
+      "test_counts": {
+        "passing": 991,
+        "failing": 5,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T04:10:27Z",
+      "completed_at": "2026-10-01T04:27:53Z",
+      "duration_s": 1046,
+      "failure_kind": "test",
+      "job_id": 110195618293,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110195618293",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T04:11:40Z",
+      "completed_at": "2026-10-01T04:41:35Z",
+      "duration_s": 1795,
+      "failure_kind": "none",
+      "job_id": 110195618326,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110195618326"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T04:41:48Z",
+      "completed_at": "2026-10-01T04:58:37Z",
+      "duration_s": 1009,
+      "failure_kind": "test",
+      "job_id": 110222002031,
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36760518822/job/110222002031",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    }
+  ]
+}
