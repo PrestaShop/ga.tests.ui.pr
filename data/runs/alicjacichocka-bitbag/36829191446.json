@@ -1,0 +1,982 @@
+{
+  "repo": "alicjacichocka-bitbag/ga.tests.ui.pr",
+  "owner": "alicjacichocka-bitbag",
+  "run_id": 36829191446,
+  "run_number": 33,
+  "run_attempt": 6,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-10-01T07:14:29Z",
+  "updated_at": "2026-10-01T10:27:13Z",
+  "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 42938,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 276,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:43:00Z",
+      "completed_at": "2026-10-01T08:02:42Z",
+      "duration_s": 1182,
+      "failure_kind": "none",
+      "job_id": 110261760168,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760168"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:02:44Z",
+      "completed_at": "2026-10-01T08:12:04Z",
+      "duration_s": 560,
+      "failure_kind": "none",
+      "job_id": 110261760122,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760122"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:59:29Z",
+      "completed_at": "2026-10-01T08:52:07Z",
+      "duration_s": 3158,
+      "failure_kind": "none",
+      "job_id": 110261760106,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760106"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T08:00:48Z",
+      "completed_at": "2026-10-01T08:05:23Z",
+      "duration_s": 275,
+      "failure_kind": "test",
+      "job_id": 110261760296,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760296",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:05:00Z",
+      "completed_at": "2026-10-01T08:23:14Z",
+      "duration_s": 1094,
+      "failure_kind": "none",
+      "job_id": 110261760325,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760325"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:51:57Z",
+      "completed_at": "2026-10-01T07:59:26Z",
+      "duration_s": 449,
+      "failure_kind": "none",
+      "job_id": 110261760297,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760297"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:44:01Z",
+      "completed_at": "2026-10-01T08:08:07Z",
+      "duration_s": 1446,
+      "failure_kind": "none",
+      "job_id": 110261760086,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760086"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:56:00Z",
+      "completed_at": "2026-10-01T08:15:55Z",
+      "duration_s": 1195,
+      "failure_kind": "none",
+      "job_id": 110261760027,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760027"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:56:10Z",
+      "completed_at": "2026-10-01T08:07:24Z",
+      "duration_s": 674,
+      "failure_kind": "none",
+      "job_id": 110261760214,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760214"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:31:13Z",
+      "completed_at": "2026-10-01T08:24:08Z",
+      "duration_s": 3175,
+      "failure_kind": "none",
+      "job_id": 110261760155,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760155"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:01:35Z",
+      "completed_at": "2026-10-01T08:08:59Z",
+      "duration_s": 444,
+      "failure_kind": "none",
+      "job_id": 110261760278,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760278"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:08:44Z",
+      "completed_at": "2026-10-01T08:20:16Z",
+      "duration_s": 692,
+      "failure_kind": "none",
+      "job_id": 110261760308,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760308"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:44:06Z",
+      "completed_at": "2026-10-01T07:56:08Z",
+      "duration_s": 722,
+      "failure_kind": "none",
+      "job_id": 110261760172,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760172"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:01:12Z",
+      "completed_at": "2026-10-01T08:17:39Z",
+      "duration_s": 987,
+      "failure_kind": "none",
+      "job_id": 110261760253,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760253"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:44:28Z",
+      "completed_at": "2026-10-01T07:52:10Z",
+      "duration_s": 462,
+      "failure_kind": "none",
+      "job_id": 110261760080,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760080"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:38:47Z",
+      "completed_at": "2026-10-01T08:01:10Z",
+      "duration_s": 1343,
+      "failure_kind": "none",
+      "job_id": 110261760223,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760223"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:52:33Z",
+      "completed_at": "2026-10-01T08:15:19Z",
+      "duration_s": 1366,
+      "failure_kind": "none",
+      "job_id": 110261760244,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760244"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:50:21Z",
+      "completed_at": "2026-10-01T08:04:59Z",
+      "duration_s": 878,
+      "failure_kind": "none",
+      "job_id": 110261760216,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760216"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:53:45Z",
+      "completed_at": "2026-10-01T08:02:56Z",
+      "duration_s": 551,
+      "failure_kind": "none",
+      "job_id": 110261760367,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760367"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T07:52:12Z",
+      "completed_at": "2026-10-01T08:01:33Z",
+      "duration_s": 561,
+      "failure_kind": "test",
+      "job_id": 110261760322,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760322",
+      "failing_tests": [
+        {
+          "suite": "BO - International - Translation : Modify translation > Case 2 - Front office translations with classic theme",
+          "title": "should check the translation",
+          "error": "AssertionError: expected 'Popular Products' to include 'translate'",
+          "file": "campaigns/functional/BO/11_international/04_translations/01_modifyTranslation.ts",
+          "line": 185
+        }
+      ],
+      "test_counts": {
+        "passing": 174,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:34:59Z",
+      "completed_at": "2026-10-01T07:41:40Z",
+      "duration_s": 401,
+      "failure_kind": "none",
+      "job_id": 110261760077,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760077"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:36:38Z",
+      "completed_at": "2026-10-01T07:47:13Z",
+      "duration_s": 635,
+      "failure_kind": "none",
+      "job_id": 110261760232,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760232"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:33:32Z",
+      "completed_at": "2026-10-01T07:52:31Z",
+      "duration_s": 1139,
+      "failure_kind": "none",
+      "job_id": 110261760165,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760165"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:37:12Z",
+      "completed_at": "2026-10-01T07:59:52Z",
+      "duration_s": 1360,
+      "failure_kind": "none",
+      "job_id": 110261760120,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760120"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T07:36:53Z",
+      "completed_at": "2026-10-01T07:48:38Z",
+      "duration_s": 705,
+      "failure_kind": "test",
+      "job_id": 110261760099,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760099",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Pagination of orders table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/10_pagination.ts",
+          "line": 233
+        }
+      ],
+      "test_counts": {
+        "passing": 241,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:32:49Z",
+      "completed_at": "2026-10-01T07:43:59Z",
+      "duration_s": 670,
+      "failure_kind": "none",
+      "job_id": 110261760160,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760160"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:37:48Z",
+      "completed_at": "2026-10-01T07:58:27Z",
+      "duration_s": 1239,
+      "failure_kind": "none",
+      "job_id": 110261760066,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760066"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:50:19Z",
+      "completed_at": "2026-10-01T08:00:46Z",
+      "duration_s": 627,
+      "failure_kind": "none",
+      "job_id": 110261760316,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760316"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:40:14Z",
+      "completed_at": "2026-10-01T07:57:26Z",
+      "duration_s": 1032,
+      "failure_kind": "none",
+      "job_id": 110261760266,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760266"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:34:52Z",
+      "completed_at": "2026-10-01T07:51:55Z",
+      "duration_s": 1023,
+      "failure_kind": "none",
+      "job_id": 110261760233,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760233"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:05:25Z",
+      "completed_at": "2026-10-01T08:23:09Z",
+      "duration_s": 1064,
+      "failure_kind": "none",
+      "job_id": 110261760340,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760340"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:47:15Z",
+      "completed_at": "2026-10-01T08:08:54Z",
+      "duration_s": 1299,
+      "failure_kind": "none",
+      "job_id": 110261760353,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760353"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T07:57:34Z",
+      "completed_at": "2026-10-01T08:13:30Z",
+      "duration_s": 956,
+      "failure_kind": "infra",
+      "job_id": 110261760423,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760423"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:59:54Z",
+      "completed_at": "2026-10-01T08:16:39Z",
+      "duration_s": 1005,
+      "failure_kind": "none",
+      "job_id": 110261760366,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760366"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:33:28Z",
+      "completed_at": "2026-10-01T08:18:28Z",
+      "duration_s": 2700,
+      "failure_kind": "none",
+      "job_id": 110261760368,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760368"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T07:57:21Z",
+      "completed_at": "2026-10-01T08:15:56Z",
+      "duration_s": 1115,
+      "failure_kind": "test",
+      "job_id": 110261760288,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760288",
+      "failing_tests": [
+        {
+          "suite": "FO - Account : Get GDPR data in CSV > Check GDPR CSV file after send a message > Check GDPR data in CSV",
+          "title": "should check Messages table",
+          "error": "AssertionError: expected [ '172.18.0.1', 'Message test', '2026-10-01 10:15:15' ] to deeply equal [ '172.18.0.1', 'Message test', '2026-10-01 10:15:14' ]",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/05_getGDPRDataInCSV.ts",
+          "line": 834
+        },
+        {
+          "suite": "",
+          "title": "\"after each\" hook for \"should check Messages table\"",
+          "error": "page.screenshot: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        }
+      ],
+      "test_counts": {
+        "passing": 774,
+        "failing": 2,
+        "pending": 1
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:02:57Z",
+      "completed_at": "2026-10-01T08:18:00Z",
+      "duration_s": 903,
+      "failure_kind": "none",
+      "job_id": 110261760344,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760344"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:48:41Z",
+      "completed_at": "2026-10-01T08:18:06Z",
+      "duration_s": 1765,
+      "failure_kind": "none",
+      "job_id": 110261760376,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760376"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:07:25Z",
+      "completed_at": "2026-10-01T08:16:47Z",
+      "duration_s": 562,
+      "failure_kind": "none",
+      "job_id": 110261760710,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760710"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:40:58Z",
+      "completed_at": "2026-10-01T07:55:57Z",
+      "duration_s": 899,
+      "failure_kind": "none",
+      "job_id": 110261760462,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760462"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:58:29Z",
+      "completed_at": "2026-10-01T08:08:42Z",
+      "duration_s": 613,
+      "failure_kind": "none",
+      "job_id": 110261760561,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760561"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:08:09Z",
+      "completed_at": "2026-10-01T08:36:31Z",
+      "duration_s": 1702,
+      "failure_kind": "none",
+      "job_id": 110261760540,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760540"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:05:26Z",
+      "completed_at": "2026-10-01T08:18:52Z",
+      "duration_s": 806,
+      "failure_kind": "none",
+      "job_id": 110261760418,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760418"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:41:43Z",
+      "completed_at": "2026-10-01T07:50:19Z",
+      "duration_s": 516,
+      "failure_kind": "none",
+      "job_id": 110261760518,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760518"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T07:56:00Z",
+      "completed_at": "2026-10-01T08:05:23Z",
+      "duration_s": 563,
+      "failure_kind": "none",
+      "job_id": 110261760499,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110261760499"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T08:52:21Z",
+      "completed_at": "2026-10-01T08:58:14Z",
+      "duration_s": 353,
+      "failure_kind": "test",
+      "job_id": 110293416573,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110293416573",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:52:22Z",
+      "completed_at": "2026-10-01T09:04:19Z",
+      "duration_s": 717,
+      "failure_kind": "none",
+      "job_id": 110293416553,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110293416553"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T08:52:21Z",
+      "completed_at": "2026-10-01T09:03:53Z",
+      "duration_s": 692,
+      "failure_kind": "test",
+      "job_id": 110293416741,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110293416741",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Pagination of orders table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/10_pagination.ts",
+          "line": 233
+        }
+      ],
+      "test_counts": {
+        "passing": 241,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:52:21Z",
+      "completed_at": "2026-10-01T09:22:40Z",
+      "duration_s": 1819,
+      "failure_kind": "none",
+      "job_id": 110293416645,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110293416645"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-01T08:52:21Z",
+      "completed_at": "2026-10-01T09:10:39Z",
+      "duration_s": 1098,
+      "failure_kind": "none",
+      "job_id": 110293416502,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110293416502"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T09:22:54Z",
+      "completed_at": "2026-10-01T09:29:18Z",
+      "duration_s": 384,
+      "failure_kind": "test",
+      "job_id": 110304165732,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110304165732",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T09:22:55Z",
+      "completed_at": "2026-10-01T09:34:43Z",
+      "duration_s": 708,
+      "failure_kind": "test",
+      "job_id": 110304165729,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110304165729",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Pagination of orders table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/10_pagination.ts",
+          "line": 233
+        }
+      ],
+      "test_counts": {
+        "passing": 241,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T09:35:00Z",
+      "completed_at": "2026-10-01T09:39:49Z",
+      "duration_s": 289,
+      "failure_kind": "test",
+      "job_id": 110308516685,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110308516685",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T09:35:00Z",
+      "completed_at": "2026-10-01T09:46:22Z",
+      "duration_s": 682,
+      "failure_kind": "test",
+      "job_id": 110308516426,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110308516426",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Pagination of orders table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/10_pagination.ts",
+          "line": 233
+        }
+      ],
+      "test_counts": {
+        "passing": 241,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T09:46:35Z",
+      "completed_at": "2026-10-01T09:53:00Z",
+      "duration_s": 385,
+      "failure_kind": "test",
+      "job_id": 110312572501,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110312572501",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T09:46:35Z",
+      "completed_at": "2026-10-01T09:58:20Z",
+      "duration_s": 705,
+      "failure_kind": "test",
+      "job_id": 110312572658,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110312572658",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Pagination of orders table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/10_pagination.ts",
+          "line": 233
+        }
+      ],
+      "test_counts": {
+        "passing": 241,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T10:14:05Z",
+      "completed_at": "2026-10-01T10:20:11Z",
+      "duration_s": 366,
+      "failure_kind": "test",
+      "job_id": 110316772142,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110316772142",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T10:15:42Z",
+      "completed_at": "2026-10-01T10:27:12Z",
+      "duration_s": 690,
+      "failure_kind": "test",
+      "job_id": 110316772235,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36829191446/job/110316772235",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Pagination of orders table > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/10_pagination.ts",
+          "line": 233
+        }
+      ],
+      "test_counts": {
+        "passing": 241,
+        "failing": 1,
+        "pending": 0
+      }
+    }
+  ]
+}

@@ -3,16 +3,16 @@
   "owner": "LotusWebAgency",
   "run_id": 36797308433,
   "run_number": 7,
-  "run_attempt": 5,
+  "run_attempt": 6,
   "workflow": "pr_test_one.yml",
   "status": "completed",
   "conclusion": "failure",
   "created_at": "2026-10-01T00:40:02Z",
-  "updated_at": "2026-10-01T05:32:31Z",
+  "updated_at": "2026-10-01T05:49:56Z",
   "html_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36797308433",
   "is_security": false,
   "aborted": false,
-  "final": false,
+  "final": true,
   "pr_number": 43039,
   "db": "mariadb",
   "branch_key": "9.2.x",
@@ -952,14 +952,28 @@
       "campaign": "functional:BO:advanced-parameters:01-06",
       "branch": null,
       "attempt": 6,
-      "status": "queued",
-      "conclusion": null,
-      "started_at": "2026-10-01T05:32:43Z",
-      "completed_at": null,
-      "duration_s": null,
-      "failure_kind": "none",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-01T05:32:45Z",
+      "completed_at": "2026-10-01T05:49:56Z",
+      "duration_s": 1031,
+      "failure_kind": "test",
       "job_id": 110234163555,
-      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36797308433/job/110234163555"
+      "job_url": "https://github.com/LotusWebAgency/ga.tests.ui.pr/actions/runs/36797308433/job/110234163555",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
     }
   ]
 }
