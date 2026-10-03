@@ -1,0 +1,3170 @@
+{
+  "repo": "alicjacichocka-bitbag/ga.tests.ui.pr",
+  "owner": "alicjacichocka-bitbag",
+  "run_id": 36997715902,
+  "run_number": 4,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-10-02T10:50:43Z",
+  "updated_at": "2026-10-02T13:16:56Z",
+  "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36997715902",
+  "is_security": false,
+  "aborted": false,
+  "final": false,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-02T11:01:54Z",
+      "completed_at": "2026-10-02T13:16:55Z",
+      "duration_s": 8101,
+      "failure_kind": "test",
+      "job_id": 110809549598,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/36997715902/job/110809549598",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 36
+        },
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should go to 'Advanced Parameters > Informations' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check blocks",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 56
+        },
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no overrides",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should open the help side bar and check the document language",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should close the help side bar",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/02_debugMode.ts",
+          "line": 41
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should go to 'Advanced Parameters > Performance' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should enable debug mode",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/02_debugMode.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should check the debug toolbar",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/02_debugMode.ts",
+          "line": 74
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should disable debug mode",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/02_debugMode.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to 'Shop Parameters > Customer Settings' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to 'Groups' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 85
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should reset all filters and get number of groups in BO",
+          "error": "page.waitForSelector: Timeout 2000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should filter by 'Customer'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 101
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to edit group page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 110
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should update group with discount = 5",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 119
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should view my shop",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 126
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should search the product The best is yet to come' Framed poster",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to the product",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 145
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should check the product features list",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 158
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to login page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should login on the Front Office",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 178
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should check the product page",
+          "error": "AssertionError: expected 'PrestaShop' to include 'The best is yet to come\\' Framed poster'",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 188
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to 'Advanced Parameters > Performance' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should disable features",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 212
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should disable Customer Groups",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 231
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to 'Catalog > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should select all the combination product and delete them",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to 'Advanced Parameters > Performance' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should disable combinations",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 287
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should go to 'Catalog > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should click on 'New product' button",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 304
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "should check types of products",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/03_optionalFeatures.ts",
+          "line": 314
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "POST-TEST : should reset the \"Optional features\" configuration",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Optional features",
+          "title": "POST-TEST : should reset the customer group discount",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Clear cache",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/07_clearCache.ts",
+          "line": 36
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Clear cache",
+          "title": "should go to 'Advanced Parameters > Performance' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Performance : Clear cache",
+          "title": "should clear cache",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/02_performance/07_clearCache.ts",
+          "line": 55
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 37
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should disable 'Cookie's IP address'",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 56
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should check that the 'Cookie's IP address' is disabled",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should enable 'Cookie's IP address'",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 72
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should check that the 'Cookie's IP address' is enabled",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should update 'Lifetime of front office cookies'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should update ' Lifetime of back office cookies'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 97
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should update 'Cookie SameSite' to 'Strict' value",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 106
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should update 'Cookie SameSite' to 'None' value",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 115
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check general options",
+          "title": "should update 'Cookie SameSite' to 'default' value",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/01_general.ts",
+          "line": 129
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 87
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should set the 'Maximum size for attached files' to 2MB",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 106
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should go to 'Catalog > Files' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should go to new file page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 127
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should try to upload a file > 2MB and check the error message alert",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 136
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should upload a file < 2MB and check the validation message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 145
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for attached files'",
+          "title": "should delete the created file",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 152
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should set the 'Maximum size for a downloadable product' to 2MB",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should go to 'Catalog > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 196
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should choose 'Virtual product'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 203
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should go to new product page",
+          "error": "page.waitForSelector: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 212
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should try to add a file in virtual tab > 2 MB and check the error message",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 221
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should try to add a file in virtual tab < 2 MB",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 233
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a downloadable product'",
+          "title": "should delete the created product",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 242
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should set the 'Maximum size for a product' to 1MB",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 264
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should go to 'Catalog > Products' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should click on 'New product' button and check new product modal",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 286
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should choose 'Standard product'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 293
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should go to new product page",
+          "error": "page.waitForSelector: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 302
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should create standard product and add an image size > 1MB then check the error message",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 311
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should create standard product and add an image size < 1MB then check the validation message",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 324
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Upload quota > Check 'Maximum size for a product's image'",
+          "title": "should delete the created product",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/02_uploadQuota.ts",
+          "line": 335
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Disable all notifications",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 60
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Disable all notifications",
+          "title": "should click on notifications icon",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Disable all notifications",
+          "title": "should refresh the page and check that the notifications number is equal to 0",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Disable all notifications",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Disable all notifications",
+          "title": "should disable all notifications",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 98
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should enable new notifications for new orders",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 120
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should view my shop",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 127
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should go to login page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should sign in with default customer",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should add product to cart",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 155
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should go to delivery step",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should go to payment step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 178
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should choose payment method and confirm the order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'reload')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 198
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should check notifications number",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 207
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should click on notifications icon",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 214
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new orders'",
+          "title": "should check notifications number in orders tab",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 221
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should enable new notifications for new customers",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 244
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should go to 'Customers > Customers' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should go to add new customer page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 265
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should create customer and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 274
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should check notifications number",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 281
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should click on notifications icon",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 288
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should check notifications number in customers tab",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 295
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new customers'",
+          "title": "should refresh the page and check the notifications number",
+          "error": "TypeError: Cannot read properties of undefined (reading 'reload')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 304
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should go to 'Advanced Parameters > Administration' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should enable new notifications for new messages",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 335
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should view my shop",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForEvent')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 342
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should go to order history page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 352
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "Go to order details and send message",
+          "error": "TypeError: Cannot read properties of undefined (reading 'url')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 362
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'close')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 372
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should check notifications number",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 383
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should click on notifications icon",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 390
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > Check 'Show notifications for new messages'",
+          "title": "should check the notifications number in messages tab",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/14_advancedParameters/03_administration/03_notifications.ts",
+          "line": 397
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > POST-TEST: Delete customer",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > POST-TEST: Delete customer",
+          "title": "should go 'Customers > Customers' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > POST-TEST: Delete customer",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > POST-TEST: Delete customer",
+          "title": "should filter list by customer email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > POST-TEST: Delete customer",
+          "title": "should delete customer and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Administration : Check notifications > POST-TEST: Delete customer",
+          "title": "should reset filter and check the number of customers",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 56
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should view my shop",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 64
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should add the first product to the cart",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 77
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should proceed to checkout and sign in",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should go to delivery step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 101
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should go to payment step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 109
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should pay the order",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should logout from FO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Create order to have emails in the table",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 140
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters and get number of email logs",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by 'id_mail'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by 'recipient'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by 'template'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by 'id_lang'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by 'subject'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by date sent 'From' and 'To'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 244
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Delete E-mail",
+          "title": "should filter email list by 'subject'",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Delete E-mail",
+          "title": "should delete email",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 276
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Delete E-mail",
+          "title": "should reset all filters",
+          "error": "TypeError: Cannot read properties of undefined (reading 'waitForTimeout')",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Delete E-mail by bulk action",
+          "title": "should delete all emails",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 292
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Enable/Disable log emails",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/02_enableDisableLogEmails.ts",
+          "line": 41
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Enable/Disable log emails",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Enable/Disable log emails",
+          "title": "should disable log emails",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/02_enableDisableLogEmails.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Enable/Disable log emails",
+          "title": "should enable log emails",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/02_enableDisableLogEmails.ts",
+          "line": 66
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Enable/Disable log emails",
+          "title": "should check the existence of E-mail table",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/02_enableDisableLogEmails.ts",
+          "line": 74
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Send test email",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sendTestEmail/01_sendTestEmail.ts",
+          "line": 40
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Send test email",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Email : Send test email",
+          "title": "should check successful message after sending test email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sendTestEmail/01_sendTestEmail.ts",
+          "line": 59
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 53
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Erase emails",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Erase emails",
+          "title": "should erase all emails",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should go to FO page",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"popup\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 89
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should go to login page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should sign in with default customer",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 110
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should create the order n°1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should create the order n°2",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should create the order n°3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should create the order n°4",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should create the order n°5",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should create the order n°6",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should sign out from FO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 154
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Create 6 orders to have emails in the table",
+          "title": "should go back to BO",
+          "error": "TypeError: Cannot read properties of undefined (reading 'title')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 165
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Pagination next and previous",
+          "title": "should go to 'Advanced parameters > E-mail' page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'reload')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 184
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Pagination next and previous",
+          "title": "should click on next",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 191
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 198
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 205
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'id_mail' 'desc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'recipient' 'asc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'recipient' 'desc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'template' 'desc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'template' 'asc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'language' 'desc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'language' 'asc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'date_add' 'desc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'date_add' 'asc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'subject' 'desc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'subject' 'asc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Sort E-mail table",
+          "title": "should sort by 'id_mail' 'asc' and check result",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 291
+        },
+        {
+          "suite": "BO - Advanced Parameters - E-mail : Sort and pagination emails > Delete emails by bulk action",
+          "title": "should delete all emails",
+          "error": "TypeError: Cannot read properties of undefined (reading 'locator')",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/03_sortAndPagination.ts",
+          "line": 333
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 39
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files",
+          "title": "should go to 'Advanced Parameters > Import' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for categories_import sample file",
+          "title": "should download categories_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for categories_import sample file",
+          "title": "should check categories_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for products_import sample file",
+          "title": "should download products_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for products_import sample file",
+          "title": "should check products_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for combinations_import sample file",
+          "title": "should download combinations_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for combinations_import sample file",
+          "title": "should check combinations_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for customers_import sample file",
+          "title": "should download customers_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for customers_import sample file",
+          "title": "should check customers_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for addresses_import sample file",
+          "title": "should download addresses_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for addresses_import sample file",
+          "title": "should check addresses_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for brands_import sample file",
+          "title": "should download brands_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for brands_import sample file",
+          "title": "should check brands_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for suppliers_import sample file",
+          "title": "should download suppliers_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for suppliers_import sample file",
+          "title": "should check suppliers_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for alias_import sample file",
+          "title": "should download alias_import sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for alias_import sample file",
+          "title": "should check alias_import sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for store_contacts sample file",
+          "title": "should download store_contacts sample file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Download sample csv files > Download and check text for store_contacts sample file",
+          "title": "should check store_contacts sample text file",
+          "error": "TypeError: The \"path\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/01_downloadSampleFiles.ts",
+          "line": 150
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > PRE-TEST: Setup SMTP config",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > PRE-TEST: Setup SMTP config",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > PRE-TEST: Setup SMTP config",
+          "title": "should fill the smtp parameters form fields",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/BO/advancedParameters/email.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 69
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file",
+          "title": "should go to 'Advanced Parameters > Import' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should download 'Sample alias file' file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should upload the file",
+          "error": "TypeError: The \"oldPath\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 99
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should go to next import file step",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 108
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should start import file",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 115
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should check that the import is completed",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 122
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should close import progress modal",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 131
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Download then import alias simple file",
+          "title": "should check if reset password mail is in mailbox",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 138
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should download 'Sample suppliers file' file",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should upload the file",
+          "error": "TypeError: The \"oldPath\" argument must be of type string or an instance of Buffer or URL. Received undefined",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 155
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should click on the downloaded file and check the existence of the button choose from history",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 164
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should click on 'Choose from history / FTP'",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 173
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should check the imported files list",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 180
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should delete the first imported file",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 189
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should use the second imported file",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 196
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should go to next import file step",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 205
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should start import file",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 214
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should check that the import is completed",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 221
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should close import progress modal",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 230
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > Import : Import file > Check choose from history / FTP then import suppliers simple file",
+          "title": "should check if reset password mail is in mailbox",
+          "error": "TypeError: Cannot read properties of undefined (reading 'subject')",
+          "file": "campaigns/functional/BO/14_advancedParameters/05_import/02_importFile.ts",
+          "line": 237
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > POST-TEST: Reset SMTP config",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > POST-TEST: Reset SMTP config",
+          "title": "should go to 'Advanced Parameters > E-mail' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Import : Import file > POST-TEST: Reset SMTP config",
+          "title": "should reset parameters",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/versions/develop/pages/BO/advancedParameters/email.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 48
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees",
+          "title": "should reset all filters and get number of employees",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > PRE-TEST : Create employee",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 77
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > PRE-TEST : Create employee",
+          "title": "should create employee",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 86
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should filter by id_employee '1'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should filter by firstname 'Joesph'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should filter by lastname 'Beier'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should filter by email 'Joesph_Gleason@prestashop.com'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should filter by active '0'",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 146
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Filter the table",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Quick edit Employee",
+          "title": "should filter by Email address",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 181
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Quick edit Employee",
+          "title": "should disable the employee from the table",
+          "error": "locator.getAttribute: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 204
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > Quick edit Employee",
+          "title": "should enable the employee from the table",
+          "error": "locator.getAttribute: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 204
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > POST-TEST : Delete employee",
+          "title": "should filter list by email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 226
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > POST-TEST : Delete employee",
+          "title": "should delete employee",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/01_filterAndQuickEditEmployees.ts",
+          "line": 235
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter and quick edit Employees > POST-TEST : Delete employee",
+          "title": "should reset filter and check the number of employees",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 59
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee",
+          "title": "should reset all filters and get number of employees",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Create employee and check Sign in",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 88
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Create employee and check Sign in",
+          "title": "should create employee and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 97
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Create employee and check Sign in",
+          "title": "should logout from BO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Create employee and check Sign in",
+          "title": "should sign in with new account and verify the default page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Create employee and check Sign in",
+          "title": "should logout from BO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 141
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should filter list by email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 161
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should go to edit employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 170
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should update the employee account",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 180
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should click on cancel and verify the new employee's number",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 187
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should logout from BO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should sign in with edited account and verify the default page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Update the password and the default page",
+          "title": "should logout from BO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Disable the employee and check it",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 229
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Disable the employee and check it",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Disable the employee and check it",
+          "title": "should filter list by email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 248
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Disable the employee and check it",
+          "title": "should go to edit employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 257
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Disable the employee and check it",
+          "title": "should disable the employee account",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 267
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Update employee > Disable the employee and check it",
+          "title": "should logout from BO",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Delete employee",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 300
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Delete employee",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Delete employee",
+          "title": "should filter list by email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 319
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Delete employee",
+          "title": "should delete employee",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/02_CRUDEmployee.ts",
+          "line": 328
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : CRUD Employee > Delete employee",
+          "title": "should reset filter and check the number of employees",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 52
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees",
+          "title": "should reset all filters and get number of employees",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 1 : Try to enable/disable the default employee with Bulk Actions",
+          "title": "should filter by First name",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 1 : Try to enable/disable the default employee with Bulk Actions",
+          "title": "should try to disable default employee and check the error message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 95
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 1 : Try to enable/disable the default employee with Bulk Actions",
+          "title": "should try to enable default employee and check the error message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 95
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 1 : Try to delete default employee with Bulk Actions",
+          "title": "should try to delete default employee and check the error message",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 106
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Create 2 employees then filter the table",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 119
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Create 2 employees then filter the table",
+          "title": "should create employee",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Create 2 employees then filter the table",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 119
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Create 2 employees then filter the table",
+          "title": "should create employee",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 128
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Enable/Disable the created employees with Bulk Actions",
+          "title": "should filter by First name",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 139
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Enable/Disable the created employees with Bulk Actions",
+          "title": "should disable employees with Bulk Actions and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 159
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Enable/Disable the created employees with Bulk Actions",
+          "title": "should enable employees with Bulk Actions and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 159
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Delete employees with Bulk Actions",
+          "title": "should delete employees with Bulk Actions and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/03_employeesBulkActions.ts",
+          "line": 180
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create/Disable/Enable and bulk delete Employees > Case 2 : Delete employees with Bulk Actions",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Employee page",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/04_helpCard.ts",
+          "line": 38
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Employee page",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Employee page",
+          "title": "should open the help side bar and check the document language",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Employee page",
+          "title": "should close the help side bar",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 48
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees",
+          "title": "should go to 'Advanced parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees",
+          "title": "should reset all filters and get number of employees",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°2",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°4",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°5",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°6",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°7",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°8",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°9",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should go to add new employee page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 81
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Create 10 employees in BO",
+          "title": "should create employee n°10",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 90
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'id_employee' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'firstname' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'firstname' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'lastname' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'lastname' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'email' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'email' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'profile' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'profile' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'active' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'active' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Sort employee",
+          "title": "should sort by 'id_employee' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 161
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 168
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 175
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 182
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Delete employees with Bulk Actions",
+          "title": "should filter list by email",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 192
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Delete employees with Bulk Actions",
+          "title": "should delete employees with Bulk Actions and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/employees/05_sortAndPagination.ts",
+          "line": 201
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort and pagination employees > Delete employees with Bulk Actions",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Go to 'Logistician' profile",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 38
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Go to 'Logistician' profile",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Go to 'Logistician' profile",
+          "title": "should go to 'Permissions' tab",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 58
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Go to 'Logistician' profile",
+          "title": "should click on 'Logistician' profile",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all checkboxes for all the menu and check it",
+          "title": "should check the checkbox 'ALL' from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Uncheck all checkboxes for all the menu and check it",
+          "title": "should uncheck the checkbox 'ALL' from the header",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check checkbox by permission and check it",
+          "title": "should check 'view' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check checkbox by permission and check it",
+          "title": "should check 'add' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check checkbox by permission and check it",
+          "title": "should check 'edit' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check checkbox by permission and check it",
+          "title": "should check 'delete' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Refresh the page and check result",
+          "title": "should refresh the page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 145
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should uncheck the checkbox 'ALL' from the header",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should set the permission 'All' for 'Orders'",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check the number of checkbox checked",
+          "error": "AssertionError: expected +0 to equal 6",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 188
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check that the menu 'SELL' is checked",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check that the menu 'AdminParentOrders' is checked",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check that the menu 'AdminCatalog' is checked",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check that the menu 'AdminParentCustomer' is checked",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check that the menu 'AdminParentCustomerThreads' is checked",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit menu > Check all permissions for Orders and check result",
+          "title": "should check that the menu 'AdminStats' is checked",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/01_editMenu.ts",
+          "line": 202
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Go to 'Logistician' profile",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/02_editModules.ts",
+          "line": 38
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Go to 'Logistician' profile",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Go to 'Logistician' profile",
+          "title": "should go to 'Permissions' tab",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/02_editModules.ts",
+          "line": 58
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Go to 'Logistician' profile",
+          "title": "should click on 'Logistician' profile",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/02_editModules.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Check checkbox by permission for all modules and check it",
+          "title": "should check 'view' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Check checkbox by permission for all modules and check it",
+          "title": "should check 'configure' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Check checkbox by permission for all modules and check it",
+          "title": "should check 'uninstall' checkbox from the header",
+          "error": "locator.isChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team - Permission : Edit modules > Refresh the page and check result",
+          "title": "should refresh the page",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/permission/02_editModules.ts",
+          "line": 98
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/01_filterRoles.ts",
+          "line": 42
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table",
+          "title": "should go to 'Roles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/01_filterRoles.ts",
+          "line": 62
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table",
+          "title": "should reset all filters and get number of roles",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table > Filter roles table in BO",
+          "title": "should filter list by id_profile",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/01_filterRoles.ts",
+          "line": 94
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table > Filter roles table in BO",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table > Filter roles table in BO",
+          "title": "should filter list by name",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/01_filterRoles.ts",
+          "line": 94
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Filter roles table > Filter roles table in BO",
+          "title": "should reset filter",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 45
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO",
+          "title": "should go to 'Roles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 65
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO",
+          "title": "should reset all filters and get number of roles",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Create role in BO",
+          "title": "should go to add new role page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 83
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Create role in BO",
+          "title": "should create role and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 92
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Update role",
+          "title": "should filter list by name",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 105
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Update role",
+          "title": "should go to edit role page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 114
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Update role",
+          "title": "should update the role",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Delete role",
+          "title": "should filter list by name",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 133
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Delete role",
+          "title": "should delete role",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/02_CRUDRoles.ts",
+          "line": 142
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Create, Read, Update and Delete role in BO > Delete role",
+          "title": "should reset filter and check the number of roles",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Roles page",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/03_helpCard.ts",
+          "line": 38
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Roles page",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Roles page",
+          "title": "should go to 'Roles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/03_helpCard.ts",
+          "line": 58
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Roles page",
+          "title": "should open the help side bar and check the document language",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Help card in Roles page",
+          "title": "should close the help side bar",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/04_sortRoles.ts",
+          "line": 41
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should go to 'Roles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/04_sortRoles.ts",
+          "line": 61
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should reset all filters and get number of roles",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should sort by 'id_profile' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should sort by 'name' 'desc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should sort by 'name' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Sort Roles table",
+          "title": "should sort by 'id_profile' 'asc' and check result",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions",
+          "title": "should login in BO",
+          "error": "AssertionError: expected 'PrestaShop' to include 'Dashboard • PrestaShop'",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 42
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions",
+          "title": "should go to 'Advanced Parameters > Team' page",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions",
+          "title": "should go to 'Roles' page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 62
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions",
+          "title": "should reset all filters and get number of roles",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°2",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°4",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°5",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°6",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°7",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°8",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°9",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should go to add new profile page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 82
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should create profile n°10",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 91
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Create 10 roles in BO",
+          "title": "should check roles number",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Pagination next and previous",
+          "title": "should change the items number to 10 per page",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 109
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 116
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 123
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 130
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Delete roles with Bulk Actions",
+          "title": "should filter list by Name",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 140
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Delete roles with Bulk Actions",
+          "title": "should delete roles with Bulk Actions and check result",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/06_team/roles/05_paginationAndBulkActions.ts",
+          "line": 149
+        },
+        {
+          "suite": "BO - Advanced Parameters - Team : Pagination and delete roles by bulk actions > Delete roles with Bulk Actions",
+          "title": "should reset all filters",
+          "error": "locator.textContent: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 31,
+        "failing": 446,
+        "pending": 0
+      }
+    }
+  ]
+}

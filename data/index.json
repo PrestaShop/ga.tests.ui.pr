@@ -9329,8 +9329,38 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-09-30T06:50:53Z"
+    },
+    "cnavarro-prestashop/ga.tests.ui.pr#37035864357": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-03T01:40:53Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#36998597158": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-10-02T13:30:29Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#36998037465": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-10-02T13:40:01Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#36997715902": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-02T13:16:56Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#36978923576": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-10-02T10:24:46Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#36975166269": {
+      "run_attempt": 4,
+      "status": "completed",
+      "updated_at": "2026-10-02T09:31:49Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-02T05:35:54.405Z"
+  "updated_at": "2026-10-03T05:40:49.485Z"
 }
