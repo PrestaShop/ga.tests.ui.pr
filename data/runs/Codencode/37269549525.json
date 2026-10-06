@@ -1,0 +1,1204 @@
+{
+  "repo": "Codencode/ga.tests.ui.pr",
+  "owner": "Codencode",
+  "run_id": 37269549525,
+  "run_number": 196,
+  "run_attempt": 15,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "failure",
+  "created_at": "2026-10-05T05:50:22Z",
+  "updated_at": "2026-10-05T11:13:13Z",
+  "html_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 43100,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 690,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:07:32Z",
+      "duration_s": 1009,
+      "failure_kind": "none",
+      "job_id": 111633489559,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489559"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:06:31Z",
+      "completed_at": "2026-10-05T06:17:08Z",
+      "duration_s": 637,
+      "failure_kind": "none",
+      "job_id": 111633489598,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489598"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T06:00:56Z",
+      "completed_at": "2026-10-05T06:38:22Z",
+      "duration_s": 2246,
+      "failure_kind": "test",
+      "job_id": 111633489639,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489639",
+      "failing_tests": [
+        {
+          "suite": "API : PATCH /products/{productId}/shops > API : PATCH /products/{productId}/shops > BackOffice : Create new store and set URL",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 1352,
+        "failing": 1,
+        "pending": 7
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T05:50:44Z",
+      "completed_at": "2026-10-05T05:56:33Z",
+      "duration_s": 349,
+      "failure_kind": "test",
+      "job_id": 111633489820,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489820",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T06:15:31Z",
+      "completed_at": "2026-10-05T06:31:15Z",
+      "duration_s": 944,
+      "failure_kind": "test",
+      "job_id": 111633489770,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489770",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°17",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 458,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:15:36Z",
+      "completed_at": "2026-10-05T06:23:44Z",
+      "duration_s": 488,
+      "failure_kind": "none",
+      "job_id": 111633489881,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489881"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:15:54Z",
+      "duration_s": 1511,
+      "failure_kind": "none",
+      "job_id": 111633489602,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489602"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T05:59:33Z",
+      "completed_at": "2026-10-05T06:15:28Z",
+      "duration_s": 955,
+      "failure_kind": "infra",
+      "job_id": 111633489584,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489584"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:02:40Z",
+      "duration_s": 717,
+      "failure_kind": "none",
+      "job_id": 111633489611,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489611"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:02:42Z",
+      "completed_at": "2026-10-05T06:55:52Z",
+      "duration_s": 3190,
+      "failure_kind": "none",
+      "job_id": 111633489637,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489637"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T05:56:20Z",
+      "duration_s": 337,
+      "failure_kind": "none",
+      "job_id": 111633489683,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489683"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:00:59Z",
+      "completed_at": "2026-10-05T06:14:01Z",
+      "duration_s": 782,
+      "failure_kind": "none",
+      "job_id": 111633489681,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489681"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:56:23Z",
+      "completed_at": "2026-10-05T06:09:23Z",
+      "duration_s": 780,
+      "failure_kind": "none",
+      "job_id": 111633489617,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489617"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:05:42Z",
+      "duration_s": 899,
+      "failure_kind": "none",
+      "job_id": 111633489669,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489669"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T05:59:30Z",
+      "duration_s": 527,
+      "failure_kind": "none",
+      "job_id": 111633489542,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489542"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:02:44Z",
+      "completed_at": "2026-10-05T06:24:01Z",
+      "duration_s": 1277,
+      "failure_kind": "none",
+      "job_id": 111633489710,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489710"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:14:03Z",
+      "completed_at": "2026-10-05T06:37:45Z",
+      "duration_s": 1422,
+      "failure_kind": "none",
+      "job_id": 111633489694,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489694"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:06:26Z",
+      "duration_s": 943,
+      "failure_kind": "none",
+      "job_id": 111633489626,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489626"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:00:54Z",
+      "duration_s": 611,
+      "failure_kind": "none",
+      "job_id": 111633489658,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489658"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:11:15Z",
+      "completed_at": "2026-10-05T06:22:17Z",
+      "duration_s": 662,
+      "failure_kind": "none",
+      "job_id": 111633489708,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489708"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:09:25Z",
+      "completed_at": "2026-10-05T06:17:26Z",
+      "duration_s": 481,
+      "failure_kind": "none",
+      "job_id": 111633489864,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489864"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:00:53Z",
+      "duration_s": 610,
+      "failure_kind": "none",
+      "job_id": 111633489717,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489717"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T06:00:55Z",
+      "completed_at": "2026-10-05T06:15:33Z",
+      "duration_s": 878,
+      "failure_kind": "test",
+      "job_id": 111633489633,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489633",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Check summary > Check summary block > Test 'Create order' button",
+          "title": "should check that the order message is displayed on view order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/10_checkSummary.ts",
+          "line": 345
+        }
+      ],
+      "test_counts": {
+        "passing": 425,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:11:12Z",
+      "duration_s": 1229,
+      "failure_kind": "none",
+      "job_id": 111633489550,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489550"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:02:41Z",
+      "duration_s": 718,
+      "failure_kind": "none",
+      "job_id": 111633489569,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489569"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:44Z",
+      "completed_at": "2026-10-05T06:03:04Z",
+      "duration_s": 740,
+      "failure_kind": "none",
+      "job_id": 111633489616,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489616"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:12:17Z",
+      "duration_s": 1294,
+      "failure_kind": "none",
+      "job_id": 111633489610,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489610"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:13:48Z",
+      "completed_at": "2026-10-05T06:25:13Z",
+      "duration_s": 685,
+      "failure_kind": "none",
+      "job_id": 111633489748,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489748"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:09:04Z",
+      "duration_s": 1101,
+      "failure_kind": "none",
+      "job_id": 111633489667,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489667"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:07:34Z",
+      "completed_at": "2026-10-05T06:25:20Z",
+      "duration_s": 1066,
+      "failure_kind": "none",
+      "job_id": 111633489751,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489751"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:09:07Z",
+      "completed_at": "2026-10-05T06:29:04Z",
+      "duration_s": 1197,
+      "failure_kind": "none",
+      "job_id": 111633489737,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489737"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:45Z",
+      "completed_at": "2026-10-05T06:10:28Z",
+      "duration_s": 1183,
+      "failure_kind": "none",
+      "job_id": 111633489696,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489696"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:21:37Z",
+      "duration_s": 1854,
+      "failure_kind": "none",
+      "job_id": 111633489685,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489685"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:10:12Z",
+      "completed_at": "2026-10-05T06:28:21Z",
+      "duration_s": 1089,
+      "failure_kind": "none",
+      "job_id": 111633489792,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489792"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:10:30Z",
+      "completed_at": "2026-10-05T06:56:32Z",
+      "duration_s": 2762,
+      "failure_kind": "none",
+      "job_id": 111633489761,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489761"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:12:20Z",
+      "completed_at": "2026-10-05T06:31:50Z",
+      "duration_s": 1170,
+      "failure_kind": "none",
+      "job_id": 111633489756,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489756"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:03:07Z",
+      "completed_at": "2026-10-05T06:14:00Z",
+      "duration_s": 653,
+      "failure_kind": "none",
+      "job_id": 111633489765,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489765"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:56:35Z",
+      "completed_at": "2026-10-05T06:22:07Z",
+      "duration_s": 1532,
+      "failure_kind": "none",
+      "job_id": 111633489703,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489703"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:01:28Z",
+      "duration_s": 645,
+      "failure_kind": "none",
+      "job_id": 111633489723,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489723"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:04:35Z",
+      "completed_at": "2026-10-05T06:20:35Z",
+      "duration_s": 960,
+      "failure_kind": "none",
+      "job_id": 111633489796,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489796"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:05:45Z",
+      "completed_at": "2026-10-05T06:13:45Z",
+      "duration_s": 480,
+      "failure_kind": "none",
+      "job_id": 111633489769,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489769"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:14:04Z",
+      "completed_at": "2026-10-05T06:38:22Z",
+      "duration_s": 1458,
+      "failure_kind": "none",
+      "job_id": 111633489811,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489811"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:04:33Z",
+      "duration_s": 830,
+      "failure_kind": "none",
+      "job_id": 111633489768,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489768"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:01:31Z",
+      "completed_at": "2026-10-05T06:10:10Z",
+      "duration_s": 519,
+      "failure_kind": "none",
+      "job_id": 111633489743,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489743"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T05:50:43Z",
+      "completed_at": "2026-10-05T06:00:56Z",
+      "duration_s": 613,
+      "failure_kind": "none",
+      "job_id": 111633489757,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111633489757"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:56:46Z",
+      "completed_at": "2026-10-05T07:45:39Z",
+      "duration_s": 2933,
+      "failure_kind": "none",
+      "job_id": 111649997274,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111649997274"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T06:56:46Z",
+      "completed_at": "2026-10-05T07:04:28Z",
+      "duration_s": 462,
+      "failure_kind": "test",
+      "job_id": 111649997302,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111649997302",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T06:56:46Z",
+      "completed_at": "2026-10-05T07:12:34Z",
+      "duration_s": 948,
+      "failure_kind": "test",
+      "job_id": 111649997404,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111649997404",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°9",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 442,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T06:56:47Z",
+      "completed_at": "2026-10-05T07:10:39Z",
+      "duration_s": 832,
+      "failure_kind": "test",
+      "job_id": 111649997243,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111649997243",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change value position",
+          "title": "should change first value position to 3",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 309,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T06:56:46Z",
+      "completed_at": "2026-10-05T07:15:57Z",
+      "duration_s": 1151,
+      "failure_kind": "none",
+      "job_id": 111649997364,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111649997364"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T07:45:55Z",
+      "completed_at": "2026-10-05T07:53:17Z",
+      "duration_s": 442,
+      "failure_kind": "test",
+      "job_id": 111664216366,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111664216366",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T07:45:55Z",
+      "completed_at": "2026-10-05T08:01:24Z",
+      "duration_s": 929,
+      "failure_kind": "test",
+      "job_id": 111664216401,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111664216401",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Go to 'Multistore' page and create the first shop",
+          "title": "should create shop",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 424,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T07:45:55Z",
+      "completed_at": "2026-10-05T08:01:10Z",
+      "duration_s": 915,
+      "failure_kind": "test",
+      "job_id": 111664216303,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111664216303",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Attributes & Features : Change attributes & values position > Change attribute position",
+          "title": "should reset third attribute position to 1",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 305,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T08:01:38Z",
+      "completed_at": "2026-10-05T08:08:54Z",
+      "duration_s": 436,
+      "failure_kind": "test",
+      "job_id": 111669087363,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111669087363",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T08:01:39Z",
+      "completed_at": "2026-10-05T08:21:05Z",
+      "duration_s": 1166,
+      "failure_kind": "none",
+      "job_id": 111669087422,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111669087422"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 4,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-05T08:01:38Z",
+      "completed_at": "2026-10-05T08:23:25Z",
+      "duration_s": 1307,
+      "failure_kind": "none",
+      "job_id": 111669087354,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111669087354"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 5,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T08:23:40Z",
+      "completed_at": "2026-10-05T08:30:43Z",
+      "duration_s": 423,
+      "failure_kind": "test",
+      "job_id": 111676323304,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111676323304",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 6,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T08:31:00Z",
+      "completed_at": "2026-10-05T08:38:09Z",
+      "duration_s": 429,
+      "failure_kind": "test",
+      "job_id": 111678795331,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111678795331",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 7,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T08:40:51Z",
+      "completed_at": "2026-10-05T08:48:06Z",
+      "duration_s": 435,
+      "failure_kind": "test",
+      "job_id": 111682097604,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111682097604",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 8,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T08:50:35Z",
+      "completed_at": "2026-10-05T08:56:24Z",
+      "duration_s": 349,
+      "failure_kind": "test",
+      "job_id": 111685431012,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111685431012",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 9,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T09:05:24Z",
+      "completed_at": "2026-10-05T09:13:06Z",
+      "duration_s": 462,
+      "failure_kind": "test",
+      "job_id": 111690541725,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111690541725",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 10,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T09:16:41Z",
+      "completed_at": "2026-10-05T09:24:11Z",
+      "duration_s": 450,
+      "failure_kind": "test",
+      "job_id": 111694576315,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111694576315",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 11,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T09:35:10Z",
+      "completed_at": "2026-10-05T09:42:42Z",
+      "duration_s": 452,
+      "failure_kind": "test",
+      "job_id": 111701119964,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111701119964",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 12,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T09:47:53Z",
+      "completed_at": "2026-10-05T09:55:16Z",
+      "duration_s": 443,
+      "failure_kind": "test",
+      "job_id": 111705610659,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111705610659",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 13,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T10:13:10Z",
+      "completed_at": "2026-10-05T10:20:27Z",
+      "duration_s": 437,
+      "failure_kind": "test",
+      "job_id": 111714507626,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111714507626",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 14,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T10:56:12Z",
+      "completed_at": "2026-10-05T11:03:35Z",
+      "duration_s": 443,
+      "failure_kind": "test",
+      "job_id": 111729266361,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111729266361",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 15,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-05T11:06:04Z",
+      "completed_at": "2026-10-05T11:13:12Z",
+      "duration_s": 428,
+      "failure_kind": "test",
+      "job_id": 111732622500,
+      "job_url": "https://github.com/Codencode/ga.tests.ui.pr/actions/runs/37269549525/job/111732622500",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 4,
+        "failing": 1,
+        "pending": 0
+      }
+    }
+  ]
+}
