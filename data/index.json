@@ -9549,8 +9549,73 @@
       "run_attempt": 4,
       "status": "completed",
       "updated_at": "2026-10-08T10:06:45Z"
+    },
+    "jolelievre/ga.tests.ui.pr#37958784922": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-10-09T18:08:24Z"
+    },
+    "Codencode/ga.tests.ui.pr#37950123795": {
+      "run_attempt": 4,
+      "status": "completed",
+      "updated_at": "2026-10-09T17:57:29Z"
+    },
+    "mattgoud/ga.tests.ui.pr#37938695397": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-10-09T16:37:36Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#37934065280": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-09T15:15:20Z"
+    },
+    "mattgoud/ga.tests.ui.pr#37934002189": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-09T14:32:23Z"
+    },
+    "mattgoud/ga.tests.ui.pr#37932412882": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-09T12:52:18Z"
+    },
+    "Jeremie-Kiwik/ga.tests.ui.pr#37919488166": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-09T19:16:18Z"
+    },
+    "Jeremie-Kiwik/ga.tests.ui.pr#37919478627": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-10T00:53:47Z"
+    },
+    "soledis-contributeur/ga.tests.ui.pr#37912181407": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-10-09T12:05:14Z"
+    },
+    "soledis-contributeur/ga.tests.ui.pr#37908095834": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-09T10:20:21Z"
+    },
+    "Codencode/ga.tests.ui.pr#37892804822": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-10-09T08:37:15Z"
+    },
+    "tblivet/ga.tests.ui.pr#37776822908": {
+      "run_attempt": 8,
+      "status": "completed",
+      "updated_at": "2026-10-08T16:04:03Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#37748418987": {
+      "run_attempt": 5,
+      "status": "completed",
+      "updated_at": "2026-10-08T12:16:08Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-09T05:39:16.842Z"
+  "updated_at": "2026-10-10T05:34:57.225Z"
 }
