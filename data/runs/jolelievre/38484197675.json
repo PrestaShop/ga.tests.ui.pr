@@ -1,0 +1,988 @@
+{
+  "repo": "jolelievre/ga.tests.ui.pr",
+  "owner": "jolelievre",
+  "run_id": 38484197675,
+  "run_number": 524,
+  "run_attempt": 2,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-10-13T23:25:56Z",
+  "updated_at": "2026-10-14T01:20:53Z",
+  "html_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 43116,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.1",
+  "raw_job_rows": 92,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:42:37Z",
+      "completed_at": "2026-10-14T00:02:54Z",
+      "duration_s": 1217,
+      "failure_kind": "none",
+      "job_id": 115593861993,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861993"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:36:56Z",
+      "duration_s": 641,
+      "failure_kind": "none",
+      "job_id": 115593861826,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861826"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:36:58Z",
+      "completed_at": "2026-10-14T00:07:12Z",
+      "duration_s": 1814,
+      "failure_kind": "test",
+      "job_id": 115593861957,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861957",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-10-14 02:07:07' to include '2026-10-13'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 200
+        }
+      ],
+      "test_counts": {
+        "passing": 972,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:48:09Z",
+      "completed_at": "2026-10-14T00:00:09Z",
+      "duration_s": 720,
+      "failure_kind": "test",
+      "job_id": 115593861963,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861963",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Email : Filter, delete and bulk delete emails > Filter E-mail table",
+          "title": "should filter E-mail table by date sent 'From' and 'To'",
+          "error": "AssertionError: expected '2026-10-14 01:59:43' to include '2026-10-13'",
+          "file": "campaigns/functional/BO/14_advancedParameters/04_email/01_filterDeleteAndBulkActionsEmails.ts",
+          "line": 251
+        }
+      ],
+      "test_counts": {
+        "passing": 146,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:33:58Z",
+      "duration_s": 464,
+      "failure_kind": "test",
+      "job_id": 115593861867,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861867",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 336
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:34:37Z",
+      "duration_s": 503,
+      "failure_kind": "none",
+      "job_id": 115593861863,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861863"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:47:45Z",
+      "completed_at": "2026-10-13T23:56:12Z",
+      "duration_s": 507,
+      "failure_kind": "test",
+      "job_id": 115593862718,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862718",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Products : CRUD product with combinations > Edit combinations",
+          "title": "should check the recent stock movement in the modal",
+          "error": "AssertionError: expected '2026-10-14 01:56:07' to include '2026-10-13'",
+          "file": "campaigns/functional/BO/03_catalog/01_products/03_CRUDProductWithCombinations.ts",
+          "line": 284
+        }
+      ],
+      "test_counts": {
+        "passing": 63,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:48:07Z",
+      "duration_s": 1312,
+      "failure_kind": "none",
+      "job_id": 115593861869,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861869"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:40:34Z",
+      "completed_at": "2026-10-13T23:50:20Z",
+      "duration_s": 586,
+      "failure_kind": "none",
+      "job_id": 115593862037,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862037"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:51:12Z",
+      "duration_s": 1497,
+      "failure_kind": "test",
+      "job_id": 115593861870,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861870",
+      "failing_tests": [
+        {
+          "suite": "BO - Catalog - Discounts : Filter, quick edit and bulk actions cart rules > Bulk actions cart rules",
+          "title": "should disable cart rules with bulk actions",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/03_catalog/07_discounts/01_cartRules/02_filterQuickEditAndBulkActionsCartRules.ts",
+          "line": 253
+        }
+      ],
+      "test_counts": {
+        "passing": 701,
+        "failing": 1,
+        "pending": 27
+      }
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:40:59Z",
+      "completed_at": "2026-10-13T23:46:17Z",
+      "duration_s": 318,
+      "failure_kind": "test",
+      "job_id": 115593862173,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862173",
+      "failing_tests": [
+        {
+          "suite": "BO - Community - Wall of Fame",
+          "title": "should check that 'Contributions by PrestaShop' percentage is greater than 0",
+          "error": "PrestaShop contribution percentage should be greater than 0",
+          "file": "campaigns/functional/BO/16_wallOfFame/01_OurCommunity.ts",
+          "line": 55
+        }
+      ],
+      "test_counts": {
+        "passing": 2,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:36:55Z",
+      "duration_s": 641,
+      "failure_kind": "test",
+      "job_id": 115593861845,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861845",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:34:45Z",
+      "completed_at": "2026-10-13T23:45:56Z",
+      "duration_s": 671,
+      "failure_kind": "test",
+      "job_id": 115593861937,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861937",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Jim Skiles Email Jim.Skiles@prestashop.com Social Title Mrs. Age 29 years old (birth date: 07/22/1997) Registration Date 10/14/2026 01:45:28 Last Visit 10/14/2026 01:45:31 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 10/14/2026 01:45:28 Status check Active Customer type Registered customer' to include '10/13/2026…",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 328
+        }
+      ],
+      "test_counts": {
+        "passing": 158,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:40:32Z",
+      "duration_s": 857,
+      "failure_kind": "none",
+      "job_id": 115593861971,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861971"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:34:39Z",
+      "duration_s": 505,
+      "failure_kind": "none",
+      "job_id": 115593861746,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861746"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:47:42Z",
+      "duration_s": 1287,
+      "failure_kind": "none",
+      "job_id": 115593861899,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861899"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:49:55Z",
+      "duration_s": 1420,
+      "failure_kind": "none",
+      "job_id": 115593862013,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862013"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:42:35Z",
+      "duration_s": 980,
+      "failure_kind": "none",
+      "job_id": 115593861859,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861859"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:46:00Z",
+      "completed_at": "2026-10-13T23:57:43Z",
+      "duration_s": 703,
+      "failure_kind": "none",
+      "job_id": 115593861946,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861946"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:36:58Z",
+      "completed_at": "2026-10-13T23:48:39Z",
+      "duration_s": 701,
+      "failure_kind": "none",
+      "job_id": 115593862082,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862082"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:34:21Z",
+      "duration_s": 487,
+      "failure_kind": "none",
+      "job_id": 115593861813,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861813"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:48:41Z",
+      "completed_at": "2026-10-13T23:57:12Z",
+      "duration_s": 511,
+      "failure_kind": "none",
+      "job_id": 115593862005,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862005"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:34:42Z",
+      "duration_s": 507,
+      "failure_kind": "test",
+      "job_id": 115593861866,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861866",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-10-14 01:34:17' to include '2026-10-13'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        }
+      ],
+      "test_counts": {
+        "passing": 101,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:48:11Z",
+      "completed_at": "2026-10-14T00:00:57Z",
+      "duration_s": 766,
+      "failure_kind": "test",
+      "job_id": 115593861968,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861968",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '10/14/2026 02:00:52' to include '10/13/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:40:07Z",
+      "duration_s": 832,
+      "failure_kind": "none",
+      "job_id": 115593861765,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861765"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:34:41Z",
+      "completed_at": "2026-10-13T23:40:56Z",
+      "duration_s": 375,
+      "failure_kind": "test",
+      "job_id": 115593862014,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862014",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Generate invoice by date",
+          "title": "should generate PDF file by date and check the file existence",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 6,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:34:23Z",
+      "completed_at": "2026-10-13T23:49:54Z",
+      "duration_s": 931,
+      "failure_kind": "test",
+      "job_id": 115593861793,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861793",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Shopping carts: Filter shopping cart table > Filter the Shopping carts table",
+          "title": "should filter by date 'From' and 'To' in the future",
+          "error": "AssertionError: expected 23 to equal +0",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/01_filterShoppingCarts.ts",
+          "line": 235
+        }
+      ],
+      "test_counts": {
+        "passing": 332,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:34:40Z",
+      "completed_at": "2026-10-13T23:45:58Z",
+      "duration_s": 678,
+      "failure_kind": "none",
+      "job_id": 115593861909,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861909"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:42:39Z",
+      "duration_s": 985,
+      "failure_kind": "none",
+      "job_id": 115593861803,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861803"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:34:01Z",
+      "completed_at": "2026-10-13T23:48:44Z",
+      "duration_s": 883,
+      "failure_kind": "none",
+      "job_id": 115593862029,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862029"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:47:59Z",
+      "duration_s": 1304,
+      "failure_kind": "none",
+      "job_id": 115593861878,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861878"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:43:46Z",
+      "completed_at": "2026-10-14T00:06:58Z",
+      "duration_s": 1392,
+      "failure_kind": "none",
+      "job_id": 115593861990,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861990"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:43:43Z",
+      "duration_s": 1048,
+      "failure_kind": "test",
+      "job_id": 115593861931,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861931",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '10/14/2026' to equal '10/13/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:44:03Z",
+      "duration_s": 1069,
+      "failure_kind": "none",
+      "job_id": 115593861906,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593861906"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:42:46Z",
+      "completed_at": "2026-10-14T00:27:41Z",
+      "duration_s": 2695,
+      "failure_kind": "none",
+      "job_id": 115593862103,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862103"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-13T23:44:06Z",
+      "completed_at": "2026-10-13T23:53:50Z",
+      "duration_s": 584,
+      "failure_kind": "test",
+      "job_id": 115593862282,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862282",
+      "failing_tests": [
+        {
+          "suite": "FO - User account - Order history : Consult details and Reorder > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '10/14/2026' to equal '10/13/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_consultDetailsAndReorder.ts",
+          "line": 156
+        }
+      ],
+      "test_counts": {
+        "passing": 303,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:42:41Z",
+      "completed_at": "2026-10-13T23:51:02Z",
+      "duration_s": 501,
+      "failure_kind": "none",
+      "job_id": 115593862357,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862357"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:46:20Z",
+      "completed_at": "2026-10-14T00:11:59Z",
+      "duration_s": 1539,
+      "failure_kind": "none",
+      "job_id": 115593862225,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862225"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:45:58Z",
+      "completed_at": "2026-10-13T23:57:40Z",
+      "duration_s": 702,
+      "failure_kind": "none",
+      "job_id": 115593862331,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862331"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:15Z",
+      "completed_at": "2026-10-13T23:42:43Z",
+      "duration_s": 988,
+      "failure_kind": "none",
+      "job_id": 115593862289,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862289"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:40:10Z",
+      "completed_at": "2026-10-13T23:48:09Z",
+      "duration_s": 479,
+      "failure_kind": "none",
+      "job_id": 115593862322,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862322"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:26:14Z",
+      "completed_at": "2026-10-13T23:55:41Z",
+      "duration_s": 1767,
+      "failure_kind": "none",
+      "job_id": 115593862224,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862224"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:48:02Z",
+      "completed_at": "2026-10-14T00:01:27Z",
+      "duration_s": 805,
+      "failure_kind": "none",
+      "job_id": 115593862368,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862368"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:48:46Z",
+      "completed_at": "2026-10-13T23:55:54Z",
+      "duration_s": 428,
+      "failure_kind": "none",
+      "job_id": 115593862319,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862319"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-13T23:49:57Z",
+      "completed_at": "2026-10-14T00:00:07Z",
+      "duration_s": 610,
+      "failure_kind": "none",
+      "job_id": 115593862174,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115593862174"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T01:17:13Z",
+      "duration_s": 2959,
+      "failure_kind": "none",
+      "job_id": 115613695124,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695124"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:55Z",
+      "completed_at": "2026-10-14T00:45:59Z",
+      "duration_s": 1084,
+      "failure_kind": "none",
+      "job_id": 115613695142,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695142"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:55Z",
+      "completed_at": "2026-10-14T00:47:44Z",
+      "duration_s": 1189,
+      "failure_kind": "none",
+      "job_id": 115613695062,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695062"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:51:43Z",
+      "duration_s": 1429,
+      "failure_kind": "none",
+      "job_id": 115613695118,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695118"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T01:20:52Z",
+      "duration_s": 3178,
+      "failure_kind": "none",
+      "job_id": 115613695085,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695085"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:35:56Z",
+      "duration_s": 482,
+      "failure_kind": "none",
+      "job_id": 115613695027,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695027"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:41:03Z",
+      "duration_s": 789,
+      "failure_kind": "none",
+      "job_id": 115613695035,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695035"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:40:42Z",
+      "duration_s": 768,
+      "failure_kind": "none",
+      "job_id": 115613695212,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695212"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:46:48Z",
+      "duration_s": 1134,
+      "failure_kind": "none",
+      "job_id": 115613695119,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695119"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:55Z",
+      "completed_at": "2026-10-14T00:51:20Z",
+      "duration_s": 1405,
+      "failure_kind": "none",
+      "job_id": 115613695086,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695086"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:39:54Z",
+      "duration_s": 720,
+      "failure_kind": "none",
+      "job_id": 115613695045,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695045"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:49:39Z",
+      "duration_s": 1305,
+      "failure_kind": "none",
+      "job_id": 115613695040,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695040"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:56:16Z",
+      "duration_s": 1702,
+      "failure_kind": "none",
+      "job_id": 115613695076,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695076"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-14T00:27:54Z",
+      "completed_at": "2026-10-14T00:44:33Z",
+      "duration_s": 999,
+      "failure_kind": "none",
+      "job_id": 115613695033,
+      "job_url": "https://github.com/jolelievre/ga.tests.ui.pr/actions/runs/38484197675/job/115613695033"
+    }
+  ]
+}
