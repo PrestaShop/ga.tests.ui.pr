@@ -9739,8 +9739,18 @@
       "run_attempt": 3,
       "status": "completed",
       "updated_at": "2026-10-13T07:10:49Z"
+    },
+    "jolelievre/ga.tests.ui.pr#38554230648": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-14T12:42:30Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#38541050185": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-14T11:37:37Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-14T05:36:51.927Z"
+  "updated_at": "2026-10-15T05:35:42.534Z"
 }
