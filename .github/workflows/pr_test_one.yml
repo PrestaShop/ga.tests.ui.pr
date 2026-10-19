@@ -60,11 +60,6 @@ on:
         description: Fast fail on first error
         required: true
         default: true
-      TELEMETRY:
-        type: boolean
-        description: Enable Telemetry
-        required: true
-        default: false
 
 jobs:
   prep:
@@ -89,12 +84,6 @@ jobs:
         TEST_CAMPAIGN: ${{ fromJSON(needs.prep.outputs.campaigns) }}
 
     steps:
-      - name: Telemetry
-        if: ${{ inputs.TELEMETRY }}
-        uses: catchpoint/workflow-telemetry-action@v2
-        with:
-          theme: dark
-
       - name: Print inputs and resolved values
         shell: bash
         run: |
