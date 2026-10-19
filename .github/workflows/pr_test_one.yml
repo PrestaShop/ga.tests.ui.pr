@@ -60,11 +60,6 @@ on:
         description: Fast fail on first error
         required: true
         default: true
-      TELEMETRY:
-        type: boolean
-        description: Enable Telemetry (currently disabled, ignored)
-        required: true
-        default: false
 
 jobs:
   prep:
