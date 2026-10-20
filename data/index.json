@@ -9769,8 +9769,43 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-10-16T15:42:31Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39276259717": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-19T17:01:14Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39271273635": {
+      "run_attempt": 7,
+      "status": "completed",
+      "updated_at": "2026-10-19T14:47:58Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#39217742335": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-19T11:57:59Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#39217735159": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-19T11:14:58Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#39217719789": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-19T11:21:23Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#39213428457": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-19T11:41:54Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#39213424751": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-19T08:24:59Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-17T05:39:56.960Z"
+  "updated_at": "2026-10-20T05:45:23.432Z"
 }
