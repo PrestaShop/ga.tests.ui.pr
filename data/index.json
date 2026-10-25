@@ -9904,8 +9904,48 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-10-23T09:17:49Z"
+    },
+    "Codencode/ga.tests.ui.pr#40102710674": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-24T16:13:51Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39966136577": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-25T03:34:29Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39962393198": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-10-24T17:25:39Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39952894704": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-24T22:04:13Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39948975910": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-24T12:12:00Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39948959964": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-24T17:47:29Z"
+    },
+    "nicosomb/ga.tests.ui.pr#39948952151": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-24T07:04:58Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#39217728039": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-10-19T11:54:35Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-24T05:46:42.152Z"
+  "updated_at": "2026-10-25T05:44:36.913Z"
 }
