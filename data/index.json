@@ -9944,8 +9944,23 @@
       "run_attempt": 3,
       "status": "completed",
       "updated_at": "2026-10-19T11:54:35Z"
+    },
+    "Codencode/ga.tests.ui.pr#40398208485": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-10-26T23:09:23Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#40322442362": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-26T13:59:03Z"
+    },
+    "nicosomb/ga.tests.ui.pr#40283528388": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-26T08:24:53Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-25T05:44:36.913Z"
+  "updated_at": "2026-10-27T05:45:45.475Z"
 }
