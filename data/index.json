@@ -9959,8 +9959,38 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-10-26T08:24:53Z"
+    },
+    "mattgoud/ga.tests.ui.pr#40538624619": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-10-27T18:07:07Z"
+    },
+    "Touxten/ga.tests.ui.pr#40497337201": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-27T13:49:36Z"
+    },
+    "Touxten/ga.tests.ui.pr#40497332923": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-27T13:05:05Z"
+    },
+    "Touxten/ga.tests.ui.pr#40497283459": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-27T11:35:44Z"
+    },
+    "Touxten/ga.tests.ui.pr#40497264562": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-27T11:35:43Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#40473000025": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-27T09:50:37Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-27T05:45:45.475Z"
+  "updated_at": "2026-10-28T05:53:35.681Z"
 }
