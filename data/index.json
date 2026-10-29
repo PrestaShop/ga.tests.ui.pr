@@ -9989,8 +9989,23 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-10-27T09:50:37Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#40667202801": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-28T17:41:10Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#40663346662": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-10-28T18:15:54Z"
+    },
+    "nicosomb/ga.tests.ui.pr#40643648759": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-10-28T07:48:33Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-10-28T05:53:35.681Z"
+  "updated_at": "2026-10-29T05:47:44.627Z"
 }
