@@ -1,0 +1,920 @@
+{
+  "repo": "riccardonovelli/ga.tests.ui.pr",
+  "owner": "riccardonovelli",
+  "run_id": 41041150090,
+  "run_number": 2,
+  "run_attempt": 3,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-10-30T10:29:41Z",
+  "updated_at": "2026-10-30T12:18:18Z",
+  "html_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 41474,
+  "db": "mariadb",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.0",
+  "raw_job_rows": 138,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:48:58Z",
+      "duration_s": 1136,
+      "failure_kind": "none",
+      "job_id": 124014110653,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110653"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:38:22Z",
+      "duration_s": 500,
+      "failure_kind": "none",
+      "job_id": 124014110739,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110739"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:39:47Z",
+      "completed_at": "2026-10-30T11:32:26Z",
+      "duration_s": 3159,
+      "failure_kind": "none",
+      "job_id": 124014110928,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110928"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-30T10:51:09Z",
+      "completed_at": "2026-10-30T11:06:53Z",
+      "duration_s": 944,
+      "failure_kind": "test",
+      "job_id": 124014111193,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111193",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should disable debug mode",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-30T10:49:00Z",
+      "completed_at": "2026-10-30T11:12:53Z",
+      "duration_s": 1433,
+      "failure_kind": "test",
+      "job_id": 124014111244,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111244",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°2",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°15",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 19 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 19 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 19 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 19 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 19 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete2'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete3'",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete15'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete16'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 640,
+        "failing": 22,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:40:16Z",
+      "completed_at": "2026-10-30T10:47:36Z",
+      "duration_s": 440,
+      "failure_kind": "none",
+      "job_id": 124014111106,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111106"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:06Z",
+      "completed_at": "2026-10-30T10:51:44Z",
+      "duration_s": 1298,
+      "failure_kind": "none",
+      "job_id": 124014110869,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110869"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:47:09Z",
+      "duration_s": 1027,
+      "failure_kind": "none",
+      "job_id": 124014110814,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110814"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:41Z",
+      "completed_at": "2026-10-30T10:40:32Z",
+      "duration_s": 591,
+      "failure_kind": "none",
+      "job_id": 124014110815,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110815"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:32Z",
+      "completed_at": "2026-10-30T11:21:28Z",
+      "duration_s": 3056,
+      "failure_kind": "none",
+      "job_id": 124014110849,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110849"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:36:47Z",
+      "duration_s": 405,
+      "failure_kind": "none",
+      "job_id": 124014110986,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110986"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:47:32Z",
+      "completed_at": "2026-10-30T10:57:58Z",
+      "duration_s": 626,
+      "failure_kind": "none",
+      "job_id": 124014110912,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110912"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:39:45Z",
+      "duration_s": 583,
+      "failure_kind": "none",
+      "job_id": 124014110943,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110943"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:43:01Z",
+      "duration_s": 779,
+      "failure_kind": "none",
+      "job_id": 124014110789,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110789"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:47:38Z",
+      "completed_at": "2026-10-30T10:56:02Z",
+      "duration_s": 504,
+      "failure_kind": "none",
+      "job_id": 124014110774,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110774"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:06Z",
+      "completed_at": "2026-10-30T10:46:48Z",
+      "duration_s": 1002,
+      "failure_kind": "none",
+      "job_id": 124014110848,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110848"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:52:36Z",
+      "completed_at": "2026-10-30T11:14:32Z",
+      "duration_s": 1316,
+      "failure_kind": "none",
+      "job_id": 124014111138,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111138"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:51:30Z",
+      "completed_at": "2026-10-30T11:08:11Z",
+      "duration_s": 1001,
+      "failure_kind": "none",
+      "job_id": 124014111665,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111665"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:41:24Z",
+      "duration_s": 682,
+      "failure_kind": "none",
+      "job_id": 124014110813,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110813"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:42:39Z",
+      "completed_at": "2026-10-30T10:51:28Z",
+      "duration_s": 529,
+      "failure_kind": "none",
+      "job_id": 124014111021,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111021"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:03Z",
+      "completed_at": "2026-10-30T10:36:19Z",
+      "duration_s": 376,
+      "failure_kind": "none",
+      "job_id": 124014110773,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110773"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:38:25Z",
+      "completed_at": "2026-10-30T10:48:46Z",
+      "duration_s": 621,
+      "failure_kind": "none",
+      "job_id": 124014110896,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110896"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:47:30Z",
+      "duration_s": 1048,
+      "failure_kind": "none",
+      "job_id": 124014110713,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110713"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:36:49Z",
+      "completed_at": "2026-10-30T10:58:04Z",
+      "duration_s": 1275,
+      "failure_kind": "none",
+      "job_id": 124014110837,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110837"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:07Z",
+      "completed_at": "2026-10-30T10:42:37Z",
+      "duration_s": 750,
+      "failure_kind": "none",
+      "job_id": 124014110643,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110643"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:44:10Z",
+      "completed_at": "2026-10-30T10:54:35Z",
+      "duration_s": 625,
+      "failure_kind": "none",
+      "job_id": 124014110875,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110875"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:05Z",
+      "completed_at": "2026-10-30T10:49:12Z",
+      "duration_s": 1147,
+      "failure_kind": "none",
+      "job_id": 124014110826,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110826"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:05Z",
+      "completed_at": "2026-10-30T10:40:01Z",
+      "duration_s": 596,
+      "failure_kind": "none",
+      "job_id": 124014110909,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110909"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:40:02Z",
+      "completed_at": "2026-10-30T10:57:35Z",
+      "duration_s": 1053,
+      "failure_kind": "none",
+      "job_id": 124014111025,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111025"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:05Z",
+      "completed_at": "2026-10-30T10:44:08Z",
+      "duration_s": 843,
+      "failure_kind": "none",
+      "job_id": 124014111030,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111030"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:04Z",
+      "completed_at": "2026-10-30T10:47:14Z",
+      "duration_s": 1030,
+      "failure_kind": "none",
+      "job_id": 124014110942,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110942"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-30T10:51:45Z",
+      "completed_at": "2026-10-30T11:14:51Z",
+      "duration_s": 1386,
+      "failure_kind": "test",
+      "job_id": 124014111121,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111121",
+      "failing_tests": [
+        {
+          "suite": "BO - Shop Parameters - Search : Create, update and delete tag in BO > Create tag in BO",
+          "title": "should create tag and check result",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Shop Parameters - Search : Create, update and delete tag in BO > Update tag created",
+          "title": "should go to edit tag page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/13_shopParameters/07_search/02_tags/01_CRUDTag.ts",
+          "line": 101
+        },
+        {
+          "suite": "BO - Shop Parameters - Search : Create, update and delete tag in BO > Update tag created",
+          "title": "should update tag",
+          "error": "AssertionError: expected 'Successful creation' to include 'Successful update'",
+          "file": "campaigns/functional/BO/13_shopParameters/07_search/02_tags/01_CRUDTag.ts",
+          "line": 111
+        }
+      ],
+      "test_counts": {
+        "passing": 790,
+        "failing": 3,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:46:49Z",
+      "completed_at": "2026-10-30T11:10:33Z",
+      "duration_s": 1424,
+      "failure_kind": "none",
+      "job_id": 124014111183,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111183"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:47:16Z",
+      "completed_at": "2026-10-30T11:00:23Z",
+      "duration_s": 787,
+      "failure_kind": "none",
+      "job_id": 124014111117,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111117"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:37:45Z",
+      "completed_at": "2026-10-30T11:20:40Z",
+      "duration_s": 2575,
+      "failure_kind": "none",
+      "job_id": 124014111024,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111024"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:40:34Z",
+      "completed_at": "2026-10-30T10:58:38Z",
+      "duration_s": 1084,
+      "failure_kind": "none",
+      "job_id": 124014111122,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111122"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:05Z",
+      "completed_at": "2026-10-30T10:37:43Z",
+      "duration_s": 458,
+      "failure_kind": "none",
+      "job_id": 124014110990,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014110990"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:48:47Z",
+      "completed_at": "2026-10-30T11:16:53Z",
+      "duration_s": 1686,
+      "failure_kind": "none",
+      "job_id": 124014111068,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111068"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:30:02Z",
+      "completed_at": "2026-10-30T10:40:14Z",
+      "duration_s": 612,
+      "failure_kind": "none",
+      "job_id": 124014111098,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111098"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:47:11Z",
+      "completed_at": "2026-10-30T11:00:11Z",
+      "duration_s": 780,
+      "failure_kind": "none",
+      "job_id": 124014111058,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111058"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:44:10Z",
+      "completed_at": "2026-10-30T10:52:34Z",
+      "duration_s": 504,
+      "failure_kind": "none",
+      "job_id": 124014111336,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111336"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:41:26Z",
+      "completed_at": "2026-10-30T11:08:45Z",
+      "duration_s": 1639,
+      "failure_kind": "none",
+      "job_id": 124014111132,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111132"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:49:14Z",
+      "completed_at": "2026-10-30T10:59:12Z",
+      "duration_s": 598,
+      "failure_kind": "none",
+      "job_id": 124014111144,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111144"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:36:21Z",
+      "completed_at": "2026-10-30T10:44:09Z",
+      "duration_s": 468,
+      "failure_kind": "none",
+      "job_id": 124014111123,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111123"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T10:43:03Z",
+      "completed_at": "2026-10-30T10:51:07Z",
+      "duration_s": 484,
+      "failure_kind": "none",
+      "job_id": 124014111294,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124014111294"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-30T11:35:12Z",
+      "completed_at": "2026-10-30T11:49:24Z",
+      "duration_s": 852,
+      "failure_kind": "test",
+      "job_id": 124039930607,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124039930607",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Performance : Enable/Disable debug mode",
+          "title": "should disable debug mode",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T11:34:58Z",
+      "completed_at": "2026-10-30T11:50:59Z",
+      "duration_s": 961,
+      "failure_kind": "none",
+      "job_id": 124039930588,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124039930588"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-30T11:34:46Z",
+      "completed_at": "2026-10-30T11:58:14Z",
+      "duration_s": 1408,
+      "failure_kind": "test",
+      "job_id": 124039930549,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124039930549",
+      "failing_tests": [
+        {
+          "suite": "BO - Shop Parameters - Search : Create, update and delete tag in BO > Create tag in BO",
+          "title": "should create tag and check result",
+          "error": "locator.click: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Shop Parameters - Search : Create, update and delete tag in BO > Update tag created",
+          "title": "should go to edit tag page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/13_shopParameters/07_search/02_tags/01_CRUDTag.ts",
+          "line": 101
+        },
+        {
+          "suite": "BO - Shop Parameters - Search : Create, update and delete tag in BO > Update tag created",
+          "title": "should update tag",
+          "error": "AssertionError: expected 'Successful creation' to include 'Successful update'",
+          "file": "campaigns/functional/BO/13_shopParameters/07_search/02_tags/01_CRUDTag.ts",
+          "line": 111
+        }
+      ],
+      "test_counts": {
+        "passing": 790,
+        "failing": 3,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T11:58:26Z",
+      "completed_at": "2026-10-30T12:12:33Z",
+      "duration_s": 847,
+      "failure_kind": "none",
+      "job_id": 124049733299,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124049733299"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T11:58:26Z",
+      "completed_at": "2026-10-30T12:18:18Z",
+      "duration_s": 1192,
+      "failure_kind": "none",
+      "job_id": 124049733234,
+      "job_url": "https://github.com/riccardonovelli/ga.tests.ui.pr/actions/runs/41041150090/job/124049733234"
+    }
+  ]
+}
