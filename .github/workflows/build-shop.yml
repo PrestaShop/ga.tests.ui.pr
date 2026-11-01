@@ -80,6 +80,7 @@ jobs:
           base_branch: ${{ inputs.base_branch }}
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           ps_dir: ${{ env.PS_DIR }}
+          db_server: ${{ inputs.DB_SERVER }}
 
       # Pre pull/build images
       - name: Pull images in background
