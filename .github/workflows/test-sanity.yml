@@ -86,6 +86,7 @@ jobs:
           base_branch: ${{ inputs.base_branch }}
           rebase_or_merge: ${{ inputs.rebase_or_merge }}
           ps_dir: ${{ env.PS_DIR }}
+          db_server: ${{ inputs.DB_SERVER }}
 
       - name: Pull database image in background
         working-directory: ${{ env.PS_DIR }}

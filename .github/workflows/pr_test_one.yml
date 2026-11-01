@@ -70,6 +70,7 @@ jobs:
       PHP_VERSION: ${{ inputs.PHP_VERSION }}
       NODE_VERSION: ${{ inputs.NODE_VERSION }}
       RUNNER_VERSION: ${{ inputs.RUNNER_VERSION }}
+      DB_SERVER: ${{ inputs.DB_SERVER }}
 
   testing-pr:
     needs: prep

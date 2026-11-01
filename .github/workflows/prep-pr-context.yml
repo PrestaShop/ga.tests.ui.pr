@@ -33,6 +33,11 @@ on:
         required: false
         type: string
         default: Auto
+      DB_SERVER:
+        description: Database server the shop will run on (mysql/mariadb)
+        required: false
+        type: string
+        default: mysql
     secrets:
       GH_TOKEN:
         description: Token to read the pull request, only needed for a private repository
@@ -128,6 +133,19 @@ jobs:
           token: ${{ secrets.GH_TOKEN || github.token }}
           ref: refs/pull/${{ inputs.PR_NUMBER }}/head
           fetch-depth: 1
+
+      # docker-compose.yml only runs MySQL, other servers need their own compose file. Without it,
+      # PrestaShop's setup-env silently runs the campaigns on MySQL (8.2.x). Like the version, this
+      # is read on the PR head, before any rebase or merge on the target branch.
+      - name: Check that this PrestaShop version supports the database server
+        if: inputs.DB_SERVER != '' && inputs.DB_SERVER != 'mysql'
+        run: |
+          if [ ! -f "docker-compose.$DB_SERVER.yml" ]; then
+            echo "::error::This PrestaShop version has no docker-compose.$DB_SERVER.yml and cannot run on $DB_SERVER, run the workflow with mysql"
+            exit 1
+          fi
+        env:
+          DB_SERVER: ${{ inputs.DB_SERVER }}
 
       - name: Detect PrestaShop version
         id: version

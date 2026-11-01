@@ -13,6 +13,10 @@ inputs:
   ps_dir:
     description: Directory target
     required: true
+  db_server:
+    description: Database server the shop will run on (mysql/mariadb)
+    required: false
+    default: mysql
 
 runs:
   using: "composite"
@@ -54,6 +58,19 @@ runs:
       run: |
         git fetch origin ${{ inputs.base_branch }}:${{ inputs.base_branch }}
         git merge origin/${{ inputs.base_branch }}
+      shell: bash
+
+    # docker-compose.yml only runs MySQL, other servers need their own compose file
+    - name: Check that this PrestaShop version supports the database server
+      if: inputs.db_server != '' && inputs.db_server != 'mysql'
+      working-directory: ${{ inputs.ps_dir }}
+      run: |
+        if [ ! -f "docker-compose.$DB_SERVER.yml" ]; then
+          echo "::error::This PrestaShop version has no docker-compose.$DB_SERVER.yml and cannot run on $DB_SERVER, run the workflow with mysql"
+          exit 1
+        fi
+      env:
+        DB_SERVER: ${{ inputs.db_server }}
       shell: bash
 
     # Workaround until https://github.com/PrestaShop/PrestaShop/issues/29813 is fixed
