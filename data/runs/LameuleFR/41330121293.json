@@ -1,0 +1,41 @@
+{
+  "repo": "LameuleFR/ga.tests.ui.pr",
+  "owner": "LameuleFR",
+  "run_id": 41330121293,
+  "run_number": 37,
+  "run_attempt": 1,
+  "workflow": "pr_test_single_campaign.yml",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-11-01T17:10:37Z",
+  "updated_at": "2026-11-02T00:14:25Z",
+  "html_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41330121293",
+  "is_security": false,
+  "aborted": false,
+  "final": false,
+  "pr_number": null,
+  "db": null,
+  "branch_key": "unknown",
+  "branch_key_source": "none",
+  "base_branch": null,
+  "ps_version": null,
+  "raw_job_rows": 3,
+  "unclassified_job_names": [
+    "Run sanity campaign"
+  ],
+  "executions": [
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:59:47Z",
+      "completed_at": "2026-11-02T00:14:24Z",
+      "duration_s": 877,
+      "failure_kind": "none",
+      "job_id": 125022512822,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41330121293/job/125022512822"
+    }
+  ]
+}

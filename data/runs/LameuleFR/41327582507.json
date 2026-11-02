@@ -1,0 +1,778 @@
+{
+  "repo": "LameuleFR/ga.tests.ui.pr",
+  "owner": "LameuleFR",
+  "run_id": 41327582507,
+  "run_number": 12,
+  "run_attempt": 1,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "created_at": "2026-11-01T16:41:05Z",
+  "updated_at": "2026-11-02T00:14:15Z",
+  "html_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507",
+  "is_security": false,
+  "aborted": false,
+  "final": false,
+  "pr_number": 43357,
+  "db": "mariadb",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.1",
+  "raw_job_rows": 46,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:31:03Z",
+      "completed_at": "2026-11-01T23:50:37Z",
+      "duration_s": 1174,
+      "failure_kind": "none",
+      "job_id": 124910788868,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788868"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:35:33Z",
+      "completed_at": "2026-11-01T23:43:02Z",
+      "duration_s": 449,
+      "failure_kind": "none",
+      "job_id": 124910788890,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788890"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:36:46Z",
+      "completed_at": "2026-11-02T00:03:15Z",
+      "duration_s": 1589,
+      "failure_kind": "test",
+      "job_id": 124910788894,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788894",
+      "failing_tests": [
+        {
+          "suite": "API : POST /admin-api/discounts > API : Create the Discount",
+          "title": "should check the JSON Response",
+          "error": "AssertionError: expected '2026-11-02 01:03:10' to include '2026-11-01'",
+          "file": "campaigns/functional/API/02_endpoints/discount/04_postDiscounts.ts",
+          "line": 200
+        }
+      ],
+      "test_counts": {
+        "passing": 972,
+        "failing": 1,
+        "pending": 3
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:30:54Z",
+      "completed_at": "2026-11-01T23:45:14Z",
+      "duration_s": 860,
+      "failure_kind": "none",
+      "job_id": 124910788906,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788906"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:48:10Z",
+      "completed_at": "2026-11-01T23:57:09Z",
+      "duration_s": 539,
+      "failure_kind": "test",
+      "job_id": 124910788955,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788955",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Logs : Filter, sort and pagination logs table > Filter Logs table",
+          "title": "should filter logs by date sent 'From' and 'To'",
+          "error": "AssertionError: expected +0 to be at least 11",
+          "file": "campaigns/functional/BO/14_advancedParameters/08_logs/01_filterSortAndPagination.ts",
+          "line": 336
+        }
+      ],
+      "test_counts": {
+        "passing": 164,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:35:22Z",
+      "completed_at": "2026-11-01T23:43:05Z",
+      "duration_s": 463,
+      "failure_kind": "none",
+      "job_id": 124910788929,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788929"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:56:25Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 1069,
+      "failure_kind": "none",
+      "job_id": 124910789018,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789018"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:52:59Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 1275,
+      "failure_kind": "none",
+      "job_id": 124910788956,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788956"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:42:01Z",
+      "completed_at": "2026-11-01T23:52:57Z",
+      "duration_s": 656,
+      "failure_kind": "none",
+      "job_id": 124910788943,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788943"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:57:10Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 1024,
+      "failure_kind": "none",
+      "job_id": 124910789014,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789014"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:47:33Z",
+      "completed_at": "2026-11-01T23:52:59Z",
+      "duration_s": 326,
+      "failure_kind": "none",
+      "job_id": 124910788979,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788979"
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:32:43Z",
+      "completed_at": "2026-11-01T23:44:29Z",
+      "duration_s": 706,
+      "failure_kind": "test",
+      "job_id": 124910788915,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788915",
+      "failing_tests": [
+        {
+          "suite": "BO - Customer Service - Merchandise Returns : Update status > BO : Update returns status > Update returns status to Waiting for package and check result",
+          "title": "should check the header of the return PDF",
+          "error": "The header of the PDF is not correct!",
+          "file": "campaigns/functional/BO/05_customerService/03_merchandiseReturns/03_updateStatus.ts",
+          "line": 311
+        }
+      ],
+      "test_counts": {
+        "passing": 296,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:41:05Z",
+      "completed_at": "2026-11-01T23:49:09Z",
+      "duration_s": 484,
+      "failure_kind": "test",
+      "job_id": 124910788945,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788945",
+      "failing_tests": [
+        {
+          "suite": "BO - Customers - Customers : View information about customer > View customer after creating the order",
+          "title": "should check customer personal information",
+          "error": "AssertionError: expected 'ID 13 Name Harriet Strosin Email Harriet_Strosin@prestashop.com Social Title Mr. Age 51 years old (birth date: 01/11/1975) Registration Date 11/02/2026 00:48:44 Last Visit 11/02/2026 00:48:47 Language English (English) Registrations cancel Newsletter check Partner offers Latest Update 11/02/2026 00:48:44 Status check Active Customer type Registered customer' to include '1…",
+          "file": "campaigns/functional/BO/04_customers/01_customers/08_viewCustomer.ts",
+          "line": 328
+        }
+      ],
+      "test_counts": {
+        "passing": 158,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:45:05Z",
+      "completed_at": "2026-11-02T00:00:26Z",
+      "duration_s": 921,
+      "failure_kind": "none",
+      "job_id": 124910788959,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788959"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:32:46Z",
+      "completed_at": "2026-11-01T23:41:04Z",
+      "duration_s": 498,
+      "failure_kind": "none",
+      "job_id": 124910788875,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788875"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:41:29Z",
+      "completed_at": "2026-11-02T00:00:17Z",
+      "duration_s": 1128,
+      "failure_kind": "none",
+      "job_id": 124910788967,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788967"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-02T00:00:46Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 808,
+      "failure_kind": "none",
+      "job_id": 124910789164,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789164"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:32:18Z",
+      "completed_at": "2026-11-01T23:48:08Z",
+      "duration_s": 950,
+      "failure_kind": "none",
+      "job_id": 124910788902,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788902"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:43:06Z",
+      "completed_at": "2026-11-01T23:52:00Z",
+      "duration_s": 534,
+      "failure_kind": "none",
+      "job_id": 124910788981,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788981"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:52:01Z",
+      "completed_at": "2026-11-02T00:03:08Z",
+      "duration_s": 667,
+      "failure_kind": "none",
+      "job_id": 124910789011,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789011"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:33:47Z",
+      "completed_at": "2026-11-01T23:38:50Z",
+      "duration_s": 303,
+      "failure_kind": "none",
+      "job_id": 124910788871,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788871"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:53:01Z",
+      "completed_at": "2026-11-02T00:00:45Z",
+      "duration_s": 464,
+      "failure_kind": "none",
+      "job_id": 124910788991,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788991"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:49:10Z",
+      "completed_at": "2026-11-01T23:54:59Z",
+      "duration_s": 349,
+      "failure_kind": "test",
+      "job_id": 124910789001,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789001",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create Order : Select Previous Carts > Check the Carts table",
+          "title": "should check the shopping cart date",
+          "error": "AssertionError: expected '2026-11-02 00:54:37' to include '2026-11-01'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/04_selectPreviousCarts.ts",
+          "line": 380
+        }
+      ],
+      "test_counts": {
+        "passing": 101,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:34:46Z",
+      "completed_at": "2026-11-01T23:45:03Z",
+      "duration_s": 617,
+      "failure_kind": "test",
+      "job_id": 124910788900,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788900",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check order status tab > Check history table after some edits by default employee",
+          "title": "should check the date from the table",
+          "error": "AssertionError: expected '11/02/2026 00:44:58' to include '11/01/2026'",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/03_statusTab.ts",
+          "line": 246
+        }
+      ],
+      "test_counts": {
+        "passing": 221,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:43:04Z",
+      "completed_at": "2026-11-01T23:53:09Z",
+      "duration_s": 605,
+      "failure_kind": "test",
+      "job_id": 124910788925,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788925",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Bulk open on new tab > Open on new tab by bulk actions",
+          "title": "should check the second order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/06_bulkOpenInNewTab.ts",
+          "line": 142
+        }
+      ],
+      "test_counts": {
+        "passing": 128,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:48:36Z",
+      "completed_at": "2026-11-01T23:55:27Z",
+      "duration_s": 411,
+      "failure_kind": "test",
+      "job_id": 124910788958,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788958",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Invoices : Generate PDF file by date > Generate invoice by date",
+          "title": "should generate PDF file by date and check the file existence",
+          "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 6,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:52:39Z",
+      "completed_at": "2026-11-02T00:06:17Z",
+      "duration_s": 818,
+      "failure_kind": "test",
+      "job_id": 124910788973,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788973",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Shopping carts: Filter shopping cart table > Filter the Shopping carts table",
+          "title": "should filter by date 'From' and 'To' in the future",
+          "error": "AssertionError: expected 23 to equal +0",
+          "file": "campaigns/functional/BO/02_orders/05_shoppingCarts/01_filterShoppingCarts.ts",
+          "line": 235
+        }
+      ],
+      "test_counts": {
+        "passing": 332,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:49:48Z",
+      "completed_at": "2026-11-01T23:57:47Z",
+      "duration_s": 479,
+      "failure_kind": "none",
+      "job_id": 124910789015,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789015"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:55:01Z",
+      "completed_at": "2026-11-02T00:10:25Z",
+      "duration_s": 924,
+      "failure_kind": "none",
+      "job_id": 124910788986,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788986"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:45:16Z",
+      "completed_at": "2026-11-02T00:02:41Z",
+      "duration_s": 1045,
+      "failure_kind": "none",
+      "job_id": 124910788953,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788953"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-02T00:00:28Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 826,
+      "failure_kind": "none",
+      "job_id": 124910789083,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789083"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:50:38Z",
+      "completed_at": "2026-11-01T23:56:28Z",
+      "duration_s": 350,
+      "failure_kind": "test",
+      "job_id": 124910788976,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788976",
+      "failing_tests": [
+        {
+          "suite": "BO - Shop Parameters - Contact : Enable/Disable/Delete with Bulk Actions store > Enable, disable and delete stores with Bulk Actions",
+          "title": "should bulk disable elements in grid",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/13_shopParameters/05_contact/02_stores/03_bulkActionsStores.ts",
+          "line": 136
+        }
+      ],
+      "test_counts": {
+        "passing": 90,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:49:18Z",
+      "completed_at": "2026-11-02T00:02:18Z",
+      "duration_s": 780,
+      "failure_kind": "test",
+      "job_id": 124910789036,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789036",
+      "failing_tests": [
+        {
+          "suite": "FO - Account - Order history : Consult order list > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '11/02/2026' to equal '11/01/2026'",
+          "file": "campaigns/functional/FO/classic/03_userAccount/02_orderHistory/01_consultOrderList.ts",
+          "line": 160
+        }
+      ],
+      "test_counts": {
+        "passing": 387,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:30:00Z",
+      "completed_at": "2026-11-01T23:47:32Z",
+      "duration_s": 1052,
+      "failure_kind": "none",
+      "job_id": 124910788930,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910788930"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:57:49Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 985,
+      "failure_kind": "none",
+      "job_id": 124910789146,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789146"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-01T23:44:31Z",
+      "completed_at": "2026-11-01T23:56:23Z",
+      "duration_s": 712,
+      "failure_kind": "test",
+      "job_id": 124910789105,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789105",
+      "failing_tests": [
+        {
+          "suite": "FO - User account - Order history : Consult details and Reorder > Check that one order has been placed in order history",
+          "title": "should check the order information",
+          "error": "AssertionError: expected '11/02/2026' to equal '11/01/2026'",
+          "file": "campaigns/functional/FO/hummingbird/03_userAccount/02_orderHistory/01_consultDetailsAndReorder.ts",
+          "line": 156
+        }
+      ],
+      "test_counts": {
+        "passing": 303,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:56:31Z",
+      "completed_at": "2026-11-02T00:05:42Z",
+      "duration_s": 551,
+      "failure_kind": "none",
+      "job_id": 124910789184,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789184"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:59:48Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 866,
+      "failure_kind": "none",
+      "job_id": 124910789261,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789261"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:49:18Z",
+      "completed_at": "2026-11-02T00:00:59Z",
+      "duration_s": 701,
+      "failure_kind": "none",
+      "job_id": 124910789150,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789150"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:38:51Z",
+      "completed_at": "2026-11-01T23:52:37Z",
+      "duration_s": 826,
+      "failure_kind": "none",
+      "job_id": 124910789046,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789046"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:44:49Z",
+      "completed_at": "2026-11-01T23:55:19Z",
+      "duration_s": 630,
+      "failure_kind": "none",
+      "job_id": 124910789080,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789080"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "cancelled",
+      "started_at": "2026-11-01T23:58:42Z",
+      "completed_at": "2026-11-02T00:14:14Z",
+      "duration_s": 932,
+      "failure_kind": "none",
+      "job_id": 124910789147,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789147"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:53:10Z",
+      "completed_at": "2026-11-02T00:03:08Z",
+      "duration_s": 598,
+      "failure_kind": "none",
+      "job_id": 124910789157,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789157"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-01T23:50:34Z",
+      "completed_at": "2026-11-01T23:58:40Z",
+      "duration_s": 486,
+      "failure_kind": "none",
+      "job_id": 124910789186,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789186"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-02T00:00:19Z",
+      "completed_at": "2026-11-02T00:10:10Z",
+      "duration_s": 591,
+      "failure_kind": "none",
+      "job_id": 124910789231,
+      "job_url": "https://github.com/LameuleFR/ga.tests.ui.pr/actions/runs/41327582507/job/124910789231"
+    }
+  ]
+}
