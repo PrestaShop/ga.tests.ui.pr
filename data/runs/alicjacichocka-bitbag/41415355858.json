@@ -3,23 +3,23 @@
   "owner": "alicjacichocka-bitbag",
   "run_id": 41415355858,
   "run_number": 91,
-  "run_attempt": 1,
+  "run_attempt": 2,
   "workflow": "pr_test_one.yml",
   "status": "completed",
-  "conclusion": "failure",
+  "conclusion": "success",
   "created_at": "2026-11-02T08:45:17Z",
-  "updated_at": "2026-11-02T11:25:35Z",
+  "updated_at": "2026-11-02T15:44:26Z",
   "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41415355858",
   "is_security": false,
   "aborted": false,
-  "final": false,
+  "final": true,
   "pr_number": 42326,
   "db": "mysql",
   "branch_key": "9.2.x",
   "branch_key_source": "resolved-log",
   "base_branch": "9.2.x",
   "ps_version": "9.2.0",
-  "raw_job_rows": 46,
+  "raw_job_rows": 92,
   "executions": [
     {
       "campaign": "audit",
@@ -619,6 +619,19 @@
       "failure_kind": "none",
       "job_id": 125179011495,
       "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41415355858/job/125179011495"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-02T15:23:37Z",
+      "completed_at": "2026-11-02T15:44:25Z",
+      "duration_s": 1248,
+      "failure_kind": "none",
+      "job_id": 125323775871,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41415355858/job/125323775871"
     }
   ]
 }
