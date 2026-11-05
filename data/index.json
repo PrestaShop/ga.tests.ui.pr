@@ -10869,8 +10869,33 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-11-03T10:06:56Z"
+    },
+    "pierre-kiwik/ga.tests.ui.pr#41860411057": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-11-05T00:07:21Z"
+    },
+    "pierre-kiwik/ga.tests.ui.pr#41860388879": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-11-05T00:19:54Z"
+    },
+    "mattgoud/ga.tests.ui.pr#41828815672": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-11-04T13:49:01Z"
+    },
+    "SachaFARINEL/ga.tests.ui.pr#41726931438": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-11-04T06:59:43Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#41614722789": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-03T12:04:05Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-11-04T06:06:58.419Z"
+  "updated_at": "2026-11-05T06:03:55.831Z"
 }
