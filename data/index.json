@@ -10894,8 +10894,18 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-11-03T12:04:05Z"
+    },
+    "nicosomb/ga.tests.ui.pr#42031349618": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-05T14:29:52Z"
+    },
+    "pierre-kiwik/ga.tests.ui.pr#42004797526": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:56:59Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-11-05T06:03:55.831Z"
+  "updated_at": "2026-11-06T06:01:42.892Z"
 }
