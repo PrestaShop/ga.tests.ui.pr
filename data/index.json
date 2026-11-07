@@ -10191,9 +10191,9 @@
       "updated_at": "2026-11-02T11:52:54Z"
     },
     "alicjacichocka-bitbag/ga.tests.ui.pr#41429603805": {
-      "run_attempt": 1,
+      "run_attempt": 3,
       "status": "completed",
-      "updated_at": "2026-11-02T12:36:48Z"
+      "updated_at": "2026-11-02T16:35:30Z"
     },
     "alicjacichocka-bitbag/ga.tests.ui.pr#41419938616": {
       "run_attempt": 1,
@@ -10904,8 +10904,43 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-11-05T11:56:59Z"
+    },
+    "Codencode/ga.tests.ui.pr#42170941594": {
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-11-06T06:47:59Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#42067536541": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-05T20:34:25Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#42058010690": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-05T19:54:30Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#42054289123": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-05T20:09:21Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#42050550647": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-11-06T08:31:51Z"
+    },
+    "alicjacichocka-bitbag/ga.tests.ui.pr#42046125831": {
+      "run_attempt": 3,
+      "status": "completed",
+      "updated_at": "2026-11-05T19:54:16Z"
+    },
+    "pierre-kiwik/ga.tests.ui.pr#42004782424": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-05T11:27:51Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-11-06T06:01:42.892Z"
+  "updated_at": "2026-11-07T06:33:46.825Z"
 }

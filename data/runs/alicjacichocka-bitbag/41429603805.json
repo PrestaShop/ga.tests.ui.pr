@@ -3,23 +3,23 @@
   "owner": "alicjacichocka-bitbag",
   "run_id": 41429603805,
   "run_number": 93,
-  "run_attempt": 1,
+  "run_attempt": 3,
   "workflow": "pr_test_one.yml",
   "status": "completed",
   "conclusion": "failure",
   "created_at": "2026-11-02T10:32:20Z",
-  "updated_at": "2026-11-02T12:36:48Z",
+  "updated_at": "2026-11-02T16:35:30Z",
   "html_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41429603805",
   "is_security": false,
   "aborted": false,
-  "final": false,
+  "final": true,
   "pr_number": 41881,
   "db": "mysql",
   "branch_key": "9.2.x",
   "branch_key_source": "resolved-log",
   "base_branch": "9.2.x",
   "ps_version": "9.2.0",
-  "raw_job_rows": 46,
+  "raw_job_rows": 138,
   "executions": [
     {
       "campaign": "audit",
@@ -633,6 +633,100 @@
       "failure_kind": "none",
       "job_id": 125226292850,
       "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41429603805/job/125226292850"
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-02T15:28:53Z",
+      "completed_at": "2026-11-02T15:35:33Z",
+      "duration_s": 400,
+      "failure_kind": "test",
+      "job_id": 125323796455,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41429603805/job/125323796455",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders : Bulk open on new tab > Open on new tab by bulk actions",
+          "title": "should check the second order page",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/06_bulkOpenInNewTab.ts",
+          "line": 142
+        }
+      ],
+      "test_counts": {
+        "passing": 128,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-02T15:28:16Z",
+      "completed_at": "2026-11-02T15:41:45Z",
+      "duration_s": 809,
+      "failure_kind": "test",
+      "job_id": 125323796209,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41429603805/job/125323796209",
+      "failing_tests": [
+        {
+          "suite": "FO - Home Page : Select color on hover on product list > Select color on hover on product list",
+          "title": "should check that the displayed product is white",
+          "error": "AssertionError: expected 'https://localhost:8002/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white' to include 'size-m'",
+          "file": "campaigns/functional/FO/classic/06_homePage/05_selectColor.ts",
+          "line": 74
+        }
+      ],
+      "test_counts": {
+        "passing": 225,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-02T16:22:07Z",
+      "completed_at": "2026-11-02T16:35:30Z",
+      "duration_s": 803,
+      "failure_kind": "none",
+      "job_id": 125398049687,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41429603805/job/125398049687"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-02T16:22:06Z",
+      "completed_at": "2026-11-02T16:34:03Z",
+      "duration_s": 717,
+      "failure_kind": "test",
+      "job_id": 125398050279,
+      "job_url": "https://github.com/alicjacichocka-bitbag/ga.tests.ui.pr/actions/runs/41429603805/job/125398050279",
+      "failing_tests": [
+        {
+          "suite": "FO - Home Page : Select color on hover on product list > Select color on hover on product list",
+          "title": "should check that the displayed product is white",
+          "error": "AssertionError: expected 'https://localhost:8002/1-1-hummingbird-printed-t-shirt.html#/1-size-s/8-color-white' to include 'size-m'",
+          "file": "campaigns/functional/FO/classic/06_homePage/05_selectColor.ts",
+          "line": 74
+        }
+      ],
+      "test_counts": {
+        "passing": 225,
+        "failing": 1,
+        "pending": 0
+      }
     }
   ]
 }
