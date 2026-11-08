@@ -10939,8 +10939,38 @@
       "run_attempt": 2,
       "status": "completed",
       "updated_at": "2026-11-05T11:27:51Z"
+    },
+    "LameuleFR/ga.tests.ui.pr#42401594044": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-07T22:27:37Z"
+    },
+    "LameuleFR/ga.tests.ui.pr#42401590494": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-07T23:01:58Z"
+    },
+    "LameuleFR/ga.tests.ui.pr#42401578584": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-07T22:15:29Z"
+    },
+    "LameuleFR/ga.tests.ui.pr#42373120913": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-11-07T16:27:43Z"
+    },
+    "LameuleFR/ga.tests.ui.pr#42373118286": {
+      "run_attempt": 6,
+      "status": "completed",
+      "updated_at": "2026-11-07T16:25:04Z"
+    },
+    "nicosomb/ga.tests.ui.pr#42280960275": {
+      "run_attempt": 2,
+      "status": "completed",
+      "updated_at": "2026-11-06T21:10:11Z"
     }
   },
   "pr_cache": {},
-  "updated_at": "2026-11-07T06:33:46.825Z"
+  "updated_at": "2026-11-08T06:24:19.212Z"
 }
