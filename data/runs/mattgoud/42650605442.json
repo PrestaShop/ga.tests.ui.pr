@@ -1,0 +1,1003 @@
+{
+  "repo": "mattgoud/ga.tests.ui.pr",
+  "owner": "mattgoud",
+  "run_id": 42650605442,
+  "run_number": 140,
+  "run_attempt": 3,
+  "workflow": "pr_test_one.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-11-09T16:01:58Z",
+  "updated_at": "2026-11-09T17:35:32Z",
+  "html_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442",
+  "is_security": false,
+  "aborted": false,
+  "final": true,
+  "pr_number": 43496,
+  "db": "mysql",
+  "branch_key": "9.2.x",
+  "branch_key_source": "resolved-log",
+  "base_branch": "9.2.x",
+  "ps_version": "9.2.1",
+  "raw_job_rows": 138,
+  "executions": [
+    {
+      "campaign": "audit",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:24:37Z",
+      "duration_s": 1337,
+      "failure_kind": "none",
+      "job_id": 129275786362,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786362"
+    },
+    {
+      "campaign": "cldr",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:11:07Z",
+      "duration_s": 527,
+      "failure_kind": "none",
+      "job_id": 129275786390,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786390"
+    },
+    {
+      "campaign": "functional:API",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:55:57Z",
+      "duration_s": 3217,
+      "failure_kind": "none",
+      "job_id": 129275786457,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786457"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:18:41Z",
+      "duration_s": 981,
+      "failure_kind": "test",
+      "job_id": 129275786642,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786642",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-09T16:29:45Z",
+      "completed_at": "2026-11-09T16:55:17Z",
+      "duration_s": 1532,
+      "failure_kind": "test",
+      "job_id": 129275786947,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786947",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should create shop n°9",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Create 19 shops",
+          "title": "should go to add new shop page",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 102
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Filter shops table",
+          "title": "should reset filter and check the number of shops",
+          "error": "AssertionError: expected 20 to be above 20",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 143
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 20 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 153
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on next",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 160
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should click on previous",
+          "error": "page.waitForURL: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 167
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Pagination next and previous",
+          "title": "should change the items number to 50 per page",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/14_advancedParameters/10_multistore/04_filterSortAndPaginationShops.ts",
+          "line": 174
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete9'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > delete all shops created",
+          "title": "should delete the shop 'Todelete10'",
+          "error": "page.waitForSelector: Timeout 10000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shops > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Filter, sort and pagination shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Quick edit and bulk actions shop Urls > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Edit URL options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Advanced Parameters - Multistore : Multistore options > Disable the multistore",
+          "title": "should disable the multistore",
+          "error": "locator.setChecked: Timeout 30000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        }
+      ],
+      "test_counts": {
+        "passing": 644,
+        "failing": 18,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:11-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:12:24Z",
+      "completed_at": "2026-11-09T16:19:48Z",
+      "duration_s": 444,
+      "failure_kind": "none",
+      "job_id": 129275786694,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786694"
+    },
+    {
+      "campaign": "functional:BO:catalog:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:27:08Z",
+      "duration_s": 1488,
+      "failure_kind": "none",
+      "job_id": 129275786655,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786655"
+    },
+    {
+      "campaign": "functional:BO:catalog:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:23:32Z",
+      "duration_s": 1272,
+      "failure_kind": "none",
+      "job_id": 129275786534,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786534"
+    },
+    {
+      "campaign": "functional:BO:catalog:05-06",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:17:51Z",
+      "completed_at": "2026-11-09T16:27:11Z",
+      "duration_s": 560,
+      "failure_kind": "none",
+      "job_id": 129275786494,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786494"
+    },
+    {
+      "campaign": "functional:BO:catalog:07-08",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:56:16Z",
+      "duration_s": 3236,
+      "failure_kind": "none",
+      "job_id": 129275786441,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786441"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-09T16:22:47Z",
+      "completed_at": "2026-11-09T16:29:30Z",
+      "duration_s": 403,
+      "failure_kind": "test",
+      "job_id": 129275786812,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786812",
+      "failing_tests": [
+        {
+          "suite": "BO - Wall of Fame : How to contribute",
+          "title": "should check that the 'How to contribute' section is visible",
+          "error": "The 'How to contribute' section is visible",
+          "file": "campaigns/functional/BO/16_wallOfFame/05_howToContribute.ts",
+          "line": 52
+        }
+      ],
+      "test_counts": {
+        "passing": 45,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:customer-service",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:12:22Z",
+      "duration_s": 602,
+      "failure_kind": "none",
+      "job_id": 129275786463,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786463"
+    },
+    {
+      "campaign": "functional:BO:customer:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:06:27Z",
+      "completed_at": "2026-11-09T16:18:42Z",
+      "duration_s": 735,
+      "failure_kind": "none",
+      "job_id": 129275786483,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786483"
+    },
+    {
+      "campaign": "functional:BO:customer:02-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:19:50Z",
+      "completed_at": "2026-11-09T16:32:05Z",
+      "duration_s": 735,
+      "failure_kind": "none",
+      "job_id": 129275786592,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786592"
+    },
+    {
+      "campaign": "functional:BO:dashboard",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:21Z",
+      "completed_at": "2026-11-09T16:11:02Z",
+      "duration_s": 521,
+      "failure_kind": "none",
+      "job_id": 129275786543,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786543"
+    },
+    {
+      "campaign": "functional:BO:design",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:09:08Z",
+      "completed_at": "2026-11-09T16:27:33Z",
+      "duration_s": 1105,
+      "failure_kind": "none",
+      "job_id": 129275786724,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786724"
+    },
+    {
+      "campaign": "functional:BO:header",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:23:35Z",
+      "completed_at": "2026-11-09T16:46:35Z",
+      "duration_s": 1380,
+      "failure_kind": "none",
+      "job_id": 129275787128,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275787128"
+    },
+    {
+      "campaign": "functional:BO:international:01",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:17:31Z",
+      "duration_s": 911,
+      "failure_kind": "none",
+      "job_id": 129275786529,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786529"
+    },
+    {
+      "campaign": "functional:BO:international:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:26:28Z",
+      "completed_at": "2026-11-09T16:38:20Z",
+      "duration_s": 712,
+      "failure_kind": "none",
+      "job_id": 129275786989,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786989"
+    },
+    {
+      "campaign": "functional:BO:international:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:27:14Z",
+      "completed_at": "2026-11-09T16:39:09Z",
+      "duration_s": 715,
+      "failure_kind": "none",
+      "job_id": 129275786862,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786862"
+    },
+    {
+      "campaign": "functional:BO:login",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:09:06Z",
+      "duration_s": 406,
+      "failure_kind": "none",
+      "job_id": 129275786468,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786468"
+    },
+    {
+      "campaign": "functional:BO:modules",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:27:36Z",
+      "completed_at": "2026-11-09T16:36:30Z",
+      "duration_s": 534,
+      "failure_kind": "none",
+      "job_id": 129275786848,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786848"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-09T16:12:00Z",
+      "completed_at": "2026-11-09T16:29:42Z",
+      "duration_s": 1062,
+      "failure_kind": "test",
+      "job_id": 129275786465,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786465",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should click on 'Details' button from customer card",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 177
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the existence of personal information block in the iframe",
+          "error": "AssertionError: expected null to not equal null",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 184
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Orders number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Carts number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Purchased products number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Messages number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Vouchers number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Last emails number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Last connections number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Groups number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the Addresses number",
+          "error": "TypeError: Cannot read properties of null (reading 'waitForSelector')",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 206
+        },
+        {
+          "suite": "BO - Orders - Create order : Search and view customer details from new order page > View customer details",
+          "title": "should check the existence of add private note block",
+          "error": "AssertionError: expected false to equal true",
+          "file": "campaigns/functional/BO/02_orders/01_orders/createOrders/01_searchViewCustomer.ts",
+          "line": 215
+        }
+      ],
+      "test_counts": {
+        "passing": 522,
+        "failing": 12,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-09T16:24:40Z",
+      "completed_at": "2026-11-09T16:47:32Z",
+      "duration_s": 1372,
+      "failure_kind": "test",
+      "job_id": 129275786820,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786820",
+      "failing_tests": [
+        {
+          "suite": "BO - Orders - View and edit order : Check product block in view order page > Check product block > Update price and quantity of the first ordered product in the list",
+          "title": "should update the price",
+          "error": "locator.evaluate: Timeout 30000ms exceeded.",
+          "file": null,
+          "line": null
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check product block in view order page > Check product block > Check items per page > Paginate between pages",
+          "title": "should display 8 items",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/02_productBlock.ts",
+          "line": 891
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check product block in view order page > Check product block > Check items per page > Paginate between pages",
+          "title": "should click on next",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/02_productBlock.ts",
+          "line": 898
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check product block in view order page > Check product block > Check items per page > Paginate between pages",
+          "title": "should click on previous",
+          "error": "page.waitForSelector: Timeout 5000ms exceeded.",
+          "file": "tests/UI/node_modules/@prestashop-core/ui-testing/dist/pages/commonPage.js",
+          "line": 8
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check product block in view order page > Check product block > Check items per page > Paginate between pages",
+          "title": "should display 20 items",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/02_productBlock.ts",
+          "line": 912
+        },
+        {
+          "suite": "BO - Orders - View and edit order : Check product block in view order page > Check product block > Check items per page > Paginate between pages",
+          "title": "should display 8 items",
+          "error": "locator.selectOption: Timeout 30000ms exceeded.",
+          "file": "campaigns/functional/BO/02_orders/01_orders/viewAndEditOrder/02_productBlock.ts",
+          "line": 919
+        }
+      ],
+      "test_counts": {
+        "passing": 860,
+        "failing": 6,
+        "pending": 4
+      }
+    },
+    {
+      "campaign": "functional:BO:orders:01:0-1",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:16:27Z",
+      "duration_s": 847,
+      "failure_kind": "none",
+      "job_id": 129275786513,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786513"
+    },
+    {
+      "campaign": "functional:BO:orders:02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:18:44Z",
+      "completed_at": "2026-11-09T16:30:09Z",
+      "duration_s": 685,
+      "failure_kind": "none",
+      "job_id": 129275786564,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786564"
+    },
+    {
+      "campaign": "functional:BO:orders:03-05",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:22:53Z",
+      "completed_at": "2026-11-09T16:42:36Z",
+      "duration_s": 1183,
+      "failure_kind": "none",
+      "job_id": 129275786568,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786568"
+    },
+    {
+      "campaign": "functional:BO:payment",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:11:57Z",
+      "duration_s": 577,
+      "failure_kind": "none",
+      "job_id": 129275786507,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786507"
+    },
+    {
+      "campaign": "functional:BO:shipping",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:26:40Z",
+      "completed_at": "2026-11-09T16:45:04Z",
+      "duration_s": 1104,
+      "failure_kind": "none",
+      "job_id": 129275786758,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786758"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:01-02",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:18:45Z",
+      "completed_at": "2026-11-09T16:34:57Z",
+      "duration_s": 972,
+      "failure_kind": "none",
+      "job_id": 129275786738,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786738"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:03-04",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:16:30Z",
+      "completed_at": "2026-11-09T16:37:01Z",
+      "duration_s": 1231,
+      "failure_kind": "none",
+      "job_id": 129275786648,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786648"
+    },
+    {
+      "campaign": "functional:BO:shop-parameters:05-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:05:00Z",
+      "completed_at": "2026-11-09T16:26:48Z",
+      "duration_s": 1308,
+      "failure_kind": "none",
+      "job_id": 129275786656,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786656"
+    },
+    {
+      "campaign": "functional:FO:classic:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:33:12Z",
+      "duration_s": 1852,
+      "failure_kind": "none",
+      "job_id": 129275786708,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786708"
+    },
+    {
+      "campaign": "functional:FO:classic:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:21:47Z",
+      "duration_s": 1167,
+      "failure_kind": "none",
+      "job_id": 129275786956,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786956"
+    },
+    {
+      "campaign": "functional:FO:classic:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:56:42Z",
+      "duration_s": 3262,
+      "failure_kind": "none",
+      "job_id": 129275786963,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786963"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:01-03",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:17:49Z",
+      "duration_s": 929,
+      "failure_kind": "none",
+      "job_id": 129275786800,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786800"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:04-07",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:12:26Z",
+      "completed_at": "2026-11-09T16:22:44Z",
+      "duration_s": 618,
+      "failure_kind": "none",
+      "job_id": 129275786949,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786949"
+    },
+    {
+      "campaign": "functional:FO:hummingbird:08-12",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:26:50Z",
+      "completed_at": "2026-11-09T16:51:55Z",
+      "duration_s": 1505,
+      "failure_kind": "none",
+      "job_id": 129275787201,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275787201"
+    },
+    {
+      "campaign": "functional:WS",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:11:10Z",
+      "completed_at": "2026-11-09T16:22:51Z",
+      "duration_s": 701,
+      "failure_kind": "none",
+      "job_id": 129275786899,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786899"
+    },
+    {
+      "campaign": "modules:01-09",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:11:11Z",
+      "completed_at": "2026-11-09T16:26:25Z",
+      "duration_s": 914,
+      "failure_kind": "none",
+      "job_id": 129275786777,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786777"
+    },
+    {
+      "campaign": "modules:10-19",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:02:20Z",
+      "completed_at": "2026-11-09T16:12:24Z",
+      "duration_s": 604,
+      "failure_kind": "none",
+      "job_id": 129275786929,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786929"
+    },
+    {
+      "campaign": "modules:20-29",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:27:11Z",
+      "completed_at": "2026-11-09T16:55:05Z",
+      "duration_s": 1674,
+      "failure_kind": "none",
+      "job_id": 129275787173,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275787173"
+    },
+    {
+      "campaign": "modules:30-39",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:21:49Z",
+      "completed_at": "2026-11-09T16:34:54Z",
+      "duration_s": 785,
+      "failure_kind": "none",
+      "job_id": 129275787456,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275787456"
+    },
+    {
+      "campaign": "regression",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:29:32Z",
+      "completed_at": "2026-11-09T16:36:59Z",
+      "duration_s": 447,
+      "failure_kind": "none",
+      "job_id": 129275786974,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786974"
+    },
+    {
+      "campaign": "sanity",
+      "branch": null,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:17:34Z",
+      "completed_at": "2026-11-09T16:26:37Z",
+      "duration_s": 543,
+      "failure_kind": "none",
+      "job_id": 129275786967,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129275786967"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-11-09T16:57:00Z",
+      "completed_at": "2026-11-09T17:12:39Z",
+      "duration_s": 939,
+      "failure_kind": "test",
+      "job_id": 129308067887,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129308067887",
+      "failing_tests": [
+        {
+          "suite": "BO - Advanced Parameters: Informations",
+          "title": "should check there are no changed files",
+          "error": "AssertionError: expected true to equal false",
+          "file": "campaigns/functional/BO/14_advancedParameters/01_informations/01_informations.ts",
+          "line": 94
+        }
+      ],
+      "test_counts": {
+        "passing": 476,
+        "failing": 1,
+        "pending": 0
+      }
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:07-10",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:57:00Z",
+      "completed_at": "2026-11-09T17:12:06Z",
+      "duration_s": 906,
+      "failure_kind": "none",
+      "job_id": 129308067761,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129308067761"
+    },
+    {
+      "campaign": "functional:BO:community",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:57:01Z",
+      "completed_at": "2026-11-09T17:03:11Z",
+      "duration_s": 370,
+      "failure_kind": "none",
+      "job_id": 129308067855,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129308067855"
+    },
+    {
+      "campaign": "functional:BO:orders:01-create-orders",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:57:00Z",
+      "completed_at": "2026-11-09T17:14:27Z",
+      "duration_s": 1047,
+      "failure_kind": "none",
+      "job_id": 129308067854,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129308067854"
+    },
+    {
+      "campaign": "functional:BO:orders:01-view-and-edit-order",
+      "branch": null,
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T16:57:01Z",
+      "completed_at": "2026-11-09T17:19:58Z",
+      "duration_s": 1377,
+      "failure_kind": "none",
+      "job_id": 129308067782,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129308067782"
+    },
+    {
+      "campaign": "functional:BO:advanced-parameters:01-06",
+      "branch": null,
+      "attempt": 3,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-09T17:20:15Z",
+      "completed_at": "2026-11-09T17:35:32Z",
+      "duration_s": 917,
+      "failure_kind": "none",
+      "job_id": 129321272674,
+      "job_url": "https://github.com/mattgoud/ga.tests.ui.pr/actions/runs/42650605442/job/129321272674"
+    }
+  ]
+}
