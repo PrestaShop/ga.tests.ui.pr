@@ -68,6 +68,8 @@ jobs:
       PS_COUNTRY: fr
       PS_LANGUAGE: en
       ADMIN_MAIL: 'demo@prestashop.com'
+      # Folders whose node dependencies are installed and assets built, relative to PS_DIR
+      ASSET_DIRS: tests/UI admin-dev/themes/new-theme admin-dev/themes/default themes/classic/_dev themes
 
     steps:
       - name: Print Inputs values
@@ -171,30 +173,44 @@ jobs:
           node-version: ${{ inputs.node_version }}
       - name: Build assets in parallel and in background
         run: |
-          (pushd ${{ env.PS_DIR }}/tests/UI; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
-          (pushd ${{ env.PS_DIR }}/admin-dev/themes/new-theme; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
-          (pushd ${{ env.PS_DIR }}/admin-dev/themes/default; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
-          (pushd ${{ env.PS_DIR }}/themes/classic/_dev; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
-          (pushd ${{ env.PS_DIR }}/themes/; touch buildLock; npm ci; npm run build; rm buildLock; popd) &
+          for dir in $ASSET_DIRS; do
+            if [ ! -f "$PS_DIR/$dir/package.json" ]; then
+              echo "::warning::No package.json in $dir, its assets are not built"
+              continue
+            fi
+            # Created before going to the background, so the check step always finds it
+            touch "$PS_DIR/$dir/buildLock"
+            (
+              cd "$PS_DIR/$dir"
+              # The log is kept only when the build fails, for the check step to show it
+              if { npm ci && npm run build --if-present; } > build.log 2>&1; then
+                rm build.log
+              else
+                touch buildFailed
+              fi
+              rm buildLock
+            ) &
+          done
         shell: bash
       # Wait for all builds to be finished (the check is required because we encountered cases where the action exited before
       # everything was built, probably because of the parallelization and background processes)
       - name: Check that all builds are finished
         run: |
-          buildLocks="tests/UI admin-dev/themes/new-theme/buildLock admin-dev/themes/default/buildLock themes/classic/_dev/buildLock themes/buildLock"
-          echo Checking for all these lock files $buildLocks
-          for lockFile in $buildLocks; do
-            lockFile="${{ env.PS_DIR }}/$lockFile"
-            if [ -f $lockFile ]; then
-              echo Wait for $lockFile to be removed
+          failed=0
+          for dir in $ASSET_DIRS; do
+            echo "Waiting for the build of $dir"
+            while [ -f "$PS_DIR/$dir/buildLock" ]; do
               sleep 1
-              while [ -f $lockFile ]; do
-                echo $lockFile still present wait a bit more
-                sleep 1
-              done
+            done
+            if [ -f "$PS_DIR/$dir/buildFailed" ]; then
+              echo "::group::Build log of $dir"
+              cat "$PS_DIR/$dir/build.log"
+              echo "::endgroup::"
+              echo "::error::The asset build failed in $dir"
+              failed=1
             fi
-            echo $lockFile is no longer present
           done
+          exit $failed
         shell: bash
         timeout-minutes: 10
 
