@@ -44,6 +44,7 @@ on:
           - '14.21.3'
           - '16.20.1'
           - '20.19.5'
+          - '26.13.1'
         default: 'Auto'
       DB_SERVER:
         type: choice
